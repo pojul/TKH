@@ -249,15 +249,11 @@
   margin-top: 15rpx;
   height: 105rpx;
   align-items: center;
-}
-
-.card-pic-center{
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-  height: 105rpx;
+  justify-content: space-between;
 }
 
 .card-pic{
+  width: 160rpx;
 }
 
 .get-redpkg-box{
@@ -313,4 +309,12 @@
 .open-redpkg{
   margin-top: 22%;
   margin-bottom: 4%;
+}
+
+.close-redpkg{
+  width: 100%;
+  padding: 25rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
 }

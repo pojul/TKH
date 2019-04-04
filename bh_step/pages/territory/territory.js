@@ -23,14 +23,13 @@ Page({
     district: '',
     terriroty: {},
     memberList: [],
-    cards: [
-      {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
-    ],
-    showCards: true,
+    showCards: false,
     cardsViewWidth: 0,
     cardsScrollX: 0,
     currentCard: 0,
     touchesStartX: 0,
+    redPkgs: [],
+    showRedPkgIndex: 0,
   },
 
   getLocation: function () {
@@ -81,7 +80,6 @@ Page({
           district: res.data.result.address_component.district
         })
         that.getTerriroty();
-        that.getTerrirotyMemberList();
       }
     }) 
   },
@@ -101,6 +99,7 @@ Page({
         that.setData({
           terriroty: t.info.territory
         })
+        that.getTerrirotyMemberList();
       }
     });
   },
@@ -119,6 +118,7 @@ Page({
           memberList: t.info.territory_member
         })
         that.updateMembers();
+        that.getTerritoryRedPacket();
         //console.log(JSON.stringify(t))
       }
     });
@@ -130,14 +130,14 @@ Page({
     }
     var that = this;
     let tempMarkers = [];
-    for (var i = 0; i < that.data.memberList.length; i++){
+    for (let i = 0; i < that.data.memberList.length; i++){
       let member = that.data.memberList[i];
       wx.downloadFile({
         url: member.head,
         success: (pathInfo) => {
           let marker = {
             iconPath: pathInfo.tempFilePath,
-            id: member.id,
+            id: (i * 2),
             latitude: member.lat,
             longitude: member.lon,
             width: 30,
@@ -150,10 +150,54 @@ Page({
         }
       })
     }
+    // if (!this.data.memberList) {
+    //   return;
+    // }
     this.setData({
-      //this.data.currentCard
-      cardsViewWidth: (600 * that.data.screenWidth/750 * this.data.cards.length * 2),
-      cardsScrollX: (-562 * that.data.screenWidth / 750 * 16 + 90 * this.data.screenWidth / 750)
+      //
+      cardsViewWidth: (600 * that.data.screenWidth / 750 * this.data.memberList.length * 2),
+      cardsScrollX: (-562 * that.data.screenWidth / 750 * this.data.currentCard + 90 * this.data.screenWidth / 750)
+    })
+  },
+
+  getTerritoryRedPacket: function () {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/territoryRedPacket",
+      data: {
+      },
+      success: function (t) {
+        that.setData({
+          redPkgs: t.info
+        })
+        for (let j = 0; j < t.info.length;j++){
+          that.setRedPkgMarks(t.info[j].post_id, j);
+        }
+        console.log(t.info.length + "<-----getTerritoryRedPacket---->" + JSON.stringify(that.data.markers))
+      }
+    });
+  },
+
+  setRedPkgMarks: function (postid, index) {
+    var that = this;
+    let randomLat = Math.random() > 0.5 ? (that.data.mylatitude + Math.random() * 0.006) : (that.data.mylatitude - Math.random() * 0.006);
+    let randomLon = Math.random() > 0.5 ? (that.data.mylongitude + Math.random() * 0.007) : (that.data.mylongitude - Math.random() * 0.007);
+    let marker = {
+      iconPath: '../../images/red_package.png',
+      id: (index * 2 + 1),
+      latitude: randomLat,
+      longitude: randomLon,
+      width: 30,
+      height: 30,
+    }
+    let startIndex = 0;
+    if (that.data.memberList){
+      startIndex = that.data.memberList.length
+    }
+    that.data.markers[(startIndex + index)] = marker;
+    this.setData({
+      markers: that.data.markers
     })
   },
 
@@ -170,36 +214,84 @@ Page({
     })
   },
 
+  mapClick: function (e) {
+    this.setData({
+      showCards: false
+    })
+  },
+
+  markerClick: function (e) {
+    console.log("markerClick" + JSON.stringify(e));
+    if (e.markerId%2 == 0){
+      this.onMemberMkClick((e.markerId)/2);
+    }else{
+      this.onRedpkgMkClick((e.markerId-1)/2);
+    }
+  },
+
+  onMemberMkClick: function (index) {
+    console.log(JSON.stringify(this.data.memberList))
+    this.setData({
+      currentCard: index,
+      showCards: true
+    })
+  },
+
+  onRedpkgMkClick: function (index) {
+    this.setData({
+      showOpenRedpkg: true,
+      showRedPkgIndex: index
+    })
+  },
+
   onTouchStart: function (e) {
-    //console.log("onTouchStart---->" + JSON.stringify(e));
     this.setData({
       touchesStartX: e.touches[0].pageX
     })
   },
 
   onTouchMove: function (e) {
-    //console.log("onTouchMove---->" + JSON.stringify(e));
     let dsx = e.touches[0].pageX - this.data.touchesStartX;
     let dsxRpx = (this.data.cardsScrollX + dsx * 750 / this.data.screenWidth);
 
-    if (Math.abs(dsx) < 10 || dsxRpx < (-567 * (this.data.cards.length - 1) + 80) || 
+    if (Math.abs(dsx) < 10 || dsxRpx < (-567 * (this.data.memberList.length - 1) + 80) || 
       dsxRpx > (-567 * 0 + 80)){
       return;
     }
-    //console.log("onTouchMove---->" + dsxRpx);
     this.setData({
       cardsScrollX: dsxRpx,
       touchesStartX: e.touches[0].pageX
     })
   },
 
+  closeRedpkg: function (e) {
+    this.setData({
+      showOpenRedpkg: false
+    })
+  },
+
+  toRedRkgInfo: function (e) {
+    this.setData({
+      showOpenRedpkg: false
+    })
+    wx.navigateTo({
+      url: '/bh_step/pages/redpkginfo/redpkginfo?post_id=' + e.currentTarget.dataset.postid
+    })
+  },
+
   touchEnd: function (e) {
-    console.log("touchEnd---->" + JSON.stringify(e));
+    
   },
 
   toPublishRedpkg: function () {
     wx.navigateTo({
       url: '/bh_step/pages/publicredpkgnote/publicredpkgnote'
+    })
+  },
+
+  toHomePage: function (e) {
+    wx.navigateTo({
+      url: '/bh_step/pages/homepage/homepage?member_id=' + e.currentTarget.dataset.memberid
     })
   },
 
@@ -230,7 +322,7 @@ Page({
    */
   onLoad: function (options) {
     this.getSystemInfo();
-    this.getLocation();
+    //this.getLocation();
   },
 
   /**
@@ -244,7 +336,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getLocation()
   },
 
   /**

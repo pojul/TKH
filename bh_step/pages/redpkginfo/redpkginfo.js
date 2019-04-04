@@ -59,7 +59,7 @@ Page({
         let tempRedPkgStatus = '红包派完了';
         if (t.info.post_detail.member_money <= 0 && t.info.post_detail.remain_number > 0){
           that.receiveRedPacket();
-          tempRedPkgStatus = '';
+          tempRedPkgStatus = '5';
         } else if (t.info.post_detail.member_money > 0){
           tempRedPkgStatus = '您抢到了' + t.info.post_detail.member_money + '元红包';
         }
@@ -82,12 +82,14 @@ Page({
         post_id: that.data.postid
       },
       success: function (t) {
+        let tempRedPkgStatus = '5';
         that.startSetInter();
         var postMoney = 'postDetails.member_money';
         var postLeft = 'postDetails.remain_number';
         that.setData({
           [postMoney]: t.info,
-          [postLeft]: that.data.postDetails.remain_number - 1
+          [postLeft]: that.data.postDetails.remain_number - 1,
+          redpkgStatusStr: tempRedPkgStatus
         })
       },
       fail: function (t) {
