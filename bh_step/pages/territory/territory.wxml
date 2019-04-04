@@ -1,0 +1,80 @@
+<!--bh_step/pages/territory/territory.wxml-->
+
+<map id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="17" circles="{{circles}}" markers="{{markers}}" show-location style="{{'width: 100%; height: ' + screenHeight + 'px;'}}" >
+</map>
+
+<cover-view class='top-class'>
+  <!-- <cover-view class='lucky-box'>
+    <cover-view class='lucky-prog-bg'>
+      <cover-image src="../../images/lucky_linbg.png" class='lucky-prog' style="width:{{luckyVaule*630/100}}rpx;"></cover-image>
+    </cover-view>
+    <cover-view class='lucky-level-box'>
+      <cover-view class='lucky-level-text' style="color:{{luckyVaule<50?'#F24135':'#BBBBBB'}};">低</cover-view>
+      <cover-view class='lucky-level-text' style="color:{{luckyVaule>=50&&luckyVaule<80?'#F24135':'#BBBBBB'}};">中</cover-view>
+      <cover-view class='lucky-level-text' style="color:{{luckyVaule>=80?'#F24135':'#BBBBBB'}};">高</cover-view>
+    </cover-view>
+    <cover-view class='lucky-text-box'>
+      <cover-view class='lucky-text'>幸运值</cover-view>
+    </cover-view>
+  </cover-view> -->
+
+  <cover-view bindtap='tostrategyList' class='strategy-box'>攻略</cover-view>
+
+  <cover-view class='laird-box' bindtap='toLairdPage'>
+    <cover-view class='laird-photo-box'>
+      <cover-image class='laird-photo-bg' src="../../images/photo_shadow_bg.png"></cover-image>
+      <cover-image class='laird-photo' src="{{terriroty.now_owner_head}}"></cover-image>
+    </cover-view>
+    <cover-view>
+      <cover-view class='laird-addr'>{{terriroty.name}}</cover-view>
+      <cover-view class='laird-note'>{{terriroty.now_owner_name}}</cover-view>
+    </cover-view>
+  </cover-view>
+
+</cover-view>
+
+<cover-view class='myloc-box' bindtap="toMyLoc">
+  <cover-image class='myloc' src='../../images/location.png'></cover-image>
+</cover-view>
+<cover-image class='hot' bindtap="toBusycircle" src='../../images/hot.png'></cover-image>
+<cover-image bindtap='toRedpkgrecord' class='email' src='../../images/email.png'></cover-image>
+<cover-image class='red-package' src='../../images/red_package.png'></cover-image>
+<cover-image class='add' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/add_territory.png'   bindtap='toPublishRedpkg'></cover-image>
+
+<cover-view class='open-redpkg-box'></cover-view>
+
+
+
+<cover-view wx:if="{{showCards}}" class='cards-view' bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend='touchEnd' style="width: {{cardsViewWidth}}px">
+  <cover-view class='cards-line' style="margin-left: {{cardsScrollX}}px"></cover-view>
+  <cover-view wx:for="{{cards}}" class='card-box' >
+    <cover-view class='card-user-infos'>
+      <cover-view class='crad-user-photos'>
+        <cover-image class='crad-user-photo' src='https://img03.sogoucdn.com/app/a/100520093/398e25e72e0c6d43-7eed559ea6387758-7f5589703fb4cfc9d8cb9eabb4d319ea.jpg'></cover-image>
+        <cover-image class='crad-user-sex' src='../../images/sex_woman.png'></cover-image>
+      </cover-view>
+      <cover-view class='card-user-info-texts'>
+        <cover-view class='card-user-name'>十多个{{index}}</cover-view>
+        <cover-view class='card-user-autograph'>这家伙很懒，还没有签名</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class='card-text'>跑步运动减肥</cover-view>
+    <cover-view class='card-pic-box'>
+      <cover-image class='card-pic' src='https://img01.sogoucdn.com/app/a/07/45940f5361960a0f630f5edc368a09f5' mode="aspectFit"></cover-image>
+      <cover-image class='card-pic-center' src='https://img04.sogoucdn.com/app/a/100520024/a1c74b558ac0df5ac8ca80494ae2e6f5' mode="aspectFit"></cover-image>
+      <cover-image class='card-pic' src='https://img01.sogoucdn.com/app/a/07/45940f5361960a0f630f5edc368a09f5' mode="aspectFit"></cover-image>
+    </cover-view>
+  </cover-view>
+</cover-view>
+
+
+<cover-view class='get-redpkg-box' wx:if="{{showOpenRedpkg}}">
+  <cover-view class='get-redpkg-content-box'>
+    <cover-view class='get-redpkg-content'>
+      <cover-image class='photo' src='https://i03piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-1d2260bce1b736f6a4b17cb54fb745af_qq'></cover-image>
+      <cover-view class='name'>武汉上等仁嘉</cover-view>
+      <cover-view class='note'>上等仁嘉智慧空间</cover-view>
+      <cover-image class='open-redpkg' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/open-redpkg.png'></cover-image>
+    </cover-view>
+  </cover-view>
+</cover-view>

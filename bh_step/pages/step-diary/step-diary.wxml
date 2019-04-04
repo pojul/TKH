@@ -1,0 +1,31 @@
+<AcquireFormidView>
+    <view class="container">
+        <view class="step_info_container">
+            <image class="diary_bg" src="{{posterInfo.posterImg}}"></image>
+            <view class="user_info" wx:if="{{userInfo}}">
+                <image class="user_icon" src="{{userInfo.avatar_url}}"></image>
+                <view>
+                    <view class="user_name" style="{{posterInfo.useNameStyle}}">{{userInfo.nick_name}}</view>
+                    <view class="date" style="{{posterInfo.dateStyle}}">{{date}}</view>
+                </view>
+            </view>
+            <view class="qr_code_container">
+                <image class="qr_code_img" src="{{qrcodeUrl}}"></image>
+                <view>
+                    <view class="qr_code_tip">长按扫码加入「{{xcx_title}}」</view>
+                    <view class="qr_code_tip">每天可免费领取现金红包</view>
+                </view>
+            </view>
+            <text class="step_num" style="{{posterInfo.stepNumStyle}}">{{stepNum}}</text>
+        </view>
+        <painter bind:imgErr="imgErr" bind:imgOK="onImgOK" class="canvas" customStyle="width:690rpx;height:806rpx;" palette="{{template}}"></painter>
+        <view bindtap="handleSeeNextBtnClick" class="see_next_btn">查看下一张</view>
+        <view bindtap="handleSaveBtnClick" class="save_img_btn">保存到手机相册</view>
+        <view class="bottom_tip">
+    {{content.one}}
+    <view></view>
+    {{content.two}}
+  </view>
+    </view>
+    <openSettingDialog bind:openSettingBtnClick="openSettingBtnClick" requestAuthType="{{requestAuthType}}" wx:if="{{isShowOpensettingDialog}}"></openSettingDialog>
+</AcquireFormidView>

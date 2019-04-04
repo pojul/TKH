@@ -1,0 +1,31 @@
+<!-- banner⼴告，按需引⼊ -->
+<view class="xm_banner" style="width:100%">
+	<xm-ad data-id="{{xmad.ad.banner[0]}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+	</xm-ad>
+</view>
+<!-- 业务代码 -->
+<view>
+	...
+</view>
+<!-- banner⼴告，按需引⼊ -->
+<view class="xm_banner" style="width:100%">
+	<xm-ad data-id="{{xmad.ad.banner[1]}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+	</xm-ad>
+</view>
+
+<!-- banner⼴告，按需引⼊ -->
+<view class="xm_banner" style="width:100%">
+	<xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+	</xm-ad>
+</view>
+<!-- 插屏⼴告，按需引⼊ -->
+<view class="xm_insert">
+	<xm-ad data-id="{{xmad.ad.insert}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+	</xm-ad>
+</view>
+<!-- 悬浮窗⼴告，按需引⼊ -->
+注：引⼊banner⼴告位时，请完全引⼊banner部分，不要做更改，尤其注意bindadload属性不能 缺失，也不能重定义，引⼊其它⼴告亦如此 4. 单⻚多banner位⼴告 index.wxml修改为: index.js修改为:
+<view class="xm_fixed">
+	<xm-ad data-id="{{xmad.ad.fixed}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+	</xm-ad>
+</view>

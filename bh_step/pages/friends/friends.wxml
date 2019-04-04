@@ -1,0 +1,120 @@
+<wxs module="basic" src="../../../filter/basic.wxs"></wxs>
+<view class="swiper-container" style='background-color:#CAFCE9;color=#2B2B2B;display:flex;font-size:24rpx;' >
+  <view style='margin-left:10rpx;margin-top:4rpx;'>
+    <i-icon type="systemprompt" size="22" color="#505050"></i-icon>
+  </view>
+  <view style='flex:1;'>
+        <swiper autoplay="{{autoplay}}" bindchange="swiperchange" vertical="true"
+        	indicator-dots="false" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay="true" interval="2000" duration="500" style="line-height:58rpx;height:58rpx;">
+            <swiper-item wx:for="{{rolling_notice}}" style="overflow:hidden; vertical-align: middle;">
+                <text class='text-color-content'>{{item}}</text>
+            </swiper-item>
+           
+        </swiper>
+      </view>
+    </view>
+
+
+<image wx:if="{{img_url}}" style='width:100%;height:220rpx;' src="{{img_url}}/invite-banner.png"></image>
+
+<view class="bg-color-white" style='text-align:center;position:relative;'>
+  <view style="font-size:68rpx;">{{currency_from_agent}}</view>
+  <view class="text-color-extra" style="font-size:24rpx;margin-bottom:24rpx;">好友累计贡献运动币
+
+  <navigator url="/bh_step/pages/intro-helpearn/intro-helpearn" class="tip-btn">规则说明</navigator>  
+</view>
+  <view bindtap="showTip" class="weui-flex">
+    <view class='weui-flex__item first-num'>
+      <view><text style="font-size:54rpx;">{{proxy1_num}}</text> 人</view>
+      <view class="text-color-extra" style="font-size:24rpx;">已邀请人数</view>
+      <text class="weui-badge" style="position: absolute;top: -10rpx;right: 50rpx;">查看好友</text>
+    </view>
+    <view class='weui-flex__item'>
+      <view><text style="font-size:54rpx;">{{proxy2_num}}</text> 人</view>
+      <view class="text-color-extra" style="font-size:24rpx;">好友邀请的好友</view>
+    </view>
+  </view> 
+
+  <view>
+    <button class="inviteBtn gradient-btn" data-module="邀请好友领运动币" openType="share" wx:if="{{audit_pattern!=2}}">
+        邀请好友即得{{invitation_currency_start}}<block wx:if="{{invitation_currency_end!=invitation_currency_start}}">-{{invitation_currency_end}}</block>运动币
+      </button>
+      <!-- <button class="inviteBtn2">
+        二维码邀请
+      </button> -->
+      <navigator url="/bh_step/pages/intro-helpearn/intro-helpearn" class="text-color-main" style="font-size:24rpx;padding:30rpx 10rpx 6rpx;">
+        好友们已帮我赚了 {{currency_from_agent}} 运动币 
+        <i-icon type="feedback" size="20"></i-icon>
+      </navigator>
+  </view>
+
+</view>
+
+<view class="ad">
+    <ad unit-id="adunit-68d98b378c934558"></ad>
+  </view>
+
+<view wx:for="{{logs}}" wx:for-index="key" wx:key="{{item.id}}" class="wrap bg-color-white" >
+    <image src="/bh_step/images/coin3.png" style="width:40rpx;height:40rpx;"></image>
+    <view class="coin-num text-color-main">
+       +{{basic.formatCurrency(item.currency)}}
+    </view>
+    <view class="img">
+      <image src="{{item.sponsor_avatar}}"></image>
+    </view>
+    <view class="nick text-color-extra">
+      {{item.sponsor_nickname}}
+      <text wx:if="{{item.task_id>0}}" style='margin-left:20rpx;'>体验了{{item.task_title}}</text>
+      <text wx:elif="{{item.task_id==0}}" style='margin-left:20rpx;'>好友运动步数转换</text>
+      <text wx:elif="{{item.task_id==-1}}" style='margin-left:20rpx;'>添加到我的小程序</text>
+    </view>
+    <view class="dateinfo text-color-extra3">
+        {{item.format_time}}
+    </view>
+</view>
+
+ 
+
+<view class="advert" style="margin-top:45rpx;">
+    <ad class="advert-las" unitId="{{adv.advertisement}}" wx:if="{{adv.type==0}}"></ad>
+    <view bindtap="advjump" wx:if="{{adv.type==1}}">
+        <image src="{{adv.advertisement.image}}" style="width:100%;height:230rpx"></image>
+    </view>
+</view>
+
+
+
+<view class="pop-content" wx:if="{{mask}}">
+	<view class="main" style="font-size:24rpx;color:#B08450;height:850rpx;">
+		<text bindtap="toggleMask" class="close-btn">点击关闭</text>
+		
+    <image src="{{img_url}}/friends_list_banner.png"  style='width:100%;height:110rpx;border-radius:40rpx 40rpx 0 0;'></image>
+    <view style='margin: -100rpx auto 0;height:110rpx;font-size:40rpx;color:#fff;font-weight:500;'>
+      已邀请好友 <text class="text-color-yellow">{{proxy1_num}}人</text>
+    </view>
+
+    <scroll-view scroll-y style="height: 700rpx;" bindscrolltoupper="upper" bindscrolltolower="friendlistBottom">
+       
+      <view wx:for="{{firends}}" class='tip-main'>
+        <view style="width:20%;">
+          <image src="{{item.head}}" style='width:80rpx;height:80rpx;border-radius:40rpx;'>
+          </image>
+        </view>
+        <view class='text-color-content' style="width:40%;padding-top:">
+          {{item.nickname}}
+        </view>
+        <view wx:if="{{item.currency_to_parent>0}}" class='text-color-extra' style='flex:1;'>
+          贡献<text class='text-color-orange'>{{basic.formatCurrency(item.currency_to_parent)}}</text>运动币
+        </view>
+        <view wx:else style='flex:1;'>
+          <button class="gradient-btn" data-module="提醒好友领运动币" openType="share">提醒收币</button>
+        </view>
+        
+      </view>
+
+    </scroll-view>
+	</view>
+
+</view>
+
+<view class="pop-mask" wx:if="{{mask}}" bindtap="toggleMask"></view>

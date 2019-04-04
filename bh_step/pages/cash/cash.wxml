@@ -1,0 +1,52 @@
+<image class="hd-bg" ></image>
+<view style='display:flex;margin-top:10rpx;'>
+  <button bindtap="contantus" class="singinimg-1 bg-color-orange" data-text="联系我们" openType="contact">联系客服</button>
+  <view style='flex:1;text-align:right;margin:0 20rpx 16rpx;'>
+    <navigator url="../intro-qa/intro-qa" class="boder-white-btn">常见问题</navigator>
+  </view>
+</view>
+
+<view class="withdraw-box">
+    <view class="withdraw-title">可提金额</view>
+    <view class="withdraw-num">
+      {{moeny}}<text style='font-size:32rpx;'>元</text >
+    </view>
+</view>
+<view class="input-box">
+    <view class="input-title text-color-content">提现金额</view>
+    <view class="input-model-box">
+        <view>¥</view>
+        <input bindinput="bindKeyInput" class="input-model" placeholder="最少提现{{least_money}}元" placeholderClass="input-placeholder" type="digit" value="{{cash_money?cash_money:''}}"></input>
+        <view bindtap="bindWithdrawAllClick" class="input-all">全部</view>
+    </view>
+    <view class="input-line"></view>
+    <button class="input-invite btn" openType="share">邀请好友，一起领红包</button>
+    <view bindtap="bindWithdrawBtnClick" class="input-withdraw btn">提现</view>
+</view>
+<view class="ad">
+    <ad unit-id="adunit-741ced86c6ce9353"></ad>
+</view>
+<view class="tip-tt tip">提现说明：</view>
+<view class="tip-content tip">1.余额满{{first_presentation}}元可提现</view>
+<view class="tip-content tip">2.第二笔提现至少满{{follow_up_presentation}}元，后续每笔提现至少{{follow_up3_presentation}}元以上</view>
+<view class="tip-content tip">3.提现单日限额：</view>
+<view class="tip-content tip" style="margin-left:52rpx;"> 邀请人数＜100，单日提现上限10元</view>
+<view class="tip-content tip" style="margin-left:52rpx;"> 邀请人数≥100，单日提现上限20元</view>
+<view class="tip-content tip" style="margin-left:52rpx;"> 邀请人数≥1000，单日提现上限50元</view>
+<view class="tip-content tip" style="margin-left:52rpx;"> 邀请人数≥10000，单日提现上限100元</view>
+<view class="tip-content tip" style="margin-left:52rpx;"> 邀请人数≥50000，单日提现上限200元</view>
+<view class="tip-content tip">4.微信官方为保证资金安全要求，提现需完成实名认证</view>
+<view class="tip-content tip">5.提现成功申请后，2小时内转账到微信零钱</view>
+<view class="tip-content tip">6.如有疑问请通过小程序联系客服</view>
+<view class="tip-content tip">7.每个手机号只能绑定一个拓客会账号</view>
+<view style="height:100rpx;"></view>
+<view bindtap="closeTipPop" class="pop-bg" wx:if="{{isTipPop}}">
+    <view catchtap="bindPopBoxClick" class="pop-box">
+        <image catchtap="closeTipPop" class="pop-close" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAYAAADQBxWhAAAAAXNSR0IArs4c6QAAAYJJREFUSA21l0FugzAQRTFdcIAuejyWrLOI1EiVAqv2CrDjeFn0AEitqD/1oIlj7BlDLDke7D//2VZMnKKwZRzHV1TEzyi+f9n3/Wmaphuqjd+PhsKT+Z/gb4Zh+Jnn+YXBuqZpWvacHVogfK5kYIz5rarqraQO1l6dmHXpQx/IHUq7yg/e4eJd4C0gWHVdf5d2K78sqDsKvAUEw7EKQ7CEuCVdrJV6rFCYSZNCYE3uHTQXrAGC8QDVgrXATagUnAOMQlNgjNuyHvz/x+Uz+XIJbi8ziH25uIziJBDCJBSiyDZimIoICLEICmECLAbCK/TuRf9Ti2iliVXSBMWrTUKFQBU4Co0AO0c59sjEgPQjL9HQFvA2uFKNmUZL4Adojok25w6qTaaZo9XkrlBNEofxWOqxQKViDtiKJV7GinDX/QyYiA+7nxsBX3BPCt174ZENpAmEwLF7724gwO4sdzQJ3uLee8YMUO0Alt9ywZ7YeV3IHyzcexdP/w/OHlAo1/f/A3kHEQfpE0u3AAAAAElFTkSuQmCC"></image>
+        <view class="pop-tt">提现提示</view>
+        <view class="pop-content">
+      为了您的资金安全，本次提现需关注“365步步赚”公众号，完成提现
+    </view>
+        <button bindcontact="bindContactEvent" class="pop-btn" openType="contact" sessionFrom="bbztx">点击回复: 1</button>
+    </view>
+</view>

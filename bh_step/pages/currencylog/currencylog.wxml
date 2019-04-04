@@ -1,0 +1,35 @@
+<wxs module="basic" src="../../../filter/basic.wxs"></wxs>
+<view  class="bg-color-white" style="padding:20rpx 0;">
+  <view class="coinview bg-color-red">
+    <view class="mycoin">
+      <view class="coinline"></view>
+      <view class="mycoinitem">
+        <view>{{currency}}</view>
+        <text class="text-color-white">运动币余额</text>
+      </view>
+      <view class="mycoinitem">
+        <view>{{today_currency}}</view>
+        <text  class="text-color-white">今日运动币</text>
+      </view>
+    </view>
+    <button class="coinbtn" openType="share">推荐给好友赚运动币 <image src="{{img_url}}/step2gift/share.png"></image>
+      </button>
+  </view>
+  <view class="item-containter">
+    <ad unit-id="adunit-741ced86c6ce9353"></ad>
+
+    <view class="itemview" wx:for="{{data}}" wx:key="coindetail">
+      <view class="timedata bg-color-orange" wx:if="{{index===0||item.createTime!=data[index-1].createTime}}">{{item.createTime}}</view>
+      <view class="{{item.createTime!=data[index+1].createTime?'coinitemlast':'coinitem'}}">
+        <text class="itemtext text-color-content">{{item.remarks}}</text>
+        <text class="itemtext2 text-color-extra3">{{basic.daytimeFormat(item.created)}}</text>
+        <text class="{{item.mold==2?'conincountgood':'conincount'}}">{{item.mold==2?'-':'+'}}{{item.is_money_item==1 ? '￥': ''}}{{item.number}}{{item.is_money_item==1 ? '元': ''}}</text>
+      </view>
+    </view>
+    <view class="bottomtitle" wx:if="{{isover}}">— 没有更多数据了 —</view>
+  </view>
+  <view class="ad-container" wx:if="{{adShow}}">
+    <ad unitId="adunit-86901e3a8c6cb1aa"></ad>
+    <image bindtap="closeAd" class="ad-close" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAMFBMVEUAAAAAAADY2NgQEBAAAAAAAACUlJQAAAAAAAAAAAAAAAAAAAAAAAAqKioAAAD///9ytPPoAAAAD3RSTlOAANyDewuzXUlBNSsViwFp8veqAAAAsklEQVQY02MQBAPRM4EQBgOYt9yBgaUqEMYXbWEAAY9AKH8LAwR4Q/gvGWBgHpg/Ac7nBPGlGRBgI5AfwsCbDOaYXWBwBfIbGNg+GQC5zPoJDByCDKIOQJYykG8EFGUJZJCCMKGCCxnEgSSIbQTWVMggwgBWYAyWZnBkCGAAK1ACSzOwMhxgACv4rwymedD56OrRzUO3D9096O5F8w+6f9HDAzO8MMMTEd4Y8YEZX+jxCQAOcTiVxpGSugAAAABJRU5ErkJggg=="></image>
+  </view>
+</view>  

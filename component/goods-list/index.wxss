@@ -1,0 +1,412 @@
+.panel {
+    position: relative;
+    width: 336rpx;
+    float: left;
+    margin-bottom: 18rpx;
+    margin-right: 18rpx;
+    height: 536rpx;
+    background: #FFFFFF;
+    border: 1rpx solid #E0E0E0;
+    box-shadow: 0 0 24rpx 0 rgba(0,0,0,0.10);
+    border-radius: 10rpx;
+}
+
+.panelL {
+    position: relative;
+    width: 700rpx;
+    float: left;
+    margin-bottom: 18rpx;
+    margin-left: 30rpx;
+}
+
+.panelnone {
+    position: relative;
+    width: 0rpx;
+    height: 0rpx;
+    float: left;
+    opacity: 0;
+}
+
+.img {
+    width: 100%;
+    height: 171rpx;
+}
+
+view.panel:nth-child(even) {
+    margin-right: 0rpx;
+}
+
+view.panel:nth-child(odd) {
+    margin-left: 30rpx;
+}
+
+.media-box__hd {
+    height: 330rpx;
+    line-height: 120rpx;
+    text-align: center;
+    position: relative;
+}
+
+.panel-img-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.panel-img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-top-left-radius: 15rpx;
+    border-top-right-radius: 15rpx;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #DC9995;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.maskTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 304rpx;
+    height: 60rpx;
+    margin-left: -152rpx;
+    margin-top: -30rpx;
+    animation: mymoveTitle 1.8s ease infinite alternate;
+}
+
+@-webkit-keyframes mymoveTitle {
+    0% {
+        top: 50%;
+        transform: scale(1,1);
+    }
+
+    29% {
+        top: 50%;
+        transform: scale(1,1);
+    }
+
+    34% {
+        top: 50%;
+        transform: scale(1,1);
+    }
+
+    45% {
+        top: 20%;
+        transform: scale(0.9,0.9);
+    }
+
+    100% {
+        top: 20%;
+        transform: scale(0.9,0.9);
+    }
+}
+
+@keyframes mymoveTitle {
+    0% {
+        top: 50%;
+        transform: scale(1,1);
+    }
+
+    29% {
+        top: 50%;
+        transform: scale(1,1);
+    }
+
+    34% {
+        top: 50%;
+        transform: scale(1,1);
+    }
+
+    45% {
+        top: 20%;
+        transform: scale(0.9,0.9);
+    }
+
+    100% {
+        top: 20%;
+        transform: scale(0.9,0.9);
+    }
+}
+
+.maskImage {
+    width: 306rpx;
+    height: 166rpx;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -153rpx;
+    animation: mymoveImage 1.8s ease infinite alternate;
+}
+
+@-webkit-keyframes mymoveImage {
+    0% {
+        top: 100%;
+    }
+
+    29% {
+        top: 100%;
+    }
+
+    45% {
+        top: 40%;
+    }
+
+    45% {
+        top: 40%;
+    }
+
+    100% {
+        top: 40%;
+    }
+}
+
+@keyframes mymoveImage {
+    0% {
+        top: 100%;
+    }
+
+    29% {
+        top: 100%;
+    }
+
+    45% {
+        top: 40%;
+    }
+
+    45% {
+        top: 40%;
+    }
+
+    100% {
+        top: 40%;
+    }
+}
+
+.maskPage1 {
+    position: absolute;
+    top: 0;
+    left: 33.3%;
+    width: 33.3%;
+    height: 33.3%;
+}
+
+.maskPage2 {
+    position: absolute;
+    top: 33.3%;
+    left: 66.6%;
+    width: 33.3%;
+    height: 33.3%;
+    transform: rotate(90deg);
+}
+
+.maskPage3 {
+    position: absolute;
+    top: 66.6%;
+    left: 33.3%;
+    width: 33.3%;
+    height: 33.3%;
+    transform: rotate(180deg);
+}
+
+.maskPage4 {
+    position: absolute;
+    top: 33.3%;
+    left: 0%;
+    width: 33.3%;
+    height: 33.3%;
+    transform: rotate(-90deg);
+}
+
+.rotate-block {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.move {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: moveLeft 8s ease infinite;
+}
+
+.movePage1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.movePage2 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+@-webkit-keyframes moveLeft {
+    0% {
+        left: 0%;
+    }
+
+    3% {
+        left: -100%;
+    }
+
+    50% {
+        left: -100%;
+    }
+
+    53% {
+        left: 0%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        left: 0%;
+    }
+
+    3% {
+        left: -100%;
+    }
+
+    50% {
+        left: -100%;
+    }
+
+    53% {
+        left: 0%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+.media-box__title {
+    font-weight: 600;
+    font-size: 26rpx;
+    color: #333333;
+    width: 300rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: 14rpx;
+    margin-left: 18rpx;
+    text-align: left;
+}
+
+.title_tag {
+    font-size: 22rpx;
+    color: #fff;
+    background-image: linear-gradient(-90deg,#FF8614 2%,#FFAA00 97%);
+    display: inline-block;
+    width: 78rpx;
+    height: 30rpx;
+    border-radius: 2rpx;
+    text-align: center;
+    margin-right: 10rpx;
+    font-weight: 100;
+    font-family: PingFangSC-Regular;
+}
+
+.title_tag_oneyuan {
+    background-image: linear-gradient(-90deg,#FF4242 0%,#FF6262 100%);
+}
+
+.media-box__desc {
+    color: #999;
+    font-size: 24rpx;
+    line-height: 1.2;
+    position: absolute;
+    bottom: 75rpx;
+}
+
+.text-orangered {
+    text-decoration: line-through;
+    font-size: 22rpx;
+    color: #999999;
+    margin-left: 18rpx;
+}
+
+.media-box__bottom {
+    position: absolute;
+    bottom: 18rpx;
+    left: 18rpx;
+}
+
+.bottom_left {
+    font-size: 26rpx;
+    color: #333333;
+    flex: 1.5;
+    padding-bottom: 1rpx;
+}
+
+.text_coin {
+    font-size: 40rpx;
+    color: #26BCC5;
+    font-family: 'DIN Alternate';
+}
+
+.attract {
+    color: #26BCC5;
+    font-family: 'DIN Alternate';
+    font-size: 40rpx;
+    vertical-align: -5%;
+}
+
+.bottom_right {
+    font-size: 22rpx;
+    color: #FC8A1D;
+    text-align: center;
+    float: right;
+    width: 52rpx;
+    height: 28rpx;
+    background: rgba(252,138,29,0.10);
+    border: 1rpx solid rgba(252,138,29,0.24);
+    border-radius: 2.2rpx;
+    margin-left: 10rpx;
+    line-height: 28rpx;
+    margin-top: 10rpx;
+}
+
+.goodsAD {
+    width: 100%;
+    height: 171rpx;
+    background: red;
+}
+
+.goods_invite_tag {
+    position: absolute;
+    right: -7rpx;
+    top: -7rpx;
+    width: 94rpx;
+    height: 94rpx;
+    z-index: 10;
+}

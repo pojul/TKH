@@ -1,0 +1,50 @@
+.headnav {
+    display: flex;
+    box-shadow: 0 2rpx 10rpx 0 rgba(0,0,0,0.1);
+}
+
+.navname {
+    flex: 1;
+    text-align: center;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 32rpx;
+    color: #9B9B9B;
+}
+
+.navname.on {
+    color: #F4503D;
+    border-bottom: 2px solid #F4503D;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    height: 110rpx;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 20rpx;
+}
+
+.wrap image {
+    width: 80rpx;
+    height: 80rpx;
+    display: block;
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.wrap .step_num {
+    margin-left: auto;
+    margin-right: 0;
+    color: #666;
+    text-align: right;
+    font-size: 24rpx;
+}
+
+.more {
+    text-align: center;
+    color: #B3B3B3;
+    height: 60rpx;
+    line-height: 60rpx;
+}

@@ -1,0 +1,12 @@
+<!--bh_step/pages/strategy/strategy.wxml-->
+
+<view class='title'>{{articleDetail.title}}</view>
+
+<view class='infos-box'>
+  <text class='name'>{{articleDetail.author}}</text><text class='time'>{{articleDetail.create_time}}</text>
+</view>
+
+<view class="detail-box">
+  <import src="../../component/wxParse/wxParse.wxml"/>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

@@ -1,0 +1,382 @@
+.header {
+    background-size: 690rpx auto;
+    border-radius: 12px;
+    width: 690rpx;
+    height: 338rpx;
+    margin: 40rpx auto 6rpx;
+}
+
+.active-coin {
+    width: 100%;
+    padding-top: 52rpx;
+    height: 30rpx;
+    font-size: 26rpx;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.coin-1 {
+    padding-top: 5rpx;
+    text-align: center;
+    color: white;
+    font-size: 78rpx;
+    font-weight: 700;
+    line-height: 100rpx;
+}
+
+.button {
+    width: 240rpx;
+    height: 54rpx;
+    border: 1px solid #FFFFFF;
+    border-radius: 40px;
+    color: white;
+    font-size: 24rpx;
+    line-height: 54rpx;
+    text-align: center;
+    margin: 23rpx auto 0;
+}
+
+.active {
+    position: relative;
+    margin-left: 36rpx;
+    margin-bottom: 24rpx;
+    width: auto;
+    font-size: 42rpx;
+    color: #333333;
+    font-weight: 700;
+    z-index: 1000;
+}
+
+.time {
+    height: 40rpx;
+    margin-left: 36rpx;
+    font-size: 28rpx;
+    color: #666666;
+    margin-bottom: 24rpx;
+}
+
+.item {
+    position: relative;
+    height: 142rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+    margin-left: 32rpx;
+}
+
+.title {
+    padding-top: 32rpx;
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.subtitle {
+    margin-top: 3rpx;
+    font-size: 26rpx;
+    color: #606060;
+}
+
+.num {
+    font-size: 36rpx;
+    color: #26BCC5;
+    font-weight: 700;
+    position: relative;
+    top: 2rpx;
+}
+
+.shareBtn {
+    all: initial;
+}
+
+.shareBtn::after {
+    all: initial;
+}
+
+.btn1 {
+    position: absolute;
+    top: 50%;
+    right: 30rpx;
+    transform: translate(0,-50%);
+    width: 150rpx;
+    text-align: center;
+    border-radius: 100px;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    right: 30rpx;
+    transform: translate(0,-50%);
+    background-image: linear-gradient(90deg,#1DD49E 2%,#26BCC5 97%);
+    box-shadow: 0 3px 8px 0 rgba(34,199,179,0.50);
+    width: 150rpx;
+    text-align: center;
+    border-radius: 100px;
+}
+
+.centerTitle {
+    padding-top: 52rpx;
+    font-size: 28rpx;
+    color: #000000;
+}
+
+.tip {
+    margin-top: 78rpx;
+    text-align: center;
+    font-size: 27rpx;
+    color: #999999;
+}
+
+.list {
+    background: #FFFFFF;
+    margin: 0 20rpx;
+}
+
+.type1 {
+    position: relative;
+    height: 172rpx;
+    margin: 0 auto 20rpx auto;
+    box-shadow: 0 0 12rpx 0 rgba(0,0,0,0.12);
+    border-radius: 12rpx;
+}
+
+.coinDiv {
+    position: absolute;
+    height: 118prx;
+    width: 96rpx;
+    top: 50%;
+    right: 28rpx;
+    transform: translate(0,-50%);
+}
+
+.img1 {
+    position: absolute;
+    top: 50%;
+    left: 24rpx;
+    width: 108rpx;
+    height: 108rpx;
+    transform: translate(0,-50%);
+}
+
+.title1 {
+    padding-top: 26rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    font-weight: 700;
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0;
+    margin-left: 156rpx;
+}
+
+.title2 {
+    padding-top: 46rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    font-weight: 700;
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0;
+    margin-left: 156rpx;
+}
+
+.subtitle1 {
+    padding-top: 10rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    font-size: 26rpx;
+    color: #666666;
+    letter-spacing: 0;
+    margin-left: 156rpx;
+    margin-right: 156rpx;
+}
+
+.open-ad-coin {
+    height: 118rpx;
+    width: 96rpx;
+    background-color: transparent;
+    text-align: center;
+}
+
+.coin {
+    width: 84rpx;
+    height: 84rpx;
+    margin: 0 auto;
+    background-size: 84rpx;
+}
+
+.coin1 {
+    width: 84rpx;
+    height: 84rpx;
+    margin: 0 auto;
+    background-size: 84rpx;
+    opacity: 0.5;
+}
+
+.num {
+    padding-top: 15rpx;
+    font-family: DINAlternate-Bold;
+    font-size: 32rpx;
+    color: #8B572A;
+    text-align: center;
+}
+
+.num1 {
+    padding-top: 20rpx;
+    font-family: DINAlternate-Bold;
+    font-size: 28rpx;
+    color: #8B572A;
+    text-align: center;
+}
+
+.unit {
+    margin: 0 auto;
+    font-family: PingFangSC-Regular;
+    font-size: 14rpx;
+    color: #8B572A;
+    text-align: center;
+    margin-top: -4rpx;
+}
+
+.unit1 {
+    margin: 0 auto;
+    font-family: PingFangSC-Regular;
+    font-size: 14rpx;
+    color: #8B572A;
+    text-align: center;
+    margin-top: -4rpx;
+}
+
+.txt {
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    color: #26BCC5;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24rpx;
+    margin-top: 10rpx;
+    font-weight: 700;
+}
+
+.txt1 {
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    color: #B3B3B3;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24rpx;
+    margin-top: 10rpx;
+    font-weight: 700;
+}
+
+.open-ad-list {
+    background: #FFFFFF;
+    margin: 0 20rpx 0 20rpx;
+    padding-bottom: 40rpx;
+}
+
+.type0 {
+    margin: 0 auto 20rpx auto;
+    box-shadow: 0 0 12rpx 0 rgba(0,0,0,0.12);
+    border-radius: 12rpx;
+}
+
+.banner {
+    width: 100%;
+    display: block;
+    border-top-left-radius: 12rpx;
+    border-top-right-radius: 12rpx;
+}
+
+.block {
+    position: relative;
+    height: 193rpx;
+}
+
+.title {
+    padding-top: 26rpx;
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 45rpx;
+    height: 45rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 700;
+}
+
+.subtitle {
+    padding-top: 10rpx;
+    font-size: 26rpx;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 37rpx;
+    height: 37rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tip-from {
+    font-size: 24rpx;
+    color: #999999;
+    letter-spacing: 0;
+    line-height: 33rpx;
+    height: 33rpx;
+    padding-top: 24rpx;
+}
+
+.coin-2 {
+    position: absolute;
+    height: 118prx;
+    width: 96rpx;
+    top: 50%;
+    right: 28rpx;
+    transform: translate(0,-50%);
+}
+
+.type1 {
+    position: relative;
+    height: 172rpx;
+    margin: 0 auto 20rpx auto;
+    box-shadow: 0 0 12rpx 0 rgba(0,0,0,0.12);
+    border-radius: 12rpx;
+}
+
+.img1 {
+    position: absolute;
+    top: 50%;
+    left: 24rpx;
+    width: 108rpx;
+    height: 108rpx;
+    transform: translate(0,-50%);
+    border-radius: 108rpx;
+    border: 1rpx solid #dcdcdc;
+}
+
+.title1 {
+    padding-top: 42rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    font-weight: 700;
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0;
+    margin-left: 156rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.subtitle1 {
+    padding-top: 6rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    font-size: 26rpx;
+    color: #666666;
+    letter-spacing: 0;
+    margin-left: 156rpx;
+    margin-right: 156rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

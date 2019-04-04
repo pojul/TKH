@@ -1,0 +1,76 @@
+<view class="dialogheard">
+    <view class="usericonview">
+        <image class="usericon" src="{{data.head}}"></image>
+    </view>
+    <view class="usercontent">
+        <view class="username">{{nickname}}</view>
+        <view class="usertitle" wx:if="{{data.nickname||data.head}}">已经连续签到{{data.signin_days}}天</view>
+        <button bindgetuserinfo="getUserInfo" bindtap="maidian" class="useraccredit" lang="zh_CN" openType="getUserInfo" wx:if="{{!data.nickname&&!data.head}}">授权微信个人信息
+      <image class="smallicon" src="./img/arricon.png"></image>
+        </button>
+    </view>
+</view>
+<view class="mycoin">
+    <view bindtap="gotoCoinDetail" class="mycoinitem" data-text="运动币余额">
+        <view>{{data.currency}}</view>
+        <text>运动币余额</text>
+    </view>
+    <view bindtap="gotoMyIncomeDetail" class="mycoinitem" data-text="累计运动币" wx:if="{{data.bag_switch==1}}">
+        <view>{{data.money}}</view>
+        <text>我的收益</text>
+        <image class="my-withdraw-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAmCAMAAACicXj6AAAAn1BMVEUAAAD/jwD/jwD/jgD/jwD/jwD/jgD/////mhv/mBf/vm3/lhP/yIT/wHP/y4r/rkr/uGD/kQf/sVD/pTP/jwP//fv/qDv/xoD/4r3/kw3/7db/5MP/zY//nCD/8N7/+vX/9Of/79r/26//slL/9uz/37f/3bP/xHz/rEP/6tD/1qT/0JX/oSv/58n/2an/05v/wnf/8uL/vGn/tVn/kgpHud5SAAAABnRSTlMA40DASYDHagOPAAABq0lEQVRIx9XV2XKCMBSAYWrbHCFFsASMLGURcF/a+v7P1pMzYnUEHeNN+88oxvhNEi7EeHliWj29GCg1rcG0+8/UzHb43vea2El7s2nYRvvwhu8DaBrjyB5RKxua3q9RkxoQzQ6/t2FqqZbXKaOmRIUwIRaC2dDHAWNOG13KCD5ljNSnAKmKw4AxohaYHTRaw2ekaEBtO+ntDevQD6q8nwZWk8DRW5hDGYa3aWxPhiehtWoJH3WtKL54F/UA/C84aXS+4Thl7XQ0B4hWQ1dVA128c1rMO2gYxnTWrx2eEBh1TueFaKfm4TaFtaIJxo+U94ecJRDBRHDReYc5LBVVbQ+02qTf6kS+CxO8dlIHMo7UwVb43WwkwZcWx9msmCmaeF1UZvlC/J41TwuX02SeekRdSC5pgvQb3MCXmyNd7Rnl5L7DZuAyNvAvVp1MN+COszVusgQIo6qoqmYuiKB8V9sqt4s0uqA2+BU35wF+FMEuXhRSxse5dDqm6zoPFy1npQRrS/A/+Wd6bw88rh55SB7q0bhn6PSM8tnQqqe9KC6ruygui4vq9mrc1w/fgkWI6hmT7gAAAABJRU5ErkJggg=="></image>
+    </view>
+    <button bindtap="onGotUserInfo" class="mybuttonview">
+        <view style="display:">{{data.friends_num}}</view>
+        <text style="margin-top:5rpx;">邀请好友数</text>
+    </button>
+</view>
+<view bindtap="gotoMyOrder" class="mybtn">
+    <image class="mybtnimg" src="./img/my_orders_icon.png"></image>
+    <text class="mybtntext">我的订单</text>
+    <image class="myicon" src="./img/icon.png"></image>
+</view>
+<view bindtap="gotoproblem" class="mybtn">
+    <image class="mybtnimg" src="./img/my_faq_icon.png"></image>
+    <text class="mybtntext">常见问题</text>
+    <image class="myicon" src="./img/icon.png"></image>
+</view>
+<view class="mybtn">
+    <image class="mybtnimg" src="./img/my_feedback_icon.png"></image>
+    <button bindtap="contantus" class="contentus" data-text="联系我们" openType="contact">联系我们</button>
+    <image class="myicon usbtn" src="./img/icon.png"></image>
+</view>
+<view bindtap="gotominiProgram" class="littleProgram" wx:if="{{isshowminigd}}">
+    <image class="ADimage" src="{{ADimage}}"></image>
+</view>
+<block wx:if="{{jump.length>0}}">
+    <view class="ad_container_title">闲来玩玩</view>
+    <view class="ad_grid_container">
+        <viwe bindtap="advjump" class="ad_grid_item" data-index="{{index}}" wx:for="{{jump}}" wx:for-item="itemData" wx:key="{{index}}">
+            <view bindtap="handleAdClick" data-addata="{{itemData}}">
+                <view class="ad_grid_icon_container">
+                    <image class="ad_grid_icon" src="{{itemData.icon}}"></image>
+                </view>
+                <view class="ad_name">{{itemData.title}}</view>
+                <view class="ad_type">{{itemData.describe}}</view>
+            </view>
+        </viwe>
+    </view>
+</block>
+<dia-log beijing="{{true}}" isshow="{{ishowdialog}}" isshowclose="{{false}}">
+    <view class="mydialog" style="background: url({{img_url}}/wechat/mydialog.png)" wx:if="{{dialogstate=='userinfo'}}">
+        <view class="diatitle">授权微信个人信息</view>
+        <view class="diatext">为您提供全部功能</view>
+        <button bindgetuserinfo="onGotUserInfo" bindtap="closedialog" class="mydiabtn" lang="zh_CN" openType="getUserInfo"></button>
+    </view>
+    <view class="attgzh" style="background: url({{img_url}}/wechat/gzhbg.png)" wx:if="{{dialogstate=='gzh'}}">
+        <button bindtap="closedialog" class="attbtn" openType="contact"></button>
+        <view class="gzhone">关注既得
+      <text class="gzh_coin">{{followCoin}}</text> 运动币</view>
+        <view class="gzhtwo">更多优惠尽在【365步步赚】公众号</view>
+        <view class="gzhthree"></view>
+        <text class="gzhthree-one">点击下方按钮，回复数字“1”即可</text>
+        <view class="gzhthree-two" style="background: url({{img_url}}/wechat/gzhbtn.png)"></view>
+        <text class="gzhthree-three">受微信限制，客服回复可能稍有延迟，请耐心等待</text>
+    </view>
+</dia-log>

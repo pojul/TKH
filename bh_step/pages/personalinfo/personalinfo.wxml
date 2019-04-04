@@ -1,0 +1,65 @@
+<!--bh_step/pages/personalinfo/personalinfo.wxml-->
+<view class='item-box'>
+  <view class='item-name'>头像</view>
+  <view class='item-right'>
+    <image class='photo' src="{{userInfo.head}}"></image>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='item-name'>昵称</view>
+  <view class='item-right'>
+    <input class='input' placeholder="请输入昵称">{{userInfo.nickname}}</input>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='item-name'>个性签名</view>
+  <view class='item-right'>
+    <input class='input' placeholder="这家伙很懒，还没有签名">{{userInfo.signature}}</input>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='line'></view>
+
+<view class='item-box'>
+  <view class='item-name'>性别</view>
+  <view class='item-right'>
+    <view class='item-vaule'>{{userInfo.gender==2?'女':'男'}}</view>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='item-name'>生日</view>
+  <view class='item-right'>
+    <view class='item-vaule' bindtap='showDatePickView'>{{userInfo.birthday}}</view>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='item-name'>常驻地区</view>
+  <view class='item-right' bindtap='chooseAddress'>
+    <view class='item-vaule'>{{userInfo.province}} {{userInfo.city}}</view>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='item-name'>手机号</view>
+  <view class='item-right'>
+    <input type='number' class='input' placeholder='请输入手机号'>{{userInfo.phone}}</input>
+    <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
+  </view>
+</view>
+
+<view class='save'>保存</view>
+
+<date_picker show="{{showDatePicker}}"></date_picker>
+
+<nyz_area_picker show="{{showAreaPicker}}" bind:sureSelectArea="sureSelectAreaListener">
+</nyz_area_picker>

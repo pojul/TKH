@@ -1,0 +1,49 @@
+<view class="goodsview">
+    <view wx:if="{{category_name}}">
+        <view class="goodstitle">{{category_name}}</view>
+        <view class="goodstag">{{category_describe}}</view>
+        <view bindtap="goodsDetails" class="panel" data-etype="{{item.exchange_type}}" data-id="{{item.id}}" wx:for="{{goods}}" wx:key="goodlist">
+            <view class="panel__bd">
+                <view class="media-box media-box_appmsg" hoverClass="cell_active">
+                    <view class="media-box__hd media-box__hd_in-appmsg">
+                        <view class="newusertag" style="background: url({{img_url}}/wechat/newusertag.png)" wx:if="{{item.user_type}}"></view>
+                        <image class="media-box__thumb" mode="widthFix" src="{{item.cover_image_url}}"></image>
+                    </view>
+                    <view class="media-box__bd media-box__bd_in-appmsg">
+                        <view class="media-box__title">
+                            <view class="title_tag" wx:if="{{item.exchange_type==2||item.exchange_type==3}}">砍步数</view>
+                            <view class="title_tag title_tag_oneyuan" wx:if="{{(item.exchange_type==1||item.exchange_type==4)&&item.invitation_number>0}}">邀好友</view>
+              {{item.goods_name}}
+            </view>
+                        <view class="newcalss">
+                            <view class="media-box__desc">
+                                <text class="text-orangered">原价 ¥{{item.original_price}}</text>
+                            </view>
+                            <view class="media-box__bottom">
+                                <view class="bottom_left" wx:if="{{item.exchange_type==1||item.exchange_type==4}}">
+                                    <text class="attractless">{{item.exchange_number}}</text> 运动币
+                  {{item.exchange_type==4?'+'+item.money+'¥':''}}
+                  <view class="bottom_right" wx:if="{{item.is_free==1}}">
+                    包邮
+                  </view>
+                                    <view class="goodsbtn">{{item.exchange_type==4?'立即兑换':'点击免费拿'}}</view>
+                                </view>
+                                <view class="bottom_left" wx:if="{{item.exchange_type==2||item.exchange_type==3}}">
+                                    <text class="attract" wx:if="{{item.exchange_number>=10000}}">{{item.exchange_number/10000}}</text>
+                                    <text class="attractless" wx:if="{{item.exchange_number<10000}}">{{item.exchange_number}}</text>
+                                    <text wx:if="{{item.exchange_number>=10000}}">万</text>步数
+                  {{item.exchange_type==3?'+'+item.money+'¥':''}}
+                  可兑
+                  <view class="bottom_right" wx:if="{{item.is_free==0}}">
+                    包邮
+                  </view>
+                                    <view class="goodsbtn">{{item.exchange_type==3?'立即兑换':'点击免费拿'}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

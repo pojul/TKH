@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "我的",
+  "backgroundColor": "#FE5442",
+	"backgroundTextStyle":"light",
+	
+  "navigationBarTextStyle":"white",
+  "navigationBarBackgroundColor": "#FE5442",
+  
+  "enablePullDownRefresh": false,
+  
+  "usingComponents": {
+    "i-progress": "../../../component/iview/progress/index"
+  }
+}

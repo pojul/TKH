@@ -1,0 +1,179 @@
+.coinview {
+    height: 338rpx;
+    width: 700rpx;
+    background-size: 100%;
+    margin: 0 auto;
+    border-radius: 24rpx;
+}
+
+.mycoin {
+    width: 100%;
+    border-radius: 12rpx;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.mycoinitem {
+    display: inline-block;
+    color: #E8E8AB;
+    text-align: center;
+    margin-top: 44rpx;
+    position: relative;
+}
+
+.mycoinitem>view {
+    font-size: 50rpx;
+    font-family: 'DIN Alternate';
+}
+
+button::after {
+    border: none;
+}
+
+.mycoinitem>text {
+    font-size: 26rpx;
+    display: block;
+}
+
+.coinline {
+    content: '';
+    position: absolute;
+    right: 344rpx;
+    top: 62rpx;
+    height: 200rpx;
+    width: 3rpx;
+    background: #fff;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    opacity: 0.5;
+}
+
+.coinbtn {
+    width: 400rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    color: #fff;
+    margin: 41rpx auto 0;
+    /* border: 1rpx solid #FFFFFF; */
+    border-radius: 40px;
+    font-size: 32rpx;
+    background: none;
+    background-image: linear-gradient(90deg,#FFA800 2%,#F6A824 97%);
+}
+
+.coinbtn image {
+    margin-top: 19rpx;
+    float: right;
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+    margin-left: -3rpx;
+}
+
+.timedata {
+    width: 172rpx;
+    height: 52rpx;
+    border-radius: 10rpx 39rpx 39rpx 10rpx;
+    font-size: 24rpx;
+    color: #fff;
+    line-height: 52rpx;
+    text-align: center;
+    margin-bottom: 55rpx;
+}
+
+.coinitem {
+    color: #434343;
+    font-size: 28rpx;
+    margin-left: 18rpx;
+    padding-right: 30rpx;
+    position: relative;
+}
+
+.itemtext {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 52%;
+}
+.itemtext2 {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 18%;
+}
+
+.coinitemlast {
+    color: #434343;
+    font-size: 28rpx;
+    margin-left: 18rpx;
+    padding-right: 30rpx;
+    position: relative;
+}
+
+.coinitem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -25rpx;
+    height: 1rpx;
+    width: 191%;
+    background: #e6e6e6;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+
+.conincount {
+    float: right;
+    color: #408AE1;
+    font-size: 34rpx;
+    font-family: 'DIN Alternate';
+}
+
+.conincountgood {
+    float: right;
+    color: #FC8A1D;
+    font-size: 34rpx;
+    font-family: 'DIN Alternate';
+}
+
+.item-containter {
+    margin: 20rpx auto 300rpx;
+    width:700rpx;
+}
+
+.itemview {
+    margin-bottom: 50rpx;
+}
+
+.itemcontent {
+    height: 760rpx;
+}
+
+.bottomtitle {
+    width: 100%;
+    text-align: center;
+    color: #999999;
+    font-size: 27rpx;
+    margin-bottom: 50rpx;
+}
+
+.ad-container {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding-top: 10rpx;
+    background: white;
+    min-height: 100rpx;
+}
+
+.ad-close {
+    position: absolute;
+    width: 42rpx;
+    height: 42rpx;
+    top: 6rpx;
+    right: 0;
+    padding: 6rpx;
+}

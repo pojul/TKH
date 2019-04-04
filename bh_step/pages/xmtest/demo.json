@@ -1,0 +1,5 @@
+{
+ "usingComponents": {
+	 "xm-ad": "/component/xmAD/xmAD"
+	 }
+}

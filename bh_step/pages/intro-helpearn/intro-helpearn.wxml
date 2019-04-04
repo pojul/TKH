@@ -1,0 +1,53 @@
+<view class="main">
+    <view class="head" style='background-image:url({{img_url}}/intro-bg.png);' >
+        <view class="title">好友帮赚规则</view>
+    </view>
+
+  <view class="intro-content">
+    <view class="center-title text-color-main" >每日步数</view>
+    <view class="p text-color-content">
+     一级好友贡献好友步数运动币的10%
+    </view>
+    <view class="p2 text-color-extra">
+     一级好友贡每日每走10000步，你可以每天获得10运动币
+    </view>
+    <view class="p text-color-content">
+     二级好友贡献好友步数运动币的5%
+    </view>
+    <view class="p2 text-color-extra">
+     二级好友贡每日每走10000步，你可以每天获得5运动币
+    </view>
+    
+
+    <view class="center-title text-color-main" >任务奖励</view>
+    <view class="p text-color-content">
+     一级好友每完成一个任务你可得此任务运动币的20%
+    </view>
+    <view class="p2 text-color-extra">
+     一级好友完成100运动币的任务，你即可获得20运动币
+    </view>
+    <view class="p text-color-content">
+     二级好友每完成一个任务你可得此任务运动币的10%
+    </view>
+    <view class="p2 text-color-extra">
+     二级好友完成100运动币的任务，你即可获得10运动币
+    </view>
+     
+     <view class="center-title text-color-main" >举例说明</view>
+    <view class="p text-color-content">
+     没人邀请200人，走10000步，完成20个任务
+    </view>
+   <view class="p text-color-content">
+     一级好友奖励：20运动币*20*200人+10运动币*200人=82000运动币
+    </view>
+		<view class="p text-color-content">
+     二级好友奖励：10运动币*20*40000人+5运动币*40000人=8200000运动币
+    </view>
+		<view class="p text-color-content">
+     每日终极可得8282000运动币（等于8282元）
+    </view>
+
+  </view>
+
+</view>
+

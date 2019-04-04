@@ -1,0 +1,12 @@
+/* bh_step/pages/territorialrule/territorialrule.wxss */
+
+page{
+  background-color: #fff;
+}
+
+.detail-box{
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}

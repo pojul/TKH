@@ -1,0 +1,31 @@
+<!--bh_step/pages/territoryincome/territoryincome.wxml-->
+<view class='loc-box'>
+  <image class='loc-icon' src='../../images/position_red.png'></image>
+  <view class='loc-text'>{{income.area.city}} {{income.area.name}}</view>
+</view>
+
+<view class='total-income-box'>
+  <view class='total-income-view'>
+    <view class='total-income-note'>总收益： </view>
+    <view class='total-income'>{{income.total_income}}</view>
+    <view class='total-income-note'>元</view>
+  </view>
+</view>
+
+<view class='line'></view>
+<view class='item-box'>
+  <view class='item-title'>时间</view>
+  <view class='item-title-center'>来源</view>
+  <view class='item-title'>金额(元)</view>
+</view>
+
+<view class='items-box' wx:for="{{incomes}}">
+  <view class='line'></view>
+  <view class='item-box'>
+    <view class='item'>{{item.create_time}}</view>
+    <view class='item-center'>领地红包</view>
+    <view class='item'>{{item.money}}</view>
+  </view>
+</view>
+
+<view class='no-more'>{{!hasMore?'一 没有更多了 一':'数据加载中'}}</view>

@@ -1,0 +1,8 @@
+<!--bh_step/component/map_area_picker/map_area_picker.wxml-->
+<cover-view class='picker-box' bindtouchstart="onTouchStart" bindtouchmove="onTouchMove">
+  <cover-view>sdsdsdqqqqqqqqqqqqqqqqq</cover-view>
+
+  <cover-view>12ewewqqqqqqqqqqqqqqq</cover-view>
+
+  <cover-view>00909878wwwwwwwwwwww</cover-view>
+</cover-view>

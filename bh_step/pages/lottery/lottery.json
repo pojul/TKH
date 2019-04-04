@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "天天抽奖",
+  "usingComponents": {
+    "xm-ad": "/component/xmAD/xmAD"
+  }
+}

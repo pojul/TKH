@@ -1,0 +1,15 @@
+<!--bh_step/pages/strategylist/strategylist.wxml-->
+<view class='title-note'>拓客会领地规则</view>
+<view class='user-info'>
+  <image class='photo' src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-9e7c5d699eaea93e-299df6e4ff8b8f3c39be9125e8f016f0_qq'></image>
+  <view class='name'>拓客会小程序</view>
+</view>
+<view class='line'></view>
+
+<view wx:for="{{articles}}" class='item-view' bindtap='toStrategyDetail' data-articleId="{{articles[index].id}}">
+  <view class='item-box'>
+    <view class='item-name'>{{item.title}}</view>
+    <image mode='aspectFill' class='item-icon' src="{{item.cover_image}}"></image>
+  </view>
+  <view class='line'></view>
+</view>

@@ -1,0 +1,96 @@
+<!--bh_step/pages/redpkgrecord/redpkgrecord.wxml-->
+<view class='tab-view'>
+  <view class='tab-box'>
+    <view bindtap="changeTab" data-tab="0" class="{{currentTab==0?'tab-title-active':'tab-title'}}">抢到的红包</view>
+    <view bindtap="changeTab" data-tab="1" class="{{currentTab==1?'tab-title-active':'tab-title'}}">我发的红包</view>
+  </view>
+</view>
+
+<view wx:if="{{currentTab==0}}" class='grab-view'>
+  <view class='top-box'>
+    <view class='top-item-box'>
+      <view class='top-title'>{{grabRedPkg.total_money}}</view>
+      <view class='top-text'>收到总金额</view>
+    </view>
+    <view class='top-item-box'>
+      <view class='top-title'>{{grabRedPkg.max_money}}</view>
+      <view class='top-text'>最佳手气</view>
+    </view>
+  </view>
+
+  <view wx:for="{{grabRedPkgs}}" class='item-view' bindtap='toPostDetail' data-postid="{{item.post_id}}">
+    <view class='left-view'>
+      <view class='line'></view>
+      <image class='photo' src="{{item.member_head}}"></image>
+      <view class='line'></view>
+    </view>
+    <view class='right-view'>
+      <view class='name'>{{item.member_nickname}}</view>
+      <view class='content-view'>
+        <image mode='aspectFill' class='pic' src="{{item.pic[0]}}"></image>
+        <view class='text'>{{item.title}}</view>
+      </view>
+      <view class='line-small'></view>
+      <view class='operate-view'>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{currentTab==1}}" class='give-view'>
+
+  <view class='top-box'>
+    <view class='top-item-box'>
+      <view class='top-title'>{{giveRedPkg.total_money}}</view>
+      <view class='top-text'>发布总金额</view>
+    </view>
+    <view class='top-item-box'>
+      <view class='top-title'>{{giveRedPkg.total_affected_number}}</view>
+      <view class='top-text'>累计影响人数</view>
+    </view>
+  </view>
+
+  <view wx:for="{{giveRedPkgs}}" class='item-view'>
+    <view class='left-view'>
+      <view class='line'></view>
+      <image class='photo' src='../../images/search_result.png'></image>
+      <view class='line'></view>
+    </view>
+    <view class='right-view1'>
+      <view class='name'>{{userInfo.nickname}}</view>
+      <view class='content-view' bindtap='toPostDetail' data-postid="{{item.id}}">
+        <image mode='aspectFill' class='pic' src="{{item.pic[0]}}"></image>
+        <view class='text'>{{item.title}}</view>
+      </view>
+      <view class='line-small'></view>
+      <view class='operate-view'>
+        <view class='operate-item-box'>
+          <image class='opearte-icon' src='../../images/position_red.png'></image>
+          <view class='operate-text'>{{item.city}}</view>
+        </view>
+        <view class='right-operate-box'>
+          <view bindtap='showDelete' data-postindex="{{index}}" class='operate-item-box'>
+            <image class='opearte-icon' src='../../images/delete_red.png'></image>
+            <view class='operate-text'>删除</view>
+          </view>
+          <view class='operate-item-box'>
+            <image class='opearte-icon' src='../../images/people.png'></image>
+            <view class='operate-text'>{{item.view}}</view>
+          </view>
+          <view class='operate-item-box'>
+            <image class='opearte-icon' src='../../images/message.png'></image>
+            <view class='operate-text'>{{item.reply_number}}</view>
+          </view>
+          <view class='operate-item-box'>
+            <image class='opearte-icon' src='../../images/thumbup.png'></image>
+            <view class='operate-text'>{{item.like_number}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{(currentTab==0&&grabRedPkgs.length<=0) || (currentTab==1&&giveRedPkgs.length<=0)}}" class='empty-line'></view>
+<view class='nomore'>{{((currentTab==0&&hasMoreGrabs) || (currentTab==1&&hasMoreGives))?'数据加载中':'没有更多了'}}</view>

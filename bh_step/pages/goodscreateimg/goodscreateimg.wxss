@@ -1,0 +1,65 @@
+page {
+    min-height: 100%;
+    background: #000000;
+}
+
+.container {
+    padding-top: 34rpx;
+    padding-bottom: 120rpx;
+}
+
+@media (min-height:700px) {
+    .container {
+        padding-top: 114rpx;
+    }
+}
+
+@media (min-height:800px) {
+    .container {
+        padding-top: 134rpx;
+    }
+}
+
+.save_img_btn {
+    position: fixed;
+    height: 98rpx;
+    text-align: center;
+    font-size: 34rpx;
+    color: #fff;
+    width: 100%;
+    bottom: 0;
+    background: #26BCC5;
+}
+
+.save_img_btn_iphonex {
+    height: 108rpx;
+    padding-bottom: 10rpx;
+}
+
+.save_img_btn_1 {
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    font-size: 34rpx;
+    color: #fff;
+    width: 100%;
+    background: transparent;
+}
+
+.open_setting {
+    top: 0;
+    left: 0;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    font-size: 34rpx;
+    color: #fff;
+    width: 100%;
+    z-index: 1000;
+    border-radius: 0rpx;
+    background: transparent;
+}
+
+.open_setting::after {
+    border: none;
+}

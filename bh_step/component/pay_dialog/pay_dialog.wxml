@@ -1,0 +1,46 @@
+<!--bh_step/component/pay_dialog/pay_dialog.wxml-->
+<view wx:if="{{show}}" class='pay-box' catchtouchmove='{{true}}'>
+  <view class='pay-content-view'>
+  <view class='pay-content'>
+    <view class='pay-title'>支付</view>
+    <view class='line-title'></view>
+    <view class='pay-money-note'>需要支付</view>
+    <view class='pay-money-box'>
+      <view class='pay-money'>{{payMoney}}</view>
+      <view class='pay-unit'>元</view>
+    </view>
+    
+    <view wx:if="{{!weixinPayOnly}}" class='line'></view>
+    <view wx:if="{{!weixinPayOnly}}" class='pay-item-box' bindtap='changePayType' data-payType="1">
+      <view class='pay-left'>
+        <image class='pay-check' src="{{payType==1?payCheckIcons[0]:payCheckIcons[1]}}"></image>
+        <image class='pay-icon' src='../../images/tkh_pay.png'></image>
+        <view class='pay-text-box'>
+          <view class='pay-text'>拓客会零钱</view>
+          <view class='pay-note'></view>
+        </view>
+      </view>
+      <view class='pay-money-note'>剩余{{leftMoney}}元</view>
+    </view>
+
+    <view class='line'></view>
+    <view class='pay-item-box'>
+      <view class='pay-left' bindtap='changePayType' data-payType="2">
+        <image class='pay-check' src="{{payType==2?payCheckIcons[0]:payCheckIcons[1]}}"></image>
+        <image class='pay-icon' src='../../images/weixin_pay.png'></image>
+        <view class='pay-text-box'>
+          <view class='pay-text'>微信支付</view>
+          <view class='pay-note'>每日上限3000元</view>
+        </view>
+      </view>
+      <view class='pay-money-note'>≥1元可用</view>
+    </view>
+
+    <view class='line'></view>
+    <view class='chech-pay' bindtap='checkPay' data-show="{{false}}">确认支付</view>
+  </view>
+
+  <view bindtap='close' class='close-dialog'>点击关闭</view>
+    
+  </view>
+</view>

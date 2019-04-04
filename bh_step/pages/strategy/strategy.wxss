@@ -1,0 +1,38 @@
+/* bh_step/pages/strategy/strategy.wxss */
+@import "../../component/wxParse/wxParse.wxss";
+
+page{
+  background-color: #fff;
+}
+
+.title{
+  color: #000;
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+  margin-bottom: 5rpx;
+}
+
+.infos-box{
+  display: flex;
+  align-items: center;
+}
+
+.name{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #000;
+}
+
+.time{
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+
+.detail-box{
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}

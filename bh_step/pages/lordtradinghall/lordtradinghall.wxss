@@ -1,0 +1,96 @@
+/* bh_step/pages/lordtradinghall/lordtradinghall.wxss */
+
+page{
+  padding-bottom: 60rpx;
+}
+
+.trade-box{
+  display: flex;
+  flex-direction: column;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  padding-top: 25rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  box-shadow: 1px 1px 3px 1px #eeeeee;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+
+.trade-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.territory-loxbox{
+  display: flex;
+  align-items: center;
+}
+
+.loc-icon{
+  width: 27rpx;
+  height: 27rpx;
+}
+
+.loc-text{
+  font-size: 26rpx;
+  color: #000;
+  margin-left: 20rpx;
+}
+
+.time{
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.line{
+  height: 1rpx;
+  background-color: #DFDFDF;
+  margin-top: 20rpx;
+}
+
+.trade-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vip{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 4rpx;
+  margin-top: 30rpx;
+}
+
+.photo{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 80rpx;
+}
+
+.name{
+  font-size: 28rpx;
+  color: #000;
+}
+
+.note{
+  font-size: 21rpx;
+  color: #999999;
+}
+
+.price{
+  font-size: 32rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.no-more{
+  text-align: center;
+  color: #999999;
+  font-size: 22rpx;
+  margin-top: 28rpx;
+  padding-bottom: 50rpx;
+}

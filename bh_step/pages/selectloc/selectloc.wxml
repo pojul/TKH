@@ -1,0 +1,33 @@
+<!--bh_step/pages/selectloc/selectloc.wxml-->
+<view class='top-box'>
+  <!-- <view class='select-city-box'>
+    <view class='title'>选择位置</view>
+    <view class='chose-city' bindtap='choseCity' data-show="{{true}}">点击切换城市</view>
+  </view>
+
+  <view class='line'></view> -->
+
+  <view class='range-box'>
+    <view class='title'>发布范围</view>
+    <view class='range-item-box'></view>
+    <view wx:for="{{publishRange}}" data-range='{{index}}' bindtap='setRange' class="{{currentRange==index?'range-item-active':'range-item'}}">{{item.title}}</view>
+  </view>
+
+  <view class='line1'></view>
+</view>
+
+
+<map 
+  id="map" 
+  longitude="{{mylongitude}}" 
+  latitude="{{mylatitude}}" 
+  scale="14" 
+  show-location 
+  style="width: 100%; height: {{mapHeight}}px;">
+</map>
+
+<cover-image src='../../images/myloc.png' class='loc' style="bottom: {{locBottom}}px; left: {{locLeft}}px;"></cover-image>
+
+<cover-view class='myloc-box' bindtap="toMyLoc"><cover-image class='myloc' src="../../images/location.png"></cover-image></cover-view>
+
+<cover-view class='sure' bindtap='sureClick'>确定</cover-view>

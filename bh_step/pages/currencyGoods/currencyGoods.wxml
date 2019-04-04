@@ -1,0 +1,123 @@
+<view class="container {{isShowDialog?'bodyLock':''}}">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper-box" 
+        	indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000">
+            <swiper-item style="overflow:hidden; vertical-align: middle;" wx:for="{{goods.image}}">
+                <image class="slide-image" data-index="{{index}}" mode="widthFix" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <!--<view class="swiper-pager">
+            <text class="current-pager">{{current+1}}</text>
+                /
+              <text class="total-pager"> {{goods.image.length}}</text>
+        </view>-->
+    </view>
+    
+    <view class="pic-container bg-color-white">
+			<image class="pic-container-pic" src="/bh_step/images/detail_bg.jpg"></image>
+			<view class="pic-container-content">
+				<image wx:if="{{img_url}}" class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" />
+				<view style="display: inline-block;">
+					<text style="font-size: 50rpx;margin-left:12rpx;">{{goods.exchange_number}}</text>
+					{{goods.exchange_type==4?'+':''}}
+	                <text wx:if="{{goods.exchange_type==4}}">{{goods.money}}</text>
+	                {{goods.exchange_type==4?'元':''}}
+	         <text class="pre-price">原价￥{{goods.original_price}}</text>
+        </view>
+			</view>
+			<view class="pic-container-right">
+				 仅剩{{goods.inventory}}件
+			</view>
+		</view>
+		
+    <view class="bg-color-white" style="padding:20rpx;font-size:24rpx;line-height: 1.8;">
+			<view class="text-color-title" style="font-size:36rpx;">
+        {{goods.goods_name}}
+      </view>
+      <view class="text-color-extra2" style="display: flex;">
+      	<view style="flex:1">
+	      	<text wx:if="{{goods.is_free==1||goods.free==0}}">免费包邮（暂不支持新疆等地区）</text>
+	        <text wx:else>邮费:{{goods.free}}</text>
+        </view>
+        <view style="text-align: right;">
+	      	兑换人数：{{buyer_total}}
+        </view>
+      </view>
+      
+      <view class="bg-color-white text-color-content" style="display: flex;margin:16rpx 0;padding:16rpx 0 30rpx;font-size: 32rpx;border-top: solid 2px #f8f8f8;">
+      	<view style="flex:1">
+      		<text style="margin-right: 40rpx;">兑换记录</text>
+      		<image wx:for="{{buyers}}" class="my-card-avatar" src="{{item.head}}" mode="" />
+      	</view>
+      	<navigator url="../buylog/buylog?id={{goods.id}}" style="text-align: right;color: #888888;">
+      		<i-icon type="enter" size="22"></i-icon>
+        </navigator>
+      </view>
+		</view>
+    
+    <view class="shopping-container  bg-color-white">
+        <view class="price-babel">
+            <button bindgetuserinfo="getUserInfo" class="btn-share share text-color-main" hoverClass="other-button-hover" id="btn-goods" openType="getUserInfo" wx:if="{{!goods.is_author}}">
+                  邀请好友免费兑换
+                  <image class="share-icon" src="data:image/png;base64,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"></image>
+            </button>
+            <button class="btn-share share" hoverClass="other-button-hover" id="btn-goods" openType="share" wx:if="{{goods.is_author}}">
+                  邀请好友免费兑换
+                  <image class="share-icon" src="data:image/png;base64,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"></image>
+            </button>
+            <!--<button bindtap="setAddress" class="btn-share share" hoverClass="other-button-hover" style="margin-top:65rpx;color:#949494" wx:if="{{goods.type==1}}">
+                  {{address?'修改':'设置'}}收货地址
+                  <image class="share-icon" src="{{img_url}}/step2gift/address_locate.png" style="width:35rpx;height:35rpx;"></image>
+            </button>-->
+        </view>
+    </view>
+    
+    <view class="text-color-extra3" style="text-align: center;font-size: 20rpx;padding:30rpx 0 50rpx;">
+    	免费兑换商品，暂不支持退货
+    </view>
+    
+    <view class="detial-lib lib-stepshow" wx:if="{{goods.invitation_number>0}}">
+        <view class="lib-title">邀请
+          <text wx:if="{{goods.invitation_number}}">{{goods.invitation_number}}</text>
+            <text wx:else>0</text>
+          个好友即可兑换
+        </view>
+        <text class="lib-litleTip" wx:if="{{goods.invitation_number>0}}">好友需为新用户</text>
+        <view class="friend-content">
+            <view class="friend-item" wx:if="{{index<=11}}" wx:for="{{goods.invitation_list}}">
+                <view class="head-view">
+                    <image class="head-img" src="{{item.member.head?item.member.head:waitAdd}}"></image>
+                </view>
+                <view class="friend-step">{{item.member.nickname}}</view>
+            </view>
+            <view class="friend-item" wx:if="{{isShowALLFriend&&index>11}}" wx:for="{{goods.invitation_list}}">
+                <view class="head-view">
+                    <image class="head-img" src="{{item.member.head}}"></image>
+                </view>
+                <view class="friend-step">{{item.member.nickname}}</view>
+            </view>
+            <view bindtap="triggerALLFriend" class="direct-img" wx:if="{{goods.invitation_list.length>=11}}">
+                <view class="all">{{isShowALLFriend?'收起':'查看全部'}}</view>
+                <view style="width: 30rpx;height: 30rpx;background-image: url(\"{{bgimage}}\");background-size: 100%;margin-left: 12rpx;"></view>
+            </view>
+        </view>
+    </view>
+    <!--<view class="show-container {{isIphoneX?'fix-iphonex-container':isIphone?'fix-iphone-container':''}}">
+        <text class="show-title">商品介绍</text>
+        <view class="show-goods" wx:for="{{goods.introduce}}">
+            <image class="img-item" mode="widthFix" src="{{item}}"></image>
+        </view>
+    </view>-->
+    
+    <view class="btn-plus {{isIphoneX?'fix-iphonex-button':''}}">
+        <button class="btn-change " hoverClass="btn-hover" id="btn-goods" openType="share" wx:if="{{goods.is_buy&&goods.inventory>0&&goods.invitation_number>0&&goods.invitation_list_length<goods.invitation_number}}">邀请{{goods.invitation_number}}个好友即可免费兑换
+          <image class="share-img" src="{{img_url}}/step2gift/share.png"></image>
+        </button>
+        <button bindtap="exchange" class="btn-change " hoverClass="btn-hover" wx:if="{{goods.is_buy&&goods.inventory>0&&(goods.invitation_number>0&&goods.invitation_list_length>=goods.invitation_number||goods.invitation_number<1)}}">免费兑换</button>
+        <button bindtap="toggleGoodsEmpty" class="btn-change gray" data-value="true" hoverClass="btn-hover " type="button" wx:if="{{goods.is_buy&&goods.inventory<1}}">{{goods.inventory_type==1?'今天已抢完，明天继续':'商品已被抢完'}}</button>
+        <button disabled class="btn-change gray" hoverClass="btn-hover " type="button" wx:if="{{goods.is_buy<1}}">该商品每个用户可兑换{{goods.allow_number}}次</button>
+    </view>
+    <view bindtap="hiddenDialog" class="mask" hidden="{{!isShowDialog}}"></view>
+    <dialog authorizedUserInfo="{{authorizedUserInfo}}" goods="{{item}}" isEnoughCoin="{{isEnoughCoin}}" isShowDialog="{{isShowDialog}}" myCoin="{{myCoin}}" oemId="{{oemId}}" stepDetail="{{stepDetail}}"></dialog>
+    <goodsEmpty bind:myevent="toggleGoodsEmpty" isShowEmpty="{{isShowEmpty}}"></goodsEmpty>
+</view>

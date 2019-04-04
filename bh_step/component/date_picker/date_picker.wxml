@@ -1,0 +1,22 @@
+<!--bh_step/component/date_picker/date_picker.wxml-->
+<view wx:if="{{show}}" class='pick-rectype-view' style="height: {{screenheight}}px;">
+  <view style="width: 100%;background-color: #fff;position: fixed;bottom: 0rpx;">
+    <view class='pick-rectype-checkview'>
+      <view class='pick-rectype-cancel' data-show="{{false}}" bindtap='showPickRecType'>取消</view>
+      <view class='pick-rectype--ok' data-show="{{false}}" bindtap='showPickRecType'>确定</view>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="background-color: #fff;width: 100%; height: 160px;"       value="{{[value]}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" style="font-size: 30rpx;width: 100%;text-align: center;line-height: 50px">{{item}}</view>
+      </picker-view-column>
+
+      <picker-view-column>
+        <view wx:for="{{months}}" style="font-size: 30rpx;width: 100%;text-align: center;line-height: 50px">{{item}}</view>
+      </picker-view-column>
+
+      <picker-view-column>
+        <view wx:for="{{days}}" style="font-size: 30rpx;width: 100%;text-align: center;line-height: 50px">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

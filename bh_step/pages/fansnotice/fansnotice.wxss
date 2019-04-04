@@ -1,0 +1,67 @@
+/* bh_step/pages/fansnotice/fansnotice.wxss */
+page{
+  background-color: #fff;
+}
+
+.item{
+  display: flex;
+  padding-left: 35rpx;
+  margin-top: 25rpx;
+}
+
+.photo{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.sex{
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 10rpx;
+}
+
+.text-box{
+  display: flex;
+  flex-direction: column;
+  margin-left: 18rpx;
+}
+
+.name-box{
+  display: flex;
+  align-items: center;
+}
+
+.name{
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.note{
+  font-size: 26rpx;
+  color: #999;
+  margin-top: -5rpx;
+}
+
+.time{
+  font-size: 22rpx;
+  color: #999;
+}
+
+.line{
+  width: 720rpx;
+  background-color: #EDEDED;
+  height: 1rpx;
+  margin-left: 110rpx;
+  margin-top: 25rpx;
+}
+
+.no-more{
+  text-align: center;
+  color: #999999;
+  font-size: 22rpx;
+  margin-top: 28rpx;
+  padding-bottom: 50rpx;
+}
+

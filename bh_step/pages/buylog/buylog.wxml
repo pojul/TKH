@@ -1,0 +1,18 @@
+<view class="bg-color-white" style='margin-top:8rpx;font-size:24rpx;'>
+
+  <view wx:for="{{buyers}}" class='weui-flex' style='padding: 10rpx 50rpx;border-bottom:solid 2rpx #f3f3f3;'>
+    <view style='width:100rpx;'>
+      <image class="avatar" src="{{item.head}}" mode="" />
+    </view>
+    <view style='flex:1;line-height:60rpx;' class='text-color-content'>
+      {{item.name}}
+    </view>
+    <view style='width:260rpx;line-height:60rpx;text-align:right;' class='text-color-extra3'>
+      {{item.created}}
+    </view>
+  </view>
+
+  
+
+
+</view>

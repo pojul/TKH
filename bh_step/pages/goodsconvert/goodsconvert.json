@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拓客会商城",
+  "usingComponents": {
+    "i-icon": "../../../component/iview/icon/index"
+  }
+}

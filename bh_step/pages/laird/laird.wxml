@@ -1,0 +1,58 @@
+<!--bh_step/pages/laird/laird.wxml-->
+
+<view bindtap='toterritorialrule' class='territorial-rule-box'>
+  <view class='territorial-rule'>领地规则</view>
+</view>
+
+<view class='pic-box'>
+  <image class='pic' src="{{terriroty.cover_image}}" mode="widthFix"></image>
+</view>
+
+<view class='pic-note'>此公告牌由领主设置发布</view>
+
+<view class='base-info-view'>
+  <image class='vip-img' src='../../images/vip.png'></image>
+  <view class='base-info-box'>
+    <image bindtap='toHomePage' class='photo' src="{{terriroty.now_owner_head}}"></image>
+    <view class='base-text-box'>
+      <view class='base-textleft-box'>
+        <text class='addr-text'>{{terriroty.re_name}} {{terriroty.name}}</text>
+        <text class='laird-note'>领主</text>
+        <view class='laird-name'>{{terriroty.now_owner_name}}</view>
+      </view>
+
+      <view class='base-textright-box'>
+        <view class='price-note'>领地价格(一个月)</view>
+        <view class='price'>{{terriroty.status == 1?'￥' + terriroty.price:'暂不出售'}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='operate-box'>
+    <view class='other-laird' bindtap='chooseAddress'>其他领地</view>
+    <view class='be-laird' bindtap='showAgreement' data-show="{{true}}">{{terriroty.status == 1?('￥' + terriroty.price):'暂不出售'}}</view>
+  </view>
+</view>
+
+
+
+<nyz_area_picker bind:checkArea="checkArea" show="{{show}}" bind:sureSelectArea="sureSelectAreaListener">
+</nyz_area_picker>
+
+<view class='lord-agreement-box' catchtouchmove='{{true}}' wx:if="{{showAgreement}}">
+  <view class='lord-agreement-content'>
+    <view class='lord-agreement-titlebox'>
+      <view class='lord-agreement-title'>拓客会领主协议</view>
+    </view>
+
+    <view class='lord-agreement-text'>
+      <import src="../../component/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:lordAgreement.nodes}}" />
+    </view>
+    <view class='lord-agreement-operate'>
+      <view class='lord-agreement-refuse' bindtap='showAgreement' data-show="{{false}}">拒绝</view>
+      <view class='lord-agreement-agree' bindtap='showPay' data-show="{{true}}">我已阅读并同意</view>
+    </view>
+  </view>
+</view>
+
+<pay_dialog bind:checkPay="checkPay" weixinPayOnly="{{true}}" show="{{showPay}}" payMoney="{{terriroty.price}}"> </pay_dialog>

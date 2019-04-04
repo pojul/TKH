@@ -1,0 +1,32 @@
+<!--bh_step/pages/rankinglist/rankinglist.wxml-->
+<image mode='aspectFill'  class='top-banner' src='https://i03piccdn.sogoucdn.com/c8f7350bb66db42d'></image>
+<view class='content-box'>
+  <view class='content-title-box'>
+    <view class='content-title'>排名</view>
+    <view class='content-title'>用户ID</view>
+    <view class='content-title'>　周收益（元）</view>
+  </view>
+
+  <view class='content-item-box' wx:for="{{ranklist}}">
+    <view class='rank-view'>
+      <view class='rank-box'>
+        <view class='rank-text' wx:if="{{index>=3}}">{{index + 1}}</view>
+        <image class='rank-img' wx:if="{{index<3}}" src="{{vipPics[index]}}"></image>
+      </view>
+    </view>
+
+    <view class='userinfo-view'>
+      <view class='userinfo-box'>
+        <image class='user-photo' src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-c59300ad1d091b38e53c1d835e186bcc_qq'></image>
+        <view class='user-name'>又***</view>
+      </view>
+    </view>
+    
+
+    <view class='profit'>85522.59</view>
+  </view>
+</view>
+
+<view class='bottom-box'>
+  <view class='invite-friend'>邀请好友  赚取奖励</view>
+</view>

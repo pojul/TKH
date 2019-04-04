@@ -1,0 +1,28 @@
+<!--bh_step/pages/busycircle/busycircle.wxml-->
+<view wx:for="{{business}}">
+
+  <view class='user-info-box'>
+  <image class='photo'      src='https://img01.sogoucdn.com/app/a/100520093/d27bf6c25ece6d98-219d425a1e25445a-f6e35bb492cb2c14188181cfb5438b30.jpg'></image>
+   <view class='base-text-box'>
+      <view class='base-textleft-box'>
+        <view class='busy-title'>武汉上等仁嘉的金属大师</view>
+        <view class='busy-addr'>洪山区未来城1203室</view>
+      </view>
+
+      <view class='base-textright-box'>
+        <view class='price'>¥100.00</view>
+        <text bindtap='toCollarMoney' class='collar-money'>领佣金</text>
+      </view>
+    </view>
+</view>
+<view class='busy-text'>{{item.text}}</view>
+<view class='pics-box'>
+  <image mode="aspectFill" wx:for="{{item.pics}}" wx:for-index="pos" wx:for-item="pic" wx:if="{{pos<=2}}" class='busy-pic' src="{{pic}}"></image>
+</view>
+<view class='pic-num'>{{item.pics.length}}图</view>
+<view class='pics-views'>访问量：5246·分享：652</view>
+<view class='busy-item-line'></view>
+</view>
+
+<image class='add' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/add_territory.png'></image>
+

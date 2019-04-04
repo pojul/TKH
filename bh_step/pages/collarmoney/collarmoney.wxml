@@ -1,0 +1,50 @@
+<!--bh_step/pages/collarmoney/collarmoney.wxml-->
+<view class='top-view'>
+  <image class='topbg' src='../../images/collarmoney_topbg.png'></image>
+  <view class='top-box'>
+    <image class='photo' src='https://img01.sogoucdn.com/app/a/100520093/d27bf6c25ece6d98-219d425a1e25445a-f6e35bb492cb2c14188181cfb5438b30.jpg'></image>
+    <view class='user-name'>武汉上等仁嘉</view>
+    <view class='share-collar'>分享领佣金</view>
+  </view>
+  <view class='progress-box'>
+    <view class='progress-top-box'>
+      <text class='progress-title'>分享佣金</text>
+      <text class='progress-status'>进行中</text>
+    </view>
+    <view class='progress-bg'>
+      <view class='progress' style="width:{{progress*680/100}}rpx;"></view>
+    </view>
+    <view class='progress-bottom-box'>
+      <view class='total-money' class='progress-bottom-text'>总计：500.00</view>
+      <view class='left-money-box'>
+        <view class='progress-bottom-text'>剩余</view>
+        <view class='left-money'>¥ 196.59</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='joins-top-box'>
+    <view class='joins-top-title'>参与分享</view>
+    <view class='joins-num'>1958人 ></view>
+  </view>
+</view>
+
+<scroll-view bindscrolltolower="loadMore" scroll-y class='joins-detail-box' style="height:{{scollHeight}}px;">
+  <view class='joins-item' wx:for="{{joins}}">
+    <view class='joins-item-left'>
+      <view class='joins-item-index'>{{index + 1}}</view>
+      <image class='joins-item-photo' src='https://img01.sogoucdn.com/app/a/100520093/d27bf6c25ece6d98-219d425a1e25445a-f6e35bb492cb2c14188181cfb5438b30.jpg'></image>
+      <view class='joins-item-namebox'>
+        <view class='joins-item-name'>不酸的洛克</view>
+        <view class='joins-item-views'>被65位微信好友浏览</view>
+      </view>
+    </view>
+
+    <view class='joins-item-money'>2.13元</view>
+  </view>
+</scroll-view>
+
+<view class='share-collar-bottom'>
+  <view class='share-bottom-text'>获得佣金=0.07x有效浏览人数</view>
+  <view><button class='share' open-type="share">立即分享</button></view>
+</view>

@@ -1,0 +1,351 @@
+/* bh_step/pages/laird/laird.wxss */
+@import "../../component/wxParse/wxParse.wxss";
+
+page{
+  height: 100%;
+}
+
+.territorial-rule-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 22rpx;
+}
+
+.territorial-rule{
+  background-color: #FF0000;
+  width: 140rpx;
+  padding-top: 11rpx;
+  padding-bottom: 10rpx;
+  text-align: right;
+  align-self: flex-end;
+  border-top-left-radius: 60rpx;
+  border-bottom-left-radius: 60rpx;
+  color: #fff;
+  font-size: 26rpx;
+  padding-right: 25rpx;
+}
+
+.pic-box{
+  width: 700rpx;
+  margin-left: 25rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  min-height: 800rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.pic{
+  width: 100%;
+  border-radius: 20rpx;
+}
+.pic-note{
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+  padding: 6rpx;
+  color: #999999;
+}
+.vip-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 60rpx;
+}
+.base-info-box{
+  margin-top: -18rpx;
+}
+.photo{
+  width: 86rpx;
+  height: 70rpx;
+  border-radius: 38rpx;
+  margin-left: 35rpx;
+  border: 4rpx solid #fff;
+  box-shadow: 1rpx 1rpx 2rpx 1rpx #ddd;
+}
+
+.base-info-view{
+  box-shadow: 1rpx 1rpx 2rpx 1rpx #e5e5e5;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  border-radius: 10rpx;
+  padding-bottom: 15rpx;
+}
+
+.base-info-box{
+  display: flex;
+  align-items: center;
+}
+
+.addr-text{
+  color: #999999;
+  font-size: 25rpx;
+}
+
+.laird-note{
+  font-size: 17rpx;
+  background-color: #f00;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  color: white;
+  margin-left: 10rpx;
+  border-radius: 4rpx;
+}
+
+.laird-name{
+  font-size: 27rpx;
+  margin-top: -5rpx;
+}
+
+.base-text-box{
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 20rpx;
+  margin-top: -12rpx;
+}
+
+.base-textright-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-note{
+  color: #999999;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+}
+
+.price{
+  font-size: 27rpx;
+}
+
+.operate-box{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+}
+
+.be-laird{
+  color: #FFBFBF;
+  padding-left: 125rpx;
+  padding-right: 125rpx;
+  padding-top: 7rpx;
+  padding-bottom: 3rpx;
+  background-color: #FE6464;
+  border-radius: 40rpx;
+  font-size: 27rpx;
+}
+
+.other-laird{
+  color: #FF0000;
+  padding-left: 55rpx;
+  padding-right: 55rpx;
+  padding-top: 5rpx;
+  border: 1rpx solid #f00;
+  border-radius: 40rpx;
+  font-size: 27rpx;
+}
+
+.lord-agreement-box{
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.lord-agreement-content{
+  background-color: #F5F5F5;
+  width: 86%;
+  height: 78%;
+  margin-top: 18%;
+  margin-left: 7%;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lord-agreement-titlebox{
+  display: flex;
+  height: 10%;
+  align-items: center;
+}
+
+.lord-agreement-title{
+  color: #000;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.lord-agreement-text{
+  height: 80%;
+  width: 90%;
+  padding-left: 15rpx;
+  padding-bottom: 22rpx;
+  padding-top: 22rpx;
+  padding-right: 15rpx;
+  background-color: #fff;
+  border-radius: 3%;
+  font-size: 27rpx;
+  overflow: scroll;
+}
+
+.lord-agreement-operate{
+  width: 96%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.lord-agreement-refuse{
+  width: 32%;
+  text-align: center;
+  color: #FF0000;
+  border: 1rpx solid #FF0000;
+  border-radius: 60rpx;
+  font-size: 26rpx;
+  padding-top: 8rpx;
+  padding-bottom: 4rpx;
+}
+
+.lord-agreement-agree{
+  width: 60%;
+  text-align: center;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 60rpx;
+  font-size: 26rpx;
+  padding-top: 8rpx;
+  padding-bottom: 4rpx;
+  margin-left: 5%;
+}
+
+.pay-box{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pay-content{
+  width: 78%;
+  background-color: #fff;
+  margin-left: 12%;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25rpx;
+}
+
+.pay-title{
+  text-align: center;
+  font-size: 28rpx;
+  color: #000;
+  padding: 30rpx;
+}
+
+.line{
+  width: 92%;
+  height: 1rpx;
+  background-color: #D0D0D0;
+}
+
+.line-title{
+  width: 100%;
+  height: 1rpx;
+  background-color: #D0D0D0;
+}
+
+.pay-money-note{
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  color: #999999;
+}
+
+.pay-money-box{
+  display: flex;
+  align-items: flex-end;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 12rpx;
+}
+
+.pay-money{
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.pay-unit{
+  font-size: 20rpx;
+  color: #000;
+  margin-bottom: 6rpx;
+  margin-left: 15rpx;
+}
+
+.pay-item-box{
+  width: 92%;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.pay-check{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.pay-icon{
+  width: 65rpx;
+  height: 65rpx;
+  margin-left: 25rpx;
+}
+
+.pay-text-box{
+  margin-left: 27rpx;
+}
+
+.pay-text{
+  color: #999999;
+  font-size: 26rpx;
+}
+
+.pay-note{
+  color: #999999;
+  font-size: 22rpx;
+  margin-top: -5rpx;
+}
+
+.pay-left{
+  display: flex;
+  align-items: center;
+}
+
+.chech-pay{
+  background-color: #00D76D;
+  color: #fff;
+  width: 90%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+  text-align: center; 
+  border-radius: 6rpx;
+  margin-top: 20rpx;
+}

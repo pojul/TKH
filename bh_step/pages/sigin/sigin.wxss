@@ -1,0 +1,469 @@
+.header-box {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 203rpx;
+    background-image: linear-gradient(90deg,#1dd49e 2%,#26bcc5 97%);
+}
+
+.remind-box {
+    padding-top: 36rpx;
+    margin-left: 38rpx;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.remind-text {
+    font-family: PingFangSC-Semibold;
+    font-size: 40rpx;
+    color: #ffffff;
+}
+
+.remind-push-box {
+    align-items: center;
+    display: -webkit-flex;
+    position: absolute;
+    right: 31rpx;
+}
+
+.remind-push-text {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #ffffff;
+    height: 33rpx;
+}
+
+.push-btn-container {
+    margin-left: 12rpx;
+    width: 68rpx;
+    height: 36rpx;
+    display: inline-block;
+}
+
+.remind-push-btn {
+    vertical-align: top;
+    width: 68rpx;
+    height: 36rpx;
+    background-size: 100% 100%;
+}
+
+.sign-in-list {
+    position: relative;
+    margin: 130rpx auto 46rpx;
+    width: 688rpx;
+    height: 289rpx;
+    background: #ffffff;
+    box-shadow: 0 10rpx 30rpx 3rpx rgba(0,0,0,0.08);
+    border-radius: 12rpx;
+    text-align: center;
+}
+
+.sign-in-item {
+    display: inline-block;
+    width: 68rpx;
+    text-align: center;
+    margin: 27rpx 10rpx 0;
+    position: relative;
+}
+
+.sign-in-reward-box {
+    text-align: center;
+    width: 100%;
+    height: 79.7rpx;
+    border-radius: 12rpx;
+    position: relative;
+}
+
+.sign-in-reward {
+    padding-top: 9rpx;
+    font-family: DINPro;
+    font-weight: bold;
+    font-size: 24rpx;
+    height: 24rpx;
+}
+
+.sign-in-day {
+    margin-top: 10rpx;
+    opacity: 0.6;
+    font-family: PingFangSC-Medium;
+    font-size: 24rpx;
+    color: #434343;
+    text-align: center;
+}
+
+.sign-in-tick {
+    margin: 16rpx auto;
+    width: 26rpx;
+    height: 19rpx;
+    display: block;
+}
+
+.sign-in-gold {
+    margin: 0 auto;
+    padding-top: 12rpx;
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.sign-in-gift {
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.have-sign {
+    color: #fff;
+    background-image: linear-gradient(-180deg,#ffbb00 0%,#ff8800 100%);
+}
+
+.not-sign {
+    color: #333333;
+    background: #f4f4f4;
+}
+
+.banner-list {
+    text-align: center;
+}
+
+.banner-item {
+    width: 214rpx;
+    height: 226rpx;
+    margin: 0 10rpx;
+}
+
+.ad-area-title {
+    display: inline-block;
+    margin-bottom: 26rpx;
+    margin-left: 30rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 36rpx;
+    color: #333333;
+    text-align: left;
+}
+
+.ad-area-subtitle {
+    margin-left: 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.ad-banner {
+    margin: 24rpx auto 44rpx;
+    width: 690rpx;
+    height: 210rpx;
+    display: block;
+    background: orange;
+}
+
+.sign-in-invite-box {
+    margin: 20rpx auto 0;
+    position: relative;
+    width: 480rpx;
+    height: 80rpx;
+    background-image: linear-gradient(90deg,#1dd49e 2%,#26bcc5 97%);
+    box-shadow: 0 6rpx 10rpx -2rpx rgba(37,191,193,0.5);
+    border-radius: 40rpx;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-icon {
+    position: absolute;
+    left: 0;
+    width: 90rpx;
+    height: 80rpx;
+    animation: movingLight 1s linear infinite;
+}
+
+.share-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 10rpx;
+}
+
+.sign-in-invite-text {
+    font-weight: bold;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #ffffff;
+}
+
+.transparent-btn {
+    width: 480rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: none;
+}
+
+.transparent-btn::after {
+    display: none;
+}
+
+@-webkit-keyframes movingLight {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes movingLight {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.adbanner {
+    width: 700rpx;
+    margin: 35rpx auto 64rpx;
+    overflow: hidden;
+}
+
+.halfbanner {
+    width: 335rpx;
+    height: 180rpx;
+    float: left;
+    margin-right: 32rpx;
+}
+
+.halfbanner:nth-child(even) {
+    margin-right: 0rpx;
+}
+
+.banner {
+    width: 690rpx;
+    height: 210rpx;
+    margin-bottom: 20rpx;
+}
+
+.pop-adbanner {
+    margin: 16rpx auto 0;
+    width: 622rpx;
+    height: 207rpx;
+}
+
+.pop-banner {
+    width: 622rpx;
+    height: 207rpx;
+}
+
+.sign-in-pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pop-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.sign-in-pop-content {
+    width: 662rpx;
+    height: 563rpx;
+    position: relative;
+    margin: 0 auto;
+    z-index: 103;
+}
+
+.title-box {
+    text-align: center;
+    margin-top: 66rpx;
+}
+
+.pop-title {
+    font-family: SourceHanSansCN-Bold;
+    font-weight: bold;
+    font-size: 40rpx;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-shadow: 0 3rpx 9rpx rgba(0,0,0,0.15);
+}
+
+.pop-redpack {
+    vertical-align: top;
+    width: 139rpx;
+    height: 149rpx;
+}
+
+.sign-in-data-box {
+    margin: -55rpx auto 0;
+    width: 594rpx;
+    height: 272rpx;
+    box-shadow: 0 3rpx 18rpx 0 rgba(0,0,0,0.15);
+    border-radius: 9rpx;
+    background: #fff;
+    padding: 6rpx;
+    position: relative;
+}
+
+.sign-in-data-box::before {
+    content: "";
+    width: 582rpx;
+    height: 260rpx;
+    box-sizing: border-box;
+    border: 2rpx solid #25bec2;
+    border-radius: 6rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0.4;
+}
+
+.sign-in-total {
+    margin-top: 39rpx;
+    opacity: 0.8;
+    font-family: PingFangSC-Medium;
+    font-size: 38rpx;
+    color: #333333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sign-in-reward-box-1 {
+    margin-top: 20rpx;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-in-reward-gold {
+    width: 100rpx;
+    height: 98rpx;
+}
+
+.plus {
+    margin-left: 15rpx;
+    margin-right: 12rpx;
+    font-size: 80rpx;
+    color: #ff8e00;
+}
+
+.sign-in-reward-text {
+    font-family: DINPro;
+    font-weight: bold;
+    font-size: 80rpx;
+    color: #ff8e00;
+}
+
+.remind-box-1 {
+    margin-top: 40rpx;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remind-tips {
+    font-family: PingFangSC-Medium;
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.remind-btn-wrap {
+    margin-left: 74rpx;
+    width: 89rpx;
+    height: 42rpx;
+}
+
+.remind-btn {
+    width: 89rpx;
+    height: 42rpx;
+    background-size: 100% 100%;
+}
+
+.switch-off-1 {
+    background-image: url("https://img.xmiles.cn/sign-in-pop/pop_switch_off.png");
+}
+
+.switch-on-1 {
+    background-image: url("https://img.xmiles.cn/sign-in-pop/pop_switch_on.png");
+}
+
+.close-pop {
+    position: absolute;
+    right: -10rpx;
+    top: -80rpx;
+    width: 44rpx;
+    height: 44rpx;
+    padding: 10rpx;
+}
+
+.ad-box {
+    width: 662rpx;
+    height: 324rpx;
+    display: block;
+    margin: 0 auto;
+    z-index: 103;
+}
+
+.connect-box {
+    margin: 0 auto;
+    height: 24rpx;
+    width: 80%;
+    background: transparent;
+    border-left: 3rpx solid #fff;
+    border-right: 3rpx solid #fff;
+    opacity: 0.7;
+}
+
+.ad-content-box {
+    width: 100%;
+    height: 300rpx;
+    background: #ffffff;
+    border-radius: 12rpx;
+    text-align: center;
+}
+
+.ad-area-title-box {
+    padding-top: 18rpx;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-area-title-1 {
+    opacity: 0.8;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333333;
+    text-align: center;
+    height: 42rpx;
+    margin-right: 10rpx;
+}
+
+.area-arrow {
+    width: 18rpx;
+    height: 20rpx;
+}
+
+.ad-banner {
+    margin-top: 16rpx;
+    width: 622rpx;
+    height: 207rpx;
+    background: orange;
+}

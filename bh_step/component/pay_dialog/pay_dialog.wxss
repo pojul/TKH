@@ -1,0 +1,134 @@
+/* bh_step/component/pay_dialog/pay_dialog.wxss */
+.pay-box{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+
+.pay-content-view{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pay-content{
+  width: 78%;
+  background-color: #fff;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25rpx;
+}
+
+.pay-title{
+  text-align: center;
+  font-size: 28rpx;
+  color: #000;
+  padding: 30rpx;
+}
+
+.line{
+  width: 92%;
+  height: 1px;
+  background-color: #D0D0D0;
+}
+
+.line-title{
+  width: 100%;
+  height: 1px;
+  background-color: #D0D0D0;
+}
+
+.pay-money-note{
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  color: #999999;
+}
+
+.pay-money-box{
+  display: flex;
+  align-items: flex-end;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 12rpx;
+}
+
+.pay-money{
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.pay-unit{
+  font-size: 20rpx;
+  color: #000;
+  margin-bottom: 6rpx;
+  margin-left: 15rpx;
+}
+
+.pay-item-box{
+  width: 92%;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.pay-check{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.pay-icon{
+  width: 65rpx;
+  height: 65rpx;
+  margin-left: 25rpx;
+}
+
+.pay-text-box{
+  margin-left: 27rpx;
+}
+
+.pay-text{
+  color: #999999;
+  font-size: 26rpx;
+}
+
+.pay-note{
+  color: #999999;
+  font-size: 22rpx;
+  margin-top: -5rpx;
+}
+
+.pay-left{
+  display: flex;
+  align-items: center;
+}
+
+.chech-pay{
+  background-color: #00D76D;
+  color: #fff;
+  width: 90%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+  text-align: center; 
+  border-radius: 6rpx;
+  margin-top: 20rpx;
+}
+
+.close-dialog{
+  color: #fff;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  padding: 10rpx;
+}

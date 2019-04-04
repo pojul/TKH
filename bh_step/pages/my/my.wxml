@@ -1,0 +1,202 @@
+<AcquireFormidView>
+    <view class="header-box">
+        <view class="user-info-box">
+            <image bindtap='toEditUserInfo' class="user-icon" src="{{head}}"></image>
+            <view class="user-text-box">
+                <view class="user-name">{{nickname}} 
+                <text style='font-size:24rpx;'>VIP{{level}}</text>
+                </view>
+                  <view class="user-sign" wx:if="{{head||nickname}}">
+                	                	
+                	<view style="position: relative;">
+                		<i-progress i-class="my-progress" percent="{{cur_level_perc}}" hide-info></i-progress>
+                		<view class="progress-text">{{exp}}/{{next_level_exp}}(成长值)
+			                <view wx:if="{{addedExp}}" style="margin-top:-26rpx;margin-left:-260rpx;animation-timing-function: ease-in-out;animation-name:fastUpAnimation;animation-duration:1.4s;">
+				                <image class="coin" src="/bh_step/images/star.png" mode="aspectFit" style="width:36rpx;height:36rpx;"/>
+				                	<text style="font-size:30rpx;">+{{addedExp}}</text>
+			                </view>	
+                		</view>
+                	</view>
+                	<view style="display: flex;">
+                		<view style="flex:1;text-align: left;">
+                			VIP{{level}}
+                		</view>
+                		<view style="flex:1;text-align: right;">
+                			VIP{{level+1}}(运动币<text class="text-color-yellow">+{{next_level_prev.add_percent}}%</text>)
+                		</view>
+                	</view>
+                </view>
+                <button bindgetuserinfo="getUserInfo" bindtap="maidian" class="useraccredit" lang="zh_CN" openType="getUserInfo" wx:if="{{!head&&!nickname}}">
+	          			授权微信个人信息
+	          			<image class="smallicon" src="./img/arricon.png"></image>
+                </button>
+            </view>
+            <navigator url="/bh_step/pages/vipintro/vipintro" class="tip-btn">查看特权</navigator>
+        </view>
+        <view class="record-box">
+            <view bindtap="gotoCoinDetail" class="record-item" data-text="运动币余额">
+                <view class='text-color-light-gold'>{{currency}}</view>
+                <text >运动币余额</text>
+                <image class="my-currency-icon" src="img/shouzhi.png"></image>
+            </view>
+            <view bindtap="gotoMyIncomeDetail" class="record-item" data-text="累计运动币" wx:if="{{bag_switch==1}}">
+                <view class='text-color-light-gold'>{{money}}<text style="font-size:26rpx;">元</text>
+                </view>
+                <text>我的收益</text>
+                <image class="my-withdraw-icon" src="img/tixian.png"></image>
+            </view>
+        </view>
+        
+        <view  style="width:50%;">
+        	<view bindtap='transMoney' class="my-btn" style="font-size: 24rpx;">转为收益</view>
+        </view>
+        <view style="text-align: center;color: #fff;font-size: 26rpx;margin-top:20rpx;">
+        	*兑现比例：1000运动币=1元
+        </view>
+    </view>
+
+    <view class='other-box'>
+          <view class='other-item' bindtap='toMyTerritory'>
+            <image class='other-item-icon' src='../../images/territory.png'></image>
+            <view class='other-item-note'>领地</view>
+          </view>
+          <view class='other-item' bindtap='toMember'>
+            <image class='other-item-icon' src='../../images/member.png'></image>
+            <view class='other-item-note'>会员</view>
+          </view>
+          <view class='other-item' bindtap='toNews'>
+            <image class='other-item-icon' src='../../images/notify.png'></image>
+            <view class='other-item-note'>消息</view>
+          </view>
+        </view>
+    
+    <view class="content-container" >
+    	<view class="main-title text-color-title bg-color-white">
+    		VIP限时福利
+    	</view>
+    	<view class="weui-flex item bg-color-white" >
+    		<view class="weui-flex__item">
+    			<view class="item-title">
+    				<text style="font-size: 30rpx;">邀请好友 </text>
+    				<image wx:if="{{img_url}}" class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" />
+    				<text class="text-color-red"> +{{invitation_currency_start}}<block wx:if="{{invitation_currency_end!=invitation_currency_start}}">-{{invitation_currency_end}}</block>运动币 </text>
+    			</view>
+    			<view>
+    				<image class="coin" src="/bh_step/images/star.png" mode="aspectFit" />
+    				<text class="text-color-red"> +50成长值 </text>
+    				<text class="text-color-extra2">（每天可多次完成）</text>
+    			</view>
+    		</view>
+    		<view >
+    			<button class="inviteBtn gradient-btn" data-module="邀请好友领运动币" openType="share">邀请</button>
+    		</view>
+    		
+    	</view>
+    </view>
+    
+     <view class="content-container" style="margin-top:20rpx;">
+    	<view class="main-title text-color-title bg-color-white">
+    		VIP成长任务
+    	</view>
+      
+    	<navigator url="/bh_step/pages/index/index" open-type="switchTab" class="weui-flex item bg-color-white" >
+    		<view class="weui-flex__item">
+    			<view class="item-title">
+    				<text style="font-size: 30rpx;">体验小程序 </text>
+    			</view>
+    			<view>
+    				<image class="coin" src="/bh_step/images/star.png" mode="aspectFit" />
+    				<text class="text-color-red"> +10成长值 </text>
+    				<text class="text-color-extra2">（每天可多次完成）</text>
+    			</view>
+    		</view>
+    		<view >
+    			<button class="inviteBtn gradient-btn" data-module="邀请好友领运动币">去体验</button>
+    		</view>
+    	</navigator>
+
+      <view class="weui-flex item bg-color-white" >
+    		<ad unit-id="adunit-ea4d2b51c96bb7a8"></ad>
+    	</view>
+    	
+    	<navigator url="/bh_step/pages/lottery/lottery"   class="weui-flex item bg-color-white" >
+    		<view class="weui-flex__item">
+    			<view class="item-title">
+    				<text style="font-size: 30rpx;">每日抽奖 </text>
+    			</view>
+    			<view>
+    				<image class="coin" src="/bh_step/images/star.png" mode="aspectFit" />
+    				<text class="text-color-red"> +10成长值 </text>
+    			</view>
+    		</view>
+    		<view wx:if="{{lottery}}">
+    			<button class="inviteBtn bg-color-gray">去抽奖</button>
+    		</view>
+    		<view wx:else>
+    			<button class="inviteBtn gradient-btn">去抽奖</button>
+    		</view>
+    		
+    	</navigator>
+    	
+    	<navigator url="/bh_step/pages/goodsconvert/goodsconvert" open-type="switchTab"  class="weui-flex item bg-color-white" >
+    		<view class="weui-flex__item">
+    			<view url="/bh_step/pages/goodsconvert/goodsconvert" open-type="switchTab" class="item-title">
+    				<text style="font-size: 30rpx;">获得一件商品 </text>
+    			</view>
+    			<view>
+    				<image class="coin" src="/bh_step/images/star.png" mode="aspectFit" />
+    				<text class="text-color-red"> +200成长值 </text>
+    				<text class="text-color-extra2">（每天可多次完成）</text>
+    			</view>
+    		</view>
+    		<view >
+    			<button class="inviteBtn gradient-btn">去兑奖</button>
+    		</view>
+    	</navigator>
+    	
+    	<view class="weui-flex item bg-color-white" >
+    		<view class="weui-flex__item">
+    			<view class="item-title">
+    				<text style="font-size: 30rpx;">每日签到 </text>
+    			</view>
+    			<view>
+    				<image class="coin" src="/bh_step/images/star.png" mode="aspectFit" />
+    				<text class="text-color-red" style="line-height: 44rpx;"> +10成长值 </text>
+    			</view>
+    		</view>
+    		<view wx:if="{{today_signin}}">
+    			<button class="inviteBtn bg-color-gray">已签到</button>
+    		</view>
+    		<view wx:else>
+    			<button class="inviteBtn gradient-btn">去签到</button>
+    		</view>
+    	</view>
+    	
+    	<navigator url="/bh_step/pages/defiance/defiance" open-type="switchTab"   class="weui-flex item bg-color-white" >
+    		<view class="weui-flex__item">
+    			<view class="item-title">
+    				<text style="font-size: 30rpx;">参加每日步数挑战 </text>
+    			</view>
+    			<view>
+    				<image class="coin" src="/bh_step/images/star.png" mode="aspectFit" />
+    				<text class="text-color-red"> +10成长值 </text>
+    			</view>
+    		</view>
+    		<view wx:if="{{accept_defince}}">
+    			<button class="inviteBtn bg-color-gray">已报名</button>
+    		</view>
+    		<view wx:else>
+    			<button class="inviteBtn gradient-btn">去报名</button>
+    		</view>
+    	</navigator>
+    </view>
+  
+    <gz-gzh-pop followCoin="{{followCoin}}" isShow="{{isShowGZGZHpop}}"></gz-gzh-pop>
+    <dia-log beijing="{{true}}" isshow="{{ishowdialog}}" isshowclose="{{false}}">
+        <view class="mydialog" wx:if="{{dialogstate=='userinfo'}}">
+            <view class="diatitle">授权微信个人信息</view>
+            <view class="diatext">为您提供全部功能</view>
+            <button bindgetuserinfo="onGotUserInfo" bindtap="closedialog" class="mydiabtn" lang="zh_CN" openType="getUserInfo"></button>
+        </view>
+    </dia-log>
+</AcquireFormidView>

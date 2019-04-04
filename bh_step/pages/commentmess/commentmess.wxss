@@ -1,0 +1,64 @@
+/* bh_step/pages/commentmess/commentmess.wxss */
+
+page{
+  background-color: #fff;
+}
+
+.item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 35rpx;
+  padding-top: 25rpx;
+  padding-right: 20rpx;
+}
+
+.left-box{
+  display: flex;
+}
+
+.photo{
+  width: 85rpx;
+  height: 85rpx;
+  border-radius: 50rpx;
+}
+
+.pic{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.text-box{
+  margin-left: 15rpx;
+}
+
+.note{
+  color: #999999;
+  font-size: 25rpx;
+}
+
+.text{
+  font-size: 30rpx;
+  color: #000;
+}
+
+.time{
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.line{
+  width: 720rpx;
+  height: 1rpx;
+  background-color: #EDEDED;
+  margin-top: 25rpx;
+  margin-left: 120rpx;
+}
+
+.no-more{
+  text-align: center;
+  color: #999999;
+  font-size: 22rpx;
+  margin-top: 28rpx;
+  padding-bottom: 50rpx;
+}

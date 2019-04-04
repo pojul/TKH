@@ -1,0 +1,34 @@
+<view class="public-card"></view>
+<view bindtap="writeOff" class="card-item" data-value="{{index}}" style="" wx:if="{{voucher.length>0}}" wx:for="{{voucher}}">
+    <view class="waybill-info" style="background:url({{item.status==2?used:notused}}) no-repeat 20rpx 20rpx;background-size:170rpx;background-position:right;ackground-color">
+        <view class="waybill-left" style="{{item.status==2?'color: #909090':''}}">
+        {{item.goods.goods_name}}
+      </view>
+    </view>
+    <view class="order-card">
+        <view class="driver-bh"></view>
+        <view class="address-card">
+            <view class="label-info">
+                <view class="{{item.status==2?'status2':''}}">
+          核销店铺： {{item.shop.shop_name}}
+          <text></text>
+                </view>
+                <view class="{{item.status==2?'status2':''}}">
+          领取时间：{{item.created}}
+        </view>
+            </view>
+        </view>
+        <view class="driver"></view>
+    </view>
+    <view class="public-card"></view>
+</view>
+<view class="container" wx:if="{{voucher.length==0}}">
+    <view class="img-box">
+        <image class="box-image" src="{{img_url}}/step2gift/my_orders_nodata.png"></image>
+        <text class="img-text">您没有相关优惠券~</text>
+    </view>
+    <view class="btn-pre">
+        <view bindtap="nagativeToIndex" class="btn-change" hoverClass="btn-hover">去兑换领取</view>
+    </view>
+</view>
+<guidancePop isShowPop="{{isShowCourse}}" name="{{wechat_subscription}}" tip="{{auto_ship_tip}}"></guidancePop>

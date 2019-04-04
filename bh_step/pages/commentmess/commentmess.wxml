@@ -1,0 +1,15 @@
+<!--bh_step/pages/commentmess/commentmess.wxml-->
+<view class='item' wx:for="{{listDatas}}" bindtap='toPostDetail' data-postid="{{item.post_id}}">
+  <view class='left-box'>
+    <image class='photo' src="{{item.member_head}}"></image>
+    <view class='text-box'>
+      <view class='note'>贝壳风铃评论了你</view>
+      <view class='text'>{{!item.reply?'':item.reply}}</view>
+      <view class='time'>{{item.create_time}}</view>
+    </view>
+  </view>
+  <image mode='aspectFill' class='pic' src="{{item.post_img[0]}}"></image>
+</view>
+<view class='line'></view>
+
+<view class='no-more'>{{!hasMore?'一 没有更多了 一':'数据加载中'}}</view>

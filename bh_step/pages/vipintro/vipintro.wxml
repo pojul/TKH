@@ -1,0 +1,77 @@
+<AcquireFormidView>
+	<view class="header-box">
+		<view style="font-size: 60rpx;color:#fff;text-shadow:-1px 3px 3px #ee0000;font-family: PingFangSC-Semibold;position:relative;">
+			VIP等级特权
+			<view bindtap="showTip" class="my-btn">加成说明</view>
+		</view>
+		<view style="font-size: 30rpx;color:#fff;">
+			你现在是<text class="text-color-yellow">VIP1</text> 单日提现限额提高
+		</view>
+		<view class='red-btn'>
+			做VIP限时福利和成长任务可快速升级
+		</view>
+	</view>
+	<view class="router-box  bg-color-white-smoke">
+		<view class="weui-flex content-item">
+			<view class="left">等级</view>
+			<view class="right">特权</view>
+		</view>
+
+		<view wx:for="{{conf}}" class="weui-flex content-item bg-color-white">
+			<view class="left-text">VIP{{item.lv}}</view>
+			<view class="text-color-extra2 right-text">
+        <block wx:if="{{item.lv == 1}}">
+				  当日提现限额提高为<text class="text-color-red">20</text>元
+        </block>
+        <block wx:else>
+          <block wx:if="{{item.add_percent>0}}">
+            运动币加成<text class="text-color-red">{{item.add_percent}}%</text>
+          </block>
+          <block wx:if="{{item.bag_min>0}}">
+				    <text style='margin-left:20rpx;' class="text-color-red">{{item.bag_min}}~{{item.bag_max}}</text>元随机红包
+          </block>
+        </block>
+				
+			</view>
+		</view>
+ 
+
+	</view>
+</AcquireFormidView>
+
+<view class="pop-content" wx:if="{{mask}}">
+	<view class="main" style="font-size:24rpx;color:#B08450;">
+		<text bindtap="toggleMask" class="close-btn">点击关闭</text>
+		
+    <view  class="red-btn" style='font-size:28rpx;border-radius:10rpx;'>活动规则</view>
+
+    <view class='tip-main'>
+      <view style="width:13%;">
+        <text class="red-btn" >1</text>
+      </view>
+      <view style='flex:1;'>
+        运动币加成是对每天步数获得的运动币和体验任务获得的运动币进行加成
+      </view>
+    </view>
+    <view class='tip-main'>
+      <view style="width:13%;">
+        <text class="red-btn" >2</text>
+      </view>
+      <view style='flex:1;'>
+        每天收取步数金币时，运动币加成会自动增加对应的数值
+      </view>
+    </view>
+    <view class='tip-main'>
+      <view style="width:13%;">
+        <text class="red-btn" >3</text>
+      </view>
+      <view style='flex:1;'>
+        每次完成体验任务时，运动币加成会自动增加对应的数值
+      </view>
+    </view>
+
+	</view>
+
+</view>
+
+<view class="pop-mask" wx:if="{{mask}}" bindtap="toggleMask"></view>

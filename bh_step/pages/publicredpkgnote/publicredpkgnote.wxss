@@ -1,0 +1,48 @@
+/* bh_step/pages/publicredpkgnote/publicredpkgnote.wxss */
+page{
+  background-color: #fff;
+}
+
+.note-text{
+  width: 550rpx;
+  margin-left: 100rpx;
+  margin-top: 100rpx;
+}
+
+.bottom-box{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.public_redpkg{
+  width: 168rpx;
+  height: 168rpx;
+}
+
+.public-note{
+  font-size: 34rpx;
+  color: #000;
+  margin-top: 5rpx;
+}
+
+.free-redpak{
+  color: #999999;
+  font-size: 23rpx;
+  margin-top: 12rpx;
+}
+
+checkbox .wx-checkbox-input {
+  width: 27rpx;
+  height: 27rpx;
+}
+
+.close{
+  width: 42rpx;
+  height: 42rpx;
+  margin-top: 70rpx;
+  margin-bottom: 32rpx;
+}

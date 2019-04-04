@@ -1,0 +1,465 @@
+.container {
+    margin-bottom: 136rpx;
+}
+
+.bodyLock {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+}
+
+.detial-lib {
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.06);
+    margin: 24rpx 20rpx;
+    height: initial;
+    border-radius: 12px;
+}
+
+.lib-share {
+    background-image: linear-gradient(-90deg,#1DD49E 2%,#26BCC5 97%);
+    color: #fff;
+    border-radius: 100rpx;
+    width: 360rpx;
+    height: 78rpx;
+    text-align: center;
+    font-size: 32rpx;
+    line-height: 78rpx;
+    margin: 50rpx auto 0rpx auto;
+    border: none;
+    box-shadow: 0rpx 6rpx 10rpx -2rpx rgba(37,190,193,0.5);
+}
+
+.btn-share {
+    position: relative;
+}
+
+.share-img {
+    width: 36rpx;
+    height: 36rpx;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+.lib-share::after {
+    border: none;
+}
+
+.lib-explain {
+    font-size: 24rpx;
+    color: #999999;
+    line-height: 33rpx;
+    margin: 31rpx auto 0rpx auto;
+    text-align: center;
+    padding-bottom: 48rpx;
+}
+
+.lib-stepshow {
+    margin: 48rpx 20rpx;
+    padding: 42rpx 0 0 0;
+}
+
+.lib-title {
+    margin: 0rpx auto 0rpx auto;
+    font-size: 42rpx;
+    color: #434343;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lib-title text {
+    color: #26BCC5;
+    font-family: 'DIN Alternate';
+}
+
+.lib-litleTip {
+    font-size: 30rpx;
+    color: #666666;
+    text-align: center;
+    margin: 0rpx auto 24rpx auto;
+    display: block;
+}
+
+.progress {
+    height: 18rpx;
+    background: #F4F4F4;
+    overflow: visible;
+    border-radius: 100rpx;
+    margin: 18rpx 36rpx 0 34rpx;
+}
+
+.progress .progress-bar {
+    position: relative;
+    animation: animate-positive 2s;
+}
+
+.progress-bar.active {
+    animation: reverse progress-bar-stripes 0.40s linear infinite,animate-positive 2s;
+}
+
+@-webkit-keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}
+
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #FFAD5F;
+    border-radius: 0rpx 100rpx 100rpx 0rpx;
+    transition: width .6s ease;
+}
+
+.my-progress {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #1DD49E;
+    transition: width .6s ease;
+    border-top-left-radius: 9rpx;
+    border-bottom-left-radius: 9rpx;
+    position: relative;
+    animation: animate-positive 2s;
+}
+
+.progress-target {
+    font-size: 24rpx;
+    color: #999999;
+    text-align: right;
+    margin-right: 36rpx;
+}
+
+.lib-pro-content {
+    font-size: 24rpx;
+    color: #666666;
+    line-height: 33rpx;
+    padding: 24rpx 31rpx 42rpx 36rpx;
+}
+
+.pro-my {
+    display: flex;
+    position: relative;
+    margin-bottom: 12rpx;
+    padding-left: 18rpx;
+}
+
+.pro-friend {
+    display: flex;
+    position: relative;
+    padding-left: 18rpx;
+}
+
+.pro-tip {
+    color: #FC8A1D;
+}
+
+.color-explain {
+    position: absolute;
+    left: 0rpx;
+    border-radius: 6px;
+    width: 12rpx;
+    height: 12rpx;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.my-color {
+    background: #1DD49E;
+}
+
+.friend-color {
+    background: #FFAD5F;
+}
+
+.btn-all {
+    color: #269AFF;
+}
+
+.friend-content {
+    padding: 0 25rpx 42rpx 25rpx;
+}
+
+.friend-item {
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 18rpx;
+    margin-right: 24rpx;
+}
+
+.friend-item:nth-child(6n) {
+    margin-right: 0rpx;
+}
+
+.head-view {
+    max-width: 90rpx;
+    max-height: 90rpx;
+    border-radius: 50%;
+    border: 0rpx solid #ddd;
+    overflow: hidden;
+    margin: 0rpx auto 18rpx auto;
+}
+
+.head-img {
+    max-width: 90rpx;
+    max-height: 90rpx;
+}
+
+.friend-step {
+    font-size: 22rpx;
+    color: #434343;
+    text-align: center;
+}
+
+.show-title {
+    margin-left: 30rpx;
+    font-size: 42rpx;
+    line-height: 59rpx;
+    color: #030303;
+    font-weight: bold;
+    background: linear-gradient(to bottom,#ffffff 60%,#D4F2F3 40%);
+    margin-bottom: 34rpx;
+    float: left;
+}
+
+.img-item {
+    width: 100%;
+}
+
+.btn-plus {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 128rpx;
+    background-color: #ffffff;
+    border-top: 1rpx solid #dcdcdc;
+}
+
+.btn-change {
+    color: #fff;
+    background-image: linear-gradient(-90deg,#1DD49E 0%,#26BCC5 100%);
+    letter-spacing: -1.22px;
+    border: none;
+    width: 93.6%;
+    height: 90rpx;
+    border-radius: 8rpx;
+    line-height: 90rpx;
+}
+
+.btn-change:after {
+    border: none;
+}
+
+.gray {
+    background: #D5D5D5;
+    box-shadow: 0 2px 3px 0 rgba(34,34,34,0.10);
+}
+
+.explian-icon {
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 20;
+}
+
+.litleCard {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 25;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.fix-iphonex-button {
+    bottom: 68rpx!important;
+}
+
+.fix-iphonex-button::after {
+    content: ' ';
+    position: fixed;
+    bottom: 0!important;
+    height: 68rpx!important;
+    width: 100%;
+    background: #fff;
+}
+
+.show-container {
+    margin-bottom: 128rpx;
+}
+
+.show-container:after {
+    margin-bottom: 128rpx;
+}
+
+.fix-iphonex-container {
+    padding-bottom: 196rpx;
+    margin-bottom: 196rpx;
+}
+
+.fix-iphonex-container:after {
+    padding-bottom: 196rpx;
+    margin-bottom: 196rpx;
+}
+
+.fix-iphone-container {
+    padding-bottom: 128rpx;
+}
+
+.fix-iphone-container:after {
+    padding-bottom: 128rpx;
+}
+
+.friend-button::after {
+    border: none;
+}
+
+.all {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.media-box {
+    position: relative;
+}
+
+.media-box_appmsg {
+    display: flex;
+    width: 100%;
+}
+
+.cell_active {
+    background-color: #ececec;
+}
+
+.media-box__hd_in-appmsg {
+    margin: 20rpx 20rpx 28rpx 20rpx;
+    width: 186rpx;
+    height: 186rpx;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.media-box__bd_in-appmsg {
+    -webkit-box-flex: 1;
+    flex: 1;
+    min-width: 0;
+    margin: 31rpx 21rpx 29rpx 0rpx;
+    position: relative;
+}
+
+.media-box__thumb {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto auto;
+}
+
+.media-box__title {
+    font-weight: 500;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    width: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 20rpx;
+}
+
+.media-box__content {
+    position: absolute;
+    bottom: 42rpx;
+}
+
+.text-pre {
+    font-size: 24rpx;
+    color: #999999;
+    text-decoration: line-through;
+}
+
+.media-box__desc {
+    color: #666666;
+    font-size: 28rpx;
+    display: -webkit-box;
+    position: absolute;
+    bottom: 0;
+    align-content: flex-end;
+}
+
+.text-orangered {
+    color: #26BCC5;
+    font-size: 42rpx;
+    font-family: DIN Alternate;
+}
+
+.text-tag {
+    font-size: 22rpx;
+    color: #FC8A1D;
+    border-radius: 2rpx;
+    border-color: rgba(252,138,29,0.24);
+    background-color: rgba(252,138,29,0.1);
+    padding: 5rpx 7rpx 5rpx 7rpx;
+    margin-right: 4rpx;
+}
+
+.bottom_right {
+    font-size: 24rpx;
+    font-weight: 300;
+    color: #999999;
+    margin-top: 16rpx;
+    position: absolute;
+    right: 0rpx;
+    top: 125rpx;
+}
+
+.attract {
+    color: #26A0BD;
+    font-weight: bold;
+    font-family: DIN Alternate;
+}
+
+.newusertag {
+    background-size: 100%;
+    width: 70rpx;
+    height: 70rpx;
+    z-index: 10;
+}

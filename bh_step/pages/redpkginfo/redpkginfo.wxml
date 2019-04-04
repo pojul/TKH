@@ -1,0 +1,93 @@
+<!--bh_step/pages/redpkginfo/redpkginfo.wxml-->
+<image class='topbg' src='../../images/collarmoney_topbg.png'></image>
+<view class='top-box'>
+  <image class='photo' src="{{postDetails.head}}"></image>
+  <view class='user-name-box'>
+    <view class='user-name'>{{postDetails.nickname}}</view>
+    <view class='user-name-note'>的红包</view>
+  </view>
+
+  <view class='redpkg-status'>{{redpkgStatusStr}}</view>
+  <view class='more-interested'>下方内容更精彩</view>
+</view>
+
+<view class='content-bg'>
+
+  <view class='recent-visitors-note'>已领取：</view>
+  <view bindtap='toRedpkgDetail' class='recent-visitors-box'>
+    <image wx:for="{{recUsers}}" class='recent-visitor-photo' src="{{item.member_head}}"></image>
+  </view>
+
+  <view class='line'></view>
+
+  <view class='content'>
+    <view class='content-title'>{{postDetails.title}}</view>
+    <view class='content-photo-box'>
+      <image mode='aspectFill' wx:for="{{postDetails.pic}}" class="{{index%3==1?'content-photo-center':'content-photo'}}" 
+       src="{{item}}"></image>
+    </view>
+    <view wx:if="{{postDetails.site_url_link != 'undefined' && postDetails.site_url_link != null && postDetails.site_url_link != ''}}" bindtap='toOutLink' class='url-link'>{{(postDetails.site_url_title != 'undefined' && postDetails.site_url_title != null && postDetails.site_url_title != '')?'网址链接':postDetails.site_url_title}}</view>
+    <view class='operate-box'>
+      <button bindtap='thumpUpPost' class='thumbup-box'>
+        <image class='content-thumbup' src="{{postDetails.is_like?'../../images/thumbup.png':'../../images/thumbup_gray.png'}}"></image>
+      </button>
+      <button open-type="share" class='share-box'>
+        <image class='content-share-icon' src='../../images/wechat_icon.png'></image>
+        <view class='content-share-title'>分享微信</view>
+      </button>
+    </view>
+  </view>
+
+  <view class='line-think'></view>
+
+  <view class='replys-box'>
+    <view class='replys-top'>
+      <view class='replys-top-text'>评论　{{postDetails.comment_count}}</view>
+      <view class='replys-top-text'>{{postDetails.like_count}}　赞</view>
+    </view>
+    <view class='line1'></view>
+    <view wx:for="{{replys}}" class='reply-item'>
+      <view class='user-info'>
+        <image class='reply-photo' src="{{item.head}}"></image>
+        <view class='user-text-info'>
+          <view class='reply-name'>{{item.nickname}}</view>
+          <view class='reply-text'>{{item.body}}</view>
+          <view class='reply-date-box'>
+            <view class='reply-date'>{{item.create_time}}</view>
+            <view class='subreply-note' bindtap='showSubPostReply' data-replyindex="{{index}}">回复</view>
+          </view>
+          <view wx:if="{{item.reply_list && item.reply_list.length > 0}}" class='subreply-box'>
+            <view class='subreply-item' wx:for="{{item.reply_list}}" wx:for-index="sub-index" wx:for-item="subItem">
+              <view class='subreply-name'>{{subItem.nickname}}回复{{item.nickname}}：</view>
+              <view class='subreply-text'>{{subItem.body}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='item-thumbup-box'>
+        <image wx:if="{{ownerMemberId==item.member_id}}" bindtap='showDeleteReply' data-postindex="{{index}}" class='delete-reply' src='../../images/delete_black.png'></image>
+        <image bindtap='replyLike' data-postindex="{{index}}" class='item-thumbup-icon' src="{{item.is_like?'../../images/thumbup.png':'../../images/thumbup_gray.png'}}"></image>
+        <view bindtap='replyLike' data-postindex="{{index}}" class="{{item.is_like?'item-thumbup-textactive':'item-thumbup-text'}}">赞</view>
+      </view>
+    </view>
+    <view wx:if="{{!hasMoreReplys}}" class='replys-bottom'>一 没有更多了 一</view>
+    <view wx:if="{{hasMoreReplys}}" class='replys-bottom'>加载中...</view>
+  </view>
+
+</view>
+
+<view class='bottom-box'>
+  <input bindinput='replyTextChange' class='input-box' placeholder='禁止在他人评论区发广告'
+  value='{{replyText}}'></input>
+  <image bindtap='postReply' src='../../images/message_black.png' class='chat'></image>
+  <image bindtap='thumpUpPost' src="{{postDetails.is_like?'../../images/thumbup.png':'../../images/thumbup_gray.png'}}" class='bottom-thumbup'></image>
+</view>
+
+<image wx:if="{{ownerMemberId!=postDetails.member_id}}" bindtap='followUser' class='add-box' src="{{postDetails.is_follow?'../../images/gou.png':'../../images/add.png'}}"></image>
+
+<view class='redpkg-loc'>{{postDetails.location_range}}</view>
+
+<!-- <image mode='widthFix' class='renew' src='../../images/renew.png'></image> -->
+<image bindtap='toRedpkgReport' mode='widthFix' class='report' src='../../images/report.png'></image>
+
+<reply-dialog show="{{showSubReply}}" bind:checkReply="checkReply"></reply-dialog>

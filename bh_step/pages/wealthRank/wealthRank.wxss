@@ -1,0 +1,319 @@
+.banner {
+    display: block;
+    width: 100%;
+    height: 270rpx;
+    background: #13dbc6;
+    background-size: 100% 100%;
+}
+
+.tab-box {
+    display: flex;
+    width: 100%;
+    height: 102rpx;
+    line-height: 102rpx;
+    background: #00b0b9;
+}
+
+.tab-item {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 32rpx;
+    opacity: 0.8;
+    font-family: PingFangSC-Regular;
+    background-color: #FFF;
+}
+
+.tab-descr {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 15rpx solid transparent;
+    border-right: 15rpx solid transparent;
+    border-bottom: 15rpx solid #fff;
+    transform: translateX(-50%);
+}
+
+.text-select {
+    opacity: 1;
+    font-family: PingFangSC-Semibold;
+    border-bottom: 5rpx solid #F8F8F8;
+}
+
+.selectd {
+    color: #1ECFA5;
+    border-bottom: 5rpx solid #1dd49e;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    height: 71rpx;
+    width: 100%;
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    color: #999;
+    text-align: center;
+}
+
+.nav-user {
+    margin-left: 42rpx;
+    width: 242rpx;
+}
+
+.nav-coin {
+    margin-left: 42rpx;
+    width: 190rpx;
+}
+
+.nav-sign {
+    margin-left: 42rpx;
+    width: 150rpx;
+}
+
+.line {
+    height: 18rpx;
+    background: #f2f2f2;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 138rpx;
+}
+
+.user-info {
+    position: relative;
+    margin-left: 42rpx;
+    width: 242rpx;
+    height: 82rpx;
+}
+
+.rank-descr {
+    position: absolute;
+    left: -3rpx;
+    top: -22rpx;
+    width: 90rpx;
+    height: 107rpx;
+    z-index: -5;
+}
+
+.user-icon {
+    width: 82rpx;
+    height: 82rpx;
+    background-size: 100% 100%;
+    background: #eee;
+    border-radius: 50%;
+}
+
+.user-rank {
+    position: absolute;
+    top: 7rpx;
+    left: 91rpx;
+    font-family: DINAlternate-Bold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.83px;
+    text-align: left;
+}
+
+.user-name {
+    position: absolute;
+    top: 45rpx;
+    left: 90rpx;
+    width: 148rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666;
+    text-align: left;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.user-rank-get-info {
+    position: absolute;
+    top: 0;
+    left: 135rpx;
+    color: #ffb83a;
+}
+
+.user-get-info {
+    position: absolute;
+    top: 40rpx;
+    left: 95rpx;
+    width: 146rpx;
+    height: 42rpx;
+    background-image: linear-gradient(-90deg,#fd8c1d 0%,#febc29 100%);
+    border-radius: 100rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 22rpx;
+    color: #fff;
+    line-height: 42rpx;
+    text-align: center;
+}
+
+@media only screen and (min-width:0px) and (max-width:320px) {
+    .user-get-info {
+        position: absolute;
+        top: 40rpx;
+        left: 95rpx;
+        width: 160rpx;
+        height: 42rpx;
+        background-image: linear-gradient(-90deg,#fd8c1d 0%,#febc29 100%);
+        border-radius: 100rpx;
+        font-family: PingFangSC-Medium;
+        font-size: 22rpx;
+        color: #fff;
+        line-height: 42rpx;
+        text-align: center;
+    }
+}
+
+.user-get-info::after {
+    display: none;
+}
+
+.user-coin {
+    width: 190rpx;
+    margin-left: 42rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #333;
+    text-align: center;
+}
+
+.sign-btn {
+    margin-left: 42rpx;
+    width: 150rpx;
+    height: 60rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 24rpx;
+    border-radius: 30rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.no-sign {
+    color: #fff;
+    background-image: linear-gradient(-90deg,#26bcc5 2%,#1dd49e 97%);
+    box-shadow: 0 6px 10px -2px rgba(37,191,193,0.50);
+}
+
+.finish-sign {
+    opacity: 0.6;
+    background: #f4f4f4;
+    color: #999;
+}
+
+.no-friend-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-friend-img {
+    margin-top: 66rpx;
+    width: 415rpx;
+    height: 218rpx;
+}
+
+.no-friend-tip {
+    margin-top: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 36rpx;
+    color: #434343;
+    text-align: center;
+}
+
+.no-friend-btn {
+    margin-top: 36rpx;
+    width: 360rpx;
+    height: 78rpx;
+}
+
+.more-invite-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 240rpx;
+}
+
+.invite-btn {
+    border-radius: 100rpx;
+    line-height: 78rpx;
+    color: #fff;
+    text-align: center;
+    background-image: linear-gradient(-90deg,#26bcc5 2%,#1dd49e 97%);
+    box-shadow: 0 6px 10px -2px rgba(37,191,193,0.50);
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+}
+
+.more-invite-btn {
+    width: 420rpx;
+    height: 78rpx;
+}
+
+.more-invite-tip {
+    margin-top: 18rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #999;
+    text-align: left;
+}
+
+.update-tip {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #999;
+    text-align: left;
+}
+
+.nav-user-all {
+    display: flex;
+    flex: 1;
+    width: 1px;
+    margin-left: 42rpx;
+}
+
+.nav-coin-all {
+    display: flex;
+    flex: 1;
+    width: 1px;
+    margin-right: 42rpx;
+    justify-content: flex-end;
+}
+
+.user-coin-all {
+    position: absolute;
+    right: 42rpx;
+    margin-top: 17rpx;
+}
+
+.user-info-all {
+    position: relative;
+    margin-left: 42rpx;
+    width: 220rpx;
+    height: 82rpx;
+}
+
+.no-1 {
+    color: #FFB83A;
+}
+
+.no-2 {
+    color: #ADB3BD;
+}
+
+.no-3 {
+    color: #E2A190;
+}

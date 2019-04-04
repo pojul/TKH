@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "i-icon": "../../../component/iview/icon/index"
+  }
+}

@@ -1,0 +1,129 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx71a6d550a8e1f07f",
+	"projectname": "%E6%8B%93%E5%AE%A2%E6%B1%87",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 13,
+			"list": [
+				{
+					"id": 0,
+					"name": "商城首页goodsconvert",
+					"pathName": "bh_step/pages/goodsconvert/goodsconvert",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "金币商品详情currencyGoods",
+					"pathName": "bh_step/pages/currencyGoods/currencyGoods",
+					"query": "id=5"
+				},
+				{
+					"id": 2,
+					"name": "我的",
+					"pathName": "bh_step/pages/my/my",
+					"query": "id=5"
+				},
+				{
+					"id": -1,
+					"name": "vip说明",
+					"pathName": "bh_step/pages/vipintro/vipintro",
+					"query": "id=5"
+				},
+				{
+					"id": -1,
+					"name": "收支明细",
+					"pathName": "bh_step/pages/currencylog/currencylog",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现",
+					"pathName": "bh_step/pages/cash/cash",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "好友",
+					"pathName": "bh_step/pages/friends/friends",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "task任务列表",
+					"pathName": "bh_step/pages/task/task",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "非金币商品详情 goods",
+					"pathName": "bh_step/pages/goods/goods",
+					"query": "id=3"
+				},
+				{
+					"id": 9,
+					"name": "signin-每日连续签到记录",
+					"pathName": "bh_step/pages/sigin/sigin",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "步数日志，已隐藏",
+					"pathName": "bh_step/pages/step-diary/step-diary",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "挑战",
+					"pathName": "bh_step/pages/defiance/defiance",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "受益排行wealthRank",
+					"pathName": "bh_step/pages/wealthRank/wealthRank",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "lottery",
+					"pathName": "bh_step/pages/lottery/lottery",
+					"query": "id=22"
+				}
+			]
+		}
+	}
+}

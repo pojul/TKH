@@ -1,0 +1,12 @@
+.avatar {
+	display: inline-block;
+	width: 60rpx;
+	height: 60rpx;
+	position: relative;
+	margin-left: auto;
+	overflow: hidden;
+	background-size: cover;
+	vertical-align: middle;
+	border-radius: 30rpx;
+	/*border: 1rpx solid #EAEAEA;*/
+}

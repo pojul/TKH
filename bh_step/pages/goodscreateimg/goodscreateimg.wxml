@@ -1,0 +1,7 @@
+<view class="container">
+    <painter bind:imgErr="imgErr" bind:imgOK="onImgOK" customStyle="margin-left:auto;margin-right:auto;margin-top:0rpx;width:670rpx;height:1030rpx;" palette="{{template}}"></painter>
+    <cover-view class="save_img_btn {{isIphoneX?'save_img_btn_iphonex':''}}" wx:if="{{creatScuess}}">
+        <cover-view bindtap="saveImgBtnClick" class="save_img_btn_1">保存图片</cover-view>
+    </cover-view>
+</view>
+<openSettingDialog bind:openSettingBtnClick="openSettingBtnClick" requestAuthType="{{2}}" wx:if="{{isShowOpensettingDialog}}"></openSettingDialog>

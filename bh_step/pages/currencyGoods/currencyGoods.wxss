@@ -1,0 +1,395 @@
+.container {
+    margin-bottom: 136rpx;
+}
+.coin{
+    width:44rpx;
+    height:44rpx;
+}
+
+.pic-container {
+	position: relative;
+  /* width: 720rpx; */
+  margin: 0 auto 0;
+  height: 90rpx;
+  color: #fff;
+}
+
+
+.pic-container-pic {
+    width: 100%;
+    height: 100%;
+}
+
+.pic-container-content {
+    position: absolute;
+    top: 6rpx;
+    left: 18rpx;
+    font-size: 32rpx;
+}
+.pic-container-right {
+    position: absolute;
+    top:32rpx;
+    right:18rpx;
+    font-size:20rpx;
+    color:#ff3b30;
+}
+
+.my-card-avatar {
+	display: inline-block;
+	width: 60rpx;
+	height: 60rpx;
+	position: relative;
+	margin-left: auto;
+	margin-right: 13rpx;
+	overflow: hidden;
+	background-size: cover;
+	vertical-align: middle;
+	border-radius: 30rpx;
+	/*border: 1rpx solid #EAEAEA;*/
+}
+
+.bodyLock {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+}
+
+.swiper-box {
+    width: 100%;
+    height: 750rpx;
+}
+
+.swiper-box .slide-image {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.shopping-container {
+    padding: 0 30rpx 72rpx 30rpx;
+}
+
+.shopping-container .name {
+    margin: 24rpx 0 26rpx 0;
+    color: #434343;
+    font-size: 33rpx;
+    line-height: 46rpx;
+    font-family: PingFangSC-Medium;
+    text-align: left;
+    font-weight: bold;
+}
+
+.price-babel {
+    display: flex;
+    text-align: center;
+    position: relative;
+}
+
+.energy-price {
+    color: #666666;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    margin-right: 12rpx;
+}
+
+.energy-price text {
+    color: #26BCC5;
+    font-size: 42rpx;
+    line-height: 42rpx;
+    font-family: DIN Alternate;
+    font-weight: bold;
+}
+
+.pre-price {
+    font-size: 24rpx;
+    text-decoration: line-through;
+    line-height: 33rpx;
+    padding-top: 12rpx;
+    margin-left:16rpx;
+}
+
+.shopping-container .shopping-left {
+    color: #999999;
+    line-height: 33rpx;
+    font-size: 24rpx;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-pager {
+    position: absolute;
+    right: 30rpx;
+    bottom: 49rpx;
+    width: 80rpx;
+    height: 40rpx;
+    background: rgba(0,0,0,.2);
+    color: #fff;
+    font-family: DIN Alternate;
+    text-align: center;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    border-radius: 100rpx;
+}
+
+.current-pager {
+    line-height: 40rpx;
+    font-size: 34rpx;
+}
+
+.total-pager {
+    line-height: 35rpx;
+    font-size: 30rpx;
+}
+
+.show-title {
+    margin-left: 30rpx;
+    font-size: 42rpx;
+    line-height: 59rpx;
+    color: #030303;
+    font-weight: bold;
+    background: linear-gradient(to bottom,#ffffff 60%,#D4F2F3 40%);
+    float: left;
+    margin-bottom: 34rpx;
+}
+
+.img-item {
+    width: 100%;
+}
+
+.btn-plus {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* height: 128rpx; */
+    color: #ffffff;
+    background-color: #ffffff;
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-top: 1rpx solid #dcdcdc; */
+}
+
+.btn-change {
+    color: #fff;
+    width: 100%;
+    /* height: 90rpx; */
+    background: linear-gradient(-90deg,#FF4158 2%,#FF5A6E 97%);
+    letter-spacing: 2.2rpx;
+    font-size: 40rpx;
+    border: none;
+    border-radius: 0;
+    line-height: 2.8;
+}
+
+.btn-change:after {
+    border: 0;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 20;
+}
+
+.share {
+    color: #26BCC5;
+    font-size: 24rpx;
+}
+
+.btn-share {
+    border: none;
+    background-color: #fff;
+    right: 0rpx;
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
+    line-height: 42rpx;
+}
+
+.btn-share:after {
+    border: none;
+}
+
+.share-icon {
+    width: 42rpx;
+    height: 42rpx;
+    margin-left: 10rpx;
+    right: 0rpx;
+    position: relative;
+    margin-bottom: -10rpx;
+}
+
+.fix-iphonex-button {
+    bottom: 68rpx!important;
+}
+
+.fix-iphonex-button::after {
+    content: ' ';
+    position: fixed;
+    bottom: 0!important;
+    height: 68rpx!important;
+    width: 100%;
+    background: #fff;
+}
+
+.show-container {
+    margin-bottom: 128rpx;
+}
+
+.show-container:after {
+    margin-bottom: 128rpx;
+}
+
+.fix-iphonex-container {
+    margin-bottom: 196rpx;
+    padding-bottom: 196rpx;
+}
+
+.fix-iphonex-container:after {
+    margin-bottom: 196rpx;
+    padding-bottom: 196rpx;
+}
+
+.fix-iphone-container {
+    padding-bottom: 128rpx;
+}
+
+.fix-iphone-container:after {
+    padding-bottom: 128rpx;
+}
+
+.text-tag {
+    font-size: 22rpx;
+    color: #FC8A1D;
+    border-radius: 2rpx;
+    border-color: rgba(252,138,29,0.24);
+    background-color: rgba(252,138,29,0.1);
+    padding: 5rpx 7rpx 5rpx 7rpx;
+    margin-right: 4rpx;
+}
+
+.gray {
+    background: #D5D5D5;
+}
+
+.detial-lib {
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.06);
+    margin: 24rpx 20rpx;
+    height: initial;
+    border-radius: 12px;
+}
+
+.lib-stepshow {
+    margin: 48rpx 20rpx;
+    padding: 42rpx 0 0 0;
+}
+
+.lib-title {
+    margin: 0rpx auto 0rpx auto;
+    font-size: 42rpx;
+    color: #434343;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lib-title text {
+    color: #26BCC5;
+    font-family: 'DIN Alternate';
+}
+
+.lib-litleTip {
+    font-size: 30rpx;
+    color: #666666;
+    text-align: center;
+    margin: 0rpx auto 24rpx auto;
+    display: block;
+}
+
+.friend-content {
+    padding: 0 25rpx 42rpx 25rpx;
+}
+
+.friend-item {
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 18rpx;
+    margin-right: 24rpx;
+}
+
+.friend-item:nth-child(6n) {
+    margin-right: 0rpx;
+}
+
+.head-view {
+    max-width: 90rpx;
+    max-height: 90rpx;
+    border-radius: 50%;
+    border: 0rpx solid #ddd;
+    overflow: hidden;
+    margin: 0rpx auto 18rpx auto;
+}
+
+.head-img {
+    max-width: 90rpx;
+    max-height: 90rpx;
+}
+
+.friend-step {
+    font-size: 22rpx;
+    color: #434343;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90rpx;
+}
+
+.direct-img {
+    display: flex;
+    margin-top: 15rpx;
+    justify-content: center;
+}
+
+.direct-down {
+    width: 30rpx;
+    height: 30rpx;
+    background-image: url("https://img.xmiles.cn/wechatApp/step2gift/openFriend.png");
+    background-size: 100%;
+    margin-left: 12rpx;
+}
+
+.direct-up {
+    width: 30rpx;
+    height: 30rpx;
+    background-image: url("https://img.xmiles.cn/wechatApp/step2gift/packupFriend.png");
+    background-size: 100%;
+    margin-left: 12rpx;
+}
+
+.all {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.share-img {
+    width: 36rpx;
+    height: 36rpx;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}

@@ -1,0 +1,121 @@
+/* bh_step/pages/invitefriend/invitefriend.wxss */
+.top-banner{
+  width: 100%;
+  height: 360rpx;
+}
+
+.join-activity{
+  color: #943611;
+  background-color: #FDC461;
+  width: 220rpx;
+  padding-top: 5rpx;
+  padding-bottom: 2rpx;
+  text-align: center;
+  border-radius: 60rpx;
+  font-size: 24rpx;
+  position: absolute;
+  top: 270rpx;
+  left: 160rpx;
+}
+
+.content-box{
+  border-top: 1rpx dashed #F00000;
+  border-left: 1rpx dashed #F00000;
+  border-right: 1rpx dashed #F00000;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 80rpx;
+  margin-right: 80rpx;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.invite_award-bg{
+  width: 400rpx;
+}
+
+.invite-friend{
+  background-color: #F00000;
+  font-size: 28rpx;
+  color: #fff;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  padding-left: 130rpx;
+  padding-right: 130rpx;
+  border-radius: 60rpx;
+}
+
+.ranking{
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  color: #000000;
+  border-bottom: 2rpx solid #000;
+}
+
+.line-dashed{
+  border-bottom: 1rpx dashed #F00000;
+  width: 400rpx;
+  margin-top: 25rpx;
+}
+
+.invited-num{
+  margin-top: 18rpx;
+  font-size: 30rpx;
+  color: #000000;
+}
+
+.invited-title-box{
+  display: flex;
+  margin-top: 3rpx;
+}
+
+.invited-title{
+  width: 200rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #000;
+}
+
+.invited-user-box{
+  display: flex;
+  align-items: center;
+  margin-top: 22rpx;
+}
+
+.invited-userinfo-box{
+  display: flex;
+  width: 200rpx;
+  align-items: center;
+}
+
+.invited-user-photo{
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 50rpx;
+}
+
+.invited-user-name{
+  font-size: 23rpx;
+  color: #000;
+  margin-left: 10rpx;
+}
+
+.invited-user-date{
+  font-size: 23rpx;
+  color: #000;
+  width: 200rpx;
+  text-align: center;
+}
+
+.invite_award-note{
+  position: absolute;
+  width: 240rpx;
+  text-align: center;
+  top: 370rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  color: #000;
+  left: 275rpx;
+}

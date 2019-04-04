@@ -1,0 +1,419 @@
+.dialogheard {
+    width: 100%;
+    height: 185rpx;
+}
+
+.usericonview {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 96rpx;
+    width: 96rpx;
+    float: right;
+    margin-top: 40rpx;
+    margin-right: 52rpx;
+}
+
+.usericon {
+    height: 96rpx;
+    width: 96rpx;
+}
+
+.gzhcoin {
+    font-size: 26rpx;
+    color: #FF8E00;
+    display: block;
+    float: right;
+    margin-top: 30rpx;
+    margin-right: 5rpx;
+}
+
+.usercontent {
+    float: left;
+    margin-top: 34rpx;
+    margin-left: 41rpx;
+}
+
+.username {
+    font-size: 36rpx;
+    width: 450rpx;
+    color: #434343;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.usertitle {
+    font-size: 26rpx;
+    color: #909090;
+    margin-top: 18rpx;
+}
+
+.useraccredit {
+    width: 240rpx;
+    height: 48rpx;
+    background-image: linear-gradient(-90deg,#FEBC29 0%,#FD8C1D 100%);
+    border-radius: 100rpx;
+    font-size: 22rpx;
+    color: #fff;
+    line-height: 48rpx;
+    text-align: center;
+    margin-top: 7rpx;
+    float: left;
+}
+
+.mycoin {
+    width: 690rpx;
+    height: 148rpx;
+    background-image: linear-gradient(-142deg,#26BEC3 0%,#1DD49F 100%);
+    border-radius: 12rpx;
+    box-shadow: 0rpx 4rpx 12rpx rgba(34,199,179,.5);
+    margin: 0 auto 59rpx;
+}
+
+.smallicon {
+    height: 17rpx;
+    width: 17rpx;
+    position: absolute;
+    top: 18rpx;
+    right: 14rpx;
+}
+
+.mycoinitem {
+    display: inline-block;
+    width: 229rpx;
+    color: #fff;
+    text-align: center;
+    margin-top: 32rpx;
+    position: relative;
+}
+
+.mycoinitem>view {
+    font-size: 42rpx;
+    font-family: 'DIN Alternate';
+}
+
+.mycoinitem>text {
+    font-size: 26rpx;
+    display: block;
+}
+
+.mycoinitem::after {
+    content: '';
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    height: 200%;
+    width: 1rpx;
+    background: #fff;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+
+.mybuttonview {
+    float: right;
+    width: 229rpx;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    background: none;
+    margin: 0;
+    padding: 0;
+    line-height: 38rpx;
+    font-size: 42rpx;
+    margin-top: 38rpx;
+}
+
+.mybuttonview>view {
+    font-size: 42rpx;
+    font-family: 'DIN Alternate';
+}
+
+.mybuttonview>text {
+    font-size: 26rpx;
+    display: block;
+}
+
+button::after {
+    border: none;
+}
+
+.mybtn {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 100rpx;
+    position: relative;
+}
+
+.mybtntext {
+    color: #434343;
+    font-size: 30rpx;
+    display: block;
+    float: left;
+    margin-top: 26rpx;
+    background: none;
+}
+
+.contentus {
+    color: #434343;
+    font-size: 30rpx;
+    display: block;
+    float: left;
+    background: none;
+    padding: 0 500rpx 0 0;
+    margin: 0;
+    margin-top: 7rpx;
+}
+
+.mybtnimg {
+    width: 42rpx;
+    height: 42rpx;
+    float: left;
+    margin-top: 26rpx;
+    margin-right: 25rpx;
+}
+
+.mybtn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 200%;
+    background: #e6e6e6;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+
+.myicon {
+    width: 21.2rpx;
+    height: 21.2rpx;
+    float: right;
+    margin-top: 39.4rpx;
+}
+
+.usbtn {
+    position: absolute;
+    right: 3rpx;
+}
+
+.mydialog {
+    width: 648rpx;
+    height: 666rpx;
+    background-size: 100%;
+    padding-top: 1rpx;
+}
+
+.diatitle {
+    font-size: 52rpx;
+    color: #333333;
+    margin: 345rpx auto 12rpx;
+    text-align: center;
+}
+
+.diatext {
+    font-size: 36rpx;
+    color: #666666;
+    margin: 0 uato;
+    text-align: center;
+}
+
+.mydiabtn {
+    background: transparent;
+    width: 430rpx;
+    height: 110rpx;
+    margin-top: 60rpx;
+}
+
+.attgzh {
+    width: 660rpx;
+    height: 703rpx;
+    background-size: 100%;
+    position: relative;
+}
+
+.gzhone {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 14%;
+    font-size: 57.66rpx;
+    color: #fff;
+    font-weight: 600;
+}
+
+.gzh_coin {
+    font-size: 96.66rpx;
+    font-family: 'DIN Alternate';
+}
+
+.gzhtwo {
+    position: absolute;
+    top: 31%;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 30rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.gzhthree {
+    position: absolute;
+    top: 53%;
+    width: 620rpx;
+    height: 299rpx;
+    opacity: 0.1;
+    background: #FF8E00;
+    border-radius: 12rpx;
+    text-align: center;
+    left: 20rpx;
+    overflow: hidden;
+}
+
+.gzhthree-one {
+    font-size: 34rpx;
+    color: #434343;
+    position: absolute;
+    top: 57%;
+    left: 11%;
+}
+
+.gzhthree-two {
+    width: 440rpx;
+    height: 127rpx;
+    background-size: 100%;
+    position: absolute;
+    top: 68%;
+    left: 16%;
+}
+
+.attbtn {
+    width: 440rpx;
+    height: 127rpx;
+    position: absolute;
+    top: 68%;
+    left: 16%;
+    background: transparent;
+    z-index: 10000;
+}
+
+.gzhthree-three {
+    font-size: 24rpx;
+    color: #909090;
+    position: absolute;
+    top: 87%;
+    left: 8.8%;
+}
+
+.littleProgram {
+    z-index: 3;
+    width: 120rpx;
+    height: 120rpx;
+    position: fixed;
+    top: 720rpx;
+    right: 6rpx;
+}
+
+.ADimage {
+    width: 100%;
+    height: 100%;
+}
+
+.wx-img {
+    width: 100%;
+    height: 100%;
+}
+
+.my-withdraw-icon {
+    position: absolute;
+    top: -25rpx;
+    right: 25rpx;
+    width: 58rpx;
+    height: 38rpx;
+    background-size: 100% 100%;
+}
+
+.ad_container_title {
+    font-size: 36rpx;
+    color: #333;
+    font-weight: bold;
+    margin-left: 32rpx;
+    position: relative;
+    margin-bottom: -10rpx;
+    margin-top: 80rpx;
+}
+
+.ad_grid_container {
+    margin: 0 23rpx;
+    padding-bottom: 37rpx;
+    animation: 0.3s show_anim ease;
+}
+
+@-webkit-keyframes show_anim {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes show_anim {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.ad_grid_item {
+    display: inline-block;
+    width: 25%;
+    margin-top: 40rpx;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.ad_grid_icon {
+    position: absolute;
+    height: 200%;
+    width: 200%;
+    display: block;
+    border-radius: 48rpx;
+    border: 1px solid #dbdbdb;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    top: 0;
+    left: 0;
+}
+
+.ad_grid_icon_container {
+    height: 126rpx;
+    width: 126rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ad_name {
+    font-size: 26rpx;
+    color: #333;
+    margin-top: 16rpx;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 12rpx;
+}
+
+.ad_type {
+    font-size: 24rpx;
+    color: #909090;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 5rpx;
+}

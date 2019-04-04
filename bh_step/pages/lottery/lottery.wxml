@@ -1,0 +1,206 @@
+<view class="main">
+    <view wx:if="{{img_url}}" class="head" style="background:url({{img_url}}/wechat/lottery.jpg);background-size: 100% 100%;">
+      
+        <view class="mystep">
+            <view class="mystep_one">
+                <view style='flex:1;'>
+                  <swiper autoplay="{{autoplay}}" bindchange="swiperchange" vertical="true"
+                   autoplay="true" interval="1500" duration="500" style="line-height:58rpx;height:58rpx;">
+                      <swiper-item wx:for="{{rolling_notice}}" style="overflow:hidden; vertical-align: middle;">
+                         恭喜 <text>{{item[0]}}</text>在幸运大转盘中获得 {{item[1]}} !
+                      </swiper-item>
+                    
+                  </swiper>
+                </view>
+            </view>
+        </view>
+
+        <form bindsubmit="submitInsearch" class="mystep_two" reportSubmit="true">
+            <view bindtap='showTip' class="boder-white-btn">规则说明</view>
+        </form>
+
+        <view style="margin:74rpx 0 26rpx 400rpx;text-align:left;font-size:24rpx;"> 
+          <text class="text-color-yellow">{{member.currency}}</text>
+        </view>
+        <!-- 第一行 -->
+        <view class="award-list">
+          <view wx:for="{{goods}}" wx:if="{{index < 3}}"  class='{{bingo_id==item.id ? "award-item bingo" : "award-item" }}'>
+            <block wx:if="{{item.type==1}}">
+              <image src="/bh_step/images/coin_200.png" style="width:76rpx;"></image>
+            </block>
+            <block wx:if="{{item.type==2}}">
+              <image src="/bh_step/images/money_bg.png"></image>
+              <view class="num text-color-light-gold">￥{{item.num}}</view>
+            </block>
+            <view class="desc">{{item.title}}</view>
+          </view>
+        </view>
+        <!-- 第二行 -->
+        <view class="award-list">
+          <view class='{{bingo_id==goods[3].id ? "award-item bingo" : "award-item" }}'>
+            <block wx:if="{{goods[3].type==1}}">
+              <image src="/bh_step/images/coin_200.png" style="width:76rpx;"></image>
+            </block>
+            <block wx:if="{{goods[3].type==2}}">
+              <image src="/bh_step/images/money_bg.png"></image>
+              <view class="num text-color-light-gold">￥{{goods[3].num}}</view>
+            </block>
+            <view class="desc">{{goods[3].title}}</view>
+          </view>
+
+          <view bindtap="doLottery" class="award-item" style="min-height:120rpx;">
+            
+          </view>
+          <view class='{{bingo_id==goods[4].id ? "award-item bingo" : "award-item" }}'>
+            <block wx:if="{{goods[4].type==1}}">
+              <image src="/bh_step/images/coin_200.png" style="width:76rpx;"></image>
+            </block>
+            <block wx:if="{{goods[4].type==2}}">
+              <image src="/bh_step/images/money_bg.png"></image>
+              <view class="num text-color-light-gold">￥{{goods[4].num}}</view>
+            </block>
+            <view class="desc">{{goods[4].title}}</view>
+          </view> 
+        </view>
+        <!-- 第三行 -->
+        <view class="award-list">
+          <view wx:for="{{goods}}" wx:if="{{index > 4 && index < 8}}" class='{{bingo_id==item.id ? "award-item bingo" : "award-item" }}'>
+            <block wx:if="{{item.type==1}}">
+              <image src="/bh_step/images/coin_200.png" style="width:76rpx;"></image>
+            </block>
+            <block wx:if="{{item.type==2}}">
+              <image src="/bh_step/images/money_bg.png"></image>
+              <view class="num text-color-light-gold">￥{{item.num}}</view>
+            </block>
+            <view class="desc">{{item.title}}</view>
+          </view>
+        </view>
+
+        <view bindtap="doLottery" style="width:70%;height:100rpx;margin:40rpx auto;"> </view>
+
+    </view>
+  <view  class="foot-box">
+
+    
+    <scroll-view scroll-x="true" style='width: 100%;white-space: nowrap;margin-bottom:20rpx;'>
+      <view wx:for="{{logs}}" class="foot-item">
+        <block wx:if="{{item.type==1}}">
+          <image src="/bh_step/images/coin_200.png"></image>
+        </block>
+        <block wx:if="{{item.type==2}}">
+          <image src="/bh_step/images/money_bg.png"></image>
+          <view class="num text-color-light-gold">￥{{item.num}}</view>
+        </block>
+        <view class="desc">{{item.title}}</view>
+      </view>
+      
+    </scroll-view>
+    
+    
+    <view bindtap="startTask" data-id="{{key}}" class="my-card" wx:for="{{taskInfo.task}}"  wx:for-index="key" wx:key="{{item.id}}">
+    <view class="my-card-header">
+    		<view>
+    			<image class="my-card-header-thumb" src="{{item.icon}}" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">{{item.title}}</view>
+            <view class="text-color-extra">{{item.describe}}</view>
+        </view>
+    </view>
+    <view wx:if="{{item.min_play_time>0}}" class="my-card-footer">需体验<text class="red">{{item.min_play_time}}秒</text>并授权才能领运动币哦~</view>
+    <view class="my-card-footer">
+    	<image wx:for="{{item.avatars}}" wx:for-item="avatar"
+      class="my-card-avatar" src="{{avatar}}" mode="" />
+
+    	<text class="text-color-extra2">{{item.tip}}</text>
+    </view>
+
+		<!--区分已完成与未完成按钮-->
+    <!--未完成-->
+    <view wx:if="{{!item.is_complete}}" class="my-card-absolute coin-2" >
+    	<view>
+    		<view class="my-card-coin" style="background: url({{img_url}}/step2gift/coin.png);background-size: 100% 100%;">
+    			<view style="padding-top:18rpx;">{{item.currency}}</view>
+    			<view style="font-size:20rpx;">运动币</view>
+    		</view>
+    	</view>
+    	<view class="text-color-main">立即领取</view>
+    </view>
+    <!--已完成-->
+    <view wx:else class="my-card-absolute">
+    	<view>
+    		<view class="my-card-coin" style="background: url({{img_url}}/step2gift/coin2.png);background-size: 100% 100%;">
+    			<view style="padding-top:36rpx;font-size: 26rpx;">已完成</view>
+    		</view>
+    	</view>
+    </view>
+
+	</view>
+    
+  <view class="ad">
+    <ad unit-id="adunit-741ced86c6ce9353"></ad>
+  </view>
+
+   <!-- 骆驼banner广告 -->
+  <!--<view style="display:flex;justify-content:center;flex-direction: column;align-items: center;margin: 0 20rpx;">
+    <navigator wx:for="{{bannerAds}}" wx:key="item.adId" app-id="{{item.appId}}" target="miniProgram" path="{{item.path}}" bindtap="exchangeCoupleClicked" data-ad-id="{{item.adId}}">
+      <image src="{{item.img}}" style="width:650rpx;height:200rpx;margin:10rpx 0 0" />
+    </navigator>
+  </view>-->
+
+  <!-- 小盟banner广告 -->
+  <view class="xm_banner" style="width:100%">
+    <xm-ad data-id="{{xmad.ad.banner[0]}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+    </xm-ad>
+  </view>
+
+  </view>
+</view>
+
+
+
+<view class="pop-content" wx:if="{{mask}}">
+	<view class="main text-color-extra" style="font-size:32rpx;height:380rpx;width:540rpx;">
+		<text bindtap="toggleMask" class="close-btn">点击关闭</text>
+		
+    <image src=""  style='width:100%;height:110rpx;border-radius:40rpx 40rpx 0 0;background-color:#E36044;'></image>
+    <view style='margin: -100rpx auto 0;height:110rpx;font-size:40rpx;color:#fff;font-weight:500;'>
+      抽奖规则
+    </view>
+ 
+
+    <view style="font-size:26rpx;margin-top:-14rpx;">
+  
+      <view class="text-color-extra" style='display:flex;text-align:left;padding:10rpx 40rpx;'>
+        <view class="text-color-content" style='argin-right:12rpx;'>1.</view>
+        <view style='flex:1;'>
+          每次抽奖中奖概率100%
+        </view>
+      </view>
+      <view class="text-color-extra" style='display:flex;text-align:left;padding:10rpx 40rpx;'>
+        <view class="text-color-content" style='argin-right:12rpx;'>2.</view>
+        <view style='flex:1;'>
+         每次抽奖消耗10运动币
+        </view>
+      </view>
+      <view class="text-color-extra" style='display:flex;text-align:left;padding:10rpx 40rpx;'>
+        <view class="text-color-content" style='argin-right:12rpx;'>3.</view>
+        <view style='flex:1;'>
+          用户抽中奖品后，需及时领取，等待过程有可能被其他用户领完哦
+        </view>
+      </view>
+ 
+    </view>
+	</view>
+
+</view>
+
+<view class="pop-mask" wx:if="{{mask}}" bindtap="toggleMask"></view>
+
+<view class="i-class i-toast" wx:if="{{added_coin>0 || added_exp>0 || added_money>0}}">
+    <view class="i-toast-content" wx:if="{{added_money>0}}"><image class="coin" src="/bh_step/images/money_bg.png" mode="aspectFit" /> <text> 现金+{{added_money}}</text></view>
+    <view class="i-toast-content" wx:if="{{added_coin>0}}"><image class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" /> 运动币+{{added_coin}}</view>
+    <!-- <text class="text-color-yellow">vip已加成</text> -->
+    <view class="i-toast-content" wx:if="{{added_exp>0}}"><image class="coin" src="/bh_step/images/star.png" mode="aspectFit" /> 成长值+{{added_exp}}</view>
+    
+</view>

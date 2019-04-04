@@ -1,0 +1,123 @@
+/* bh_step/pages/selectloc/selectloc.wxss */
+.select-city-box{
+  background-color: #EAEAEA;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  display: flex;
+  padding-top: 18rpx;
+  padding-bottom: 18rpx;
+  align-items: center;
+}
+
+.title{
+  color: #000;
+  font-size: 28rpx;
+}
+
+.chose-city{
+  color: #000;
+  font-size: 32rpx;
+  background-color: #FFF;
+  padding-top: 12rpx;
+  padding-bottom: 10rpx;
+  padding-left: 130rpx;
+  padding-right: 130rpx;
+  border-radius: 60rpx;
+  margin-left: 100rpx;
+}
+
+.line{
+  width: 100%;
+  height: 2px;
+  background-color: #666666;
+}
+
+.range-box{
+  background-color: #EAEAEA;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  display: flex;
+  padding-top: 18rpx;
+  padding-bottom: 18rpx;
+  align-items: center;
+}
+
+.range-item-box{
+  display: flex;
+  margin-left: 40rpx;
+  flex-wrap: wrap;
+}
+
+.range-item{
+  background-color: #fff;
+  font-size: 26rpx;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  padding-top: 6rpx;
+  padding-bottom: 3rpx;
+  border-radius: 40rpx;
+  margin-left: 16rpx;
+  color: #000;
+}
+
+.range-item-active{
+  background-color: #f00;
+  font-size: 26rpx;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  padding-top: 6rpx;
+  padding-bottom: 3rpx;
+  border-radius: 40rpx;
+  margin-left: 16rpx;
+  color: #fff;
+}
+
+.line1{
+  width: 100%;
+  height: 1px;
+  background-color: #666666;
+}
+
+.loc{
+  width: 50rpx;
+  height: 50rpx;
+  position: fixed;
+}
+
+.myloc-box{
+  width: 46rpx;
+  height: 46rpx;
+  position: fixed;
+  bottom: 0rpx;
+  padding: 5rpx;
+  background-color: #fff;
+  margin-left: 45rpx;
+  margin-bottom: 70rpx;
+  border-radius: 5rpx;
+  box-shadow: 1px 1px 4px 2px #ccc;
+}
+
+.myloc{
+  width: 100%;
+  height: 100%;
+}
+
+.sure{
+  width: 270rpx;
+  position: fixed;
+  bottom: 35rpx;
+  background-color: #f00;
+  font-size: 30rpx;
+  padding-top: 13rpx;
+  padding-bottom: 13rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  text-align: center;
+  margin-left: 240rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

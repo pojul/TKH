@@ -1,0 +1,122 @@
+<image class="banner" src="{{ui.rank_top_image}}"></image>
+<view>
+    <view class="tab-box">
+        <view bindtap="bindTabClick" class="{{index===0?'tab-item text-select selectd':'tab-item text-select'}}" data-index="{{0}}">
+            <view>{{ui.left_list_name}}</view>
+            <view class="tab-descr" hidden="{{index!==0}}"></view>
+        </view>
+        <view bindtap="bindTabClick" class="{{index===1?'tab-item text-select selectd':'tab-item text-select'}}" data-index="{{1}}">
+            <view>{{ui.right_list_name}}</view>
+            <view class="tab-descr" hidden="{{index!==1}}"></view>
+        </view>
+    </view>
+    <view hidden="{{index!==0}}">
+        <view class="nav">
+            <view class="nav-user">用户排名</view>
+            <view class="nav-coin">运动币数</view>
+            <view class="nav-sign">今日签到</view>
+        </view>
+        <view class="user-box" wx:if="{{menber}}">
+            <view class="user-info">
+                <image class="user-icon" src="{{menber.head}}"></image>
+                <image class="rank-descr" src="{{base64.getRankImg(menber.count)}}" wx:if="{{base64.getRankTextColor(menber.count)}}"></image>
+                <view wx:if="{{menber.auth==1}}">
+                    <view class="user-rank {{base64.getRankTextColor(menber.count)}}">NO.{{menber.count}}</view>
+                    <view class="user-name text-ellipsis">{{menber.nickname}}</view>
+                </view>
+                <view wx:else>
+                    <view class="user-rank user-rank-get-info {{base64.getRankTextColor(menber.count)}}">NO.{{menber.count}}</view>
+                    <button bindgetuserinfo="getUserInfo" class="user-get-info" openType="getUserInfo">获取昵称</button>
+                </view>
+            </view>
+            <view class="user-coin">{{menber.currency}}</view>
+            <view class="sign-btn finish-sign" wx:if="{{menber.isSignIn}}">已签到</view>
+            <button class="reset-btn" id="sign-invite" openType="share" style="background-color:#FFF" wx:else>
+                <view class="sign-btn no-sign" style="background-color:#FFF">喊他签到</view>
+            </button>
+        </view>
+        <view class="line"></view>
+        <view wx:if="{{item.id!=menber.id}}" wx:for="{{friends}}" wx:key="{{item.nickName}}">
+            <view class="user-box">
+                <view class="user-info">
+                    <image class="rank-descr" src="{{base64.getRankImg(item.num)}}" wx:if="{{base64.getRankImg(item.num)}}"></image>
+                    <image class="user-icon" src="{{item.head}}"></image>
+                    <view class="user-rank {{base64.getRankTextColor(item.num)}}">NO.{{item.num}}</view>
+                    <view class="user-name text-ellipsis">{{item.nickname}}</view>
+                </view>
+                <view class="user-coin">{{item.currency}}</view>
+                <view class="sign-btn finish-sign" wx:if="{{item.signin}}">已签到</view>
+                <button class="reset-btn" id="sign-invite" openType="share" style="background-color:#FFF" wx:else>
+                    <view class="sign-btn no-sign" style="background-color:#FFF">喊他签到</view>
+                </button>
+            </view>
+        </view>
+        <view class="no-friend-box" wx:if="{{friends.length==0}}">
+            <image class="no-friend-img" src="{{img_url}}/no-friends-tip.png"></image>
+            <view class="no-friend-tip">暂无好友，马上去邀请吧~</view>
+            <button class="reset-btn" id="friend-invite" openType="share" style="background-color:#FFF" wx:if="{{audit_pattern!=2}}">
+                <view class="no-friend-btn invite-btn">邀请好友</view>
+            </button>
+            <view class="more-invite-tip">最新好友排行榜</view>
+            <view style="height:150rpx;"></view>
+        </view>
+        <view class="more-invite-box" wx:else>
+            <button class="inv-btn reset-btn" id="more-friend-invite" openType="share" style="background-color:#FFF" wx:if="{{audit_pattern!=2}}">
+                <view class="more-invite-btn invite-btn">邀请更多好友</view>
+            </button>
+        </view>
+    </view>
+    <view hidden="{{index!==1}}">
+        <view class="nav">
+            <view class="nav-user-all">用户排名</view>
+            <view class="nav-coin-all">运动币数</view>
+        </view>
+        <view wx:for="{{top}}" wx:key="key">
+            <view class="user-box">
+                <view class="user-info">
+                    <image class="rank-descr" src="{{base64.getRankImg(index+1)}}" wx:if="{{base64.getRankImg(index+1)}}"></image>
+                    <image class="user-icon" src="{{item.head}}"></image>
+                    <view class="user-rank {{base64.getRankTextColor(index+1)}}">NO.{{index+1}}</view>
+                    <view class="user-name text-ellipsis">{{item.nickname}}</view>
+                </view>
+                <view class="user-coin-all">{{item.currency}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="base64">
+var no1 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABrCAMAAADAUGU4AAABC1BMVEUAAAD/x2D/1Hf/xmH/y2P//4D/xmH/xmD/yGL/xVr/x2H/x2H/x2H/x2L/ymH/x2D/x2D/xmH/x2H/x2D/x2L/yGL/yGT/xmH/xmD/v0v/x2D/x2H/yGL/x2H/yGH//6r/w1X/zl//uj7/uTr/yGD/0Gv/x2D/ymL/x2H/x2H/ujz/uTr/uTr/uTr/yGH/ujr/uTv/xmD/xmH/v0D/uTz/u0L/wlX/uz//uTv/uTv/uTv/uTv/uTz/////xmD/uDr/57v/0X7//vz//PX/+vD/9eL/79H/1Yf/xFv/+Oz/9+j/8tn/7cz/47D/4q7/3qH/2ZP/04L/znT/zXT/ymr/yWb/yGT//fr/u0Kb//HqAAAAPXRSTlMA3gXCLAL871Ag06mKXyP55cWTd21mKMqv/OyegHxcA/4L8+1LEbYy9IND0sG5mnRWVT8U9eTBsaiYjodq1A8wsQAAA7dJREFUaN602Ola2kAUBuCTECKbKAqirQtW3K2t2r2dLwHCIgKC4nL/V9IwMxCggNn6/uLhx2H4zmHOE2iOjezVPv0XOR1IHNIEtVgM4dP2V2A7pXFxBVjVKKhjDBzRuE3YIhTU4QlsKRr3DraVcLJufJ+INgNbgoJbRsEwztPkuF4B9CIFd4qGYRgHZ847N1+3vmkUgjzwwbB9Ikm9MIyPFIJDHdgyBn7IwH8OvgSF4ApAw+DO42T7w1/HKbhLQCQiAz8zuM/kh3ocJ4cCyER44PEDg/vt6/enAEmVpA1AJCKJ83vvo3PMdZKygJOIw1cf05OXxhEgEpmW9jdsQORG5n4CmYjDfx9T4BKpwZ18DcxJ5JevSyN5KWLQM6dJYE4iFwFu6UkFg3t93SoUGo0GACUReb8e24iSRxFM+2LYVRv4x9JmViMvipgmys6mbHuZlwS8yezuuV8AXik5lVxRV+HZ6jK5so5Znur3Zq16WymXK7fVmnlff8K4iOZ6lU/qte/KbEr5rt2DQ0+5SWUNEx46TTZHs/OAkbyLJRHX4Si12EKtkjPoMS/zV6qxN9Wc4ju0WHQUSN9krph9SGvRhcOXhNS1mEtWF1JSXXDmYeVnk3lgPg9rR98cj8cq86T6OMyE5tiBULKYR1ZpcS9jEOoV5lmlDiE2c6KXZOUX5sOLrL0UnzEceZlGhflSkZnk1Xl799FiPlmylymaouli6qrMt6qYQV2bvRZNFoAJLjJzvXRZIF1wyzO2S99igVh9sXdUcuQm4ggcSY5G9hQxdywwMYGKs+d3wdVYYDVwuzSUcQ4dzrEzJKXBtVgIWuDSJGyLDctCIXbx9vjDBjosFB3RSOI0cE0WiiY4beyZqMdC0sNA1vkPBW0WkjYGNvmuFSvgjoXkb23msoIgFEVRTE2LyqKy0B5fcu9AEZEGjvr/XymR7oWwQbDX+gAH6jlnPx7jSYid/XxWRkQ1as3cncTWyGjHI+l0b29k9PbjnMvvpadZf6W7L241qVZU6KRpY2Q0o292Y94ZGZ0b9cIO1EZGbQeK96MzO1AZGZUdyMBHgy8E/IzgzweODDjo4HoClyp4CsADxp1dUCyAEocTZqCcBEUwJ91BwwHaJM7cgZaUM9Kc/QdDCy5qAQMiLtbiwjguQuSCTzqu5UNmPhr3XOWBvidN1DWEZ3FSlyee2Wqurnw8USgvqjzrrbpe88yOgaIUnOZ+20mqzGk2l0BSwE4THc7Jj9pYQJyn+zJcBkWWFX+U3S91nBK48ZKvjwAAAABJRU5ErkJggg\x5cx3d\x5cx3d';
+var no2 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABrCAMAAADAUGU4AAAAvVBMVEUAAADu7v/O1eHO1eHO1eHO1uHR1uLN1eHO1uHO1N/O1eHO1eHO1eHP1eHP1OHO1eDO1eDP1eHO1eLO1eHO1eHO1uHO2ubR2OHY2+zO1OHN1eHHzNjDx9PN1eHCxdHDxtLIzdnR4efM0d7Q1+PEydXN0+DN1eHDxdHP1uPDxdHT0+DEyNPBxdHCxNDCxdH////N1ODBxND8/P3Y3ufy9Pjq7fLV2+XQ1+L2+Prm6vDL0t74+fvi5u3d4urK0NyIEuUgAAAAL3RSTlMAA9/D8H8s/F0g06nmilJQ+Z2Td21mKCMJyq/98+ztu0EQYzL8vrSPSXQU5NPQqK63xjQAAAN7SURBVGjetZnXYuIwEEVxAWM6S4clkJ7NFo2NAVPC/3/WKpZlYZvERZrzZPRwM7kzaqPKF4yHnWkFhZEF0LiPj03fugr+2rQHlGpszNYBWjVp6Uf45CU2NgeKIS19bwKlHRtrAaWnxuvjKmatAZRGRZ4HuDjOH/tqZE39t7oKpKtwdBznbi1G3n8vnmsVBcwAfjqUX3xAWznOSoXyvQWwcD75Fxr++vlPqJDuAFBHAv7agffBt61Aug/AHAkNX7PPclmcPl6HpAOEjgSG23fs47XU/KNizaiOxwDCEQqLv3geRZgD/msIwB0RlMzjJJB65j9fAJgjSSalio1ivIc1bDLpS0q6UyLsNhNrtN+o4WuAlCMSeXxo9pkNllFtcumnpPRKZpUWCEeenhaXy/F4BAC9YfQH3bFWVPtZiApHFpcjpDDnw2JL1VtKQsim0atF6qUBxTDqWv4NoCj6KKe41oLCtOr5tAdwi/3mvPV81yXEdX1ve97s47bUcm7lSTYHj6TwDhsQWO08rvyI6+4OJ/IFp8MOImZ2trRtXQfskW/xROhmJ2/9CeHc4tWsEokM2W9JLrZRSn9o3ypHC9OHS3LifkBIU8tUFiHnDTxbm7ux80kh/B335CvlKld2SUHc3fe57PDKoMqFtXml3KxB2wyVSSlCbdO+kcJZ3I2ynszSqWwLZTntdlK5ZrGq80lpfFaDVnIdNCBgSyTYAty4StXDOUikCOdl/cbusnflpF1mSes6k6OYHdKWjK6C1tMVLVPdupZ02pOX9pJuGzxoRWGLIpmIoFWFPYmteDuihF1sBWRJPKiRPrBEhnMcAk5qpE9Mjc32oUiiukQOWQ+F+6HSkTm7E4n6UFcjphZdP/dEGWwhGVPpLrdardnd6Nx7Vid9Bn5z7icXPTXLX59KGzyLavNoREdTX520z+7N0TR31Um70VRf4kgvqXQv+CIKCQR7iNKIhiCmEbH4EKcM4kRHXJ4QF1XErQBxA8PbdhEPC4hHHLyDGeJxEvEQjHd0R7xwIF6T8C53iFdSvIs03vUfsWmB12pBbBDhtbXwmnF4LUS8xid2uxa/yYzfGhdUERr6nI6J8QzBsGcYjycMrW1hPPkwaobyhypBvaX6eU2gjXSJR8Es8boh8ZSZxaSqZzzAylAbzs2MZ2MJtHF30Dca+rLXWxZ47P4PPI2ttTLjyAYAAAAASUVORK5CYII\x5cx3d';
+var no3 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABrCAMAAADAUGU4AAAAsVBMVEUAAADsrJb//93ur5b/zqbsrZbwsJrsrJbsr5brrZbsrJXrq5XsrJbsrZbsrJXsrZfin47srJbsrZbrrJXsrZbsrZXsrZXsrpbmpZHsrZbsrZbvsJn0t6DtrZboppLvr5fjopHhn47hn47hn4/hoI/hno7////rrJXgno3wvar33NL++vn99PH88Oz65+H11srwwa/ut6Psr5npqZP++Pb99/X76+b55N30zsDyx7ftsZzys/nqAAAAJnRSTlMAwwIqBe8hUV3d0235samJ8eXgZp2TgXf9ynwRC0tBMiHAsI/n0quoz34AAAN6SURBVGjetZnXlqpAEEVFkopZxzCOTrxVCGJO4/9/2EW7oTHgELr2iywejqxTqUMhBtUy3wokdBCxMrp+p43HEv7trYo+jat3RhmxpeaWfscztat3NfRRckuPHnx1C32qxdzaFiJuvq6sVdCnIiWOG9v+91EQTKqIOJYg3TtL281JxKSfgaIWJDBEbNo+Vph6n7b9JUN5hIgD+0xg+Lf//CND2kS8OGIHhncuz/5jbrqIzBFu+IQ9mpnEtHejIGgjc4RhffB/+c5Uf75YXQubEyJzhNPkv58ZlIuXz+xHK0Y4ImhmKEYDzyhX/UI4IjAyJBuTHnHfdeSOCLLHscHEKo1zT54g3jmSI46lepfboPTqiDGOfObq0gLhyGCw8UGfdkXp9k01dTgVDBGODDZ4j16z0rWqMd5S3WAs5Z6RIrsrmA6llNiZEqal3NESNpIWpqZVSqbdx0esl0dn7s1cAHfmzZ3jco1Rkg2fkY63TBd7uGO/mGKERhJXXvCK1WIGMcwWKwwZGon6lGB6gKccxKfrCbpLRQjP4U/mQvz1r8wODTk5kAjnhJyXpzmu1ZHzu4WEbH+RU9eefHOgvHYgBc460C7+mR4rD1LhrQJP4pRfg/jtICW76fNYmshYupAad4kM82FG61wZMsG1deNBcgy5Gy5kwuWeDLW4ubvaQUZ2PJaNu80czzoPMuPxHFQfj0UHcuDwHvtwvPxCLnhdlh5Ml9MWcrE9sbkTjWQnakd+SzqR3lFmeQe5YRlYLt46PYfczG/dVsRHy/ls5WZoHUACB6YVlHuP1SFIgdVkj0uzIC5ACgsWyKsan4EUZtFqt0QQ5QXS4nsi7odMR2qXemEjYA+S2LORUAytXoM01qHZZvzYyjPKzHDdewRpHDHYOXfvmp6U9tcNGohoTbJalBIuTT2QhofB2Vpb1KLMemz70iytXZCGyxLbl67iGZAI28wSShMaQhhGwuQjLBnCQidsT4RNlXAUEA4wurFLuFggXOLQLcwIl5OEi2C6pTvhhoNwm0S3uSPcktJtpOm2/4SHFnRHLYQHRHTHWnSHcXRHiHQHn9THtfSHzPRH44JXigN9jqkTXENwjCHB5QlHa1Bc+XBURfpFlaDUkn29JtA6ZVmXgvcUS4q0q8x7jF75+QVsLlSrpsddG+enqJr9rlJp69WqnuKy+z90H9EMAv/h9AAAAABJRU5ErkJggg\x5cx3d\x5cx3d';
+var getRankImg = ((function(num) {
+    if (num == 1) {
+        return (no1)
+    };
+    if (num == 2) {
+        return (no2)
+    };
+    if (num == 3) {
+        return (no3)
+    };
+    return ("")
+}));
+var getRankTextColor = ((function(num) {
+    if (num == 1) {
+        return ("no-1")
+    };
+    if (num == 2) {
+        return ("no-2")
+    };
+    if (num == 3) {
+        return ("no-3")
+    };
+    return ("")
+}));
+module.exports = (({
+    no1: no1,
+    no2: no2,
+    no3: no3,
+}));
+module.exports.getRankImg = getRankImg;
+module.exports.getRankTextColor = getRankTextColor;
+</wxs>

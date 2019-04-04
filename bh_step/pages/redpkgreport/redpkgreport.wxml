@@ -1,0 +1,40 @@
+<!--bh_step/pages/redpkgreport/redpkgreport.wxml-->
+<view class='top-box'>
+  <view class='base-info-title'>
+    <view class='line'></view>
+    <view class='base-title'>基础信息</view>
+  </view>
+
+  <view class='info-box'>
+    <image class='info-icon' src='../../images/redpkg_yellow.png'></image>
+    <view class='info-text'>发布总金额：{{report.total_money}}</view>
+  </view>
+
+  <view class='info-box'>
+    <image class='info-icon' src='../../images/loc_yellow.png'></image>
+    <view class='info-text'>发布的范围：{{report.location_range}}</view>
+  </view>
+
+  <view class='info-box'>
+    <image class='info-icon' src='../../images/peoples.png'></image>
+    <view class='info-text'>发布的群体：{{report.limit_people}}</view>
+  </view>
+
+  <view class='info-box'>
+    <image class='info-icon' src='../../images/funnel.png'></image>
+    <view class='info-text'>领取总耗时：{{report.total_receive_time}}</view>
+  </view>
+</view>
+
+
+<view class='bottom-box'>
+  <view class='base-info-title'>
+    <view class='line'></view>
+    <view class='base-title'>微信分享</view>
+  </view>
+
+  <view class='info-box'>
+    <image class='info-icon' src='../../images/wechat_yellow.png'></image>
+    <view class='info-text'>微信分享：{{report.share_number}}</view>
+  </view>
+</view>

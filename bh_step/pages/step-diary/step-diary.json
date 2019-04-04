@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "步数日志",
+    "usingComponents": {
+        "painter": "../../../../component/painter/painter"
+    }
+}

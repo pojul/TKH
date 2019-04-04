@@ -1,0 +1,74 @@
+<!--bh_step/pages/member/member.wxml-->
+
+<view class='money-box'>
+  <view class='money-item1' bindtap='setSelectMoney' data-select="0">
+    <view class='money'>¥ {{prices.one_month_member_price}}</view>
+    <view class='months'>一个月</view>
+    <image wx:if="{{selectMoney==0}}" class='check-ok' src='../../images/checked_ok.png'></image>
+  </view>
+
+  <view class='money-item2' bindtap='setSelectMoney' data-select="1">
+    <view class='money'>¥ {{prices.three_month_member_price}}</view>
+    <view class='months'>三个月</view>
+    <image wx:if="{{selectMoney==1}}" class='check-ok' src='../../images/checked_ok.png'></image>
+  </view>
+
+  <view class='money-item3' bindtap='setSelectMoney' data-select="2">
+    <view class='money'>¥ {{prices.one_year_member_price}}</view>
+    <view class='months'>十二个月</view>
+    <image wx:if="{{selectMoney==2}}" class='check-ok' src='../../images/checked_ok.png'></image>
+  </view>
+</view>
+
+<view class='buy-number-box' bindtap='showPay' data-show="{{true}}">
+  <view class='buy-text'>购买会员</view>
+  <view class='buy-note'>享更多专属特权服务</view>
+</view>
+
+<view class='content-view'>
+  <view class='item'>
+    <image class='icon' src='../../images/mess_yellow.png'></image>
+    <view class='text-box'>
+      <view class='name'>微信传播</view>
+      <view class='note'>通过分享佣金功能，实现微信传播</view>
+    </view>
+  </view>
+  <view class='line'></view>
+
+  <view class='item'>
+    <image class='icon' src='../../images/start_light.png'></image>
+    <view class='text-box'>
+      <view class='name'>会员热点</view>
+      <view class='note'>会员发布的信息，会被推荐到顶部</view>
+    </view>
+  </view>
+  <view class='line'></view>
+  <view class='item'>
+    <image class='icon' src='../../images/sun.png'></image>
+    <view class='text-box'>
+      <view class='name'>突出显示</view>
+      <view class='note'>红名昵称，会员图标</view>
+    </view>
+  </view>
+  <view class='line'></view>
+  <view class='item'>
+    <image class='icon' src='../../images/redpkg.png'></image>
+    <view class='text-box'>
+      <view class='name'>红包发布</view>
+      <view class='note'>红包发布，不限次数</view>
+    </view>
+  </view>
+  <view class='line'></view>
+  <view class='item'>
+    <image class='icon' src='../../images/horn.png'></image>
+    <view class='text-box'>
+      <view class='name'>更多个人动态</view>
+      <view class='note'>每日个人动态发布数提升3倍</view>
+    </view>
+  </view>
+  <view class='line1'></view>
+</view>
+
+<pay_dialog bind:checkPay="checkPay" weixinPayOnly="{{true}}" show="{{showPay}}" payMoney="{{postMoney}}"> </pay_dialog>
+
+

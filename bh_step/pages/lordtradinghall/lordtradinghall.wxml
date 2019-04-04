@@ -1,0 +1,22 @@
+<!--bh_step/pages/lordtradinghall/lordtradinghall.wxml-->
+<view class=' trade-box' wx:for="{{trades}}" bindtap='toLoaird' data-territoryid="{{item.id}}">
+  <view class=' trade-top'>
+    <view class='territory-loxbox'>
+      <image class='loc-icon' src='../../images/position_red.png'></image>
+      <view class='loc-text'>{{item.re_name}} {{item.name}}</view>
+    </view>
+    <view class='time'></view>
+  </view>
+
+  <view class='line'></view>
+
+  <view class='trade-content'>
+    <image class='vip' src='../../images/vip.png'></image>
+    <image class='photo' src="{{item.last_owner_head}}"></image>
+    <view class='name'>{{item.last_owner_name}}</view>
+    <view class='note'>租赁价格(元)</view>
+    <view class='price'>￥{{item.price}}</view>
+  </view>
+</view>
+
+<view class='no-more'>{{!hasMore?'一 没有更多了 一':'数据加载中'}}</view>

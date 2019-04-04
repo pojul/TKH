@@ -1,0 +1,38 @@
+/* bh_step/component/reply_dialog/reply_dialog.wxss */
+.reply-dialog-box{
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: flex-end;
+  z-index: 10000;
+  top: 0;
+}
+
+.reply-dialog-content{
+  width: 100%;
+  background-color: #fff;
+  padding: 5rpx;
+}
+
+.reply-dialog-input{
+  width: 100%;
+  height: 250rpx;
+  font-size: 26rpx;
+  padding-top: 10rpx;
+  padding-left: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.reply-dialog-operatebox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reply-dialog-operate{
+  font-size: 28rpx;
+  padding: 15rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}

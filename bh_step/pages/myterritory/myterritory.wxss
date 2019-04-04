@@ -1,0 +1,199 @@
+/* bh_step/pages/myterritory/myterritory.wxss */
+
+.trading-hall-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+}
+
+.trading-hall{
+  background-color: #FF0000;
+  width: 160rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  text-align: right;
+  align-self: flex-end;
+  border-top-left-radius: 60rpx;
+  border-bottom-left-radius: 60rpx;
+  color: #fff;
+  font-size: 28rpx;
+  padding-right: 25rpx;
+}
+
+.territorys-box{
+  margin-top: 40rpx;
+}
+
+.territory{
+  display: flex;
+  flex-direction: column;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  box-shadow: 1px 1px 3px 1px #eeeeee;
+  border-radius: 15rpx;
+  margin-top: 20rpx;
+}
+
+.territory-topbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.territory-loxbox{
+  display: flex;
+  align-items: center;
+}
+
+.rofit-box{
+  display: flex;
+  align-items: center;
+}
+
+.loc-icon{
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.loc-text{
+  font-size: 25rpx;
+  color: #000;
+  margin-left: 15rpx;
+}
+
+.rofit-icon{
+  width: 20rpx;
+}
+
+.rofit-text{
+  font-size: 20rpx;
+  color: #000000;
+  margin-left: 10rpx;
+}
+
+.line{
+  height: 1rpx;
+  background-color: #DFDFDF;
+  margin-top: 25rpx;
+}
+
+.territory-bottombox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-time{
+  font-size: 23rpx;
+  color: #999999;
+  margin-left: 15rpx;
+  margin-top: 30rpx;
+}
+
+.renew-box{
+  display: flex;
+  align-items: center;
+  background-color: #f00;
+  margin-top: 25rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  border-radius: 50rpx;
+}
+
+.price{
+  color: #fff;
+  font-size: 21rpx;
+}
+
+.renew{
+  color: #fff;
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+
+.territory-empty{
+  display: flex;
+  flex-direction: column;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
+  margin-left: 55rpx;
+  margin-right: 55rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  box-shadow: 1px 1px 3px 1px #eeeeee;
+  margin-top: 40rpx;
+}
+
+.empty-title{
+  font-size: 30rpx;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+}
+
+.privileges-box{
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.privilege-line{
+  width: 8rpx;
+  height: 40rpx;
+  background-color: #f00;
+}
+
+.privilege-text{
+  font-size: 28rpx;
+  margin-left: 15rpx;
+  font-weight: bold;
+}
+
+.privilege-item-box{
+  margin-top: 35rpx;
+}
+
+.privilege-item-top{
+  display: flex;
+  align-items: center;
+  margin-left: 15rpx;
+}
+
+.privilege-item-point{
+  width: 15rpx;
+  height: 15rpx;
+  background-color: #000;
+  border-radius: 20rpx;
+}
+
+.privilege-item-title{
+  font-size: 26rpx;
+  color: #000;
+  margin-left: 18rpx;
+}
+
+.privilege-item-note{
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 15rpx;
+}
+
+.tobe-laird{
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #f00;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  margin-top: 35rpx;
+}

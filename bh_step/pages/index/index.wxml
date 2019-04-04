@@ -1,0 +1,494 @@
+<view class="index-heard relative bg-color-white" style="background-size:100% 79%;background-repeat:no-repeat">
+    <view class="nav">
+        <view bindtap="showSigin" class="fl singinimg-1 gradient-btn" >连续签到{{sigin.days?sigin.days:1}}天</view>
+        <navigator url="../intro-coin/intro-coin" class="fr relative coin-rule text-color-extra">了解运动币</navigator>
+    </view>
+    
+    <view class="heard-tag absolute">
+    		<!--未授权，显示授权立即奖励-->
+        <button bindgetuserinfo="getUserInfo" class="heard-tag-list absolute" formType="submit" openType="getUserInfo" wx:if="{{suspension.author.is_author==0}}">
+            <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;">{{suspension.author.currency}}</view>
+            <text class="text-color-extra">授权奖励</text>
+        </button>
+        
+        <!--手动领取的金币条目-->
+        <form wx:for="{{suspension.currency}}" bindsubmit="receive" class="heard-tag-list absolute" data-id="{{item.id}}" data-source="{{item.source}}" reportSubmit="true">
+            <button formType="submit" style="background:rgba(0,0,0,0);font-size:20rpx;">
+                <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;">{{item.currency}}</view>
+                <text class="text-color-extra">{{item.msg}}</text>
+            </button>
+        </form>
+        
+        <!--幸运金币：任务金币-->
+        <button bindtap="showdialog" class="heard-tag-list absolute" wx:if="{{suspension.task}}">
+            <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;">?</view>
+            <text class="text-color-extra">幸运金币</text>
+        </button>
+
+            <navigator url="../currencylog/currencylog" style="margin:20rpx auto 0;width:40%;height:320rpx;"></navigator> 
+    </view>
+    
+    <view class="center text-color-title" style="background: url(\"{{ui.home_my_coin_image}}\");background-size: 100%;">
+        <view style="margin-top: 120rpx;">
+            <view bindtap="gotoproblem" class="mycoin text-color-content">我的运动币</view>
+            
+            <view class="coin-count">{{my_currency}}</view>
+        </view>
+    </view>
+    <view class="todayStep relative">
+            <button>
+        	今日步数
+		      <text class="todaystepcount text-color-main">{{today.step ? today.step : 0}}</text> 步
+      </button>
+    </view>
+    
+     <view class="inviteView relative">
+            <button class="inviteBtn gradient-btn" data-module="邀请好友领运动币" openType="share" wx:if="{{audit_pattern!=2}}">
+        邀请好友即得{{invitation.invitation_currency_start}}<block wx:if="{{invitation.invitation_currency_end!=invitation.invitation_currency_start}}">-{{invitation.invitation_currency_end}}</block>运动币
+      </button>
+    </view>
+    
+    <!--<view class="ADcontant" wx:if="{{advertisement.upper&&advertisement.upper.length>0}}">
+        <view class="ADiconItem" data-index="{{index}}" data-type="upper" wx:for="{{advertisement.upper}}">
+            <navigator appId="{{item.appid}}" openType="{{item.open_type}}" path="{{item.path}}" target="{{item.target}}" url="{{item.url}}">
+                <image class="ADiconImage" src="{{item.icon}}"></image>
+                <view>{{item.title}}</view>
+            </navigator>
+        </view>
+    </view>-->
+</view>
+
+<view class='flipping-box'>
+  <view class="Flipping1" wx:if="{{audit_pattern!=2}}">
+    <navigator wx:if="{{img_url}}" url="/bh_step/pages/goodsconvert/goodsconvert" open-type="switchTab"  class="image relative tag-coin" style="background: url('{{img_url}}/icon_0yuangou.png');background-size: 100% 100%;"></navigator>
+  </view>
+  <view  class="Flipping2" wx:if="{{audit_pattern!=2}}">
+    <navigator wx:if="{{img_url}}" url="/bh_step/pages/lottery/lottery"  class="image relative tag-coin" style="background: url(\"{{img_url}}/icon_choujiang.png\");background-size: 100% 100%;"></navigator>
+  </view>
+
+  <!-- <view  class="Flipping1" wx:if="{{audit_pattern!=2}}">
+    <navigator wx:if="{{img_url}}"  class="image relative tag-coin" style="background: url(\"{{img_url}}/icon_choujiang.png\");background-size: 100% 100%;"></navigator>
+  </view> -->
+</view>
+
+<view class="content bg-color-white">
+		<!--天天领红包广告图-->
+		<view bindtap="showBg" class="daily-redpack" wx:if="{{bag.is_open==1&&audit_pattern!=2}}">
+			<image class="daily-redpack-gif" src="../../images/ad_redpack.png"></image>
+			<view class="daily-redpack-subtitle">天天领红包</view>
+			<view class="daily-redpack-text-box">
+				<view class="hredEnvelope-title" >
+					邀请好友瓜分<text class="money">{{bag.bag_total_amount}}</text>元
+				</view>
+			</view>
+			<view class="daily-redpack-btn">
+				<image src="{{img_url}}/daily-red-pack/icon_open.png"></image>
+			</view>
+		</view>
+		<!--步数挑战赛广告图-->
+		<navigator url="/bh_step/pages/defiance/defiance" open-type="switchTab" class="daily-chanllenge">
+			<image wx:if="{{img_url}}" class="daily-chanllenge-gif" src="{{img_url}}/index_ad_chanllenge.png"></image>
+			<view class="daily-chanllenge-subtitle">进行中</view>
+			<view class="daily-chanllenge-text-box">
+					<text class="money">￥{{bag.bag_total_amount}}</text>
+			</view>
+		</navigator> 
+    
+    <view style="padding:20rpx;">
+    		<text class="item-title" style="font-size: 36rpx;">做任务赚运动币</text>
+    		<view class="text-color-content" style="font-size: 26rpx;">试玩<text class="red">30秒</text>并<text class="red">授权</text>才能领取运动币哦~</view>
+    </view>
+    <!--<view class="share-button" wx:if="{{audit_pattern==1}}">
+        <button bindgetuserinfo="onGotUserInfo2" class="bottom-buuton" data-module="分享至群" data-type="group" openType="share">分享至群获得福利</button>
+    </view>
+    <view class="share-describe" wx:if="{{audit_pattern!=2}}">每天上限分享至5个群，次日可重新分享</view>-->
+</view>
+
+<view class="bg-color-white">
+	<!--推广任务列表-->
+  <!-- 邀请好友 -->
+  <button class="my-card" data-module="邀请好友领运动币" openType="share">
+    <view class="my-card-header" style='height:160rpx;'>
+    		<view>
+    			<image wx:if="{{img_url}}" class="my-card-header-thumb" src="{{img_url}}/step2gift/task_icon1.png" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">邀请好友赚运动币</view>
+            <view class="text-color-extra">多劳多得，一个成功邀请奖励{{taskInfo.invitation.end}}运动币</view>
+        </view>
+    </view>
+    <view class="my-card-absolute" >
+    	<view>
+    		<view class="my-card-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;">
+    			<view style="padding-top:22rpx;">{{taskInfo.invitation.end}}</view>
+    			<view style="font-size:20rpx;">运动币</view>
+    		</view>
+    	</view>
+    	<view class="text-color-main">立即领取</view>
+    </view>
+	</button>
+
+  <!-- 添加到我的小程序 -->
+  <view class="my-card" wx:if="{{!taskInfo.add_xcx.is_add_xcx}}">
+    <view class="my-card-header" style='height:160rpx;'>
+    		<view>
+    			<image class="my-card-header-thumb" src="/bh_step/images/icon.png" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">添加到我的小程序</view>
+            <view class="text-color-extra">方便每天领取现金红包</view>
+        </view>
+    </view>
+    <view class="my-card-absolute" >
+    	<view>
+    		<view class="my-card-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;">
+    			<view style="padding-top:22rpx;">{{taskInfo.add_xcx.currency}}</view>
+    			<view style="font-size:20rpx;">运动币</view>
+    		</view>
+    	</view>
+    	<view class="text-color-main">立即领取</view>
+    </view>
+	</view>
+ 
+  
+ 	<view bindtap="startTask" wx:if="{{key < 2}}" data-id="{{key}}" class="my-card" wx:for="{{taskInfo.task}}"  wx:for-index="key" wx:key="{{item.id}}">
+    <view class="my-card-header">
+    		<view>
+    			<image class="my-card-header-thumb" src="{{item.icon}}" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">{{item.title}}</view>
+            <view class="text-color-extra">{{item.describe}}</view>
+        </view>
+    </view>
+    <view wx:if="{{item.min_play_time>0}}" class="my-card-footer">需体验<text class="red">{{item.min_play_time}}秒</text>并授权才能领运动币哦~</view>
+    <view class="my-card-footer">
+    	<image wx:for="{{item.avatars}}" wx:for-item="avatar"
+      class="my-card-avatar" src="{{avatar}}" mode="" />
+
+    	<text class="text-color-extra2">{{item.tip}}</text>
+    </view>
+
+		<!--区分已完成与未完成按钮-->
+    <!--未完成-->
+    <view wx:if="{{!item.is_complete}}" class="my-card-absolute coin-2" >
+    	<view>
+    		<view class="my-card-coin" style="background: url({{img_url}}/step2gift/coin.png);background-size: 100% 100%;">
+    			<view style="padding-top:18rpx;">{{item.currency}}</view>
+    			<view style="font-size:20rpx;">运动币</view>
+    		</view>
+    	</view>
+    	<view class="text-color-main">立即领取</view>
+    </view>
+    <!--已完成-->
+    <view wx:else class="my-card-absolute">
+    	<view>
+    		<view class="my-card-coin" style="background: url({{img_url}}/step2gift/coin2.png);background-size: 100% 100%;">
+    			<view style="padding-top:36rpx;font-size: 26rpx;">已完成</view>
+    		</view>
+    	</view>
+    </view>
+
+	</view>
+
+  <view class="ad">
+    <ad unit-id="adunit-68d98b378c934558"></ad>
+  </view>
+
+  <view bindtap="startTask" wx:if="{{key > 1}}" data-id="{{key}}" class="my-card" wx:for="{{taskInfo.task}}"  wx:for-index="key" wx:key="{{item.id}}">
+    <view class="my-card-header">
+    		<view>
+    			<image class="my-card-header-thumb" src="{{item.icon}}" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">{{item.title}}</view>
+            <view class="text-color-extra">{{item.describe}}</view>
+        </view>
+    </view>
+    <view wx:if="{{item.min_play_time>0}}" class="my-card-footer">需体验<text class="red">{{item.min_play_time}}秒</text>并授权才能领运动币哦~</view>
+    <view class="my-card-footer">
+    	<image wx:for="{{item.avatars}}" wx:for-item="avatar"
+      class="my-card-avatar" src="{{avatar}}" mode="" />
+
+    	<text class="text-color-extra2">{{item.tip}}</text>
+    </view>
+
+		<!--区分已完成与未完成按钮-->
+    <!--未完成-->
+    <view wx:if="{{!item.is_complete}}" class="my-card-absolute coin-2" >
+    	<view>
+    		<view class="my-card-coin" style="background: url({{img_url}}/step2gift/coin.png);background-size: 100% 100%;">
+    			<view style="padding-top:18rpx;">{{item.currency}}</view>
+    			<view style="font-size:20rpx;">运动币</view>
+    		</view>
+    	</view>
+    	<view class="text-color-main">立即领取</view>
+    </view>
+    <!--已完成-->
+    <view wx:else class="my-card-absolute">
+    	<view>
+    		<view class="my-card-coin" style="background: url({{img_url}}/step2gift/coin2.png);background-size: 100% 100%;">
+    			<view style="padding-top:36rpx;font-size: 26rpx;">已完成</view>
+    		</view>
+    	</view>
+    </view>
+
+	</view>
+  
+  <!-- 关注公众号 -->
+	<view class="my-card">
+    <view class="my-card-header" style="padding-bottom: 30rpx;">
+    		<view>
+    			<image class="my-card-header-thumb" src="/bh_step/images/wx.png" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">关注公众号</view>
+            <view class="text-color-extra">接收红包通知和运动攻略</view>
+        </view>
+    </view>
+    <view class="my-card-absolute" >
+    	<view>
+    		<view wx:if="{{img_url}}" class="my-card-coin" style="background: url({{img_url}}/step2gift/coin2.png);background-size: 100% 100%;">
+    			<view style="padding-top:36rpx;font-size: 26rpx;">已完成</view>
+    		</view>
+    	</view>
+    </view>
+	</view>
+
+  <!-- 添加到我的小程序 -->
+  <view bindtap="showTip" class="my-card" wx:if="{{taskInfo.add_xcx.is_add_xcx}}">
+    <view class="my-card-header">
+    		<view>
+    			<image class="my-card-header-thumb" src="/bh_step/images/icon.png" mode="" />
+        </view>
+        <view class="my-card-header-content">
+            <view class="text-color-title" style="font-size:36rpx;">添加到我的小程序</view>
+            <view class="text-color-extra">方便每天领取现金红包</view>
+        </view>
+    </view>
+    <view class="my-card-absolute" >
+    	<view>
+    		<view wx:if="{{img_url}}" class="my-card-coin" style="background: url({{img_url}}/step2gift/coin2.png);background-size: 100% 100%;">
+    			<view style="padding-top:36rpx;font-size: 26rpx;">已完成</view>
+    		</view>
+    	</view>
+    </view>
+	</view>
+</view>
+
+
+<view catchtouchmove="false" class="mengban" wx:if="{{author_show==1}}">
+    <view class="dialog beijing">
+        <view bindtap="closedialog" class="closebtn">
+            <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAPFBMVEUAAAD////////////////////////////////////////////////////////////////////////////YSWgTAAAAE3RSTlMA+1f3Y0xSRBvem40oIxIODAnThBgT7wAAAJ9JREFUOMvl08kKwzAQA1AvrZfsrf7/XwuBsU5TXROim+CB8YDCNfKpLfhp9aD8IidXvjP6bqUCiMmXQBkvZLOOjMvoKZ7Wk3hZpdWSVktaLWm1pNWSVktaLWm1pKWUdqZUFpTCUorMp5wUs7/zvkLSajlFZXn5RCtkoFWSVkllTT5ym01tM69Wq9xmsXZ0xD/bzOjbaHtZgp+1bOFm+QE1fRM32pdv4wAAAABJRU5ErkJggg==" style="width:42rpx;height:42rpx"></image>
+        </view>
+        <view class="mydialog" style="background: url({{mydialog}});background-size: 100%;">
+            <view class="diatitle">亲，需要你的启动授权哦</view>
+            <view class="diatext">为您提供全部功能，奖励{{suspension.author.currency}}运动币</view>
+            <button bindgetuserinfo="getUserInfo" bindtap="closedialog" class="mydiabtn" lang="zh_CN" openType="getUserInfo"></button>
+        </view>
+    </view>
+</view>
+
+<!--弹出层广告-->
+<view catchtouchmove="false" class="mengban" wx:if="{{ad_pop==1&&advertisement.ad_pop}}">
+    <view class="dialog beijing">
+        <view bindtap="closedialog" class="closebtn">
+            <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAPFBMVEUAAAD////////////////////////////////////////////////////////////////////////////YSWgTAAAAE3RSTlMA+1f3Y0xSRBvem40oIxIODAnThBgT7wAAAJ9JREFUOMvl08kKwzAQA1AvrZfsrf7/XwuBsU5TXROim+CB8YDCNfKpLfhp9aD8IidXvjP6bqUCiMmXQBkvZLOOjMvoKZ7Wk3hZpdWSVktaLWm1pNWSVktaLWm1pKWUdqZUFpTCUorMp5wUs7/zvkLSajlFZXn5RCtkoFWSVkllTT5ym01tM69Wq9xmsXZ0xD/bzOjbaHtZgp+1bOFm+QE1fRM32pdv4wAAAABJRU5ErkJggg==" style="width:42rpx;height:42rpx"></image>
+        </view>
+        <navigator appId="{{advertisement.ad_pop.appid}}" openType="{{advertisement.ad_pop.open_type}}" path="{{advertisement.ad_pop.path}}" target="{{advertisement.ad_pop.target}}" url="{{advertisement.ad_pop.url}}">
+            <view class="mydialog" data-type="ad_pop" style="background: url({{advertisement.ad_pop.icon}});background-size: 100% 100%; width: 500rpx;"></view>
+        </navigator>
+    </view>
+</view>
+
+<!-- 开红包 -->
+<view class="pop-mask" wx:if="{{bgShow}}"></view>
+<view class="daily-red-pack-pop" wx:if="{{bgShow}}">
+    <view class="daily-red-pack-pop-content" style=" background: url(\"{{img_url}}/daily-red-pack/daily_red_pack_bg.png\");background-size: 100%;">
+        <text bindtap="onSkipBag" class="close-btn" >点击跳过</text>
+        <view class="join-condition-1">消耗{{bag.bag_currency}}运动币参与平分</view>
+        <view class="join-condition-1" style="margin-top:6px;font-size:66rpx;">{{bag.bag_total_amount}}元红包</view>
+        <view class="join-condition-1" style="margin-top:26px;">开红包</view>
+        <image bindtap="receive_bg" class="join-btn" data-index="1" src="{{img_url}}/daily-red-pack/daily_red_pack_open_btn.png"></image>
+    </view>
+</view>
+
+<!-- 开红包结果提示 -->
+<view class="pop-mask" wx:if="{{isBag}}"></view>
+<view class="daily-red-pack-pop" wx:if="{{isBag}}">
+    <view class="opened-red-pack-pop-content" style="background: url(\"{{img_url}}/daily-red-pack/daily_red_pack_opened_bg.png\");background-size: 100%;">
+        <text bindtap="onCloseClick" class="close-btn" >点击关闭</text>
+        <view class="reward-box">
+            <view class="reward-text">获得现金红包（元）</view>
+            <view class="reward-money">¥{{bag_cash}}</view>
+            <view class="reward-text-2">红包已经存入我的-收益</view>
+        </view>
+        <button bindtap="showBagShare" class="open-more-btn" style="background: url(\"{{img_url}}/daily-red-pack/open_more_red_pack_btn.png\");background-size: 100%;"></button>
+    </view>
+</view>
+
+<!-- 解锁红包说明 -->
+<view class="invite-red-pack-pop" wx:if="{{bag_unlock}}">
+    <view bindtap="gotoClosePop" class="pop-mask"></view>
+    <view class="invite-red-pack-pop-content" style="background-size: 100% 100%;background-image: url(\"{{img_url}}/daily-red-pack/white_bg.png\");">
+        <text bindtap="gotoClosePop" class="close-btn" >点击关闭</text>
+        <view class="open-red-pack-tips">
+            <image class="gift-icon" src="{{giftImg64}}"></image>
+            <text class="gift-tips">发红包再开4个</text>
+        </view>
+        <view bindtap="receive_bg" class="item-container" data-index="{{index+2}}" data-redpackid="{{item.redpackId}}" data-type="{{item.redpackType}}" wx:for="{{bag_share}}" wx:key="{{item.redpackId}}">
+            <view class="red-pack-item {{index%2==0?'left-item':'right-item'}}" style="background-image:url({{img_url}}{{item.type==2?'/locked_red_pack.png':item.type==1?'/unlocked_red_pack.png':'/clickable_red_pack.png'}})">
+                <view wx:if="{{item.type==2}}">
+                    <view class="locked-item-text">自动解锁剩余</view>
+                    <view class="locked-time-text">
+                        <text class="locked-time">{{item.cooling}}</text>
+                        小时
+                    </view>
+                    <view class="locked-item-status">待解锁</view>
+                </view>
+                <view wx:elif="{{item.type==1}}">
+                    <view class="red-pack-money">¥{{item.money}}</view>
+                    <view class="red-pack-status">已存入我的-收益</view>
+                </view>
+            </view>
+        </view>
+        <button class="invite-friend-btn" data-type="bag" id="daily-redpack-share" openType="share">
+            给好友发红包，他领你也领
+        </button>
+        <view class="invite-tips">每邀请{{bag.bag_invitations_number}}位新用户即可立刻解锁下一红包</view>
+    </view>
+</view>
+
+<!-- 幸运金币-广告任务 -->
+<view class="mask fixed" wx:if="{{isTask}}">
+    <view class="dialogview cash mask-box absolute" style="background: url({{img_url}}/wechat/luck/bg.png);background-size: 100%;">
+    <text bindtap="closeLucyDialog" class="close-btn" >点击关闭</text>
+        <view class="luckcoin">
+            <text class="luckcount">+{{suspension.task.currency}}</text> 运动币</view>
+        <!-- <view bindtap="clickAD" class="luckactivate">{{activated?'已激活':'待激活'}}</view> -->
+  
+        <!-- <navigator appId="{{suspension.task.appid}}" bindfail="bindfail" bindsuccess="bindsuccess" openType="navigate" path="{{suspension.task.path}}" target="miniProgram"> -->
+            <image bindtap="clickAD" class="luckgAD" src="{{suspension.task.banner_url}}"></image>
+        <!-- </navigator> -->
+
+        <view bindtap="clickAD" class="luckgBtn" wx:if="{{ads_detail_type!=5}}">体验授权领取幸运金币</view>
+        <view style="font-size:22rpx;color:#eee;text-align:center;">需体验90秒并授权才能领取奖励哦~</view>
+      
+    </view>
+</view>
+
+<!--签到弹窗-->
+<view catchtouchmove="false" class="mengban" wx:if="{{isshow_sigin}}">
+    <view class="dialog beijing">
+        <view>
+            <view class="signinheard" style=" background: url({{img_url}}/wechat/signinbc.png);background-size: 100%;">
+                <view class="signinone">已经连续签到<text style="font-size: 48rpx;font-family:\"DIN Alternate\";"> {{sigin.days}} </text>天</view>
+                <view class="signintwo">+<text style="font-size: 156rpx;font-family:\"DIN Alternate\"">{{sigin.currency}}</text>
+                </view>
+                <view class="signintre">今天签到奖励运动币数</view>
+            </view>
+            <view class="stardiv" style="background-image: url({{img_url}}/wechat/star0.png);background-size: 100%;">
+                <view class="starspan" style="width:{{(sigin.days%7||7)/7*660}}rpx">
+                    <image class="singinimg" src="{{img_url}}/wechat/star1.png"></image>
+                </view>
+            </view>
+            <view class="signinfor">—— 连续签到第7天领大礼 ——</view>
+            <form-button bindtap="sendPushTime" wx:if="{{sigin.is_remind==0}}">
+                <view class="singinbtn">确认，并预约明天提醒</view>
+            </form-button>
+            <form-button bindtap="closedialog" wx:if="{{sigin.is_remind==0}}">
+                <view class="closepush">暂时不用提醒</view>
+            </form-button>
+            <form-button bindtap="closedialog" wx:if="{{sigin.is_remind==1}}">
+                <view class="singinqd">确定</view>
+            </form-button>
+        </view>
+    </view>
+</view>
+
+<!--捐步-->
+<view class="pop-mask" wx:if="{{give_step.goods&&giveShow}}"></view>
+<view class="daily-red-pack-pop" wx:if="{{give_step.goods&&giveShow}}">
+    <view style="position: relative;margin: 0 auto;width: 650rpx;height: 782rpx;text-align:center;background-size: 100% 100%;">
+        <image bindtap="onCloseClick" class="close-btn"></image>
+        <view>
+            <view class="cutstep" style="background: url({{img_url}}/wechat/cutstep/bc1.png);background-size: 100%;" wx:if="{{give_status==1}}">
+                <view class="usericonview">
+                    <image class="usericon" src="{{give_step.member.head}}"></image>
+                </view>
+                <view class="username"></view>
+                <view class="cuttext">邀请你帮忙砍步数</view>
+                <view class="cuttext">一起免费兑换商品</view>
+                <view class="gooodsview">
+                    <view class="goodsimgview">
+                        <image src="{{give_step.goods.cover_image}}" style="height: 168rpx;width: 168rpx;"></image>
+                    </view>
+                    <view class="goodstext">
+                        <view class="productName" style="position:absolute">{{give_step.goods.goods_name}}</view>
+                        <view class="media-box__desc">
+                            <text class="text-orangered">
+                            原价 ¥ {{give_step.goods.original_price}}
+                        </text>
+                        </view>
+                        <view class="energyCoin">0元 {{give_step.goods.is_free==1?'包邮':''}}兑换</view>
+                    </view>
+                </view>
+                <view bindtap="tapcut" class="dig-button">立即帮砍</view>
+                <image bindtap="onCloseClick" class="luckclose" src="{{img_url}}/wechat/cutstep/close.png"></image>
+                <image class="bccolor" src="{{img_url}}/wechat/cutstep/color.png" style="height:572rpx"></image>
+            </view>
+            <view class="cutstep" style="background: url({{img_url}}/wechat/cutstep/bc1.png);background-size: 100%;" wx:if="{{give_status==2}}">
+                <view class="usericonview">
+                    <image class="usericon" src="{{give_step.member.head}}"></image>
+                </view>
+                <view class="username"></view>
+                <view class="cuttext">帮砍成功</view>
+                <view class="cuttext">成功砍了{{cut_step}}步</view>
+                <view class="gooodsview">
+                    <view class="goodsimgview">
+                        <image src="{{give_step.goods.cover_image}}"></image>
+                    </view>
+                    <view class="goodstext">
+                        <view class="productName" style="position:absolute">{{give_step.goods.goods_name}}</view>
+                        <view class="media-box__desc">
+                            <text class="text-orangered">
+                            原价 ¥ {{give_step.goods.original_price}}
+                        </text>
+                        </view>
+                        <view class="energyCoin">0元 {{give_step.goods.is_free==1?'包邮':''}}兑换</view>
+                    </view>
+                </view>
+                <view bindtap="shareGoods" class="dig-button">我也要免费拿</view>
+                <view class="buttontext">分享到群聊更容易成功哦~</view>
+                <image bindtap="onCloseClick" class="luckclose" src="{{img_url}}/wechat/cutstep/close.png"></image>
+                <image class="bccolor" src="{{img_url}}/wechat/cutstep/color.png" style="height:572rpx"></image>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+
+
+<view class="pop-content" wx:if="{{mask}}">
+	<view class="main" style="background:transparent;width:100%;padding:0 40rpx;font-size:24rpx;height:750rpx;">
+		
+    <image src="{{img_url}}/add_to_xcx.png"  style='width:100%;height:750rpx;border-radius:40rpx 40rpx 0 0;'></image>
+    <view bindtap="toggleMask" style='margin: 20rpx auto 0;height:510rpx;font-size:40rpx;color:#fff;font-weight:500;'>
+      <view class="boder-white-btn" style='width:400rpx;height:80rpx;line-height:80rpx;border-radius:40rpx;font-size:30rpx;font-weight:500;'>记住了，去试试</view>
+    </view>
+   <view style="position:absolute;top:-150rpx;right:100rpx;"><image src="/bh_step/images/hand.png" style='width:86rpx;height:116rpx;transform-style: preserve-3d;animation-name: upAnimation2;animation-timing-function: ease-in-out;animation-iteration-count: infinite;animation-duration: 2.5s;'></image></view>
+    <text bindtap="toggleMask"  class="close-btn2" ></text>
+	</view>
+
+</view>
+
+<view wx:if="{{mask}}" class="pop-mask"  bindtap="toggleMask" style='background:rgba(0,0,0,0.85);'></view>
+
+<view class="i-class i-toast" wx:if="{{added_coin>0 || added_exp>0}}">
+    <view class="i-toast-content" wx:if="{{added_coin>0}}"><image class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" /> 运动币+{{added_coin}}</view>
+    <view class="i-toast-content" wx:if="{{added_exp>0}}"><image class="coin" src="/bh_step/images/star.png" mode="aspectFit" /> 成长值+{{added_exp}}</view>
+</view>
+
+<userinfo_dialog show="{{showUserInfoDialog}}" bind:authorize='authorize'></userinfo_dialog>

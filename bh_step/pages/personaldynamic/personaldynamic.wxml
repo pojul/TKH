@@ -1,0 +1,91 @@
+<image class='topbg' src='../../images/collarmoney_topbg.png'></image>
+<view class='top-box'>
+  <image class='photo' src='https://img01.sogoucdn.com/app/a/100520093/d27bf6c25ece6d98-219d425a1e25445a-f6e35bb492cb2c14188181cfb5438b30.jpg'></image>
+  <view class='user-name-box'>
+    <view class='user-name'>武汉上等仁嘉武汉上等仁嘉</view>
+  </view>
+
+</view>
+
+<view class='content-bg'>
+
+  <view class='recent-visitors-note'>已阅读：</view>
+  <view class='recent-visitors-box'>
+    <image wx:for="{{recentVisitors}}" class='recent-visitor-photo' src="{{item.pic}}"></image>
+  </view>
+
+  <view class='line'></view>
+
+  <view class='content'>
+    <view class='content-title'>上等仁嘉智慧空间，在全市范围内展开平面设计业务、空间设计业务...</view>
+    <view class='content-photo-box'>
+      <image mode='aspectFill' wx:for="{{contentPhotos}}" class='content-photo'
+       src='https://img03.sogoucdn.com/app/a/100520024/ad327666b442aa88e82fd1369166191b'></image>
+    </view>
+    <view class='url-link'>网址链接</view>
+    <view class='operate-box'>
+      <view class='thumbup-box'>
+        <image class='content-thumbup' src='../../images/thumbup_gray.png'></image>
+      </view>
+      <view class='share-box'>
+        <image class='content-share-icon' src='../../images/wechat_icon.png'></image>
+        <view class='content-share-title'>分享微信</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='line-think'></view>
+
+  <view class='progress-box'>
+    <view class='progress-top-box'>
+      <text class='progress-title'>分享佣金</text>
+      <text class='progress-status'>进行中</text>
+    </view>
+    <view class='progress-bg'>
+      <view class='progress' style="width:{{progress*680/100}}rpx;"></view>
+    </view>
+    <view class='progress-bottom-box'>
+      <view class='total-money' class='progress-bottom-text'>总计：500.00</view>
+      <view class='left-money-box'>
+        <view class='progress-bottom-text'>剩余</view>
+        <view class='left-money'>¥ 196.59</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='line-think'></view>
+
+  <view class='replys-box'>
+    <view class='replys-top'>
+      <view class='replys-top-text'>评论　3</view>
+      <view class='replys-top-text'>25　赞</view>
+    </view>
+    <view class='line1'></view>
+    <view wx:for="{{replys}}" class='reply-item'>
+      <view class='user-info'>
+        <image class='reply-photo' src='https://img01.sogoucdn.com/app/a/100520093/d27bf6c25ece6d98-219d425a1e25445a-f6e35bb492cb2c14188181cfb5438b30.jpg'></image>
+        <view class='user-text-info'>
+          <view class='reply-name'>不酸的洛克</view>
+          <view class='reply-text'>谢谢</view>
+          <view class='reply-date'>03-04 14：48 回复</view>
+        </view>
+      </view>
+      <view class='item-thumbup-box'>
+        <image class='item-thumbup-icon' src='../../images/thumbup_gray.png'></image>
+        <view class='item-thumbup-text'>赞</view>
+      </view>
+    </view>
+    <view class='replys-bottom'>- 没有更多了 -</view>
+  </view>
+
+</view>
+
+<view class='bottom-box'>
+  <input class='input-box' placeholder='禁止在他人评论区发广告'></input>
+  <image src='../../images/message_black.png' class='chat'></image>
+  <image src='../../images/thumbup_gray.png' class='bottom-thumbup'></image>
+</view>
+
+<view class='ok-box'>
+  <view class='ok'>✔</view>
+</view>

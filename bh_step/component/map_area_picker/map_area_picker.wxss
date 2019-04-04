@@ -1,0 +1,9 @@
+/* bh_step/component/map_area_picker/map_area_picker.wxss */
+.picker-box{
+  width: 200rpx;
+  height: 70rpx;
+  position: fixed;
+  bottom: 0rpx;
+  background-color: #f00;
+  overflow-y: scroll;
+}

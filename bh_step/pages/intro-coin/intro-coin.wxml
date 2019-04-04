@@ -1,0 +1,29 @@
+<view class="main">
+    <view class="head" style='background-image:url({{img_url}}/intro-bg.png);' >
+        <view class="title">运动币说明</view>
+    </view>
+
+  <view class="intro-content">
+    <view class="left-title text-color-main" >什么是运动币</view>
+    <view class="p text-color-content">
+      运动币是由拓客会推出的运动奖励积分，为鼓励大家更多进行健康运动，每天的微信运动步数均可兑换为相应的运动币。运动币可直接在拓客会小程序中直接兑换现金。
+    </view>
+     <view class="p text-color-content">
+      当首页出现悬浮的金币时，点击即可领取。悬浮的运动奖励会根据类型在一定时间内过期失效，请尽快在当日内领取完毕所有奖励。
+    </view>
+
+    <view class="left-title text-color-main" >如何获得运动币</view>
+    <view class="p text-color-content">
+      <text class="text-color-title">步行奖励：</text>当日20000步内的步数均可获得相应的奖励，超过20000步则得不到奖励，100步等于1运动币，步行奖励当日不领取则失效。
+    </view>
+    <view class="p text-color-content">
+      <text class="text-color-title">任务奖励：</text>每完成一个任务即可获得对应运动币奖励，任务奖励完成任务时系统自动累加。
+    </view>
+    <view class="p text-color-content">
+      <text class="text-color-title">好友收益：</text>邀请好友一起来拓客会，每天运动和完成任务，你即可获得你邀请的好友的部分收益，如果你有好友收益时，收益会出现好友收益悬浮金币，点击领取，永不失效。
+    </view>
+
+  </view>
+
+</view>
+

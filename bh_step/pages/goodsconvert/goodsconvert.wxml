@@ -1,0 +1,106 @@
+<view class="bg-color-white" style="margin-top: 4rpx;">
+	<view class="weui-flex" style="text-align: center;padding:14rpx;">
+		<view class="weui-flex__item" style="border-right: solid 4rpx #eeeeee;">
+			<i-icon type="financial_fill" size="22" color="#80848f"></i-icon>
+			运动币
+			<text class="text-color-main">{{member.currency}}</text>
+		</view>
+		<navigator url="/bh_step/pages/order/order" class="weui-flex__item">
+			<i-icon type="barrage" size="22" color="#80848f"></i-icon>
+			我的订单
+		</navigator>
+	</view>
+	<!--广告图-->
+	<view style="width:100%;height:260rpx;background: url({{shop_top_image}});background-size:100%;"></view>
+
+	<view class="goodsview">
+    <view class='title-box' scroll-x="true">
+      <view data-index="0" bindtap='setCurrentGood' class="{{currentGoods == 0?'goodstitle-active':'goodstitle'}}">{{data.goods_top.category_name}}</view>
+      <view wx:for="{{data.goods}}" wx:for-index="titleIndex" wx:for-item="listTitle" class="{{currentGoods == titleIndex?'goodstitle-active':'goodstitle' }}" data-index="{{titleIndex}}" bindtap='setCurrentGood'>{{listTitle.category_name}}</view>
+    </view>
+
+		<!-- <view class="goodstitle">{{data.goods_top.category_name}}</view> -->
+		<view wx:if="{{data.goods_top && currentGoods == 0}}" style="display: flex;flex-wrap:wrap;">
+			<view wx:for="{{data.goods_top.goods}}" wx:key="goodlist"
+				bindtap="goodsDetails" class="panel" data-etype="{{item.exchange_type}}" data-id="{{item.id}}" >
+				<view style="padding:10rpx;">
+						<view class="media-box__hd_in-appmsg">
+							<view class="newusertag" style="background: url({{img_url}}/wechat/newusertag.png)" wx:if="{{item.user_type}}"></view>
+							<image class="media-box__thumb" mode="widthFix" src="{{item.cover_image_url}}"></image>
+						</view>
+						<view class="media-box__bd ">
+							<view class="media-box__title">
+								<view class="title_tag title_tag_oneyuan" wx:if="{{(item.exchange_type==1||item.exchange_type==4)&&item.invitation_number>0}}">邀好友</view>
+								{{item.goods_name}}
+							</view>
+							<view class="newcalss">
+								<view class="media-box__bottom">
+									<image class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" />
+									<view class="bottom_left weui-flex" wx:if="{{item.exchange_type==1||item.exchange_type==4}}">
+										<text class="attractless text-color-red">{{item.exchange_number}}</text>
+										<view wx:if="{{item.exchange_type==4}}" >+<text class="text-color-red">{{item.money}}</text>元</view>
+										<text class="text-orangered">原价{{item.original_price}}元</text>
+									</view>
+									<!--<view class="bottom_left" wx:if="{{item.exchange_type==2||item.exchange_type==3}}">
+										<text class="attract" wx:if="{{item.exchange_number>=10000}}">{{item.exchange_number/10000}}</text>
+										<text class="attractless" wx:if="{{item.exchange_number<10000}}">{{item.exchange_number}}</text>
+										<text wx:if="{{item.exchange_number>=10000}}">万</text>步数 {{item.exchange_type==3?'+'+item.money+'¥':''}} 可兑
+										<view class="bottom_right" wx:if="{{item.is_free==0}}">
+											包邮
+										</view>
+										<view class="goodsbtn">{{item.exchange_type==3?'立即兑换':'点击免费拿'}}</view>
+									</view>-->
+								</view>
+							</view>
+							<view class="goodsbtn gradient-btn">{{item.exchange_type==4?'立即兑换':'0元免费拿'}}</view>
+						</view>
+				</view>
+			</view>
+		</view>
+
+    <view wx:for="{{data.goods}}" wx:for-item="list" wx:for-index="goodIndex" wx:if="{{currentGoods == goodIndex}}">
+			<!-- <view class="goodstitle">{{list.category_name}}</view> -->
+			<view style="display: flex;flex-wrap:wrap;">
+				<view wx:for="{{list.goods}}" bindtap="goodsDetails" class="panel" data-etype="{{item.exchange_type}}" data-id="{{item.id}}" >
+					<view style="padding:10rpx;" >
+						 <view class="media-box__hd_in-appmsg">
+							<view class="newusertag" style="background: url({{img_url}}/wechat/newusertag.png)" wx:if="{{item.user_type}}"></view>
+							<image class="media-box__thumb" mode="widthFix" src="{{item.cover_image_url}}"></image>
+						</view>
+						<view class="media-box__bd ">
+							<view class="media-box__title">
+								<view class="title_tag title_tag_oneyuan" wx:if="{{(item.exchange_type==1||item.exchange_type==4)&&item.invitation_number>0}}">邀好友</view>
+								{{item.goods_name}}
+							</view>
+							<view class="newcalss">
+								<view class="media-box__bottom">
+									<image class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" />
+									<view class="bottom_left weui-flex" wx:if="{{item.exchange_type==1||item.exchange_type==4}}">
+										<text class="attractless text-color-red">{{item.exchange_number}}</text>
+										<view wx:if="{{item.exchange_type==4}}" >+<text class="text-color-red">{{item.money}}</text>元</view>
+										<text class="text-orangered">原价{{item.original_price}}元</text>
+									</view>
+									<!--<view class="bottom_left" wx:if="{{item.exchange_type==2||item.exchange_type==3}}">
+										<text class="attract" wx:if="{{item.exchange_number>=10000}}">{{item.exchange_number/10000}}</text>
+										<text class="attractless" wx:if="{{item.exchange_number<10000}}">{{item.exchange_number}}</text>
+										<text wx:if="{{item.exchange_number>=10000}}">万</text>步数 {{item.exchange_type==3?'+'+item.money+'¥':''}} 可兑
+										<view class="bottom_right" wx:if="{{item.is_free==0}}">
+											包邮
+										</view>
+										<view class="goodsbtn">{{item.exchange_type==3?'立即兑换':'点击免费拿'}}</view>
+									</view>-->
+								</view>
+							</view>
+							<view class="goodsbtn gradient-btn">{{item.exchange_type==4?'立即兑换':'0元免费拿'}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="choujiang">
+			<ad unit-id="adunit-6b180e34aa5793b6"></ad>
+		</view>
+
+	</view>
+</view>

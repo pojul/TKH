@@ -1,0 +1,127 @@
+/* bh_step/pages/busycircle/busycircle.wxss */
+
+Page {
+  background: #ffffff;
+}
+
+.user-info-box{
+  display: flex;
+  align-items: center;
+}
+
+.photo{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50rpx;
+  margin-left: 35rpx;
+  border: 5rpx solid #fff;
+  box-shadow: 1rpx 1rpx 2rpx 1rpx #ddd;
+}
+
+.busy-title{
+  color: #222222;
+  font-size: 25rpx;
+  max-width: 180rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.busy-addr{
+  color: #999999;
+  font-size: 20rpx;
+  max-width: 240rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.base-text-box{
+  width: 570rpx;
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20rpx;
+  align-items: center;
+}
+
+.collar-money{
+  color: #ffffff;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: linear-gradient(to right, #FF0000 , #FF4A13);
+  border-radius: 40rpx;
+  font-size: 20rpx;
+}
+
+.price{
+  color: #FF1D1D;
+  font-size: 25rpx;
+}
+
+.base-textright-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.busy-text{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 24rpx;
+  color: #333333;
+  margin-top: 8rpx;
+}
+
+.pics-box{
+  display: flex;
+  flex-direction: row;
+  margin-left: 28rpx;
+  margin-right: 26rpx;
+}
+
+.busy-pic{
+  width: 220rpx;
+  height: 220rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+
+.pic-num{
+  width: 45rpx;
+  position: relative;
+  background-color: #7E7E7E;
+  font-size: 21rpx;
+  padding-top: 1rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  margin-top: -44rpx;
+  text-align: center;
+  margin-left:600rpx;
+}
+
+.pics-views{
+  margin-top: 20rpx;
+  color: #999999;
+  font-size: 20rpx;
+  margin-left: 30rpx;
+}
+
+.busy-item-line{
+  background-color: #EEEEEE;
+  height: 18rpx;
+  margin-top: 7rpx;
+}
+
+.add{
+  width: 78rpx;
+  height: 78rpx;
+  position: fixed;
+  bottom: 0rpx;
+  right: 0rpx;
+  margin-bottom: 65rpx;
+  margin-right: 20rpx;
+}
+

@@ -1,0 +1,28 @@
+<!--bh_step/pages/redpkgDetail/redpkgDetail.wxml-->
+<image class='topbg' src='../../images/collarmoney_topbg.png'></image>
+<view class='top-box'>
+  <image class='photo' src="{{redPacketDetail.post_member.member_head}}"></image>
+  <view class='user-name-box'>
+    <view class='user-name'>{{redPacketDetail.post_member.member_name}}</view>
+    <view class='user-name-note'>的红包</view>
+  </view>
+
+  <view class='redpkg-status'>{{redPacketDetail.post_member.receive_money}}元</view>
+  <view class='more-interested'>已存入零钱</view>
+</view>
+
+<view class='hasrec-num-box'>已领取{{redPacketDetail.receive_count}}份</view>
+
+<view class='recusers-box'>
+  <view wx:for="{{redPacketDetail.receive_detail}}" class='recuser'>
+    <view class='left-box'>
+      <image class='photo' src="{{item.member_head}}"></image>
+
+      <view class='user-text-box'>
+        <view class='name'>{{item.member_name}}</view>
+        <view class='time'>{{item.receive_time}}</view>
+      </view>
+    </view>
+    <view class='money'>{{item.money}}元</view>
+  </view>
+</view>

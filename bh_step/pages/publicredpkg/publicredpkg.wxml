@@ -1,0 +1,93 @@
+<!--bh_step/pages/publicredpkg/publicredpkg.wxml-->
+<view class='base-info-box'>
+  <input class='info-text' placeholder='想要对大家说...' bindinput="postTextChange"></input>
+  <view class='pic-box'>
+    <view class='pic-view' wx:for="{{pics}}">
+      <image mode='aspectFill' class='pic' src="{{item}}"></image>
+      <image bindtap='removePic' data-index="{{index}}" src='../../images/delete.png' class='remove-pic'></image>
+    </view>
+    <image mode='aspectFit' class='chose-pic' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/camera.png' bindtap='chosePic'></image>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='left-box'>
+    <view class='title'>红包个数</view>
+    <view class='note'>单个红包最低0.1元</view>
+  </view>
+  <view class='right-box'>
+    <input class='input-num' type='number' placeholder='填写个数' bindinput='postRedpkgNumChange'></input>
+    <view class='title'>个</view>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='left-box'>
+    <view class='title'>红包金额</view>
+    <view class='note'>红包总金额1-1000元</view>
+  </view>
+  <view class='right-box'>
+    <input class='input-num' class='input-num' type='number' placeholder='填写金额' bindinput='postMoneyChange'></input>
+    <view class='title'>元</view>
+  </view>
+</view>
+
+<view class='item-box'>
+  <view class='left-box'>
+    <view class='title'>位置＆范围</view>
+  </view>
+  <view class='right-box'>
+    <!-- <view class='each-price'>0.10元/个</view> -->
+    <view class='input-select' bindtap='toSelectLoc'>{{(publishRange.title == null ?'请选择':publishRange.title)}}</view>
+    <image mode='widthFix' class='right-icon' src='../../images/right.png'></image>
+  </view>
+</view>
+
+<view class='more-set-box'>
+  <view class='more-set-view' bindtap='showMoreSet'>
+    <view class='more-set-text'>更多设置</view>
+    <image mode='widthFix' class='more-set-icon' src='../../images/top.png'></image>
+  </view>
+</view>
+
+<view wx:if="{{showMore}}" class='item-box'>
+  <view class='left-box'>
+    <view class='title'>谁可以领</view>
+  </view>
+  <view class='right-box' data-show="{{true}}" bindtap='showPickRecType'>
+    <view class='input-select'>{{limitUsers.title==null?'请选择':limitUsers.title}}</view>
+  </view>
+</view>
+
+<view wx:if="{{showMore}}" class='link-bok'>
+  <input bindinput='postLinkTitleChange' class='link-title' placeholder='网址标题'></input>
+  <input bindinput='postLinkUrlChange' class='link-url' placeholder='网址链接'></input>
+</view>
+
+<view class='money-box'>
+  <view class='money-view'>
+    <view class='money'>0.00</view>
+    <view class='money-unit'>元</view>
+  </view>
+</view>
+
+<view class='opearte-box'>
+  <view bindtap='showMoreSet' class='more-setbig'>更多设置</view>
+  <view bindtap='publish' class='public'>确认发布</view>
+</view>
+
+<view wx:if="{{showPicRecType}}" class='pick-rectype-view' style="height: {{screenheight}}px;">
+  <view style="width: 100%;background-color: #fff;position: fixed;bottom: 0rpx;">
+    <view class='pick-rectype-checkview'>
+      <view class='pick-rectype-cancel' data-show="{{false}}" bindtap='showPickRecType'>取消</view>
+      <view class='pick-rectype--ok' data-show="{{false}}" bindtap='showPickRecTypeSure'>确定</view>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="background-color: #fff;width: 100%; height: 160px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{canRecTypes}}" style="font-size: 25rpx;width: 100%;text-align: center;line-height: 50px">{{item.title}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+
+<pay_dialog bind:checkPay="checkPay" show="{{showPay}}" payMoney="{{postMoney}}"> </pay_dialog>

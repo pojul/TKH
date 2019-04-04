@@ -1,0 +1,59 @@
+/* bh_step/component/UserInfoDialog/UserInfoDialog.wxss */
+.userinfo-box{
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+}
+
+.userinfo-content{
+  width: 70%;
+  margin-left: 15%;
+  background-color: #fff;
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.userinfo-title{
+  font-size: 30rpx;
+  align-self: center;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+  font-weight: bold;
+}
+
+.userinfo-line{
+  height: 1px;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.userinfo-bt{
+  display: flex;
+}
+
+.userinfo-ok{
+  font-size: 28rpx;
+  width: 50%;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+}
+
+.userinfo-line1{
+  width: 1rpx;
+  height: 90rpx;
+  background-color: #f1f1f1;
+}
+
+.userinfo-refuse{
+  font-size: 28rpx;
+  width: 50%;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+}

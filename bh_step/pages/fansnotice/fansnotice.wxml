@@ -1,0 +1,15 @@
+<!--bh_step/pages/fansnotice/fansnotice.wxml-->
+<view class='item' wx:for="{{listDatas}}">
+  <image class='photo' src="{{item.member_head}}"></image>
+  <view class='text-box'>
+    <view class='name-box'>
+      <view class='name'>{{item.related_user_name}}</view>
+      <image class='sex' src="{{item.gender==2?'../../images/sex_woman.png':'../../images/sex_man.png'}}"></image>
+    </view>
+    <view class='note'>关注了你</view>
+    <view class='time'>{{item.create_time}}</view>
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='no-more'>{{!hasMore?'一 没有更多了 一':'数据加载中'}}</view>

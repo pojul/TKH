@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "painter": "./../../component/painter/painter",
+        "openSettingDialog": "./../../component/open-setting-dialog/open-setting-dialog"
+    },
+    "navigationBarTitleText": "生成分享海报"
+}

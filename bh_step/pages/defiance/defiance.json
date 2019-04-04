@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "步数挑战赛",
+  "usingComponents": {
+    "i-icon": "../../../component/iview/icon/index"
+  }
+}

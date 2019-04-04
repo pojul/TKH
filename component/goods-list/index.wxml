@@ -1,0 +1,62 @@
+<view style="overflow:hidden;">
+    <slot></slot>
+    <view bindtap="navigateTo" class="{{item.bool?'panelL':item.bool1?'panelnone':'panel'}}" data-goodsdata="{{item}}" data-id="{{item.product_id}}" data-oem_id="{{item.oem_id}}" data-oem_type="{{item.oem_type}}" wx:for="{{goods}}" wx:key="goodlist">
+        <view class="panel__bd" wx:if="{{!item.bool}}">
+            <image class="goods_invite_tag" src="./images/goods_invite_tag.png" wx:if="{{item.goods_type==10}}"></image>
+            <view class="media-box media-box_appmsg" hoverClass="cell_active">
+                <view class="media-box__hd">
+                    <view class="newusertag" wx:if="{{item.user_type}}"></view>
+                    <view class="{{wxs.getCss(item.goods_type,item.is_get)}}">
+                        <image class="panel-img" mode="widthFix" src="{{item.images}}" wx:if="{{item.goods_type!=10}}"></image>
+                        <block wx:else>
+                            <block wx:if="{{!item.is_get&&item.before_animation=='moveup'}}">
+                                <image class="maskTitle" mode="widthFix" src="https://img.xmiles.cn/step2gift/maskTitle.png"></image>
+                                <image class="maskImage" mode="widthFix" src="https://img.xmiles.cn/step2gift/maskImage.png"></image>
+                            </block>
+                            <view class="move" wx:if="{{item.is_get&&item.after_animation=='rotate'}}">
+                                <image class="movePage1" mode="aspectFit" src="https://img.xmiles.cn/step2gift/maskPage3.png"></image>
+                                <image class="movePage2" mode="aspectFit" src="https://img.xmiles.cn/step2gift/maskPage2.png"></image>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="media-box__title">
+                    <view class="title_tag" wx:if="{{item.oem_tip&&item.oem_type==1}}">{{item.oem_tip}}</view>
+                    <view class="title_tag title_tag_oneyuan" wx:if="{{item.oem_tip&&item.oem_type==3||item.goods_type==10&&item.is_get}}">{{item.oem_tip}}</view>{{item.is_get?item.show_name:item.product_name}}</view>
+                <view class="newcalss">
+                    <view class="media-box__desc">
+                        <text class="text-orangered">原价 ¥{{item.market_price}}</text>
+                    </view>
+                    <view class="media-box__bottom">
+                        <view class="bottom_left" wx:if="{{item.oem_type!==1}}">
+                            <text class="attract">{{item.energy_coin}} </text>运动币<view class="bottom_right" wx:if="{{item.postage===0||!item.postage}}">包邮</view>
+                        </view>
+                        <view class="bottom_left" wx:if="{{item.oem_type===1}}">
+                            <text class="attract" wx:if="{{item.step>=10000}}">{{item.step/10000}}</text>
+                            <text class="attract" wx:if="{{item.step<10000}}">{{item.step}} </text>
+                            <text wx:if="{{item.step>=10000}}"> 万</text>步可兑<view class="bottom_right" wx:if="{{item.postage===0||!item.postage}}">包邮</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view catchtap="TapAdBanner" class="img" data-adtype="{{adlist.adtype}}" data-click_url="{{item.click_url}}" data-jump_url="{{adlist.jump_url}}" data-scclick_url="{{item.sensors_ad_click_url}}" data-title="{{item.title}}" src="{{adlist.image}}" wx:if="{{item.bool&&adlist}}">
+            <AcquireFormidView>
+                <image class="img" src="{{adlist.image}}" wx:if="{{item.bool&&adlist}}"></image>
+            </AcquireFormidView>
+        </view>
+    </view>
+</view>
+<ad unitId="adunit-9530915274fecdc7" wx:if="{{oem_id==5}}"></ad>
+<wxs module="wxs">
+var getCss = ((function(goods_type, is_get) {
+    if (goods_type == 10 && is_get) {
+        return ('rotate-block')
+    } else if (goods_type == 10 && !is_get) {
+        return ('mask')
+    } else {
+        return ('panel-img-container')
+    }
+}));
+module.exports.getCss = getCss;
+</wxs>

@@ -1,0 +1,38 @@
+<!--bh_step/pages/news/news.wxml-->
+<view class='item' bindtap='toMessItem' data-item="0">
+  <image class='icon' src='../../images/fannotification.png'></image>
+  <view class='text-box'>
+    <view class='text-top'>
+      <view class='name'>粉丝通知</view>
+      <view class='time'>{{memberMsg.follow_msg.create_time}}</view>
+    </view>
+    <view class='note'>{{!memberMsg.follow_msg.related_user_name||memberMsg.follow_msg.related_user_name==''?'暂无关注消息':memberMsg.follow_msg.related_user_name + '关注了你'}}</view>
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='item' bindtap='toMessItem' data-item="1">
+  <image class='icon' src='../../images/commentmess.png'></image>
+  <view class='text-box'>
+    <view class='text-top'>
+      <view class='name'>评论消息</view>
+      <view class='time'>{{memberMsg.reply_msg.create_time}}</view>
+    </view>
+    <view class='note'>{{!memberMsg.reply_msg.related_user_name||memberMsg.reply_msg.related_user_name==''?'暂无评论消息':memberMsg.reply_msg.related_user_name + '评论了你'}}</view>
+  </view>
+</view>
+<view class='line'></view>
+
+
+<view class='item' bindtap='toMessItem' data-item="2">
+  <image class='icon' src='../../images/point_notice.png'></image>
+  <view class='text-box'>
+    <view class='text-top'>
+      <view class='name'>点赞通知</view>
+      <view class='time'>{{memberMsg.like_msg.create_time}}</view>
+    </view>
+    <view class='note'>{{!memberMsg.like_msg.related_user_name||memberMsg.like_msg.related_user_name==''?'暂无点赞消息':memberMsg.like_msg.related_user_name + '点赞了你'}}</view>
+  </view>
+</view>
+<view class='line'></view>
+

@@ -1,0 +1,55 @@
+/* bh_step/pages/redpkgreport/redpkgreport.wxss */
+
+page{
+  background-color: #FAFAFA;
+}
+
+.top-box{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.base-info-title{
+  display: flex;
+  align-items: center;
+  
+}
+
+.line{
+  width: 10rpx;
+  height: 46rpx;
+  background-color: #f00;
+  margin-left: 35rpx;
+}
+
+.base-title{
+  margin-left: 15rpx;
+  color: #000;
+  font-size: 29rpx;
+}
+
+.info-box{
+  display: flex;
+  align-items: center;
+  padding-left: 35rpx;
+  margin-top: 20rpx;
+}
+
+.info-icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.info-text{
+  font-size: 25rpx;
+  color: #000000;
+  margin-left: 40rpx;
+}
+
+.bottom-box{
+  margin-top: 15rpx;
+  background-color: #fff;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}

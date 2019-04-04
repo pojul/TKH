@@ -1,0 +1,12 @@
+<!--bh_step/component/UserInfoDialog/UserInfoDialog.wxml-->
+<view wx:if="{{show}}" class='userinfo-box'>
+  <view class='userinfo-content'>
+    <view class='userinfo-title'>拓客会需用户授权登陆</view>
+    <view class='userinfo-line'></view>
+    <view class='userinfo-bt'>
+      <button open-type="getUserInfo" bindgetuserinfo="getAuthorize" class='userinfo-ok'>授权登陆</button>
+      <view class='userinfo-line1'></view>
+      <button bindtap='refuse' class='userinfo-refuse'>残忍拒绝</button>
+    </view>
+  </view>
+</view>

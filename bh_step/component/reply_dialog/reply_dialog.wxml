@@ -1,0 +1,10 @@
+<!--bh_step/component/reply_dialog/reply_dialog.wxml-->
+<view wx:if="{{show}}" class='reply-dialog-box'>
+  <view class='reply-dialog-content'>
+    <textarea bindinput='replyDialogTextChange' class='reply-dialog-input' placeholder='回复'></textarea>
+    <view class='reply-dialog-operatebox'>
+      <view bindtap='cancel' class='reply-dialog-operate'>取消</view>
+      <view bindtap='sure' class='reply-dialog-operate'>确定</view>
+    </view>
+  </view>
+</view>

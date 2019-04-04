@@ -1,0 +1,46 @@
+<!--bh_step/pages/myterritory/myterritory.wxml-->
+<view class='trading-hall-box'>
+  <view class='trading-hall' bindtap='toLordtradinghall'>交易大厅</view>
+</view>
+
+<view wx:if="{{territorys.length>0}}" class='territorys-box'>
+  <view class='territory' wx:for="{{territorys}}">
+    <view class='territory-topbox'>
+      <view class='territory-loxbox'>
+        <image class='loc-icon' src='../../images/position_red.png'></image>
+        <view class='loc-text'>{{item.re_name}} {{item.name}}</view>
+      </view>
+      <view class='rofit-box' bindtap='toTerritoryIncom' data-territoryid="{{item.id}}">
+        <image mode='widthFix' class='rofit-icon' src='../../images/profit.png'></image>
+        <view class='rofit-text'>领地收益</view>
+      </view>
+    </view>
+    <view class='line'></view>
+    <view class='territory-bottombox'>
+      <view class='left-time'>{{item.expire_time}}</view>
+      <view class='renew-box' bindtap='showPay' data-index="{{index}}" data-show="{{true}}">
+        <view class='price'>{{item.price}}元/月</view>
+        <view class='renew'>续费</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{territorys.length<=0}}" class='territory-empty'>
+  <view class='empty-title'>您还没有购买过领地</view>
+  <view class='privileges-box'>
+    <view class='privilege-line'></view>
+    <view class='privilege-text'>领主特权</view>
+  </view>
+  
+  <view class='privilege-item-box' wx:for="{{privileges}}">
+    <view class='privilege-item-top'>
+      <view class='privilege-item-point'></view>
+      <view class='privilege-item-title'>{{item.title}}</view>
+    </view>
+    <view class='privilege-item-note'>{{item.note}}</view>
+  </view>
+  <view class='tobe-laird' bindtap='toLordtradinghall'>我要成为领主</view>
+</view>
+
+<pay_dialog bind:checkPay="checkPay" weixinPayOnly="{{true}}" show="{{showPay}}" payMoney="{{payMoney}}"> </pay_dialog>

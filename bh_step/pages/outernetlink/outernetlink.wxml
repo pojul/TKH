@@ -1,0 +1,2 @@
+<!--bh_step/pages/outernetlink/outernetlink.wxml-->
+<web-view src="{{linkUrl}}">网址链接</web-view>

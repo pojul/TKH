@@ -1,0 +1,215 @@
+/* bh_step/pages/collarmoney/collarmoney.wxss */
+Page {
+  background: #F5F5F5;
+  height: 100%;
+}
+
+.topbg{
+  width: 100%;
+  height: 120rpx;
+}
+
+.top-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -65rpx;
+}
+
+.photo{
+  width: 95rpx;
+  height: 95rpx;
+  border-radius: 60rpx;
+  border: 5rpx solid #fff;
+  box-shadow: 1rpx 1rpx 2rpx 1rpx #ddd;
+}
+
+.user-name{
+  font-size: 26rpx;
+  color: #333333;
+  margin-top: 18rpx;
+  font-weight: bold;
+}
+
+.share-collar{
+  background-color: #f00;
+  font-size: 26rpx;
+  color: #fff;
+  margin-top: 25rpx;
+  padding-top: 14rpx;
+  padding-bottom: 10rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  border-radius: 40rpx;
+}
+
+.progress-box{
+  background-color: #fff;
+  margin-top: 25rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  padding-top: 15rpx;
+}
+
+.progress-top-box{
+  display: flex;
+  align-items: center;
+}
+
+.progress-title{
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.progress-status{
+  font-size: 19rpx;
+  border: 1rpx solid #FF0000;
+  margin-left: 15rpx;
+  padding-top: 3rpx;
+  padding-bottom: 3rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+  border-radius: 10rpx;
+  color: #FF0000;
+}
+
+.progress-bg{
+  width: 100%;
+  height: 10rpx;
+  border: 1rpx solid #dddddd;
+  border-radius: 10rpx;
+  margin-top: 15rpx;
+}
+
+.progress{
+  height: 100%;
+  background-color: #FF0000;
+  border-radius: 10rpx;
+}
+
+.progress-bottom-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.progress-bottom-text{
+  color: #999999;
+  font-size: 20rpx;
+}
+
+.left-money{
+  color: #FF0000;
+  font-size: 20rpx;
+  margin-left: 6rpx;
+}
+
+.left-money-box{
+  display: flex;
+}
+
+.joins-top-box{
+  display: flex;
+  background-color: #fff;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-top: 15rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.joins-top-title{
+  font-size: 24rpx;
+  color: #000;
+}
+
+.joins-num{
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.joins-detail-box{
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  background-color: #fff;
+}
+
+.share-collar-bottom{
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+}
+
+.share-bottom-text{
+  font-size: 23rpx;
+  color: #999999;
+}
+
+.share{
+  background-color: #f00;
+  font-size: 26rpx;
+  color: #fff;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border-radius: 40rpx;
+}
+
+.joins-item{
+  width: 680rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 35rpx;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.joins-item-left{
+  display: flex;
+  align-items: center;
+}
+
+.joins-item-index{
+  background-color: #f00;
+  width: 30rpx;
+  height: 30rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+
+.joins-item-photo{
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 60rpx;
+  margin-left: 30rpx;
+}
+
+.joins-item-namebox{
+  margin-left: 20rpx;
+}
+
+.joins-item-name{
+  color: #000;
+  font-size: 25rpx;
+}
+
+.joins-item-views{
+  color: #999999;
+  font-size: 22rpx;
+}
+
+.joins-item-money{
+  color: #000;
+  font-size: 24rpx;
+}

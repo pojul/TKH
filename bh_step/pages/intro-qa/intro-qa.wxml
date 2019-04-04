@@ -1,0 +1,26 @@
+<view class="main">
+    <view class="head" style='background-image:url({{img_url}}/intro-bg.png);' >
+        <view class="title">常见问题</view>
+    </view>
+
+  <view class="intro-content">
+    <view class="left-title text-color-main" >步数增加了为什么没有获得运动币？</view>
+    <view class="p text-color-content">
+      1.步数每次需增加超过100步才会转化为运动币，不足100步的需等累计超过100步后进行转化。
+    </view>
+     <view class="p text-color-content">
+      2.每天步数已经达到可兑换为运动币的上限（20000步），则不会再转化为运动币。
+    </view>
+
+    <view class="left-title text-color-main" >运动币转化为现金时为什么不能完全转化</view>
+    <view class="p text-color-content">
+      1.运动币大于10个时才能转化为现金。
+    </view>
+     <view class="p text-color-content">
+      2.每次运动币转化为现金时，只转换十位以上运动币，不足的部分需累计下次在转化。例如：你有3418个运动币，只能转化3410个（3.14元），剩余8运动币累计超过10运动币时再次转化。
+    </view>
+
+  </view>
+
+</view>
+

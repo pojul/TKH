@@ -1,0 +1,75 @@
+<view class="make-active-coin">
+    <view class="header" style="background: url({{img_url}}/wechat/coinview/bc.png)">
+        <view class="active-coin">我的运动币</view>
+        <view class="coin-1">{{currency}}</view>
+        <view bindtap="gotoCoinDetail" class="button">查看运动币明细</view>
+    </view>
+    <view class="active">做任务赚运动币</view>
+    <view class="list">
+        <view class="type1">
+            <button class="shareBtn" data-module="普通分享任务" openType="share">
+                <image class="img1" src="{{task_icon1}}"></image>
+                <view class="title1">邀请好友赚运动币</view>
+                <view class="subtitle1">多劳多得，一个成功邀请奖励{{invitation.start}}-{{invitation.end}}运动币</view>
+                <view class="coinDiv">
+                    <view class="open-ad-coin">
+                        <view class="coin" style="background: url({{img_url}}/step2gift/coin.png);background-size:100%">
+                            <view class="{{coinType==0?'num':'num1'}}">{{invitation.start}}-{{invitation.end}}</view>
+                            <view class="{{coinType==0?'unit':'unit1'}}">运动币</view>
+                        </view>
+                        <view class="txt">点击领取</view>
+                    </view>
+                </view>
+            </button>
+        </view>
+        <view class="type1">
+            <button bindgetuserinfo="bindGetUserInfo" class="shareBtn" data-module="普通分享任务" openType="getUserInfo">
+                <image class="img1" src="{{task_icon2}}"></image>
+                <view class="title2">授权微信个人信息</view>
+                <view class="subtitle1">小手一挥奖励拿走，太简单的任务</view>
+                <view class="coinDiv">
+                    <view class="open-ad-coin">
+                        <view class="{{author.is_author==1?'coin':'coin1'}}" style="background: url({{img_url}}/step2gift/coin.png);background-size:100%">
+                            <view class="{{author.is_author==1?'num':'num1'}}">{{author.currency}}</view>
+                            <view class="{{author.is_author==1?'unit':'unit1'}}">运动币</view>
+                        </view>
+                        <view class="{{author.is_author==1?'txt':'txt1'}}">{{author.is_author==1?'点击领取':'已领取'}}</view>
+                    </view>
+                </view>
+            </button>
+        </view>
+    </view>
+    <view class="open-ad-list">
+        <block wx:for="{{task}}" wx:for-index="key" wx:key="{{item.id}}">
+            <view bindtap="adClick" class="type0" data-item="{{item}}" wx:if="{{item.task_show_type==1}}">
+                <image class="banner" mode="widthFix" src="{{item.icon}}"></image>
+                <view class="block">
+                    <view class="txt">
+                        <view class="title">{{item.title}}</view>
+                        <view class="subtitle">{{item.describe}}</view>
+                        <view class="tip-from">来自编辑推荐</view>
+                    </view>
+                    <view class="coin" style="background: url({{img_url}}/step2gift/coin.png);background-size:100%">
+                        <open-ad-coin active_coin="{{item.task_outer_benefit_value}}" task_type="{{item.task_type}}"></open-ad-coin>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="adClick" class="type1" data-item="{{item}}" wx:else>
+                <image class="img1" src="{{item.icon}}"></image>
+                <view class="title1">{{item.title}}</view>
+                <view class="subtitle1">{{item.describe}}</view>
+                <view bindtap="startTask" class="coin-2" data-id="{{key}}">
+                    <navigator appId="{{item.appid}}" bindfail="bindfail" bindsuccess="bindsuccess" data-complete="{{item.is_complete}}" data-id="{{item.id}}" openType="navigate" path="{{item.path}}" target="miniProgram">
+                        <view class="open-ad-coin">
+                            <view class="{{item.is_complete==0?'coin':'coin1'}}" style="background: url({{img_url}}/step2gift/coin.png);background-size:100%">
+                                <view class="{{item.is_complete==0?'num':'num1'}}">{{item.currency}}</view>
+                                <view class="{{item.is_complete==0?'unit':'unit1'}}">运动币</view>
+                            </view>
+                            <view class="{{item.is_complete==0?'txt':'txt1'}}">{{item.is_complete==0?'点击领取':'已领取'}}</view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

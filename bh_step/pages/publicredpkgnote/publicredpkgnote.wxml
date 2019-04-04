@@ -1,0 +1,10 @@
+<!--bh_step/pages/publicredpkgnote/publicredpkgnote.wxml-->
+<image mode='widthFix' class='note-text' src='../../images/public_redokg_text.png'></image>
+<view class='bottom-box'>
+  <image class='public_redpkg' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/public_redpkg.png' bindtap='toPublicRedpkg'></image>
+  <view class='public-note' bindtap='toPublicRedpkg'>发布红包信息</view>
+  <checkbox-group bindchange="checkboxChange">
+    <checkbox value="cbname" disabled="{{redPkgs<=0}}" class='free-redpak'> 使用红包券发布（红包券{{redPkgs}}张）</checkbox>
+  </checkbox-group>
+  <image class='close' src='../../images/close.png' bindtap='back'></image>
+</view>

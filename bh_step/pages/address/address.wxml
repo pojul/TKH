@@ -1,0 +1,41 @@
+<view class="wrap">
+    <view class="confir">请输入收货地址</view>
+    <view class="wrapFill">
+        <view class="fills">
+            <view class="label">姓名</view>
+            <input bindinput="nameInput" type="text" value="{{consignee}}"></input>
+        </view>
+        <view class="fills">
+            <view class="label">联系方式</view>
+            <input bindinput="telInput" type="number" value="{{tel}}"></input>
+        </view>
+        <view class="fills" wx:if="{{isNeedSfz}}">
+            <view class="label">身份证</view>
+            <input bindinput="cardInput" type="idcard" value="{{card}}"></input>
+        </view>
+        <view class="detAddress">
+            <view class="label">详细地址</view>
+            <textarea bindinput="detailInput" hidden="{{layer}}" value="{{detailAddress}}"></textarea>
+        </view>
+    </view>
+    <view class="footer">
+        <form bindsubmit="btnsubmit" reportSubmit="true">
+            <button class="submit" formType="submit">确定</button>
+        </form>
+    </view>
+</view>
+<view hidden="{{!layer}}">
+    <view bindtap="layerclose" class="layer"></view>
+    <view class="integ-layer">
+        <view class="layer-title">是否确认地址?</view>
+        <view class="layer-body">确认地址后我们将立即发货</view>
+        <view class="layer-footer">
+            <form bindsubmit="layerclose" reportSubmit="true">
+                <button class="parts" formType="submit">取消</button>
+            </form>
+            <form bindsubmit="btnsubmit" reportSubmit="true">
+                <button class="uses" formType="submit">确认</button>
+            </form>
+        </view>
+    </view>
+</view>

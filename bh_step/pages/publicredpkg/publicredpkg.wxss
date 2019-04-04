@@ -1,0 +1,266 @@
+/* bh_step/pages/publicredpkg/publicredpkg.wxss */
+page{
+  background-color: #FFF1F1;
+}
+
+.base-info-box{
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  background-color: #FFFFFF;
+  padding-top: 10rpx;
+}
+
+.info-text{
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.pic-box{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 65rpx;
+  padding-bottom: 15rpx;
+}
+
+.chose-pic{
+  width: 80rpx;
+  height: 80rpx;
+  padding-top: 42rpx;
+  padding-bottom: 42rpx;
+  padding-left: 42rpx;
+  padding-right: 42rpx;
+  border: 1rpx solid #bbbbbb;
+  margin-top: 6rpx;
+}
+
+.pic-view{
+  width: 165rpx;
+  height: 165rpx;
+  margin-right: 6rpx;
+  margin-top: 6rpx;
+}
+
+.pic{
+  width: 165rpx;
+  height: 165rpx;
+}
+
+.remove-pic{
+  width: 23rpx;
+  height: 23rpx;
+  margin-left: -30rpx;
+  margin-bottom: 8rpx;
+}
+
+.item-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  background-color: #fff;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border-radius: 10rpx;
+}
+
+.title{
+  font-size: 28rpx;
+  margin-left: 15rpx;
+  color: #000;
+}
+
+.note{
+  color: #999999;
+  font-size: 22rpx;
+}
+
+.right-box{
+  display: flex;
+  align-items: center;
+}
+
+.input-num{
+  font-size: 30rpx;
+  width: 118rpx;
+}
+
+.input-range{
+  font-size: 28rpx;
+  width: 72rpx;
+}
+
+/* .each-price{
+  background-color: #FF8661;
+  font-size: 20rpx;
+  padding-left: 22rpx;
+  padding-right: 22rpx;
+  padding-top: 2rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  margin-right: 18rpx;
+} */
+
+.right-icon{
+  width: 15rpx;
+  margin-left: 15rpx;
+}
+
+.more-set-box{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-right: 60rpx;
+  margin-top: 20rpx;
+}
+
+.more-set-view{
+  display: flex;
+  align-items: center;
+}
+
+.more-set-text{
+  font-size: 25rpx;
+  color: #000;
+}
+
+.more-set-icon{
+  width: 20rpx;
+  margin-left: 15rpx;
+}
+
+.input{
+  font-size: 28rpx;
+  width: 300rpx;
+  text-align: right;
+}
+
+.link-bok{
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.link-title{
+  background-color: #fff;
+  width: 200rpx;
+  padding: 15rpx;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}
+
+.link-url{
+  background-color: #fff;
+  width: 460rpx;
+  padding: 15rpx;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  text-align: right;
+}
+
+.money-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
+
+.money-view{
+  align-self: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.money{
+  font-size: 44rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.money-unit{
+  font-size: 23rpx;
+  margin-bottom: 10rpx;
+  margin-left: 7rpx;
+  color: #000;
+}
+
+.opearte-box{
+  display: flex;
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  margin-top: 20rpx;
+}
+
+.more-setbig{
+  width: 200rpx;
+  text-align: center;
+  color: #FF0000;
+  border: 2rpx solid #FF0000;
+  padding-top: 18rpx;
+  padding-bottom: 13rpx;
+  border-radius: 60rpx;
+  font-size: 28rpx;
+}
+
+.public{
+  background-color: #FF6E6E;
+  width: 450rpx;
+  border-radius: 60rpx;
+  font-size: 28rpx;
+  padding-top: 18rpx;
+  padding-bottom: 13rpx;
+  text-align: center;
+  color: #fff;
+  margin-left: 30rpx;
+}
+
+.pick-rectype-view{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 750rpx;
+  position: fixed;
+  top: 0rpx;
+  z-index: 10;
+}
+
+.pick-rectype-checkview{
+  display: flex;
+  padding-right: 35rpx;
+  padding-left: 35rpx;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.pick-rectype-cancel{
+  padding-top: 12rpx;
+  padding-bottom: 9rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border: 1rpx solid #999999;
+  font-size: 27rpx;
+  border-radius: 10rpx;
+  color: #999999;
+}
+
+.pick-rectype--ok{
+  padding-top: 12rpx;
+  padding-bottom: 9rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 27rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #1058FF;
+}
+
+.input-select{
+  color: #808080;
+  font-size: 28rpx;
+}

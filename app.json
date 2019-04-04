@@ -1,0 +1,125 @@
+{
+  "pages": [
+    "bh_step/pages/index/index",
+    "bh_step/pages/defiance/defiance",
+    "bh_step/pages/goodsconvert/goodsconvert",
+    "bh_step/pages/buylog/buylog",
+    "bh_step/pages/user/user",
+    "bh_step/pages/task/task",
+    "bh_step/pages/currencylog/currencylog",
+    "bh_step/pages/cash/cash",
+    "bh_step/pages/goods/goods",
+    "bh_step/pages/firends/firends",
+    "bh_step/pages/friends/friends",
+    "bh_step/pages/question/question",
+    "bh_step/pages/address/address",
+    "bh_step/pages/order/order",
+    "bh_step/pages/currencyGoods/currencyGoods",
+    "bh_step/pages/my/my",
+    "bh_step/pages/step-diary/step-diary",
+    "bh_step/pages/wealthRank/wealthRank",
+    "bh_step/pages/voucher/voucher",
+    "bh_step/pages/qrvoucher/qrvoucher",
+    "bh_step/pages/category/category",
+    "bh_step/pages/sigin/sigin",
+    "bh_step/pages/vipintro/vipintro",
+    "bh_step/pages/intro-coin/intro-coin",
+    "bh_step/pages/intro-helpearn/intro-helpearn",
+    "bh_step/pages/intro-qa/intro-qa",
+    "bh_step/pages/goodscreateimg/goodscreateimg",
+    "bh_step/pages/lottery/lottery",
+    "bh_step/pages/xmadPage/copyInfo",
+    "bh_step/pages/xmadPage/sell",
+    "bh_step/pages/xmadPage/collect",
+    "bh_step/pages/territory/territory",
+    "bh_step/pages/busycircle/busycircle",
+    "bh_step/pages/homepage/homepage",
+    "bh_step/pages/collarmoney/collarmoney",
+    "bh_step/pages/personaldynamic/personaldynamic",
+    "bh_step/pages/invitefriend/invitefriend",
+    "bh_step/pages/rankinglist/rankinglist",
+    "bh_step/pages/redpkgreport/redpkgreport",
+    "bh_step/pages/redpkginfo/redpkginfo",
+    "bh_step/pages/redpkgrecord/redpkgrecord",
+    "bh_step/pages/publicredpkgnote/publicredpkgnote",
+    "bh_step/pages/selectloc/selectloc",
+    "bh_step/pages/publicredpkg/publicredpkg",
+    "bh_step/pages/myterritory/myterritory",
+    "bh_step/pages/lordtradinghall/lordtradinghall",
+    "bh_step/pages/territoryincome/territoryincome",
+    "bh_step/pages/laird/laird",
+    "bh_step/pages/member/member",
+    "bh_step/pages/personalinfo/personalinfo",
+    "bh_step/pages/news/news",
+    "bh_step/pages/pointmess/pointmess",
+    "bh_step/pages/commentmess/commentmess",
+    "bh_step/pages/fansnotice/fansnotice",
+    "bh_step/pages/strategy/strategy",
+    "bh_step/pages/strategylist/strategylist",
+    "bh_step/pages/outernetlink/outernetlink",
+    "bh_step/pages/territorialrule/territorialrule",
+    "bh_step/pages/redpkgDetail/redpkgDetail"
+  ],
+  "window": {
+    "navigationStyle": "default",
+    "backgroundColor": "#f8f8f8",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "拓客会",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#909090",
+    "selectedColor": "#26BCC5",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "bh_step/pages/index/index",
+        "text": "赚运动币",
+        "iconPath": "bh_step/images/icon_nav1.png",
+        "selectedIconPath": "bh_step/images/icon_nav1_act.png"
+      },
+      {
+        "pagePath": "bh_step/pages/friends/friends",
+        "text": "邀请好友",
+        "iconPath": "bh_step/images/icon_nav2.png",
+        "selectedIconPath": "bh_step/images/icon_nav2_act.png"
+      },
+      {
+        "pagePath": "bh_step/pages/territory/territory",
+        "text": "领地",
+        "iconPath": "bh_step/images/nav_territory.png",
+        "selectedIconPath": "bh_step/images/nav_territory_act.png"
+      },
+      {
+        "pagePath": "bh_step/pages/goodsconvert/goodsconvert",
+        "text": "商城",
+        "iconPath": "bh_step/images/icon_nav4.png",
+        "selectedIconPath": "bh_step/images/icon_nav4_act.png"
+      },
+      {
+        "pagePath": "bh_step/pages/my/my",
+        "text": "我的",
+        "iconPath": "bh_step/images/icon_nav5.png",
+        "selectedIconPath": "bh_step/images/icon_nav5_act.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 15000,
+    "downloadFile": 15000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxd8a9a20c48581cd5",
+    "wxe34794d9a9422017",
+    "wx9e2e322626d29451",
+    "wx379ea6330aea67cf",
+    "wx7c1aebbf4b3f40f1",
+    "wxdf04c920f35f198b",
+    "wxdc5eeee5180fd0ba",
+    "wxec4d40d188fc5235",
+    "wx497d6d841ffd14e1",
+    "wx7e1fb530e747d1a3"
+  ]
+}

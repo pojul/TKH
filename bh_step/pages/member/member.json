@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拓客会员",
+  "usingComponents": {
+    "pay_dialog": "../../component/pay_dialog/pay_dialog"
+  }
+}

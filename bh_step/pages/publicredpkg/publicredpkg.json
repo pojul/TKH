@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "发布红包",
+  "navigationBarBackgroundColor": "#FF0000",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "pay_dialog": "../../component/pay_dialog/pay_dialog"
+  }
+}

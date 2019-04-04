@@ -1,0 +1,115 @@
+<view class="container {{isShowDialog?'bodyLock':''}} bg-color-white">
+    <view class="detial-lib">
+        <view class="media-box media-box_appmsg">
+            <view class="media-box__hd media-box__hd_in-appmsg" style="margin-left:{{isStepItem?'20':'30'}}rpx">
+                <view class="newusertag" wx:if="{{goods.user_type&&goods.user_type===1}}"></view>
+                <image class="media-box__thumb" mode="widthFix" src="{{goods.cover_image}}"></image>
+            </view>
+            <view class="media-box__bd media-box__bd_in-appmsg">
+                <view class="media-box__title" style="-webkit-line-clamp:2">
+          {{goods.goods_name}}
+        </view>
+                <view class="media-box__content" wx:if="{{goods.original_price}}">
+                    <text class="text-pre">原价 ¥{{goods.original_price}}</text>
+                    <text class="text-tag" style="margin-left:25rpx" wx:if="{{goods.is_free==1||goods.free==0}}">包邮</text>
+                    <text style="margin-left:25rpx;font-size:24rpx" wx:else>邮费:{{goods.free}}</text>
+                </view>
+                <view class="media-box__desc" wx:if="{{goods.exchange_type==1}}">
+                    <text class="text-orangered">{{goods.exchange_number}}</text> 运动币
+        </view>
+                <view class="media-box__desc" wx:if="{{goods.exchange_type==2||goods.exchange_type==3}}">
+                    <text class="attract">{{goods.exchange_number>=10000?goods.exchange_number/10000+'万':goods.exchange_number}}</text> 步数
+          <text class="attract" wx:if="{{goods.exchange_type==3}}">+{{goods.money}}¥</text>
+          可兑
+        </view>
+                <view class="bottom_right" wx:if="{{goods.inventory_type==2}}">
+          剩余：{{goods.inventory>0?goods.inventory:0}}件
+        </view>
+                <view class="bottom_right" wx:if="{{goods.inventory_type==1}}">
+          今日剩余：{{goods.inventory>0?goods.inventory:0}}件
+        </view>
+            </view>
+        </view>
+        <button bindgetuserinfo="getUserInfo" class="lib-share" id="btn-steps" openType="getUserInfo" wx:if="{{!goods.is_author&&goods.is_buy&&goods.exchange_number>goods.today_step&&goods.inventory>0}}">请好友砍步数</button>
+        <button class="lib-share" openType="share" wx:if="{{goods.is_author&&goods.is_buy&&goods.exchange_number>goods.today_step&&goods.inventory>0&&audit_pattern!=2}}">
+      请好友砍步数
+    </button>
+        <view class="lib-share gray" wx:if="{{goods.is_buy&&goods.exchange_number<=goods.today_step&&goods.inventory>0}}">
+      步数已凑齐
+    </view>
+        <view class="lib-share gray" wx:if="{{goods.is_buy&&goods.inventory<1}}">
+      {{goods.inventory_type==1?'今天已抢完，明天继续':'商品已被抢完'}}
+    </view>
+        <view class="lib-share gray" wx:if="{{goods.is_buy<1}}">
+      您已兑换过该商品
+    </view>
+        <view bindtap="toExplain" class="lib-explain">
+      活动说明
+      <image class="explian-icon" src="{{img_url}}/step2gift/detailDisclosure.png"></image>
+        </view>
+        <view bindtap="setAddress" class="lib-explain" style="margin:0rpx auto 0rpx auto" wx:if="{{goods.type==1}}">
+      {{address?'修改':'设置'}}收货地址
+      <image class="explian-icon" src="{{img_url}}/step2gift/address_locate.png"></image>
+        </view>
+    </view>
+    <view class="detial-lib lib-stepshow">
+        <view class="lib-title">与好友砍掉
+      <text wx:if="{{goods.still_poor_step}}">{{goods.still_poor_step>=10000?goods.still_poor_step/10000+'万':goods.still_poor_step}}</text>
+            <text wx:else>0</text> 步可兑换
+    </view>
+        <text class="lib-litleTip">需在今日内砍完所有步数</text>
+        <view class="progress-target">目标:{{goods.exchange_number}}步</view>
+        <view class="progress">
+            <view class="my-progress" style="width:{{goods.my_proportion>0&&goods.my_proportion<1?1:goods.my_proportion}}%;border-top-right-radius:{{goods.my_proportion==100?9:0}}rpx;border-bottom-right-radius:{{goods.my_proportion==100?9:0}}rpx;"></view>
+            <view class="progress-bar progress-bar-striped active" style="width:{{goods.fre_progress>0&&goods.fre_progress<1?1:goods.fre_progress}}%;border-top-left-radius:{{goods.fre_progress==100?9:0}}rpx;border-bottom-left-radius:{{goods.fre_progress==100?9:0}}rpx;"></view>
+        </view>
+        <view class="lib-pro-content">
+            <view class="pro-my">
+                <view class="color-explain my-color"></view>
+        我可用的步数：{{goods.effective_step}}步
+      </view>
+            <view class="pro-friend">
+                <view class="color-explain friend-color"></view>
+        好友贡献的步数：{{goods.share_step}}步
+        <view class="pro-tip" wx:if="{{goods.friend_progress>0}}">(至少需要邀请好友贡献{{goods.friend_progress}}%的步数)</view>
+            </view>
+        </view>
+        <view class="friend-content" wx:if="{{goods.give_step.length>0}}">
+            <view class="friend-item" wx:if="{{index<=10}}" wx:for="{{goods.give_step}}">
+                <view class="head-view">
+                    <image class="head-img" src="{{item.member.head}}"></image>
+                </view>
+                <view class="friend-step">{{item.step}}步</view>
+            </view>
+            <view class="friend-item" wx:if="{{isShowALLFriend&&index>10}}" wx:for="{{goods.give_step}}">
+                <view class="head-view">
+                    <image class="head-img" src="{{item.member.head}}"></image>
+                </view>
+                <view class="friend-step">{{item.step}}步</view>
+            </view>
+            <view class="friend-item" wx:if="{{goods.is_buy&&goods.exchange_number>goods.today_step}}">
+                <button class="head-view " id="btn-steps" openType="share" style=" border: none;padding: 0 0;background-image: url(\"{{img_url}}/step2gift/addFriend.png\");background-size: 100%;width: 90rpx;height: 90rpx;" type="button"></button>
+                <view class="friend-step" style="color: #999999;">继续邀请</view>
+            </view>
+            <view bindtap="triggerALLFriend" class="direct-img {{isShowALLFriend?'direct-up':''}}" style="width: 30rpx;height: 30rpx;margin: 6rpx auto;background-image: url(\"{{bgimage}}\");background-size: 100%;" wx:if="{{goods.give_step.length>11}}"></view>
+        </view>
+    </view>
+    <view class="show-container {{isIphoneX?'fix-iphonex-container':isIphone?'fix-iphone-container':''}}">
+        <text class="show-title">商品介绍</text>
+        <view class="show-goods" wx:for="{{goods.introduce}}">
+            <image class="img-item" mode="widthFix" src="{{item}}"></image>
+        </view>
+    </view>
+    <view class="btn-plus {{isIphoneX?'fix-iphonex-button':''}}">
+        <button bindtap="exchange" class="btn-change" hoverClass="btn-hover" wx:if="{{goods.is_buy&&goods.exchange_number<=goods.today_step&&goods.inventory>0}}">免费兑换</button>
+        <button class="btn-change btn-share" hoverClass="btn-hover " openType="share" type="button" wx:if="{{goods.is_buy&&goods.exchange_number>goods.today_step&&goods.inventory>0}}">还差{{goods.still_poor_step>=10000?goods.still_poor_step/10000+'万':goods.still_poor_step}}，立即找好友砍步数
+      <image class="share-img" src="{{img_url}}/step2gift/share.png"></image>
+        </button>
+        <button bindtap="toggleGoodsEmpty" class="btn-change gray" data-value="true" hoverClass="btn-hover " type="button" wx:if="{{goods.is_buy&&goods.inventory<1}}">{{goods.inventory_type==1?'今天已抢完，明天继续':'商品已被抢完'}}</button>
+        <button disabled class="btn-change gray" hoverClass="btn-hover " type="button" wx:if="{{goods.is_buy<1}}">该商品每个用户仅限兑换{{goods.allow_number}}次</button>
+    </view>
+    <view bindtap="hiddenDialog" class="mask" hidden="{{!isShowDialog}}"></view>
+    <dialog authorizedUserInfo="{{authorizedUserInfo}}" bind:payevent="getPayOrderId" exchangeId="{{exchangeId}}" goods="{{item}}" isEnoughCoin="{{isEnoughCoin}}" isShowDialog="{{isShowDialog}}" myCoin="{{myCoin}}" oemId="{{oemId}}" stepDetail="{{stepDetail}}"></dialog>
+    <ShareGoods-dialog bind:closeshare="hiddenShare" goods="{{goods}}" isShowShareGoods="{{isShowShareGoods}}"></ShareGoods-dialog>
+    <goodsEmpty bind:myevent="toggleGoodsEmpty" isShowEmpty="{{isShowEmpty}}"></goodsEmpty>
+</view>
