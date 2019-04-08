@@ -1,0 +1,70 @@
+<!--bh_step/pages/checkOrderAssemble/checkOrderAssemble.wxml-->
+<view class='top-box'>
+  <view class='top-title'>拼团</view>
+  <view class='content'>
+    <image mode='aspectFill' class='pic' src='https://img02.sogoucdn.com/app/a/07/65698a4d0f6a0f4bf7b6572fb4a75774'></image>
+    <view class='content-text'>
+      <view class='content-title'>3元现金红包----拼图成功后立即获得拼图成功后立即获得</view>
+      <view class='content-note'>
+        <view class='content-note-left'>
+          <text style="color: #FF0000;font-size: 24rpx;">0.01元</text>
+          <text style="color: #333;font-size: 24rpx;margin-left:8rpx;">开团</text>
+          <text style="color: #999;font-size: 24rpx;margin-left:5rpx;">（4人团）</text>
+        </view>
+        <view style="color: #999;font-size: 24rpx;">剩余12846件</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='left-people'>
+  <view>
+    <text style="color: #000;font-size: 28rpx;font-weight: bold;">还差</text>
+    <text style="color: #f00;font-size: 28rpx;font-weight: bold;">3</text>
+    <text style="color: #000;font-size: 28rpx;font-weight: bold;">人成团</text>
+  </view>
+  <view class='photos'>
+    <view class='photo-box'>
+      <image class='photo' src='https://i01picsos.sogoucdn.com/3c28af542f2d49f7-8f0182a4cf50287e-b3702532a4e015e822a7b97caaf289c5_qq'></image>
+      <view class='colonel'>团长</view>
+    </view>
+    <image class='add-user' src='../../images/add_user.png'></image>
+  </view>
+  <image mode='widthFix' class='invite-users' src='../../images/invite_user.png'></image>
+  <view style="color: #f00;font-size: 28rpx;margin-bottom: 10rpx;margin-top: 20rpx;">核销码：4686223332</view>
+</view>
+
+<view class='play-way-box'>
+  <view class='play-way-note'>
+    <view class='good-detail-title'>拼团玩法</view>
+    <view style="font-size:24rpx;color:#999;">规则说明 ></view>
+  </view>
+  <view class='paly-way-content'>
+    <view class='paly-way-item'>
+      <image class='paly-way-icon' src='../../images/start_assemble.png'></image>
+      <view>0.01元开团</view>
+    </view>
+    <view class='line-black'></view>
+    <view class='paly-way-item'>
+      <image class='paly-way-icon' src='../../images/invite_friend.png'></image>
+      <view>邀请成员</view>
+    </view>
+    <view class='line-black'></view>
+    <view class='paly-way-item'>
+      <image class='paly-way-icon' src='../../images/assemble_success.png'></image>
+      <view>拼团成功</view>
+    </view>
+  </view>
+</view>
+
+
+<view class='assemble-rules'>
+  <view class='assemble-rules-content-box'>
+    <view class='assemble-rules-content'>
+    <view class='assemble-rules-title'>拼团规则</view>
+    <import src="../../component/wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+  <view class='close-assemble-rules'>点击关闭</view>
+  </view>
+</view>

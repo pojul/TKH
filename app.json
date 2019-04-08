@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "bh_step/pages/index/index",
     "bh_step/pages/defiance/defiance",
     "bh_step/pages/goodsconvert/goodsconvert",
@@ -58,7 +59,9 @@
     "bh_step/pages/strategylist/strategylist",
     "bh_step/pages/outernetlink/outernetlink",
     "bh_step/pages/territorialrule/territorialrule",
-    "bh_step/pages/redpkgDetail/redpkgDetail"
+    "bh_step/pages/redpkgDetail/redpkgDetail",
+    "bh_step/pages/checkOrderAssemble/checkOrderAssemble",
+    "bh_step/pages/AssembleDetail/AssembleDetail"
   ],
   "window": {
     "navigationStyle": "default",

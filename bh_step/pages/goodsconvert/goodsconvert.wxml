@@ -17,6 +17,7 @@
     <view class='title-box' scroll-x="true">
       <view data-index="0" bindtap='setCurrentGood' class="{{currentGoods == 0?'goodstitle-active':'goodstitle'}}">{{data.goods_top.category_name}}</view>
       <view wx:for="{{data.goods}}" wx:for-index="titleIndex" wx:for-item="listTitle" class="{{currentGoods == titleIndex?'goodstitle-active':'goodstitle' }}" data-index="{{titleIndex}}" bindtap='setCurrentGood'>{{listTitle.category_name}}</view>
+      <view wx:for="{{goodClass}}" wx:for-index="classIndex" wx:for-item="listClass" class="{{currentGoods == (classIndex*1 + 3)?'goodstitle-active':'goodstitle' }}" data-index="{{classIndex*1 + 3}}" bindtap='setCurrentGood'>{{listClass}}</view>
     </view>
 
 		<!-- <view class="goodstitle">{{data.goods_top.category_name}}</view> -->
@@ -97,7 +98,39 @@
 				</view>
 			</view>
 		</view>
-		
+
+    <view class='goods-box' wx:if="{{currentGoods == 5}}">
+      <view wx:for="goods" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">
+        <image mode='aspectFill' class='goods-item-pic' src='https://img04.sogoucdn.com/app/a/07/1c8198feacfbde3c51b0aa806b07f809'></image>
+        <view class='assemble-num'>4人团</view>
+        <view class='goods-item-title'>商品名称商品名称商品名称商品名称</view>
+        <view class='assemble-price-box'>
+          <text class='text-orangered'>原价：28</text>
+          <text class='price-red-text'>0</text>
+          <text class='price-gray-text'>元</text>
+        </view>
+        <view class='assemble-total-num'>开团人数：12467人</view>
+        <view class='assemble-bt'>立即开团</view>
+      </view>
+    </view>
+
+    <view class='goods-box' wx:if="{{currentGoods == 6}}">
+      <view wx:for="goods" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">
+        <image mode='aspectFill' class='goods-item-pic' src='https://img04.sogoucdn.com/app/a/07/1c8198feacfbde3c51b0aa806b07f809'></image>
+        <view class='goods-item-title'>商品名称商品名称商品名称商品名称</view>
+        <view class='assemble-price-box'>
+          <text class='text-orangered'>原价：28</text>
+          <text class='price-red-text'>0</text>
+          <text class='price-gray-text'>元</text>
+        </view>
+        <view>
+          <text style="font-size: 23rpx;color: #00D779;margin-top: 5rpx;" >6225</text>
+          <text style="font-size: 23rpx;color: #999;margin-top: 5rpx;">人已0元拿</text>
+        </view>
+        <view class='assemble-bt'>0元免费拿</view>
+      </view>
+    </view>
+
 		<view class="choujiang">
 			<ad unit-id="adunit-6b180e34aa5793b6"></ad>
 		</view>

@@ -369,16 +369,16 @@ button::after {
 
 .goodstitle {
     /* background: linear-gradient(to bottom,#ffffff 60%,#D4F2F3 40%); */
-    color: #434343;
+    color: #999999;
     font-size: 35rpx;
-    margin-left: 20rpx;
+    margin-left: 30rpx;
     margin-top: 2rpx;
 }
 
 .goodstitle-active {
     /* background: linear-gradient(to bottom,#ffffff 60%,#D4F2F3 40%); */
     color: #434343;
-    font-size: 42rpx;
+    font-size: 38rpx;
     font-weight: bold;
     margin-left: 20rpx;
 }
@@ -834,3 +834,84 @@ button::after {
     text-align: center;
     line-height: 2;
 }
+
+.goods-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.assemble-num{
+  background-color: #FF0000;
+  font-size: 22rpx;
+  color: #fff;
+  border-bottom-right-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  width: 95rpx;
+  text-align: center;
+  padding-top: 6rpx;
+  padding-bottom: 4rpx;
+  position: absolute;
+  margin-top: -315rpx;
+}
+
+.goods-item-pic{
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.goods-item-box-left{
+  background: #fff;
+  box-shadow:  0 0 15px 4px rgba(234, 234, 234, 0.5); 
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+
+.goods-item-box-right{
+  background: #fff;
+  box-shadow:  0 0 15px 4px rgba(234, 234, 234, 0.5); 
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+
+.goods-item-title{
+  font-size: 27rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 300rpx;
+}
+
+.price-red-text{
+  font-size: 30rpx;
+  color: red;
+  font-weight: bold;
+}
+
+.price-gray-text {
+  font-size: 21rpx;
+  color: #999999;
+  margin-left: 5rpx;
+}
+
+.assemble-total-num{
+  font-size: 23rpx;
+  color: #00D779;
+  margin-top: 5rpx;
+}
+
+.assemble-bt{
+  width: 300rpx;
+  text-align: center;
+  padding-top: 9rpx;
+  padding-bottom: 6rpx;
+  margin-top: 5rpx;
+  color: #fff;
+  background-color: #00D779;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+
+

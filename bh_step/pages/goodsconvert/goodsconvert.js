@@ -10,9 +10,10 @@ var $this, app = getApp();
 
 Page({
     data: {
-        share_text: "",
-        share_image: "",
-        currentGoods: 0,
+      share_text: "",
+      share_image: "",
+      currentGoods: 0,
+      goodClass: ['竞拍', '拼步', '拼团','砍价'],
     },
 
   setCurrentGood: function (e) {
