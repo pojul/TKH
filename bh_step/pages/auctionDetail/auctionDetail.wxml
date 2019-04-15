@@ -1,20 +1,20 @@
 <!--bh_step/pages/auctionDetail/auctionDetail.wxml-->
 <view class="swiper-container">
   <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper-box" indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000">
-    <swiper-item style="overflow:hidden; vertical-align: middle;" wx:for="{{goods.image}}">
-      <image class="slide-image" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+    <swiper-item style="overflow:hidden; vertical-align: middle;">
+      <image class="slide-image" data-index="{{index}}" mode="aspectFill" src="{{goodDetail.goods.cover_image}}"></image>
     </swiper-item>
   </swiper>
 </view>
 
 <view class='detail-box'>
   <view class='detail-left'>
-    <view class='detail-money'>40</view>
+    <view class='detail-money'>{{goodDetail.goods.starting_number}}</view>
     <view>
       <view class='detail-type'>运动币</view>
       <view class='detail-note'>起拍价</view>
     </view>
-    <view class='detail-raw-money'>原价：39元</view>
+    <view class='detail-raw-money'>原价：{{goodDetail.goods.price}}元</view>
   </view>
   <view class='detail-right'>
     <view class='left-start-time-note'>距竞拍开始</view>
@@ -28,7 +28,7 @@
   </view>
 </view>
 
-<view class='name'>产品名称</view>
+<view class='name'>{{goodDetail.goods.goods_name}}</view>
 
 <view class='center-box'>
   <view class='progress'>
@@ -50,22 +50,22 @@
     </view>
   </view>
 
-  <view class='start-time'>竞拍开始时间 今天 20:00</view>
+  <view class='start-time'>竞拍开始时间 {{goodDetail.goods.start_time}}</view>
 </view>
 
-<view class='note'>58人报名竞拍 加价幅度10运动币 未拍中退竞拍币</view>
+<view class='note'>58人报名竞拍 加价幅度{{goodDetail.goods.markup_number}}运动币 未拍中退竞拍币</view>
 
 <view class='auction-operate-box'>
 
-  <view wx:if="{{false}}" class='join-result-box'>
+  <view wx:if="{{true}}" class='join-result-box'>
     <view class='join-result'>
       <view style='font-size: 26rpx;font-weight: bold'>我要报名</view>
-      <view style='font-size: 21rpx;'>报名扣除0运动币</view>
+      <view style='font-size: 21rpx;'>报名扣除{{goodDetail.goods.apply_number}}运动币</view>
     </view>
-    <view class='join-result-note'>参与竞拍收取0运动币报名费，竞拍结束不退还</view>
+    <view class='join-result-note'>参与竞拍收取{{goodDetail.goods.apply_number}}运动币报名费，竞拍结束不退还</view>
   </view>
 
-  <view wx:if="{{false}}" class='auction-operate'>
+  <view wx:if="{{true}}" class='auction-operate'>
     <view class='auction-status'>
       <view class='current-auction'>
         <view class='auction-status-num'>0</view>
@@ -89,7 +89,7 @@
     </view>
   </view>
 
-  <view class='result-notjoin' wx:if="{{false}}">
+  <view class='result-notjoin' wx:if="{{true}}">
     <view class='join-result'>查看更多竞拍</view>
     <view class='join-result-note'>您未报名当前运动币竞拍</view>
   </view>
@@ -130,8 +130,9 @@
   </view>
 </view>
 
-<view class='pics'>
-  <image wx:for="{{goods.image}}" class='good-pic' mode="widthFix" src="{{item}}"></image>
+<view class='detail-html'>
+  <import src="../../component/wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>
 
 <view wx:if="{{false}}" class='join-success' catchtouchmove='{{true}}'>
@@ -190,9 +191,9 @@
   </view>
 </view>
 
-<view class='auction-winner'>
-  <text style='font-size: 26rpx;color: #FFF349;margin-right: 12rpx;'>大力水手</text>
-  <text style='font-size: 26rpx;color: #fff;margin-right: 12rpx;'>出价790运动币</text>
+<view wx:if="{{goodDetail.success_order && goodDetail.success_order!=null}}" class='auction-winner'>
+  <text style='font-size: 26rpx;color: #FFF349;margin-right: 12rpx;'>{{goodDetail.success_order.success_member_nickname}}</text>
+  <text style='font-size: 26rpx;color: #fff;margin-right: 12rpx;'>出价{{goodDetail.success_order.max_bid_currency}}运动币</text>
   <text style='font-size: 26rpx;color: #FFF349;'>竞拍胜出</text>
 </view>
 

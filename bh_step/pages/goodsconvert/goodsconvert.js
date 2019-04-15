@@ -29,6 +29,7 @@ Page({
     isLoadBargain: false,
     p_bargain: 1, //砍价
     userInfo: {},
+    auctioOrderStatus: ['未参与', '已报名', '竞拍成功', '已完成','竞拍失败']
   },
 
   getUserInfo: function() {
@@ -210,6 +211,13 @@ Page({
         that.setData({
           isLoadAuction: false
         })
+        for (let i=0;i<res.info.goods_list.length;i++){
+          if (res.info.goods_list[i].is_end != 3){
+            res.info.goods_list[i].order_status_str = that.data.auctioOrderStatus[res.info.goods_list[i].order_status];
+          }else{
+            res.info.goods_list[i].order_status_str = '已结束';
+          }
+        }
         if (res.info.goods_list.length > 0) {
           that.setData({
             p_auction: (that.data.p_auction + 1),
@@ -227,8 +235,12 @@ Page({
 
   toAuctionDetail: function(e) {
     let index = e.currentTarget.dataset.index;
+    if (this.data.auctions[index].is_end == 3){
+      this.showToast("该活动已结束");
+      //return;
+    }
     wx.navigateTo({
-      url: '/bh_step/pages/auctionDetail/auctionDetail?type=' + 0
+      url: '/bh_step/pages/auctionDetail/auctionDetail?type=1&id=' + this.data.auctions[index].id
     })
   },
 
@@ -294,6 +306,7 @@ Page({
     this.getBystepList();
     this.getAssembleList();
     this.getBargainList();
+    this.getAuctionList();
     // this.getUserInfo();
   },
   onHide: function() {},
@@ -309,7 +322,6 @@ Page({
     } else if (this.data.currentGoods == 6) {
       this.getBargainList();
     }
-
   },
   onShareAppMessage: function() {
     return console.log("bh_step/pages/index/index?share_tpye=1&parent_id=" + $this.data.member_id), {

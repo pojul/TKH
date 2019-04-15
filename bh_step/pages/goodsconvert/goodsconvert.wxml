@@ -192,12 +192,12 @@
         <view class='auction-price'>
           <view style='font-size: 20rpx;color: #999;padding:5rpx;'>起拍价</view>
           <view>
-            <text style='font-size: 26rpx;color: #f00;'>40</text>
+            <text style='font-size: 26rpx;color: #f00;'>{{item.starting_number}}</text>
             <text style='font-size: 22rpx;color: #999;margin-left:10rpx;'>运动币</text>
           </view>
         </view>
-        <view class="{{index%2==0?'auction-join':'auction-joined'}}">{{index%2==0?'报名中':'已参加'}}</view>
-        <view style='font-size:20rpx;color:#999;margin-top:5rpx;'>开始时间 今天 19:00</view>
+        <view class="{{item.order_status_str=='未参与'?'auction-join':'auction-joined'}}">{{item.order_status_str}}</view>
+        <view style='font-size:20rpx;color:#999;margin-top:5rpx;'>开始时间 {{item.start_time}}</view>
       </view>
     </view>
 

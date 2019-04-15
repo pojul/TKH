@@ -328,11 +328,14 @@ page{
   justify-content: space-between;
 }
 
-.pics{
-  width: 100%;
+.detail-html{
+  background-color: #fff;
   margin-top: 20rpx;
+  font-size: 28rpx;
+}
+
+.wxParse-img{
   display: flex;
-  flex-direction: column;
 }
 
 .price-record-note{
