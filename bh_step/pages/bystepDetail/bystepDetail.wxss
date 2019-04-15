@@ -1,0 +1,338 @@
+/* bh_step/pages/bystepDetail/bystepDetail.wxss */
+page{
+  background-color: #FFECDE;
+}
+
+.banner{
+  width: 100%;
+  height: 340rpx;
+}
+
+.detail{
+  width: 685rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  margin-top: 5rpx;
+  padding: 15rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80rpx;
+}
+
+.pic{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.detail-content{
+  display: flex;
+}
+
+.detail-content-right{
+  width: 500rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-content-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.detail-content-note{
+  font-size: 23rpx;
+  color: #333;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.limit-step{
+  font-size: 21rpx;
+  color: #999;
+  margin-top:8rpx;
+  align-self: flex-end;
+}
+
+.progress-text-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-text{
+  font-size: 26rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.comment-step{
+  font-size: 23rpx;
+  color: #333;
+
+}
+
+.comment-step{
+  font-size: 23rpx;
+  color: #333;
+}
+.progress-box{
+  margin-top: 10rpx;
+  background-color: #F0F0F0;
+  width: 670rpx;
+  border-radius: 50rpx;
+  height: 20rpx;
+}
+
+.progress{
+  width: 280rpx;
+  height: 20rpx;
+  border-radius: 50rpx;
+  background-image: linear-gradient(90deg,#FF0000,#FF7800);
+}
+
+.invite-friend{
+  width: 420rpx;
+  text-align: center;
+  padding-top: 15rpx;
+  padding-bottom: 12rpx;
+  margin-top: 25rpx;
+  border-radius: 50rpx;
+  background-image: linear-gradient(90deg,#EF0008,#FF3D3D);
+  align-self: center;
+  color: #FFDF7B;
+  font-size: 28rpx;
+}
+
+.more-bystep{
+  width: 420rpx;
+  text-align: center;
+  padding-top: 15rpx;
+  padding-bottom: 12rpx;
+  margin-top: 25rpx;
+  border-radius: 50rpx;
+  align-self: center;
+  color: #FFA084;
+  font-size: 28rpx;
+  border: 1rpx solid #FFA084;
+}
+
+.note{
+  color: #999999;
+  font-size: 22rpx;
+  align-self: center;
+  margin-top: 20rpx;
+}
+
+.left-time{
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+.line{
+  width: 60rpx;
+  height: 2rpx;
+  background-color: #999;
+}
+
+.left-time-text{
+  font-size: 25rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+
+.user-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 65rpx;
+  padding-right: 65rpx;
+  margin-bottom: 15rpx;
+}
+
+.user-left{
+  display: flex;
+  align-items: center;
+}
+
+.user-photo{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50rpx;
+}
+
+.user-name{
+  font-size: 22rpx;
+  color: #fff;
+  background-color: #EFAE00;
+  border-radius: 3rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  margin-left: 20rpx;
+}
+
+.user-step{
+  color: #FF0000;
+  font-size: 26rpx;
+}
+
+.rules{
+  position: absolute;
+  top: 0rpx;
+  right: 20rpx;
+  font-size: 21rpx;
+  color: #fff;
+  background-color: rgba(80, 80, 80, 0.4);
+  padding-top: 4rpx;
+  padding-bottom: 1rpx;
+  width: 110rpx;
+  text-align: center;
+}
+
+.mystep-exchange{
+  position: fixed;
+  top: 0rpx;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.mystep-exchange-content-box{
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  margin-left: 17%;
+  align-self: center;
+}
+
+.mystep-exchange-content{
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #fff;
+  border-radius: 4%;
+  font-size: 28rpx;
+  padding: 10rpx;
+  overflow: hidden;
+}
+
+.mystep-exchange-title{
+  font-size: 32rpx;
+  color: #333;
+  width: 310rpx;
+  text-align: center;
+  padding-top: 4rpx;
+  padding-bottom: 3rpx;
+  margin-top: 45rpx;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+}
+
+
+.bystep{
+  width: 330rpx;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 80rpx;
+  padding-top: 11rpx;
+  padding-bottom: 8rpx;
+  background-color: #FF7751;
+  margin-top: 10rpx;
+}
+
+.not-bystep{
+  width: 330rpx;
+  color: #FF7751;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 80rpx;
+  padding-top: 11rpx;
+  padding-bottom: 8rpx;
+  border: 1rpx solid #FF7751;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.bystep-ok-title{
+  margin-top: 45rpx;
+  width: 90%;
+  font-size: 28rpx;
+  text-indent: 15rpx;
+  text-align: center;
+}
+
+.bystep-ok-line{
+  margin-top: 45rpx;
+  width: 120%;
+  height: 1rpx;
+  background-color: #999999
+}
+
+.bystep-ok-knows{
+  width: 100%;
+  padding: 10rpx;
+  color: #002AD0;
+  font-size: 22rpx;
+  margin-top: 15rpx;
+  text-align: center;
+}
+
+.close-mystep-exchange{
+  width: 100%;
+  margin-top: 2%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.bystep-success-note{
+  background-color: #FFB70D;
+  width: 380rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 7rpx;
+  margin-top: 50rpx;
+}
+
+.bystep-success-phote{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 90rpx;
+  margin-top: 40rpx;
+}
+
+.bystep-success-name{
+  font-size: 22rpx;
+  color: #FFC41B;
+  margin-top: 10rpx;
+}
+
+.bystep-success-get{
+  margin-top: 40rpx;
+  color: #6E3000;
+  width: 380rpx;
+  text-align: center;
+  font-size: 26rpx;
+  padding-top: 10rpx;
+  padding-bottom: 7rpx;
+  background-image: linear-gradient(90deg,#FFF349,#FFA900);
+  border-radius: 50rpx;
+  margin-bottom: 50rpx;
+}

@@ -30,6 +30,7 @@ Page({
     touchesStartX: 0,
     redPkgs: [],
     showRedPkgIndex: 0,
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   getLocation: function () {

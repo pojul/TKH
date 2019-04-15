@@ -1,0 +1,279 @@
+/* bh_step/pages/videoRedpkgDetail.wxss */
+page{
+  background-color: #FF7812;
+}
+
+.content-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 120rpx;
+  border: 4rpx solid #fff;
+  top: 60rpx;
+}
+
+.detail-box{
+  background-color: #F4F4F4;
+  margin-top: 110rpx;
+  width: 680rpx;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  flex-direction: column;
+}
+
+.detail-title{
+  margin-top: 48rpx;
+  font-size: 42rpx;
+  color: #FF7812;
+  font-weight: bold;
+}
+
+.detail-note{
+  font-size: 35rpx;
+  color: #763300;
+  margin-top: 5rpx;
+}
+
+.get-money-titles{
+  display: flex;
+  align-items: center;
+  width: 420rpx;
+  margin-top: 10rpx;
+}
+
+.get-money-box{
+  background-color: #fff;
+  margin-top: 15rpx;
+  box-shadow: 1rpx 1rpx 2rpx 1rpx #ddd;
+}
+
+.get-money-item{
+  width: 50%;
+  text-align: center;
+  color: #763300;
+  font-size: 23rpx;
+}
+
+.view-redpkgs{
+  font-size: 20rpx;
+  margin-top: 20rpx;
+  color: #763300;
+}
+
+.invite-friend-box{
+  background-color: #EC0000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 460rpx;
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+  border-radius: 90rpx;
+  margin-top: 20rpx;
+}
+
+.getredpkg-bt-box{
+  background-color: #FF7812;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 460rpx;
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+  border-radius: 90rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.invited-user{
+  background-color: #F4F4F4;
+  margin-top: 20rpx;
+  width: 680rpx;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  flex-direction: column;
+  min-height: 300rpx;
+}
+
+.invited-user-top{
+  display: flex;
+  align-items: center;
+}
+
+.invited-user-line{
+  width: 60rpx;
+  height: 2rpx;
+  background-color: #FF5C00;
+}
+
+.invited-user-title{
+  color: #FF5C00;
+  font-size: 23rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.line{
+  background-color: #E9E9E9;
+  height: 1rpx;
+  width: 720rpx;
+  margin-top: 20rpx;
+}
+
+.user-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600rpx;
+  margin-top: 20rpx;
+}
+
+.user-item-left{
+  display: flex;
+  align-items: center;
+}
+
+.user-photo{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
+
+.user-name{
+  font-size: 24rpx;
+  color: #333333;
+  margin-left: 35rpx;
+}
+
+.get-redpkg-box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.newuser-redpkg-success-bg{
+  position: fixed;
+  height: 60%;
+  width: 100%;
+  margin-top: 24%;
+  top: 4%;
+}
+
+.close-newuser-redpkg{
+  position: fixed;
+  padding: 25rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  top: 78%;
+  width: 100%;
+}
+
+.newuser-redpkg-content-success-box{
+  position: fixed;
+  top: 4%;
+  height: 68%;
+  width: 82%;
+  margin-left: 9%;
+  margin-top: 24%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.redpkg-dialog-title{
+  color: #FCC78C;
+  font-size: 28rpx;
+  margin-top: 51%;
+}
+
+.redpkg-dialog-note{
+  color: #FCC78C;
+  font-size: 32rpx;
+  margin-top: 1.5%;
+}
+
+.to-video{
+  width: 52%;
+  color: #F59E08;
+  background-color: #FFE71F;
+  text-align: center;
+  padding-top: 15rpx;
+  padding-bottom: 12rpx;
+  border-radius: 80rpx;
+  font-size: 28rpx;
+  margin-top: 12%;
+}
+
+.mystep-exchange{
+  position: fixed;
+  top: 0rpx;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.mystep-exchange-content-box{
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  margin-left: 17%;
+  align-self: center;
+}
+
+.mystep-exchange-content{
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #fff;
+  border-radius: 4%;
+  font-size: 28rpx;
+  padding: 10rpx;
+  overflow: hidden;
+}
+
+.bystep-ok-title{
+  margin-top: 60rpx;
+  width: 90%;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.bystep-ok-line{
+  margin-top: 60rpx;
+  width: 120%;
+  height: 1rpx;
+  background-color: #999999
+}
+
+.bystep-ok-knows{
+  width: 100%;
+  padding: 10rpx;
+  color: #002AD0;
+  font-size: 22rpx;
+  margin-top: 15rpx;
+  text-align: center;
+
+}
+.close-to-voideo{
+  font-size: 26rpx;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 15rpx;
+}

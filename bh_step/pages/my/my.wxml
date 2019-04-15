@@ -57,15 +57,15 @@
 
     <view class='other-box'>
           <view class='other-item' bindtap='toMyTerritory'>
-            <image class='other-item-icon' src='../../images/territory.png'></image>
+            <image class='other-item-icon' src="{{baseImageUrl + 'territory.png'}}"></image>
             <view class='other-item-note'>领地</view>
           </view>
           <view class='other-item' bindtap='toMember'>
-            <image class='other-item-icon' src='../../images/member.png'></image>
+            <image class='other-item-icon' src="{{baseImageUrl + 'member.png'}}"></image>
             <view class='other-item-note'>会员</view>
           </view>
           <view class='other-item' bindtap='toNews'>
-            <image class='other-item-icon' src='../../images/notify.png'></image>
+            <image class='other-item-icon' src="{{baseImageUrl + 'notify.png'}}"></image>
             <view class='other-item-note'>消息</view>
           </view>
         </view>

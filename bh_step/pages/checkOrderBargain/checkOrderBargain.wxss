@@ -1,0 +1,59 @@
+/* bh_step/pages/checkOrderBargain/checkOrderBargain.wxss */
+.top{
+  margin-top: 20rpx;
+}
+
+.order{
+  background-color: #ffffff;
+  margin-bottom: 1rpx;
+  padding: 20rpx;
+}
+
+.order-title{
+  font-size: 29rpx;
+  color: #333333;
+}
+
+.detail-box{
+  width: 750rpx;
+  display: flex;
+  margin-top: 5rpx;
+}
+
+.detail-pic{
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.detail-text-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 40rpx;
+}
+
+.detail-text{
+  font-size: 29rpx;
+  color: #333333;
+  width: 400rpx;
+  height: 82rpx;
+  overflow: hidden;
+}
+
+.detail-money-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.check-order{
+  width: 100%;
+  text-align: center;
+  padding-top: 20rpx;
+  padding-bottom: 17rpx;
+  position: fixed;
+  bottom: 0rpx;
+  color: #fff;
+  background-color: #00E373;
+  font-size: 28rpx;
+}

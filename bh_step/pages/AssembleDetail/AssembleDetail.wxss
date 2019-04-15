@@ -1,4 +1,5 @@
-/* bh_step/pages/AssembleDetail/AssembleDetail.wxss */
+/* bh_step/pages/AssembleDetail/AssembleDetail.wxss */ 
+
 .container {
     margin-bottom: 136rpx;
 }
@@ -23,7 +24,7 @@
 
 .pic-container-content {
     position: absolute;
-    top: 18rpx;
+    top: 20rpx;
     left: 18rpx;
     font-size: 32rpx;
     display: flex;
@@ -85,7 +86,6 @@
   display: flex;
   margin-left: 100rpx;
   padding-bottom: 20rpx;
-  margin-bottom: 160rpx;
 }
 
 .paly-way-icon{
@@ -125,4 +125,62 @@
   margin-bottom: 8rpx;
   padding-top: 8rpx;
   padding-bottom: 5rpx;
+}
+
+.detail-html{
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding-bottom: 90rpx;
+  font-size: 28rpx;
+}
+
+
+.wxParse-img{
+  display: flex;
+}
+
+.assemble-rules{
+  position: fixed;
+  top: 0rpx;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.assemble-rules-content-box{
+  display: flex;
+  flex-direction: column;
+  width: 86%;
+  height: 60%;
+  margin-left: 7%;
+  align-self: center;
+}
+
+.assemble-rules-content{
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #fff;
+  border-radius: 4%;
+  font-size: 28rpx;
+  padding: 10rpx;
+  overflow: scroll;
+}
+
+.assemble-rules-title{
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  padding: 10rpx;
+}
+
+.close-assemble-rules{
+  width: 100%;
+  margin-top: 2%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
 }

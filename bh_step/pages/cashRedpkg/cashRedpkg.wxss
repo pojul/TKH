@@ -1,0 +1,26 @@
+/* bh_step/pages/cashRedpkg/cashRedpkg.wxss */
+page{
+  background-color: #fff;
+}
+
+.title-box{
+  width: 100%;
+  color: #000000;
+  font-size: 26rpx;
+  font-weight: bold;
+  display: flex;
+}
+
+.item{
+  width: 100%;
+  color: #000000;
+  font-size: 28rpx;
+  display: flex;
+}
+
+.item-text{
+  width: 33.33%;
+  text-align: center;
+  padding: 10rpx;
+
+}

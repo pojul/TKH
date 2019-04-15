@@ -1,0 +1,333 @@
+/* bh_step/pages/bargaindetail/bargaindetail.wxss */
+page{
+  background-image: linear-gradient(110deg,#FF0000 ,#FF9100);
+}
+
+.message{
+  font-size: 25rpx;
+  color: #FF4225;
+  font-weight: bold;
+  padding: 15rpx;
+  background-color: #FFEFB1;
+}
+
+.content-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 90rpx;
+  margin-top: 30rpx;
+  border: 4rpx solid #fff;
+  position: absolute;
+}
+
+.content-text{
+  width: 720rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 85rpx;
+}
+
+.nick-name{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-top: 32rpx;
+}
+
+.detail-box{
+  width: 670rpx;
+  margin-top: 10rpx;
+  padding: 10rpx;
+  background-color: #ECECEC;
+  display: flex;
+}
+
+.detail-pic{
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.detail-text-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 40rpx;
+}
+
+.detail-text{
+  font-size: 29rpx;
+  color: #333333;
+  width: 400rpx;
+  height: 82rpx;
+  overflow: hidden;
+}
+
+.detail-money-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-money-box{
+  width: 670rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.progress-box{
+  margin-top: 10rpx;
+  background-color: #F0F0F0;
+  width: 670rpx;
+  border-radius: 50rpx;
+  height: 20rpx;
+}
+
+.progress{
+  width: 280rpx;
+  height: 20rpx;
+  border-radius: 50rpx;
+  background-image: linear-gradient(90deg,#FF0000,#FF7800);
+}
+
+.left-time-box{
+  display: flex;
+  align-items: center;
+  margin-top: 18rpx;
+  margin-bottom: 18rpx;
+}
+
+.left-time-text{
+  color: #f00;
+  font-size: 21rpx;
+  margin-right: 10rpx;
+}
+
+.left-time-num{
+  background-color: #f00;
+  color: #fff;
+  font-size: 22rpx;
+  padding-left: 5rpx;
+  padding-right: 7rpx;
+  border-radius: 7rpx;
+  margin-right: 10rpx;
+}
+
+.share{
+  width: 450rpx;
+  background-image: linear-gradient(90deg,#FFF349,#FFA900);
+  color: #6E3000;
+  font-size: 28rpx;
+  text-align: center;
+  margin-left: 150rpx;
+  font-weight: bold;
+  border-radius: 80rpx;
+  padding-top: 14rpx;
+  padding-bottom: 11rpx;
+  margin-top: 20rpx;
+}
+
+.bargain-users-box{
+  background-color: #fff;
+  width: 720rpx;
+  margin-left: 15rpx;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 360rpx;
+}
+
+.bargain-users-top{
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.line{
+  width: 60rpx;
+  height: 2rpx;
+  background-color: #FF5C00;
+}
+
+.bargain-users-title{
+  font-size: 28rpx;
+  color: #FF5C00;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+
+.line-gray{
+  height: 1rpx;
+  background-color: #E9E9E9;
+  width: 720rpx;
+  margin-bottom: 20rpx;
+}
+
+.bargain-userinfo{
+  width: 620rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.bargain-userinfo-left{
+  display: flex;
+  align-items: center;
+}
+
+.user-photo{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 70rpx;
+  margin-right: 40rpx;
+}
+
+.rule-note{
+  position: absolute;
+  right: 20rpx;
+  top: 85rpx;
+  color: #FFFFFF;
+  border: 2rpx solid #fff;
+  border-radius: 50rpx;
+  font-size: 26rpx;
+  width: 160rpx;
+  text-align: center;
+  padding-top: 4rpx;
+  padding-bottom: 1rpx;
+}
+
+.bargain-rules{
+  position: fixed;
+  top: 0rpx;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bargain-rules-content-box{
+  display: flex;
+  flex-direction: column;
+  width: 86%;
+  height: 60%;
+  margin-left: 7%;
+  align-self: center;
+}
+
+.bargain-rules-content{
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #fff;
+  border-radius: 4%;
+  font-size: 28rpx;
+  padding: 10rpx;
+  overflow: scroll;
+}
+
+.bargain-rules-title{
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: bold;
+  width: 240rpx;
+  text-align: center;
+  padding-top: 4rpx;
+  padding-bottom: 3rpx;
+  background-color: #FF0000;
+  border-radius: 20rpx;
+  margin-top: 15rpx;
+  margin-bottom: 10rpx;
+}
+
+.close-bargain-rules{
+  width: 100%;
+  margin-top: 2%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.bargain-success{
+  position: fixed;
+  top: 0rpx;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bargain-success-content-box{
+  display: flex;
+  flex-direction: column;
+  width: 86%;
+  height: 84%;
+  margin-left: 7%;
+}
+
+.bargain-success-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4%;
+  font-size: 28rpx;
+  padding: 10rpx;
+}
+
+.bargain-success-money{
+  position: absolute;
+  top: 59.8%;
+  left: 43%;
+  font-weight: bold;
+  line-height: 0rpx;
+}
+
+.help-bargain{
+  width: 60%;
+  position: absolute;
+  top: 68%;
+  left: 20%;
+  font-size: 28rpx;
+  color: #6E3000;
+  background-image: linear-gradient(90deg,#FFF349,#FFA900);
+  text-align: center;
+  padding-top: 15rpx;
+  padding-bottom: 12rpx;
+  border-radius: 50rpx;
+}
+
+.friend-help-info{
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 54%;
+}
+
+.friend-help-info-photo{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 90rpx;
+}
+
+.friend-help-info-text{
+  font-size: 26rpx;
+  color: #FFC41B;
+  margin-top: 15rpx;
+}
+

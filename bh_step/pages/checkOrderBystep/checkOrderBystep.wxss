@@ -1,0 +1,67 @@
+/* bh_step/pages/checkOrderBystep/checkOrderBystep.wxss */
+.top{
+  margin-top: 20rpx;
+}
+
+.order{
+  background-color: #ffffff;
+  margin-bottom: 1rpx;
+  padding: 20rpx;
+}
+
+.detail{
+  width: 685rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  margin-top: 5rpx;
+  padding: 15rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80rpx;
+}
+
+.pic{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.detail-content{
+  display: flex;
+}
+
+.detail-content-right{
+  width: 500rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-content-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.detail-content-note{
+  font-size: 23rpx;
+  color: #333;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.check-order{
+  width: 100%;
+  text-align: center;
+  padding-top: 20rpx;
+  padding-bottom: 17rpx;
+  position: fixed;
+  bottom: 0rpx;
+  color: #fff;
+  background-color: #00E373;
+  font-size: 28rpx;
+}

@@ -93,8 +93,7 @@ Page({
 		author_show: 2,
 		mydialog: "",
 		ad_pop: 0,
-    showUserInfoDialog: false,
-    tempWXLoginT: {},
+    baseImageUrl: getApp().baseImageUrl,
 	},
 	onLoad: function(t) {
 		var e = app.getSiteImgurl();
@@ -145,49 +144,9 @@ Page({
 			}
 		});
 
-    //if (wx.getStorageSync("has_login") != 2){
-      this.wxlogin();
-    //}
 	},
 
   authorize: function (e) {
-    this.login(this.data.tempWXLoginT);
-    //_tools2.default.login({});
-  },
-
-  wxlogin: function() {
-    var that = this;
-    wx.login({
-      success: function (t) {
-        that.setData({
-          showUserInfoDialog: true,
-          tempWXLoginT: t
-        })
-      },
-      fail: function () {}
-    });
-  },
-
-  login: function(t){
-    var e = wx.getStorageSync("parent_id"), o = wx.getStorageSync("goods_id"), n = wx.getStorageSync("share_tpye");
-    _tools2.default.request({
-      method: "get",
-      url: "entry/wxapp/login",
-      data: {
-        code: t.code,
-        parent_id: e,
-        goods_id: o,
-        share_tpye: n,
-        encryptedData: wx.getStorageSync("user_encryptedData"),
-        iv: wx.getStorageSync("user_iv")
-      },
-      success: function (t) {
-        wx.setStorageSync("member_type", t.info.member_type);
-        wx.setStorageSync("token", t.info.token);
-        wx.setStorageSync("member_id", t.info.member_id);
-        wx.setStorageSync("has_login", 2);
-      }
-    });
   },
 
 	//用户授权获取用户信息

@@ -7,6 +7,7 @@
 .top-title{
   color: #333333;
   font-size: 28rpx;
+  margin-bottom: 10rpx;
 }
 
 .content{
@@ -41,6 +42,7 @@
   background-color: #fff;
   padding: 20rpx;
   margin-top: 20rpx;
+  padding-bottom: 40rpx;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -78,8 +80,12 @@
 }
 
 .invite-users{
-  width: 260rpx;
-  margin-top: 30rpx;
+  width: 300rpx;
+}
+
+.invite-users-bt{
+  margin-top: 10rpx;
+  background-color: #fff;
 }
 
 .play-way-box{
@@ -184,4 +190,62 @@
   text-align: center;
   font-size: 28rpx;
   color: #fff;
+}
+
+.check-order-box{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0rpx;
+  background-color: #fff;
+}
+
+.pay-money-box{
+  width: 70%;
+  text-align: center;
+  align-self: center;
+}
+
+.pay{
+  background-color: #00E373;
+  color: #fff;
+  width: 30%;
+  text-align: center;
+  font-size: 28rpx;
+  padding-top: 18rpx;
+  padding-bottom: 15rpx;
+}
+
+.left-time-box{
+  display: flex;
+  align-items: center;
+  margin-top: 35rpx;
+}
+
+.left-time-text{
+  color: #f00;
+  font-size: 21rpx;
+  margin-right: 10rpx;
+}
+
+.left-time-num{
+  background-color: #f00;
+  color: #fff;
+  font-size: 22rpx;
+  padding-left: 5rpx;
+  padding-right: 7rpx;
+  border-radius: 7rpx;
+  margin-right: 10rpx;
+}
+
+.check-order1{
+  width: 100%;
+  text-align: center;
+  padding-top: 20rpx;
+  padding-bottom: 17rpx;
+  position: fixed;
+  bottom: 0rpx;
+  color: #fff;
+  background-color: #00E373;
+  font-size: 28rpx;
 }

@@ -14,6 +14,7 @@ Page({
   data: {
     redPkgs: 0,
     useRedPkg: false,
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   /**

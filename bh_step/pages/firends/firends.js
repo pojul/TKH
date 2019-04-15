@@ -24,7 +24,8 @@ Page({
         p: 1,
         isover: !1,
         share_text: "",
-        share_image: ""
+        share_image: "",
+        baseImageUrl: getApp().baseImageUrl,
     },
     onLoad: function(t) {
         imlist(that = this);

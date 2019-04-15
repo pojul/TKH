@@ -7,14 +7,14 @@
 </view>
 
 <view class="wrap" >
-    <image src="../../images/ad_redpack.png"></image>
+    <image src="{{baseImageUrl + 'ad_redpack.png'}}"></image>
     <view class="nick">嘎嘎嘎</view>
     <view class="step_num">
         <view style="margin-top:10rpx;">加入时间：2018-11-23</view>
     </view>
 </view>
 <view class="wrap" >
-    <image src="../../images/ad_redpack.png"></image>
+    <image src="{{baseImageUrl + 'ad_redpack.png'}}"></image>
     <view class="nick">嘎嘎嘎</view>
     <view class="step_num">
         <view style="margin-top:10rpx;">加入时间：2018-11-23</view>

@@ -1,8 +1,8 @@
 <!--bh_step/pages/personalinfo/personalinfo.wxml-->
 <view class='item-box'>
   <view class='item-name'>头像</view>
-  <view class='item-right'>
-    <image class='photo' src="{{userInfo.head}}"></image>
+  <view class='item-right' bindtap='chosePic'>
+    <image class='photo' src="{{uploadPicPath!=null?uploadPicPath:userInfo.member_head}}"></image>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
 </view>
@@ -10,7 +10,7 @@
 <view class='item-box'>
   <view class='item-name'>昵称</view>
   <view class='item-right'>
-    <input class='input' placeholder="请输入昵称">{{userInfo.nickname}}</input>
+    <input class='input' bindinput='nickNameChange' placeholder="请输入昵称" value="{{userInfo.nickname}}"></input>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
 </view>
@@ -18,7 +18,7 @@
 <view class='item-box'>
   <view class='item-name'>个性签名</view>
   <view class='item-right'>
-    <input class='input' placeholder="这家伙很懒，还没有签名">{{userInfo.signature}}</input>
+    <input class='input' bindinput='signatureChange' placeholder="这家伙很懒，还没有签名" value="{{userInfo.signature}}"></input>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
 </view>
@@ -27,7 +27,7 @@
 
 <view class='item-box'>
   <view class='item-name'>性别</view>
-  <view class='item-right'>
+  <view bindtap='showSexPickView' class='item-right'>
     <view class='item-vaule'>{{userInfo.gender==2?'女':'男'}}</view>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
@@ -36,7 +36,7 @@
 <view class='item-box'>
   <view class='item-name'>生日</view>
   <view class='item-right'>
-    <view class='item-vaule' bindtap='showDatePickView'>{{userInfo.birthday}}</view>
+    <view class='item-vaule' bindtap='showDatePickView'>{{!userInfo.birthday?'请添加':userInfo.birthday}}</view>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
 </view>
@@ -44,7 +44,7 @@
 <view class='item-box'>
   <view class='item-name'>常驻地区</view>
   <view class='item-right' bindtap='chooseAddress'>
-    <view class='item-vaule'>{{userInfo.province}} {{userInfo.city}}</view>
+    <view class='item-vaule'>{{!userInfo.province?'请添加':(userInfo.province + ' ' + userInfo.city)}}</view>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
 </view>
@@ -52,14 +52,17 @@
 <view class='item-box'>
   <view class='item-name'>手机号</view>
   <view class='item-right'>
-    <input type='number' class='input' placeholder='请输入手机号'>{{userInfo.phone}}</input>
+    <input type='number' bindinput='phoneChange' class='input' placeholder='请输入手机号' value="{{userInfo.phone}}"></input>
     <image class='right' mode='widthFix' src='../../images/right_gray.png'></image>
   </view>
 </view>
 
-<view class='save'>保存</view>
+<view bindtap='saveEdit' class='save'>保存</view>
 
-<date_picker show="{{showDatePicker}}"></date_picker>
+<date_picker show="{{showDatePicker}}" bind:checkDate="checkDate"></date_picker>
 
-<nyz_area_picker show="{{showAreaPicker}}" bind:sureSelectArea="sureSelectAreaListener">
+<nyz_area_picker show="{{showAreaPicker}}" bind:checkArea="checkArea">
 </nyz_area_picker>
+
+<sex_picker show="{{showSexPicker}}" bind:checkSex="checkSex">
+</sex_picker>

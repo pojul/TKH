@@ -1,0 +1,21 @@
+<!--bh_step/pages/checkOrderBargain/checkOrderBargain.wxml-->
+<view class='top'></view>
+
+<view class='order'>
+  <view class='order-title'>0元免费拿</view>
+  <view class='detail-box'>
+      <image mode='aspectFill' class='detail-pic' src='https://i02picsos.sogoucdn.com/3c28af542f2d49f7-9e7c5d699eaea93e-7a2769a09bc532312370e3f34075786f_qq'></image>
+      <view class='detail-text-box'>
+        <view class='detail-text'>3元现金红包----砍价成功即可立即获得</view>
+        <view class='detail-money-box'>
+          <view>
+            <text style="font-size: 26rpx;color: #f00">¥0.00</text>
+            <text style="font-size: 21rpx;margin-left:12rpx;color: #999;">原价3元</text>
+          </view>
+          <view style="font-size: 21rpx;margin-left:12rpx;color: #999;">12542人已0元拿</view>
+        </view>
+      </view>
+    </view>
+</view>
+
+<view class='check-order'>确认订单</view>

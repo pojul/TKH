@@ -25,6 +25,7 @@ Page({
 		img_url: "",
 		isIphoneX: !1,
 		addedExp: 0,
+    baseImageUrl: getApp().baseImageUrl,
 	},
 	onLoad: function(t) {
 		($this = this).data.img_url = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url,

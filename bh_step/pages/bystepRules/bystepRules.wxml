@@ -1,0 +1,5 @@
+<!--bh_step/pages/bystepRules/bystepRules.wxml-->
+<view class='rules-box'>
+  <import src="../../component/wxParse/wxParse.wxml"/>
+  <template is="wxParse" data="{{wxParseData:rules.nodes}}"/>
+</view>

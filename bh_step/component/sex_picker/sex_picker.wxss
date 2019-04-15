@@ -1,0 +1,43 @@
+/* bh_step/component/sex_picker/sex_picker.wxss */
+.pick-rectype-view{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 750rpx;
+  position: fixed;
+  top: 0rpx;
+  z-index: 10;
+  height: 100%;
+}
+
+.pick-rectype-checkview{
+  display: flex;
+  padding-right: 35rpx;
+  padding-left: 35rpx;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.pick-rectype-cancel{
+  padding-top: 12rpx;
+  padding-bottom: 9rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border: 1rpx solid #999999;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  color: #999999;
+}
+
+.pick-rectype--ok{
+  padding-top: 12rpx;
+  padding-bottom: 9rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #1058FF;
+}

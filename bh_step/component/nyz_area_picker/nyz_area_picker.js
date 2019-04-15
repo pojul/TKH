@@ -37,6 +37,8 @@ Component({
     areas: [],
     value: [0,0,0],
     tempArea: {},
+    tempProvice: '',
+    tempCity: '',
   },
 
   ready: function () {
@@ -52,6 +54,8 @@ Component({
         citys: this.data.areaInfos[e.detail.value[0]].city,
         areas: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].area,
         tempArea: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].area[e.detail.value[2]],
+        tempProvice: this.data.areaInfos[e.detail.value[0]].name,
+        tempCity: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].name
       })
     },
     /**
@@ -61,7 +65,7 @@ Component({
       this.setData({
         show: false
       })
-      this.triggerEvent('checkArea', { area: this.data.tempArea});
+      this.triggerEvent('checkArea', { area: this.data.tempArea, provice: this.data.tempProvice, city: this.data.tempCity});
     },
     /**
      * 取消按钮的点击事件
@@ -85,7 +89,9 @@ Component({
             areaInfos: t.info,
             citys: t.info[0].city,
             areas: t.info[0].city[0].area,
-            tempArea: t.info[0].city[0].area[0]
+            tempArea: t.info[0].city[0].area[0],
+            tempProvice: t.info[0].name,
+            tempCity: t.info[0].city[0].name
           })
         }
       });

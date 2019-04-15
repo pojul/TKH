@@ -61,7 +61,21 @@
     "bh_step/pages/territorialrule/territorialrule",
     "bh_step/pages/redpkgDetail/redpkgDetail",
     "bh_step/pages/checkOrderAssemble/checkOrderAssemble",
-    "bh_step/pages/AssembleDetail/AssembleDetail"
+    "bh_step/pages/AssembleDetail/AssembleDetail",
+    "bh_step/pages/bargaindetail/bargaindetail",
+    "bh_step/pages/checkOrderBargain/checkOrderBargain",
+    "bh_step/pages/exchangeSuccess/exchangeSuccess",
+    "bh_step/pages/bystepRules/bystepRules",
+    "bh_step/pages/checkOrderBystep/checkOrderBystep",
+    "bh_step/pages/bystepDetail/bystepDetail",
+    "bh_step/pages/videoRedpkgDetail/videoRedpkgDetail",
+    "bh_step/pages/newuserTask/newuserTask",
+    "bh_step/pages/cashRedpkg/cashRedpkg",
+    "bh_step/pages/auctionDetail/auctionDetail",
+    "bh_step/pages/auctionResults/auctionResults",
+    "bh_step/pages/auctionPriceRecord/auctionPriceRecord",
+    "bh_step/pages/bargainGoodDetail/bargainGoodDetail"
+    
   ],
   "window": {
     "navigationStyle": "default",
@@ -107,6 +121,11 @@
         "selectedIconPath": "bh_step/images/icon_nav5_act.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "networkTimeout": {
     "request": 15000,

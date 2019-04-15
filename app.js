@@ -1,6 +1,6 @@
 var App = require('./util/ltadx/ltadx.js').ltApp;
 var App = require('./util/xiaomeng/xmadx_sdk.min.js').xmad(App,'App').xmApp;
-const ald = require('./util/ald/ald-stat.js')
+const ald = require('./util/ald/ald-stat.js');
 
 App({
     onLaunch: function() {},
@@ -16,6 +16,7 @@ App({
     siteInfo: require("siteinfo.js"),
     img_url: "addons/bh_step/template/image",
 		scene: '',
+    baseImageUrl: 'https://tuokehui.whmstc.cn/attachment/images/global/tuoke/',
 		
     getSiteImgurl: function() {
       return this.siteInfo.siteroot.replace(/app\/index.php/, "") + this.img_url;

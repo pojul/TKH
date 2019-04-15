@@ -839,6 +839,7 @@ button::after {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 25rpx;
 }
 
 .assemble-num{
@@ -911,6 +912,83 @@ button::after {
   background-color: #00D779;
   border-radius: 8rpx;
   font-size: 28rpx;
+}
+
+.bargain-top-box{
+  display: flex;
+  padding: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(-180deg,#FFE281 ,#FFCB52);
+  box-shadow: 1rpx 1rpx 2rpx 5rpx rgba(80, 80, 80, 0.1);
+  position: absolute;
+  width: 660rpx;
+}
+
+.bargain-top-left{
+  display: flex;
+  align-items: center;
+}
+
+.bargain-top-photo{
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 60rpx;
+  margin-right: 12rpx;
+}
+
+.bargain-top-right{
+  font-size: 24rpx;
+  color: #f00;
+  background-color: #FFF3CC;
+  border-radius: 50rpx;
+  padding-top: 5rpx;
+  padding-bottom: 2rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+}
+
+.bystep-bt{
+  width: 300rpx;
+  text-align: center;
+  padding-top: 9rpx;
+  padding-bottom: 6rpx;
+  margin-top: 5rpx;
+  color: #FFDD77;
+  background-color: #FF0000;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.bysteping-bt{
+  width: 300rpx;
+  text-align: center;
+  padding-top: 9rpx;
+  padding-bottom: 6rpx;
+  margin-top: 5rpx;
+  color: #FF774F;
+  border: 1rpx solid #FF774F;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.auction-price{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.auction-join{
+  background-color: #65A2FF;
+  font-size: 20rpx;
+  color: #fff;
+  width: 86rpx;
+  text-align: center;
+}
+
+.auction-joined{
+  font-size: 20rpx;
+  color: #65A2FF;
 }
 
 

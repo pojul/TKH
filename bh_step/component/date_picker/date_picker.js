@@ -15,15 +15,16 @@ Component({
    */
   data: {
     years: [
-
+      
     ],
     months: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
     ],
-    days: [
-
-    ],
-    value: [80, 0, 0],
+    days: [],
+    valueDate: [],
+    selectYear: '',
+    selectMonth: '',
+    selectDay: '',
   },
 
   ready: function() {
@@ -35,7 +36,12 @@ Component({
 
     this.setData({
       years: tempYear,
-      value: [80]
+      selectYear: tempYear[80],
+      selectMonth: 1,
+      selectDay: 1
+    })
+    this.setData({
+      valueDate: [80, 0, 0],
     })
     this.setDays(tempYear[80], 1);
   },
@@ -44,23 +50,34 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    showPickRecType: function(e) {
-      console.log(e.currentTarget.dataset.show)
+    showPickDateType: function(e) {
       this.setData({
         show: e.currentTarget.dataset.show
       });
+    },
+
+    showPickDateCheck: function (e) {
+      this.setData({
+        show: e.currentTarget.dataset.show
+      });
+      this.triggerEvent('checkDate', { year: this.data.selectYear, month: this.data.selectMonth, day: this.data.selectDay });
     },
 
     isLeapYear: function(year) {
       return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
     },
 
-    bindChange: function(e) {
+    bindChangeDate: function(e) {
       this.setDays(this.data.years[e.detail.value[0]], this.data.months[e.detail.value[1]]);
+      this.setData({
+        selectYear: this.data.years[e.detail.value[0]],
+        selectMonth: this.data.months[e.detail.value[1]],
+        selectDay: this.data.days[e.detail.value[2]]
+      })
     },
 
     setDays: function(year, month) {
-      console.log("setDays: " + year + "::" + month);
+      //console.log("setDays: " + year + "::" + month);
       var maxDays = 30;
       switch (month) {
         case 1:

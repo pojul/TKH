@@ -1,0 +1,11 @@
+<!--bh_step/pages/exchangeSuccess/exchangeSuccess.wxml-->
+<view class='content'>
+  <image class='ok' src='../../images/pay_selected.png'></image>
+  <view class='ok-note'>兑换成功</view>
+  <view style='margin-top: 20rpx;'>
+    <text style='font-size: 26rpx;color: #333333;'>已将</text>
+    <text style='font-size: 26rpx;color: #f00;'>3元</text>
+    <text style='font-size: 26rpx;color: #333333;'>存入你的余额</text>
+  </view>
+  <view class='share'>炫耀一下</view>
+</view>

@@ -1,0 +1,58 @@
+/* bh_step/pages/auctionPriceRecord/auctionPriceRecord.wxss */
+page{
+  background-color: #fff;
+}
+
+.line{
+  width: 100%;
+  height: 1rpx;
+  background-color: #E8E8E8;
+}
+
+.line1{
+  width: 750rpx;
+  height: 1rpx;
+  background-color: #F1F1F1;
+}
+
+.item{
+  display: flex;
+  padding: 20rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-box{
+  display: flex;
+  align-items: center;
+}
+
+.photo{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 90rpx;
+}
+
+.userinfo-text{
+  margin-left: 15rpx;
+}
+
+.price-record-flag-active{
+  background-color: #FF5430;
+  color: #fff;
+  font-size: 23rpx;
+  width: 75rpx;
+  text-align: center;
+  padding-top: 3rpx;
+  padding-bottom: 1rpx;
+}
+
+.price-record-flag{
+  background-color: #999999;
+  color: #fff;
+  font-size: 23rpx;
+  width: 75rpx;
+  text-align: center;
+  padding-top: 3rpx;
+  padding-bottom: 1rpx;
+}

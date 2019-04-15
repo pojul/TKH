@@ -1,0 +1,73 @@
+<!--bh_step/pages/videoRedpkgDetail.wxml-->
+<view class='content-box'>
+  <image class='photo' src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-b5474f5d746afeb42a9917560ea2daa5_qq'></image>
+  <view class='detail-box'>
+    <view class='detail-title'>邀请好友领红包 你得奖励</view>
+    <view class='detail-note'>好友看视频 你俩都能得红包</view>
+    <view class='get-money-box'>
+      <view class='get-money-titles'>
+        <view class='get-money-item'>共赚取</view>
+        <view class='get-money-item'>今日赚取</view>
+      </view>
+      <view class='get-money-titles'>
+        <view class='get-money-item'>
+          <text style='color:#f00;font-size:32rpx;'>0.01</text>
+          <text style='color:#f00;font-size:22rpx;margin-left:5rpx;'>元</text>
+        </view>
+        <view class='get-money-item'>
+          <text style='color:#f00;font-size:32rpx;'>0</text>
+          <text style='color:#f00;font-size:21rpx;'>元</text>
+        </view>
+      </view>
+    </view>
+    <view class='view-redpkgs'>查看红包流水＞</view>
+    <view class='invite-friend-box'>
+      <view style='color:#fff;font-size:28rpx;'>邀请好友</view>
+      <view style='color:#fff;font-size:20rpx;'>每日可邀 邀请新用户手气更好</view>
+    </view>
+    <view class='getredpkg-bt-box'>
+      <view style='color:#fff;font-size:28rpx;'>领现金红包</view>
+      <view style='color:#fff;font-size:20rpx;'>每日可领8次 间隔2分钟可领</view>
+    </view>
+  </view>
+
+  <view class='invited-user'>
+    <view class='invited-user-top'>
+      <view class='invited-user-line'></view>
+      <view class='invited-user-title'>今日已邀请好友</view>
+      <view class='invited-user-line'></view>
+    </view>
+    <view class='line'></view>
+    <view class='user-item'>
+      <view class='user-item-left'>
+        <image class='user-photo' src='https://i04piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-11029736b064dfd777266c2a8d989896_qq'></image>
+        <view class='user-name'>幸运立减金</view>
+      </view>
+      <view>
+        <text style='color:#f00;font-size:32rpx;'>0.45</text>
+        <text style='color:#333;font-size:24rpx;'>元</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='get-redpkg-box' wx:if="{{false}}">
+  <image class='newuser-redpkg-success-bg' src="{{baseImageUrl + 'newuser_redpkg_success.png'}}"></image>
+  <view class='newuser-redpkg-content-success-box'>
+    <view class='redpkg-dialog-title'>武汉上等仁嘉</view>
+    <view class='redpkg-dialog-note'>发了一个红包</view>
+    <view class='to-video'>看视频广告 领取红包</view>
+  </view>
+  <view class='close-newuser-redpkg'>点击关闭</view>
+</view>
+
+<view wx:if="{{true}}" class='mystep-exchange'>
+  <view class='mystep-exchange-content-box'>
+    <view class='mystep-exchange-content'>
+      <view class='bystep-ok-title'> 您将跳转到“xxx”小程序</view>
+      <view class='bystep-ok-line'></view>
+      <view class='bystep-ok-knows'>确定</view>
+    </view>
+    <view class='close-to-voideo'>点击关闭</view>
+  </view>
+</view>

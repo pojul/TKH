@@ -1,0 +1,12 @@
+<!--bh_step/pages/cashRedpkg/cashRedpkg.wxml-->
+<view class='title-box'>
+  <view class='item-text'>时间</view>
+  <view class='item-text'>来源</view>
+  <view class='item-text'>金额(元)</view>
+</view>
+
+<view wx:for="wsdsa" class='item'>
+  <view class='item-text'>2019.03.02</view>
+  <view class='item-text'>视频红包</view>
+  <view class='item-text'>3.25</view>
+</view>

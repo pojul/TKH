@@ -74,7 +74,7 @@
 <view class="content bg-color-white">
 		<!--天天领红包广告图-->
 		<view bindtap="showBg" class="daily-redpack" wx:if="{{bag.is_open==1&&audit_pattern!=2}}">
-			<image class="daily-redpack-gif" src="../../images/ad_redpack.png"></image>
+			<image class="daily-redpack-gif" src="{{baseImageUrl + 'ad_redpack.png'}}"></image>
 			<view class="daily-redpack-subtitle">天天领红包</view>
 			<view class="daily-redpack-text-box">
 				<view class="hredEnvelope-title" >
@@ -478,7 +478,7 @@
     <view bindtap="toggleMask" style='margin: 20rpx auto 0;height:510rpx;font-size:40rpx;color:#fff;font-weight:500;'>
       <view class="boder-white-btn" style='width:400rpx;height:80rpx;line-height:80rpx;border-radius:40rpx;font-size:30rpx;font-weight:500;'>记住了，去试试</view>
     </view>
-   <view style="position:absolute;top:-150rpx;right:100rpx;"><image src="/bh_step/images/hand.png" style='width:86rpx;height:116rpx;transform-style: preserve-3d;animation-name: upAnimation2;animation-timing-function: ease-in-out;animation-iteration-count: infinite;animation-duration: 2.5s;'></image></view>
+   <view style="position:absolute;top:-150rpx;right:100rpx;"><image src="{{baseImageUrl + 'hand.png'}}" style='width:86rpx;height:116rpx;transform-style: preserve-3d;animation-name: upAnimation2;animation-timing-function: ease-in-out;animation-iteration-count: infinite;animation-duration: 2.5s;'></image></view>
     <text bindtap="toggleMask"  class="close-btn2" ></text>
 	</view>
 
@@ -491,4 +491,4 @@
     <view class="i-toast-content" wx:if="{{added_exp>0}}"><image class="coin" src="/bh_step/images/star.png" mode="aspectFit" /> 成长值+{{added_exp}}</view>
 </view>
 
-<userinfo_dialog show="{{showUserInfoDialog}}" bind:authorize='authorize'></userinfo_dialog>
+<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>

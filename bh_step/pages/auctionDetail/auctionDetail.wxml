@@ -1,0 +1,199 @@
+<!--bh_step/pages/auctionDetail/auctionDetail.wxml-->
+<view class="swiper-container">
+  <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper-box" indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000">
+    <swiper-item style="overflow:hidden; vertical-align: middle;" wx:for="{{goods.image}}">
+      <image class="slide-image" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class='detail-box'>
+  <view class='detail-left'>
+    <view class='detail-money'>40</view>
+    <view>
+      <view class='detail-type'>运动币</view>
+      <view class='detail-note'>起拍价</view>
+    </view>
+    <view class='detail-raw-money'>原价：39元</view>
+  </view>
+  <view class='detail-right'>
+    <view class='left-start-time-note'>距竞拍开始</view>
+    <view class='left-start-time-box'>
+      <text class='left-start-time'>02</text>
+      <text>：</text>
+      <text class='left-start-time'>41</text>
+      <text>：</text>
+      <text class='left-start-time'>34</text>
+    </view>
+  </view>
+</view>
+
+<view class='name'>产品名称</view>
+
+<view class='center-box'>
+  <view class='progress'>
+    <view class='progress-item-active'>报名</view>
+    <view class='progress-line-active'></view>
+    <view class='progress-item-active'>竞拍</view>
+    <view class='progress-line'></view>
+    <view class='progress-item'>兑换</view>
+  </view>
+
+  <view class='auction-status'>
+    <view class='current-auction'>
+      <view class='auction-status-num'>80</view>
+      <view class='auction-status-note'>当前竞价(运动币)</view>
+    </view>
+    <view class='current-auction'>
+      <view class='auction-status-num' style='color:#333'>59</view>
+      <view class='auction-status-note'>竞拍出价倒计时(s)</view>
+    </view>
+  </view>
+
+  <view class='start-time'>竞拍开始时间 今天 20:00</view>
+</view>
+
+<view class='note'>58人报名竞拍 加价幅度10运动币 未拍中退竞拍币</view>
+
+<view class='auction-operate-box'>
+
+  <view wx:if="{{false}}" class='join-result-box'>
+    <view class='join-result'>
+      <view style='font-size: 26rpx;font-weight: bold'>我要报名</view>
+      <view style='font-size: 21rpx;'>报名扣除0运动币</view>
+    </view>
+    <view class='join-result-note'>参与竞拍收取0运动币报名费，竞拍结束不退还</view>
+  </view>
+
+  <view wx:if="{{false}}" class='auction-operate'>
+    <view class='auction-status'>
+      <view class='current-auction'>
+        <view class='auction-status-num'>0</view>
+        <view class='auction-status-note'>我的出价(活力币)</view>
+      </view>
+      <view class='current-auction'>
+        <view class='auction-status-num' style='color:#333'>10</view>
+        <view class='auction-status-note'>剩余出价次数(次)</view>
+      </view>
+    </view>
+    <view class='auction-operate-views'>
+      <view class='auction-operate-price'>
+        <view>竞拍未开始</view>
+      </view>
+      <view class='auction-invite-friend'>
+        <view class='auction-invite-friend-box'>
+          <view style='font-size: 28rpx;'>邀好友助力</view>
+          <view style='font-size: 20rpx;'>每邀1人加1次</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='result-notjoin' wx:if="{{false}}">
+    <view class='join-result'>查看更多竞拍</view>
+    <view class='join-result-note'>您未报名当前运动币竞拍</view>
+  </view>
+
+  <view class='result-joined' wx:if="{{true}}">
+    <view class='auction-status'>
+      <view class='current-auction'>
+        <view class='auction-status-box'>
+          <view class='auction-status-num'>790</view>
+          <view class='auction-status-lead'>领先</view>
+        </view>
+        
+        <view class='auction-status-note'>我的出价(活力币)</view>
+      </view>
+      <view class='current-auction'>
+        <view class='auction-status-num' style='color:#333'>10</view>
+        <view class='auction-status-note'>剩余出价次数(次)</view>
+      </view>
+    </view>
+    <view class='result-joined-bt'>查看竞拍结果</view>
+  </view>
+
+</view>
+
+<view class='price-record-box'>
+  <view class='price-record-top'>
+    <view class='price-record-note'>出价记录(86)</view>
+    <view class='price-record-all'>查看全部＞</view>
+  </view>
+  <view class='price-record-item-box'>
+    <view wx:for="dfd" class="{{index==0?'price-record-item-active':'price-record-item'}}">
+      <view class="{{index==0?'price-record-flag-active':'price-record-flag'}}">{{index==0?'领先':'落后'}}</view>
+      <view class="{{index==0?'price-record-text-active':'price-record-text'}}">
+        <view class='price-record-name'>大力水手</view>
+        <view class='price-record-num'>790运动币</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='pics'>
+  <image wx:for="{{goods.image}}" class='good-pic' mode="widthFix" src="{{item}}"></image>
+</view>
+
+<view wx:if="{{false}}" class='join-success' catchtouchmove='{{true}}'>
+  <view class='join-success-content'>
+    <view class='join-success-note'>报名成功</view>
+    <view class='join-success-notify'>开启竞拍前10分钟消息提醒</view>
+    <view class='join-success-note1'>竞拍开始60秒内无人加价则提前结束</view>
+    <view class='join-success-check'>
+      <view class='join-success-ok'>好的</view>
+      <view class='join-success-no'>不用了</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{false}}" class='join-success' catchtouchmove='{{true}}'>
+  <view class='join-success-content'>
+    <view class='invited-title'>你的好友参与了这个商品的竞拍邀你一起来竞拍</view>
+    <view class='line'></view>
+    <view class='product-detail'>
+      <image class='product-pic' mode='aspectFill' src='https://img01.sogoucdn.com/app/a/100520021/F946556C26084E20660A9DF0183944EA'></image>
+      <view class='product-text'>
+        <view class='product-title'>产品名称</view>
+        <view class='product-money'>原价：119元</view>
+        <view>
+          <text style='font-size: 28rpx;color: #f00;'>0</text>
+          <text style='font-size: 19rpx;color: #999;'>元+运动币竞拍</text>
+        </view>
+      </view>
+    </view>
+    <view class='invited-note'>你的好友 大力水手 正在参加</view>
+    <view class='invited-check'>我知道了</view>
+  </view>
+</view>
+
+<view wx:if="{{false}}" class='join-success' catchtouchmove='{{true}}'>
+  <view class='join-success-content'>
+    <view class='invited-title1'>你已为好友助力成功大力水手</view>
+    <view class='line'></view>
+    <view class='product-detail'>
+      <image class='product-pic' mode='aspectFill' src='https://img01.sogoucdn.com/app/a/100520021/F946556C26084E20660A9DF0183944EA'></image>
+      <view class='product-text'>
+        <view class='product-title'>产品名称</view>
+        <view class='product-money'>原价：119元</view>
+        <view>
+          <text style='font-size: 28rpx;color: #f00;'>0</text>
+          <text style='font-size: 19rpx;color: #999;'>元+运动币竞拍</text>
+        </view>
+      </view>
+    </view>
+    <view class='invited-note'>
+      <text>他已获得</text>
+      <text style='color:#65A2FF'>1</text>
+      <text>位好友助力</text>
+    </view>
+    <view class='invited-check'>我知道了</view>
+  </view>
+</view>
+
+<view class='auction-winner'>
+  <text style='font-size: 26rpx;color: #FFF349;margin-right: 12rpx;'>大力水手</text>
+  <text style='font-size: 26rpx;color: #fff;margin-right: 12rpx;'>出价790运动币</text>
+  <text style='font-size: 26rpx;color: #FFF349;'>竞拍胜出</text>
+</view>
+
+<view bindtap='toRulesDetail' class='rules'>活动规则</view>

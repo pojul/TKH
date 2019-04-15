@@ -1,0 +1,171 @@
+/* bh_step/pages/auctionResults/auctionResults.wxss */
+page{
+  background-color: #F3F3F3;
+}
+
+.content-box{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding-top: 25rpx;
+  width: 650rpx;
+  margin-left: 50rpx;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 3rpx 2rpx 5rpx rgba(180, 180, 180, 0.3);
+}
+
+.top-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+}
+
+.top-left-box{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.top-right-box{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.photo{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 110rpx;
+}
+
+.result-note{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #000;
+  margin-top: 5rpx;
+}
+
+.result-note-active{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #f00;
+  margin-top: 5rpx;
+}
+
+.my-price{
+  font-size: 46rpx;
+  font-weight: bold;
+  margin-top: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.prodect-detail{
+  display: flex;
+  background-color: #F3F3F3;
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  padding: 10rpx;
+  margin-top: 35rpx;
+}
+
+.prodect-pic{
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.prodect-text{
+  height: 130rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 25rpx;
+}
+
+.prodect-title{
+  font-size: 28rpx;
+  color: #000;
+}
+
+.prodect-price{
+  font-size: 23rpx;
+  color: #999;
+}
+
+.auction-status{
+  display: flex;
+  width: 420rpx;
+  justify-content: space-between;
+  align-self: center;
+  margin-top: 10rpx;
+  margin-bottom: 65rpx;
+}
+
+.current-auction{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auction-status-num{
+  font-size: 42rpx;
+  color: #000000;
+  padding: 20rpx;
+  font-weight: bold;
+}
+
+.auction-status-note{
+  font-size: 22rpx;
+  color: #999;
+}
+
+.tkh-note{
+  background-color: #F3F3F3;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.tkh-note-pic{
+  width: 110rpx;
+  height: 110rpx;
+  margin-left: 15rpx;
+}
+
+.tkh-note-texts{
+  margin-left: 25rpx;
+}
+
+.tkh-note-title{
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.tkh-note-text{
+  font-size: 20rpx;
+  color: #999;
+}
+
+.auction-fail-note{
+  font-size: 21rpx;
+  color: #f00;
+  margin-top: 35rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.got-bt{
+  font-size: 28rpx;
+  color: #fff;
+  width: 450rpx;
+  text-align: center;
+  padding-top: 18rpx;
+  padding-bottom: 15rpx;
+  border-radius: 80rpx;
+  background-color: #65A2FF;
+  margin-left: 150rpx;
+  margin-top: 30rpx;
+}

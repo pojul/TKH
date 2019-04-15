@@ -1,0 +1,35 @@
+/* bh_step/pages/exchangeSuccess/exchangeSuccess.wxss */
+page{
+  background-color: #fff;
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60rpx;
+}
+
+.ok{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.ok-note{
+  font-size: 29rpx;
+  color: #333333;
+  margin-top: 32rpx;
+  font-weight: bold;
+}
+
+.share{
+  width: 450rpx;
+  background-image: linear-gradient(90deg,#00DF7E ,#00FB8E);
+  text-align: center;
+  margin-top: 40rpx;
+  padding-top: 15rpx;
+  padding-bottom: 12rpx;
+  border-radius: 80rpx;
+  color: #fff;
+  font-size: 26rpx;
+}

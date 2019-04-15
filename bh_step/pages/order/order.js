@@ -49,8 +49,17 @@ Page(_defineProperty({
             4: "909090"
         },
         share_text: "",
-        share_image: ""
+        share_image: "",
+        currentGoods: 0,
+        goodClass: ['竞拍', '拼步', '拼团', '砍价', '兑换'],
     },
+
+  setCurrentGood: function (e) {
+    this.setData({
+      currentGoods: e.currentTarget.dataset.index
+    });
+  },
+
     onLoad: function(e) {
         this.setData({
             img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url

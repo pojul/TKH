@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "任务",
+  "backgroundColor": "#FE5442",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "i-progress": "../../../component/iview/progress/index"
+  }
+}

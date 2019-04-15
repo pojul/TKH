@@ -2,54 +2,70 @@
 
 <view class="swiper-container">
   <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper-box" indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000">
-    <swiper-item style="overflow:hidden; vertical-align: middle;" wx:for="{{goods.image}}">
-      <image class="slide-image" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+    <swiper-item style="overflow:hidden; vertical-align: middle;">
+      <image class="slide-image" data-index="{{0}}" mode="aspectFill" src="{{goodDetail.cover_image}}"></image>
     </swiper-item>
   </swiper>
 </view>
 
 <view class='content-box'>
-  <view class="pic-container bg-color-white">
-  <image class="pic-container-pic" src="/bh_step/images/detail_bg.jpg"></image>
-  <view class="pic-container-content">
-    <text style="font-size: 32rpx;margin-left:12rpx;font-weight: bold;">0.01元开团</text>
-    <view style="background-color:#fff;width:1rpx;height:36rpx;margin-left:16rpx;"></view>
-    <text style="font-size: 24rpx;margin-left:12rpx;margin-top:2rpx;" class="pre-price">4人团</text>
+  <view class="pic-container">
+    <image class="pic-container-pic" src="/bh_step/images/detail_bg.jpg"></image>
+    <view class="pic-container-content">
+      <text style="font-size: 32rpx;margin-left:12rpx;font-weight: bold;">{{goodDetail.pay_money}}元开团</text>
+      <view style="background-color:#fff;width:1rpx;height:36rpx;margin-left:16rpx;"></view>
+      <text style="font-size: 24rpx;margin-left:12rpx;margin-top:2rpx;" class="pre-price">{{goodDetail.group_people}}人团</text>
+    </view>
+    <view class="pic-container-right">
+      仅剩{{goodDetail.inventory}}件
+    </view>
   </view>
-  <view class="pic-container-right">
-    仅剩11111件
+
+  <view class='good-detail-box'>
+    <view class='good-detail-title'>{{goodDetail.goods_name}}</view>
+    <view class='good-detail-content'>
+      <view class='good-detail-note'>拼团成功后立即到账</view>
+      <view class='good-detail-exchange'>兑换人数：{{goodDetail.join_number}}</view>
+    </view>
+  </view>
+  <view class='line'></view>
+
+  <view class='play-way-note'>
+    <view class='good-detail-title'>拼团玩法</view>
+    <view bindtap='showRulesDialog' data-show="{{true}}" style="font-size:24rpx;color:#999;">规则说明 ></view>
+  </view>
+  <view class='paly-way-content'>
+    <view class='paly-way-item'>
+      <image class='paly-way-icon' src='../../images/start_assemble.png'></image>
+      <view>0.01元开团</view>
+    </view>
+    <view class='line-black'></view>
+    <view class='paly-way-item'>
+      <image class='paly-way-icon' src='../../images/invite_friend.png'></image>
+      <view>邀请成员</view>
+    </view>
+    <view class='line-black'></view>
+    <view class='paly-way-item'>
+      <image class='paly-way-icon' src='../../images/assemble_success.png'></image>
+      <view>拼团成功</view>
+    </view>
   </view>
 </view>
 
-<view class='good-detail-box'>
-  <view class='good-detail-title'>一元现金红包</view>
-  <view class='good-detail-content'>
-    <view class='good-detail-note'>拼团成功后立即到账</view>
-    <view class='good-detail-exchange'>兑换人数：1587</view>
-  </view>
-</view>
-<view class='line'></view>
-
-<view class='play-way-note'>
-  <view class='good-detail-title'>拼团玩法</view>
-  <view style="font-size:24rpx;color:#999;">规则说明 ></view>
-</view>
-<view class='paly-way-content'>
-  <view class='paly-way-item'>
-    <image class='paly-way-icon' src='../../images/start_assemble.png'></image>
-    <view>0.01元开团</view>
-  </view>
-  <view class='line-black'></view>
-  <view class='paly-way-item'>
-    <image class='paly-way-icon' src='../../images/invite_friend.png'></image>
-    <view>邀请成员</view>
-  </view>
-  <view class='line-black'></view>
-  <view class='paly-way-item'>
-    <image class='paly-way-icon' src='../../images/assemble_success.png'></image>
-    <view>拼团成功</view>
-  </view>
-</view>
+<view class='detail-html'>
+  <import src="../../component/wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>
 
-<view class='check-order'>0.01元拼团</view>
+<view wx:if="{{showRules}}" class='assemble-rules'catchtouchmove='{{true}}'>
+  <view class='assemble-rules-content-box'>
+    <view class='assemble-rules-content'>
+    <view class='assemble-rules-title'>拼团规则</view>
+    <import src="../../component/wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:rules.nodes}}"/>
+  </view>
+  <view bindtap='showRulesDialog' data-show="{{false}}" class='close-assemble-rules'>点击关闭</view>
+  </view>
+</view>
+
+<view bindtap='assemble' class='check-order'>{{goodDetail.pay_money}}元拼团</view>

@@ -1,0 +1,105 @@
+<!--bh_step/pages/bargaindetail/bargaindetail.wxml-->
+<view class='message'>恭喜 豆豆 5刀砍成了【3元现金红包】！</view>
+
+<view class='content-box'>
+  <image class='photo' src='https://img02.sogoucdn.com/app/a/100520093/398e25e72e0c6d43-69bdc558c3bd67b0-aa47354acc7cf96571481b65e114640a.jpg'></image>
+  <view class='content-text'>
+    <view class='nick-name'>武汉上等仁嘉</view>
+    <view class='detail-box'>
+      <image mode='aspectFill' class='detail-pic' src='https://i02picsos.sogoucdn.com/3c28af542f2d49f7-9e7c5d699eaea93e-7a2769a09bc532312370e3f34075786f_qq'></image>
+      <view class='detail-text-box'>
+        <view class='detail-text'>3元现金红包----砍价成功即可立即获得</view>
+        <view class='detail-money-box'>
+          <view>
+            <text style="font-size: 26rpx;color: #f00">¥0.00</text>
+            <text style="font-size: 21rpx;margin-left:12rpx;color: #999;">原价3元</text>
+          </view>
+          <view style="font-size: 21rpx;margin-left:12rpx;color: #999;">12542人已0元拿</view>
+        </view>
+      </view>
+    </view>
+    <view class='left-money-box'>
+      <view style='display: flex;align-items: center;'>
+        <text style="font-size: 23rpx;color: #999;">已砍</text>
+        <text style="font-size: 26rpx;color: #f00">0.45</text>
+        <text style="font-size: 23rpx;color: #999;">元</text>
+      </view>
+      <view style='display: flex;align-items: center;'>
+        <text style="font-size: 23rpx;color: #999;">还剩</text>
+        <text style="font-size: 26rpx;color: #f00">2.55</text>
+        <text style="font-size: 23rpx;color: #999;">元</text>
+      </view>
+    </view>
+    <view class='progress-box'>
+      <view class='progress'></view>
+    </view>
+    <view class='left-time-box'>
+      <view class='left-time-text'>砍价还剩</view>
+      <view class='left-time-num'>90</view>
+      <view class='left-time-text'>:</view>
+      <view class='left-time-num'>54</view>
+      <view class='left-time-text'>:</view>
+      <view class='left-time-num'>42</view>
+      <view class='left-time-text'>结束</view>
+    </view>
+  </view>
+</view>
+
+<view class='share'>分享好友 帮我砍价</view>
+
+<view class='bargain-users-box'>
+  <view class='bargain-users-top'>
+    <view class='line'></view>
+    <view class='bargain-users-title'>砍价榜</view>
+    <view class='line'></view>
+  </view>
+  <view class='line-gray'></view>
+  <view class='bargain-userinfo'>
+    <view class='bargain-userinfo-left'>
+      <image class='user-photo' src='https://i03picsos.sogoucdn.com/3c28af542f2d49f7-8f0182a4cf50287e-251de55d064831d20d6ff67bff5b8a87_qq'></image>
+      <view style="font-size: 23rpx;color: #333;">幸运立减金</view>
+    </view>
+    <view style='display: flex;align-items: center;'>
+      <text style="font-size: 23rpx;color: #333;">砍掉了</text>
+      <text style="font-size: 26rpx;color: #f00">0.45</text>
+      <text style="font-size: 23rpx;color: #333;">元</text>
+    </view>
+  </view>
+</view>
+
+<view bindtap='showRulesDialog' data-show="{{true}}" class='rule-note'>规则说明</view>
+
+<view wx:if="{{showRules}}" class='bargain-rules'>
+  <view class='bargain-rules-content-box'>
+    <view class='bargain-rules-content'>
+    <view class='bargain-rules-title'>活动规则</view>
+    <import src="../../component/wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:rules.nodes}}"/>
+  </view>
+  <view bindtap='showRulesDialog' data-show="{{false}}" class='close-bargain-rules'>点击关闭</view>
+  </view>
+</view>
+
+<view wx:if="{{false}}" class='bargain-success'>
+  <view class='bargain-success-content-box'>
+    <image src="{{baseImageUrl + 'bargain_success.png'}}" class='bargain-success-content'></image>
+    <view class='bargain-success-money'>
+      <text style="font-size: 48rpx;color: #E02F38;">¥0.45</text>
+      <text style="font-size: 26rpx;color: #E02F38;margin-left:2rpx;">元</text>
+    </view>
+    <view class='help-bargain'>分享好友 帮我砍价</view>
+  <view class='close-bargain-rules'>点击关闭</view>
+  </view>
+</view>
+
+<view wx:if="{{false}}" class='bargain-success'>
+  <view class='bargain-success-content-box'>
+    <image src="{{baseImageUrl + 'friend_help.png'}}"class='bargain-success-content'></image>
+    <view class='friend-help-info'>
+      <image src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-9e7c5d699eaea93e-299df6e4ff8b8f3c39be9125e8f016f0_qq' class='friend-help-info-photo'></image>
+      <view class='friend-help-info-text'>我吃西红柿帮你砍了0.75元</view>
+    </view>
+    <view class='help-bargain'>立即领取</view>
+  <view class='close-bargain-rules'>点击关闭</view>
+  </view>
+</view>

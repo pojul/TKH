@@ -1,0 +1,21 @@
+<!--bh_step/pages/checkOrderBystep/checkOrderBystep.wxml-->
+<view class='top'></view>
+
+<view class='order'>
+  <view class='detail-content'>
+    <image class='pic' src='https://i04picsos.sogoucdn.com/095ff96352e1ac1c'></image>
+    <view class='detail-content-right'>
+      <view class='detail-content-top'>
+        <view class='detail-content-title'>拼满2万步 人人领好礼</view>
+        <view class='detail-content-note'>玻尿酸面膜【10片装】</view>
+      </view>
+      <view>
+        <text style='font-size: 22rpx;color: #666;text-decoration: line-through;'>原价：28元</text>
+        <text style='font-size: 23rpx;margin-left: 10rpx;color: #f00;'>0</text>
+        <text style='font-size: 22rpx;color: #666;'>元</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='check-order'>确认订单</view>

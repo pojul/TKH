@@ -1,0 +1,8 @@
+/* bh_step/pages/bystepRules/bystepRules.wxss */
+.rules-box{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 28rpx;
+}

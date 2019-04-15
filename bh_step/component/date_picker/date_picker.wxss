@@ -1,5 +1,5 @@
 /* bh_step/component/date_picker/date_picker.wxss */
-.pick-rectype-view{
+.pick-date-view{
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.3);
@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-.pick-rectype-checkview{
+.pick-date-checkview{
   display: flex;
   padding-right: 35rpx;
   padding-left: 35rpx;
@@ -20,7 +20,7 @@
   padding-bottom: 15rpx;
 }
 
-.pick-rectype-cancel{
+.pick-date-cancel{
   padding-top: 12rpx;
   padding-bottom: 9rpx;
   padding-left: 30rpx;
@@ -31,7 +31,7 @@
   color: #999999;
 }
 
-.pick-rectype--ok{
+.pick-date--ok{
   padding-top: 12rpx;
   padding-bottom: 9rpx;
   padding-left: 30rpx;
