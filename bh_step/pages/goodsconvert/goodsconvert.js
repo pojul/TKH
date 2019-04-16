@@ -93,9 +93,17 @@ Page({
 
   toBystepDetail: function(e) {
     let index = e.currentTarget.dataset.index;
-    wx.navigateTo({
-      url: '/bh_step/pages/bystepDetail/bystepDetail?type=' + 0
-    })
+    if (this.data.bysteps[index].is_complete == 0) {
+      wx.navigateTo({
+        url: '/bh_step/pages/bystepGoodDetail/bystepGoodDetail?goodid=' + this.data.bysteps[index].id
+      })
+    } else if (this.data.bysteps[index].is_complete == 4) {
+      this.showToast('该商品已过期');
+    } else {
+      wx.navigateTo({
+      url: '/bh_step/pages/bystepDetail/bystepDetail?type=1&orderid=' + this.data.bysteps[index].order_id + '&goodid=' + this.data.bysteps[index].id
+      })
+    }
   },
 
   getAssembleList: function() {
@@ -187,9 +195,17 @@ Page({
 
   toBargainDetail: function(e) {
     let index = e.currentTarget.dataset.index;
-    wx.navigateTo({
-      url: '/bh_step/pages/bargaindetail/bargaindetail?type=' + 0
-    })
+    if (this.data.bargains[index].is_complete == 0) {
+      wx.navigateTo({
+        url: '/bh_step/pages/bargainGoodDetail/bargainGoodDetail?goodid=' + this.data.bargains[index].id
+      })
+    } else if (this.data.bargains[index].is_complete == 4) {
+      this.showToast('该商品已过期');
+    } else {
+      wx.navigateTo({
+        url: '/bh_step/pages/bargaindetail/bargaindetail?type=1&orderid=' + this.data.bargains[index].order_id + '&goodid=' + this.data.bargains[index].id
+      })
+    }
   },
 
   getAuctionList: function() {

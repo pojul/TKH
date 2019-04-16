@@ -1,6 +1,4 @@
-<!--bh_step/pages/bargainGoodDetail/bargainGoodDetail.wxml-->
-<!--bh_step/pages/AssembleDetail/AssembleDetail.wxml-->
-
+<!--bh_step/pages/bystepGoodDetail/bystepGoodDetail.wxml-->
 <view class="swiper-container">
   <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper-box" indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000">
     <swiper-item style="overflow:hidden; vertical-align: middle;">
@@ -13,9 +11,9 @@
   <view class="pic-container">
     <image class="pic-container-pic" src="/bh_step/images/detail_bg.jpg"></image>
     <view class="pic-container-content">
-      <text style="font-size: 30rpx;margin-left:12rpx;font-weight: bold;">0元免费拿</text>
+      <text style="font-size: 30rpx;margin-left:12rpx;font-weight: bold;">拼满2万步</text>
       <view style="background-color:#fff;width:2rpx;height:36rpx;margin-left:16rpx;"></view>
-      <text style="font-size: 24rpx;margin-left:12rpx;margin-top:2rpx;" class="pre-price">邀请好友参与砍价</text>
+      <text style="font-size: 24rpx;margin-left:12rpx;margin-top:2rpx;" class="pre-price">人人领好礼</text>
     </view>
     <view class="pic-container-right">
       仅剩{{goodDetail.inventory}}件
@@ -36,4 +34,4 @@
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>
 
-<view bindtap='assemble' class='check-order'>0元免费拿</view>
+<view bindtap='assemble' class='check-order'>发起拼步</view>

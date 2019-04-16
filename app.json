@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "bh_step/pages/index/index",
     "bh_step/pages/defiance/defiance",
     "bh_step/pages/goodsconvert/goodsconvert",
@@ -74,8 +73,8 @@
     "bh_step/pages/auctionDetail/auctionDetail",
     "bh_step/pages/auctionResults/auctionResults",
     "bh_step/pages/auctionPriceRecord/auctionPriceRecord",
-    "bh_step/pages/bargainGoodDetail/bargainGoodDetail"
-    
+    "bh_step/pages/bargainGoodDetail/bargainGoodDetail",
+    "bh_step/pages/bystepGoodDetail/bystepGoodDetail"
   ],
   "window": {
     "navigationStyle": "default",

@@ -1,4 +1,4 @@
-// bh_step/pages/bargainGoodDetail/bargainGoodDetail.js
+// bh_step/pages/bystepGoodDetail/bystepGoodDetail.js
 var WxParse = require('../../component/wxParse/wxParse.js');
 
 var _tools = require("../../../util/tools.js"),
@@ -48,7 +48,7 @@ Page({
       this.showToast('该商品已售完');
     }
     wx.redirectTo({
-      url: '/bh_step/pages/bargaindetail/bargaindetail?type=0&goodid=' + this.data.goodid
+      url: '/bh_step/pages/bystepDetail/bystepDetail?type=0&goodid=' + this.data.goodid
     })
   },
 
