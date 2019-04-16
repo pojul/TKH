@@ -299,7 +299,22 @@ page{
   border-top-left-radius: 80rpx;
 }
 
+.auction-operate-price-white{
+  background-color: #FF5430;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  border-bottom-left-radius: 80rpx;
+  border-top-left-radius: 80rpx;
+}
+
+
 .auction-invite-friend{
+  height: 100%;
   display: flex;
   background-color: #FFA303;
   border-bottom-right-radius: 80rpx;

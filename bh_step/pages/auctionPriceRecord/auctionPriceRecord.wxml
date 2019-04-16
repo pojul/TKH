@@ -1,13 +1,13 @@
 <!--bh_step/pages/auctionPriceRecord/auctionPriceRecord.wxml-->
 <view class='line'></view>
 
-<view wx:for="dfdfd" class='item-box'>
+<view wx:for="{{auctionLogs}}" class='item-box'>
   <view class='item'>
     <view class='left-box'>
-      <image src='https://img01.sogoucdn.com/app/a/100520093/11388287d0e56ad7-53b51a5be5b5a2db-0d4a965d46d4436ed1c7053eccb6fe70.jpg' class='photo'></image>
+      <image src="{{item.member_head}}" class='photo'></image>
       <view class='userinfo-text'>
-        <view style='font-size: 28rpx;color: #000;'>大力水手</view>
-        <view style='font-size: 24rpx;color: #999;'>750运动币</view>
+        <view style='font-size: 28rpx;color: #000;'>{{item.member_nickname}}</view>
+        <view style='font-size: 24rpx;color: #999;'>{{item.bid_currency}}运动币</view>
       </view>
     </view>
     <view class="{{index==0?'price-record-flag-active':'price-record-flag'}}">{{index==0?'领先':'落后'}}</view>

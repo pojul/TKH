@@ -188,7 +188,7 @@
     <view style="margin-top: 65rpx;" class='goods-box' wx:if="{{currentGoods == 3}}">
       <view bindtap='toAuctionDetail' data-index="{{index}}" wx:for="{{auctions}}" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">
         <image mode='aspectFill' class='goods-item-pic' src="{{item.cover_image}}"></image>
-        <view class='goods-item-title'>商品名称商品名称商品名称商品名称</view>
+        <view class='goods-item-title'>{{item.goods_name}}</view>
         <view class='auction-price'>
           <view style='font-size: 20rpx;color: #999;padding:5rpx;'>起拍价</view>
           <view>

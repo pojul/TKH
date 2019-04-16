@@ -15,22 +15,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: {
-      image: [
-        'https://img01.sogoucdn.com/app/a/100520024/5744a89854553220cb1f6d78cb1744ad',
-        'https://img04.sogoucdn.com/app/a/100520024/4ad7c665ba13d0ab6bd526f94056a2c2',
-        'https://img03.sogoucdn.com/app/a/100520024/7b7acc0a7b5f3967dc356d4392ebce34'
-      ],
-      id: -1,
-      type: -1, //1: 参与; 2: 助理
-      goodDetail: {},
-    }
+    id: -1,
+    type: -1, //1: 参与; 2: 助理
+    goodDetail: {},
+    setInter: '',
+    statusInter: '',
+    auctionInter: '',
+    auctionLeft: 60,
+    isFistLoad: true,
+    progress: 1,
+    startTimeStr: '',
+    order_id: -1,
+    auctionLogs: [],
   },
 
   toRulesDetail: function () {
     wx.navigateTo({
       url: '/bh_step/pages/bystepRules/bystepRules?type=' + 2
     })
+  },
+
+  auctionApply: function () {
+    wx.showLoading({
+      title: '报名中',
+      mask: !0
+    });
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/auctionApply",
+      data: {
+        goods_id: that.data.id
+      },
+      success: function (t) {
+        wx.hideLoading();
+        that.data.goodDetail.order.status = 1;
+        this.setData({
+          order_id: t.info.order_id,
+          goodDetail: that.data.goodDetail
+        });
+      },
+      fail(res) {
+        wx.hideLoading();
+        that.showToast("报名失败");
+      }
+    });
   },
 
   getGoodDetail: function () {
@@ -45,10 +74,215 @@ Page({
         that.setData({
           goodDetail: t.info 
         });
-        var article = t.info.goods.content;
-        WxParse.wxParse('article', 'html', article, that, 5);
+        that.setStatus(t.info);
+        if (that.data.isFistLoad){
+          that.data.isFistLoad = false;
+          that.setData({
+            isFistLoad: that.data.isFistLoad
+          });
+          that.initData(t);
+        }
       }
     });
+  },
+
+  auctionGood: function () {
+    if (this.data.goodDetail.order.total_bid_number < 1){
+      this.showToast('你已没有多余出价次数');
+      return;
+    }
+    wx.showLoading({
+      title: '出价中',
+      mask: !0
+    });
+    if (this.data.goodDetail.goods.is_end == 2 && this.data.goodDetail.order.status == 1){
+      var that = this;
+      _tools2.default.request({
+        method: "get",
+        url: "entry/wxapp/auctionBid",
+        data: {
+          id: that.data.id
+        },
+        success: function (t) {
+          wx.hideLoading();
+          let tempBidCurrency = 0;
+          tempBidCurrency = that.data.goodDetail.order.bid_currency * 1 + that.data.goodDetail.goods.markup_number * 1;
+          that.data.goodDetail.order.bid_currency = tempBidCurrency;
+          that.data.goodDetail.order.total_bid_number = that.data.goodDetail.order.total_bid_number - 1;
+          that.data.goodDetail.goods.max_bid_currency = tempBidCurrency;
+          that.setData({
+            goodDetail: that.data.goodDetail,
+            auctionLeft: 60
+          })
+        },
+        fail(res) {
+          wx.hideLoading();
+          that.showToast("出价失败");
+        }
+      });
+    }
+  },
+
+  getAuctionLog: function () {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/auctionLog",
+      data: {
+        id: that.data.id,
+        p_size: 3,
+        p: 1
+      },
+      success: function (t) {
+        that.setData({
+          auctionLogs: t.info.auction_log
+        });
+      }
+    });
+  },
+
+  finishAuction: function () {
+    console.log('finishAuction--->');
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/auctionEnd",
+      data: {
+        id: that.data.id
+      },
+      success: function (t) {
+        that.data.goodDetail.goods.is_end = 3;
+        that.setData({
+          goodDetail: that.data.goodDetail
+        });
+        that.getAuctionLog();
+      },
+      fail(res) {
+      }
+    });
+  },
+
+  toMoreAuctionLog: function () {
+    wx.navigateTo({
+      url: '/bh_step/pages/auctionPriceRecord/auctionPriceRecord?id=' + this.data.id
+    })
+  },
+
+  initData: function (t) {
+    var article = t.info.goods.content;
+    WxParse.wxParse('article', 'html', article, this, 5);
+    if (t.info.goods.is_end == 1){
+      this.startCountDown();
+    }
+    if (t.info.goods.is_end != 3){
+      this.startStatusInter();
+    }
+    if (t.info.goods.is_end == 2 && t.info.order.status <= 1){
+      this.startAuctionInter();
+    }
+  },
+
+  setStatus: function (info) {
+    var that = this;
+    if (info.goods.is_end == 1){
+      that.data.progress = 1;
+      that.data.startTimeStr = '竞拍开始时间 ' + that.data.goodDetail.goods.start_time;
+    } else if (info.goods.is_end == 2){
+      that.data.progress = 2;
+      that.data.startTimeStr = '如60秒内无人出价，竞拍将提前结束';
+    }else{
+      that.data.progress = 3;
+      that.data.startTimeStr = '竞拍已结束';
+    }
+    that.setData({
+      progress: that.data.progress,
+      startTimeStr: that.data.startTimeStr
+    });
+  },
+
+  startStatusInter: function () {
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.statusInter = setInterval(
+      function () {
+        that.getGoodDetail();
+        console.log("--->getGoodDetail");
+        if (that.data.goodDetail.goods.is_end == 3){
+          that.endAllInterval();
+          that.getAuctionLog();
+        }
+      }, 5000);
+  },
+
+  startAuctionInter: function () {
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.auctionInter = setInterval(
+      function () {
+        if (that.data.goodDetail.goods.is_end > 2 || that.data.goodDetail.order.status > 1){
+          that.endCountDown();
+          return;
+        }
+        that.setData({
+          auctionLeft: (that.data.auctionLeft - 1) < 0 ? 0 : (that.data.auctionLeft - 1)
+        });
+        if (that.data.auctionLeft <= 0){
+          that.finishAuction();
+        }
+      }, 1000);
+  },
+
+  endCountDown: function () {
+    clearInterval(this.data.auctionInter);
+  },
+
+  startCountDown: function () {
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.setInter = setInterval(
+      function () {
+        console.log("--->startCountDown");
+        if (that.data.goodDetail.goods.start_time_arr.sec > 0) {
+          that.data.goodDetail.goods.start_time_arr.sec = that.data.goodDetail.goods.start_time_arr.sec - 1;
+        } else {
+          if (that.data.goodDetail.goods.start_time_arr.min > 0) {
+            that.data.goodDetail.goods.start_time_arr.sec = 59;
+            that.data.goodDetail.goods.start_time_arr.min = that.data.goodDetail.goods.start_time_arr.min - 1
+          } else {
+            if (that.data.goodDetail.goods.start_time_arr.hour > 0) {
+              that.data.goodDetail.goods.start_time_arr.sec = 59;
+              that.data.goodDetail.goods.start_time_arr.min = 59;
+              that.data.goodDetail.goods.start_time_arr.hour = that.data.goodDetail.goods.start_time_arr.hour - 1;
+            } else {
+              that.endCountDown();
+              that.data.goodDetail.goods.is_end = 2;
+              if (that.data.goodDetail.order.status <= 1) {
+                that.startAuctionInter();
+              }
+            }
+          }
+        }
+        that.setData({
+          goodDetail: that.data.goodDetail
+        });
+      }, 1000);
+  },
+
+  endCountDown: function () {
+    var that = this;
+    clearInterval(that.data.setInter)
+  },
+
+  endAllInterval: function () {
+    clearInterval(this.data.setInter);
+    clearInterval(this.data.statusInter);
+    clearInterval(this.data.auctionInter);
+  },
+
+  viewResult: function () {
+    wx.navigateTo({
+      url: '/bh_step/pages/auctionResults/auctionResults?id=' + this.data.id
+    })
   },
 
   /**
@@ -70,6 +304,7 @@ Page({
       type: options.type
     });
     this.getGoodDetail();
+    this.getAuctionLog();
   },
 
   showToast: function (str) {
@@ -109,7 +344,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.endAllInterval();
   },
 
   /**

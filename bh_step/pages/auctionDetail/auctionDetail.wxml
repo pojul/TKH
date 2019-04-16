@@ -16,14 +16,14 @@
     </view>
     <view class='detail-raw-money'>原价：{{goodDetail.goods.price}}元</view>
   </view>
-  <view class='detail-right'>
+  <view wx:if="{{goodDetail.goods.is_end==1}}" class='detail-right'>
     <view class='left-start-time-note'>距竞拍开始</view>
     <view class='left-start-time-box'>
-      <text class='left-start-time'>02</text>
+      <text class='left-start-time'>{{goodDetail.goods.start_time_arr.hour<10?'0'+goodDetail.goods.start_time_arr.hour:goodDetail.goods.start_time_arr.hour}}</text>
       <text>：</text>
-      <text class='left-start-time'>41</text>
+      <text class='left-start-time'>{{goodDetail.goods.start_time_arr.min<10?'0'+goodDetail.goods.start_time_arr.min:goodDetail.goods.start_time_arr.min}}</text>
       <text>：</text>
-      <text class='left-start-time'>34</text>
+      <text class='left-start-time'>{{goodDetail.goods.start_time_arr.sec<10?'0'+goodDetail.goods.start_time_arr.sec:goodDetail.goods.start_time_arr.sec}}</text>
     </view>
   </view>
 </view>
@@ -32,32 +32,32 @@
 
 <view class='center-box'>
   <view class='progress'>
-    <view class='progress-item-active'>报名</view>
-    <view class='progress-line-active'></view>
-    <view class='progress-item-active'>竞拍</view>
-    <view class='progress-line'></view>
-    <view class='progress-item'>兑换</view>
+    <view class="{{progress>=1?'progress-item-active':'progress-item'}}">报名</view>
+    <view class="{{progress>=2?'progress-line-active':'progress-line'}}"></view>
+    <view class="{{progress>=2?'progress-item-active':'progress-item'}}">竞拍</view>
+    <view class="{{progress>=3?'progress-line-active':'progress-line'}}"></view>
+    <view class="{{progress>=3?'progress-item-active':'progress-item'}}">兑换</view>
   </view>
 
-  <view class='auction-status'>
+  <view wx:if="{{goodDetail.goods.is_end==2 && goodDetail.order.status<=1}}" class='auction-status'>
     <view class='current-auction'>
-      <view class='auction-status-num'>80</view>
+      <view class='auction-status-num'>{{goodDetail.goods.max_bid_currency}}</view>
       <view class='auction-status-note'>当前竞价(运动币)</view>
     </view>
     <view class='current-auction'>
-      <view class='auction-status-num' style='color:#333'>59</view>
+      <view class='auction-status-num' style='color:#333'>{{auctionLeft}}</view>
       <view class='auction-status-note'>竞拍出价倒计时(s)</view>
     </view>
   </view>
 
-  <view class='start-time'>竞拍开始时间 {{goodDetail.goods.start_time}}</view>
+  <view class='start-time'>{{startTimeStr}}</view>
 </view>
 
 <view class='note'>58人报名竞拍 加价幅度{{goodDetail.goods.markup_number}}运动币 未拍中退竞拍币</view>
 
 <view class='auction-operate-box'>
 
-  <view wx:if="{{true}}" class='join-result-box'>
+  <view bindtap='auctionApply' wx:if="{{goodDetail.goods.is_end<=2 && goodDetail.order.status==0}}" class='join-result-box'>
     <view class='join-result'>
       <view style='font-size: 26rpx;font-weight: bold'>我要报名</view>
       <view style='font-size: 21rpx;'>报名扣除{{goodDetail.goods.apply_number}}运动币</view>
@@ -65,20 +65,20 @@
     <view class='join-result-note'>参与竞拍收取{{goodDetail.goods.apply_number}}运动币报名费，竞拍结束不退还</view>
   </view>
 
-  <view wx:if="{{true}}" class='auction-operate'>
+  <view wx:if="{{goodDetail.goods.is_end<=2 && goodDetail.order.status==1}}" class='auction-operate'>
     <view class='auction-status'>
       <view class='current-auction'>
-        <view class='auction-status-num'>0</view>
+        <view class='auction-status-num'>{{goodDetail.order.bid_currency}}</view>
         <view class='auction-status-note'>我的出价(活力币)</view>
       </view>
       <view class='current-auction'>
-        <view class='auction-status-num' style='color:#333'>10</view>
+        <view class='auction-status-num' style='color:#333'>{{goodDetail.order.total_bid_number}}</view>
         <view class='auction-status-note'>剩余出价次数(次)</view>
       </view>
     </view>
     <view class='auction-operate-views'>
-      <view class='auction-operate-price'>
-        <view>竞拍未开始</view>
+      <view bindtap='auctionGood' class="{{goodDetail.goods.is_end==2?'auction-operate-price-white':'auction-operate-price'}}" >
+        <view>{{goodDetail.goods.is_end==2?'竞拍出价':'竞拍未开始'}}</view>
       </view>
       <view class='auction-invite-friend'>
         <view class='auction-invite-friend-box'>
@@ -89,42 +89,42 @@
     </view>
   </view>
 
-  <view class='result-notjoin' wx:if="{{true}}">
+  <view class='result-notjoin' wx:if="{{goodDetail.goods.is_end==3 && (goodDetail.order.status==0 || !goodDetail.success_order || goodDetail.success_order==null || !goodDetail.success_order.success_member_nickname)}}">
     <view class='join-result'>查看更多竞拍</view>
     <view class='join-result-note'>您未报名当前运动币竞拍</view>
   </view>
 
-  <view class='result-joined' wx:if="{{true}}">
+  <view class='result-joined' wx:if="{{goodDetail.goods.is_end==3 && goodDetail.order.status!=0 && (goodDetail.success_order && goodDetail.success_order!=null && goodDetail.success_order.success_member_nickname)}}">
     <view class='auction-status'>
       <view class='current-auction'>
         <view class='auction-status-box'>
-          <view class='auction-status-num'>790</view>
-          <view class='auction-status-lead'>领先</view>
+          <view class='auction-status-num'>{{goodDetail.order.bid_currency}}</view>
+          <!-- <view class='auction-status-lead'>领先</view> -->
         </view>
         
         <view class='auction-status-note'>我的出价(活力币)</view>
       </view>
       <view class='current-auction'>
-        <view class='auction-status-num' style='color:#333'>10</view>
+        <view class='auction-status-num' style='color:#333'>{{goodDetail.order.total_bid_number}}</view>
         <view class='auction-status-note'>剩余出价次数(次)</view>
       </view>
     </view>
-    <view class='result-joined-bt'>查看竞拍结果</view>
+    <view bindtap='viewResult' class='result-joined-bt'>查看竞拍结果</view>
   </view>
 
 </view>
 
-<view class='price-record-box'>
+<view wx:if="{{goodDetail.goods.is_end==3}}" class='price-record-box'>
   <view class='price-record-top'>
-    <view class='price-record-note'>出价记录(86)</view>
-    <view class='price-record-all'>查看全部＞</view>
+    <view class='price-record-note'>出价记录</view>
+    <view bindtap='toMoreAuctionLog' class='price-record-all'>查看全部＞</view>
   </view>
   <view class='price-record-item-box'>
-    <view wx:for="dfd" class="{{index==0?'price-record-item-active':'price-record-item'}}">
+    <view wx:for="{{auctionLogs}}" class="{{index==0?'price-record-item-active':'price-record-item'}}">
       <view class="{{index==0?'price-record-flag-active':'price-record-flag'}}">{{index==0?'领先':'落后'}}</view>
       <view class="{{index==0?'price-record-text-active':'price-record-text'}}">
-        <view class='price-record-name'>大力水手</view>
-        <view class='price-record-num'>790运动币</view>
+        <view class='price-record-name'>{{item.member_nickname}}</view>
+        <view class='price-record-num'>{{item.bid_currency}}运动币</view>
       </view>
     </view>
   </view>
@@ -191,7 +191,7 @@
   </view>
 </view>
 
-<view wx:if="{{goodDetail.success_order && goodDetail.success_order!=null}}" class='auction-winner'>
+<view wx:if="{{goodDetail.success_order && goodDetail.success_order!=null && goodDetail.success_order.success_member_nickname}}" class='auction-winner'>
   <text style='font-size: 26rpx;color: #FFF349;margin-right: 12rpx;'>{{goodDetail.success_order.success_member_nickname}}</text>
   <text style='font-size: 26rpx;color: #fff;margin-right: 12rpx;'>出价{{goodDetail.success_order.max_bid_currency}}运动币</text>
   <text style='font-size: 26rpx;color: #FFF349;'>竞拍胜出</text>

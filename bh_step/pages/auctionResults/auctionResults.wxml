@@ -2,31 +2,31 @@
 <view class='content-box'>
   <view class='top-box'>
     <view class='top-left-box'>
-      <image class='photo' src='https://img01.sogoucdn.com/app/a/100520093/11388287d0e56ad7-53b51a5be5b5a2db-0d4a965d46d4436ed1c7053eccb6fe70.jpg'></image>
-      <view class='result-note'>很遗憾，你的竞拍失败</view>
+      <image class='photo' src="{{userInfo.member_head}}"></image>
+      <view class="{{result.order.status==4?'result-note':'result-note-active'}}" >{{result.order.status==4?'很遗憾，你的竞拍失败':'恭喜你，你的竞拍胜利'}}</view>
       <view style='font-size: 22rpx;color: #999;'>去竞拍其他商品吧</view>
     </view>
     <view class='top-right-box'>
-      <view class='my-price'>410</view>
+      <view class='my-price'>{{result.order.bid_currency}}</view>
       <view style='font-size: 22rpx;color: #999;'>竞拍价(运动币)</view>
     </view>
   </view>
 
   <view class='prodect-detail'>
-    <image mode='aspectFill' class='prodect-pic' src='https://img03.sogoucdn.com/app/a/07/9c26b31e6bb831cfefcba5055171e0a1'></image>
+    <image mode='aspectFill' class='prodect-pic' src="{{result.goods.cover_image}}"></image>
     <view class='prodect-text'>
-      <view class='prodect-title'>产品名称</view>
-      <view class='prodect-price'>原价：119元</view>
+      <view class='prodect-title'>{{result.goods.goods_name}}</view>
+      <view class='prodect-price'>原价：{{result.goods.price}}元</view>
     </view>
   </view>
 
   <view class='auction-status'>
     <view class='current-auction'>
-      <view class='auction-status-num'>14</view>
+      <view class='auction-status-num'>{{result.order.bid_number}}</view>
       <view class='auction-status-note'>我的出价次数</view>
     </view>
     <view class='current-auction'>
-      <view class='auction-status-num'>4</view>
+      <view class='auction-status-num'>{{result.order.help_number}}</view>
       <view class='auction-status-note'>好友助攻次数</view>
     </view>
   </view>
@@ -42,4 +42,4 @@
 
 <view class='auction-fail-note'>参与竞拍的运动币将在24小时内退回账户</view>
 
-<view class='got-bt'>报名别的商品</view>
+<view bindtap='receiveGood' class='got-bt'>{{result.order.status==2?'领取商品':'报名别的商品'}}</view> 
