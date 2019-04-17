@@ -27,6 +27,11 @@ Page({
     startTimeStr: '',
     order_id: -1,
     auctionLogs: [],
+    parent_id: -1,
+    helpFriendInfo: {},
+    showHelpNoteDialog: false,
+    showHelpDialog: false,
+    tempoptions: {},
   },
 
   toRulesDetail: function () {
@@ -40,7 +45,7 @@ Page({
       title: '报名中',
       mask: !0
     });
-    var that = this;
+    let that = this;
     _tools2.default.request({
       method: "get",
       url: "entry/wxapp/auctionApply",
@@ -50,7 +55,7 @@ Page({
       success: function (t) {
         wx.hideLoading();
         that.data.goodDetail.order.status = 1;
-        this.setData({
+        that.setData({
           order_id: t.info.order_id,
           goodDetail: that.data.goodDetail
         });
@@ -63,7 +68,7 @@ Page({
   },
 
   getGoodDetail: function () {
-    var that = this;
+    let that = this;
     _tools2.default.request({
       method: "get",
       url: "entry/wxapp/auctionDetail",
@@ -75,15 +80,75 @@ Page({
           goodDetail: t.info 
         });
         that.setStatus(t.info);
+        console.log('getgoodDetail--->' + that.data.isFistLoad);
         if (that.data.isFistLoad){
           that.data.isFistLoad = false;
-          that.setData({
-            isFistLoad: that.data.isFistLoad
-          });
           that.initData(t);
         }
       }
     });
+  },
+
+  getHelpFriendInfo: function () {
+    let that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/userInfo",
+      data: {
+        view_member_id: that.data.parent_id
+      },
+      success: function (t) {
+        that.setData({
+          helpFriendInfo: t.info.userInfo
+        })
+        console.log(that.data.parent_id+"<<<<<<getHelpFriendInfo>>>>>>"+wx.getStorageSync("member_id"))
+        if (wx.getStorageSync("member_id") != that.data.parent_id && wx.getStorageSync("member_id") >= 0 &&
+          that.data.parent_id >= 0){
+          that.helpFriend();
+        }
+      }
+    });
+  },
+
+  helpFriend: function () {
+    console.log("----->helpFriend");
+    let that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/auctionShare",
+      data: {
+        goods_id: that.data.id,
+        parent_id: that.data.parent_id,
+        share_tpye: 8
+      },
+      success: function (t) {
+        that.setData({
+          type: 1,
+          showHelpNoteDialog: true
+        })
+      }
+    });
+  },
+
+  closeHelpNoteDialog: function () {
+    this.setData({
+      showHelpNoteDialog: false,
+      showHelpDialog: true,
+    })
+  },
+
+  closeHelpDialog: function () {
+    this.setData({
+      showHelpNoteDialog: false,
+      showHelpDialog: false,
+    })
+  },
+
+  authorize: function (e) {
+    console.log("authorize>>>>>>>>>>>>" + JSON.stringify(e));
+    if (e.detail.authorize) {
+      this.onLoad(this.data.tempoptions);
+    }
   },
 
   auctionGood: function () {
@@ -91,12 +156,15 @@ Page({
       this.showToast('你已没有多余出价次数');
       return;
     }
+    if (this.data.goodDetail.goods.is_end != 2){
+      return;
+    }
     wx.showLoading({
       title: '出价中',
       mask: !0
     });
     if (this.data.goodDetail.goods.is_end == 2 && this.data.goodDetail.order.status == 1){
-      var that = this;
+      let that = this;
       _tools2.default.request({
         method: "get",
         url: "entry/wxapp/auctionBid",
@@ -124,7 +192,7 @@ Page({
   },
 
   getAuctionLog: function () {
-    var that = this;
+    let that = this;
     _tools2.default.request({
       method: "get",
       url: "entry/wxapp/auctionLog",
@@ -177,19 +245,25 @@ Page({
     if (t.info.goods.is_end != 3){
       this.startStatusInter();
     }
-    if (t.info.goods.is_end == 2 && t.info.order.status <= 1){
+    if (t.info.goods.is_end == 2 && t.info.order.status == 1){
       this.startAuctionInter();
+    }
+    if (this.data.type == 2) {
+      this.getHelpFriendInfo();
     }
   },
 
   setStatus: function (info) {
-    var that = this;
+    let that = this;
     if (info.goods.is_end == 1){
       that.data.progress = 1;
       that.data.startTimeStr = '竞拍开始时间 ' + that.data.goodDetail.goods.start_time;
     } else if (info.goods.is_end == 2){
       that.data.progress = 2;
       that.data.startTimeStr = '如60秒内无人出价，竞拍将提前结束';
+      that.setData({
+        auctionLeft: info.goods.count_down_time
+      })
     }else{
       that.data.progress = 3;
       that.data.startTimeStr = '竞拍已结束';
@@ -201,12 +275,11 @@ Page({
   },
 
   startStatusInter: function () {
-    var that = this;
+    let that = this;
     //将计时器赋值给setInter
     that.data.statusInter = setInterval(
       function () {
         that.getGoodDetail();
-        console.log("--->getGoodDetail");
         if (that.data.goodDetail.goods.is_end == 3){
           that.endAllInterval();
           that.getAuctionLog();
@@ -215,7 +288,7 @@ Page({
   },
 
   startAuctionInter: function () {
-    var that = this;
+    let that = this;
     //将计时器赋值给setInter
     that.data.auctionInter = setInterval(
       function () {
@@ -237,11 +310,10 @@ Page({
   },
 
   startCountDown: function () {
-    var that = this;
+    let that = this;
     //将计时器赋值给setInter
     that.data.setInter = setInterval(
       function () {
-        console.log("--->startCountDown");
         if (that.data.goodDetail.goods.start_time_arr.sec > 0) {
           that.data.goodDetail.goods.start_time_arr.sec = that.data.goodDetail.goods.start_time_arr.sec - 1;
         } else {
@@ -256,7 +328,7 @@ Page({
             } else {
               that.endCountDown();
               that.data.goodDetail.goods.is_end = 2;
-              if (that.data.goodDetail.order.status <= 1) {
+              if (that.data.goodDetail.order.status == 1) {
                 that.startAuctionInter();
               }
             }
@@ -269,7 +341,7 @@ Page({
   },
 
   endCountDown: function () {
-    var that = this;
+    let that = this;
     clearInterval(that.data.setInter)
   },
 
@@ -285,10 +357,17 @@ Page({
     })
   },
 
+  toMainDetail: function () {
+    wx.switchTab({
+      url: '/bh_step/pages/goodsconvert/goodsconvert',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("onLoad>>>>>>>>>>>>" + JSON.stringify(options));
     if(!options.id || options.id < 0){
       this.showToast("数据错误");
       wx.navigateBack({})
@@ -299,10 +378,27 @@ Page({
       wx.navigateBack({})
       return;
     }
+    if (options.type == 2 && (!options.parent_id || options.parent_id < 0)){
+      this.showToast("数据错误");
+      wx.navigateBack({})
+      return;
+    }
+    this.endAllInterval();
     this.setData({
       id: options.id,
-      type: options.type
+      tempoptions: options,
+      parent_id: options.parent_id
     });
+    if (this.data.type!=1){
+      this.setData({
+        type: options.type
+      })
+    }
+    console.log("member_id>>>>>>>>>>>>" + wx.getStorageSync("member_id"));
+    if (wx.getStorageSync("member_id") < 0){
+      return;
+    }
+    this.data.isFistLoad = true;
     this.getGoodDetail();
     this.getAuctionLog();
   },
@@ -365,6 +461,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log("onShareAppMessage--->");
+    let that = this;
+    return {
+      title: that.data.goodDetail.goods_name,
+      path: '/bh_step/pages/auctionDetail/auctionDetail?type=2&id=' + that.data.id + '&parent_id=' + wx.getStorageSync("member_id")
+    }
   }
 })

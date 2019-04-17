@@ -31,6 +31,9 @@ Page({
     redPkgs: [],
     showRedPkgIndex: 0,
     baseImageUrl: getApp().baseImageUrl,
+    showNewerRedpkg: false,
+    showNewerRedpkgSucess: false,
+    recNewerRedpkgMoney: 0,
   },
 
   getLocation: function () {
@@ -318,6 +321,51 @@ Page({
     })
   },
 
+  recNewerRedpkg: function () {
+    wx.showLoading({
+      title: '领取中',
+      mask: !0
+    });
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/receiveNewBag",
+      data: {
+      },
+      success: function (t) {
+        wx.hideLoading();
+        wx.setStorageSync("is_receive_new_bag", 2);
+        that.setData({
+          showNewerRedpkg: false,
+          showNewerRedpkgSucess: true,
+          recNewerRedpkgMoney: t.info.bag_money
+        })
+      },
+      fail(res) {
+        wx.hideLoading();
+        that.showToast("领取失败");
+      }
+    });
+  },
+
+  showRecNewerPkg: function () {
+    this.setData({
+      showNewerRedpkg: true
+    })
+  },
+
+  closeRecNewerPkg: function () {
+    this.setData({
+      showNewerRedpkg: false
+    })
+  },
+
+  closeRecNewerPkgSuccess: function () {
+    this.setData({
+      showNewerRedpkgSucess: false
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -337,7 +385,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getLocation()
+    this.getLocation();
+    if (wx.getStorageSync("is_receive_new_bag") && wx.getStorageSync("is_receive_new_bag")==1){
+      this.showRecNewerPkg();
+    }
+    
   },
 
   /**

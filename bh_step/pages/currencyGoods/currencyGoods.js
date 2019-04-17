@@ -96,7 +96,8 @@ Page({
         isIphone: !1,
         from: "",
         isShowEmpty: !1,
-        bgimage: ""
+        bgimage: "",
+        baseImageUrl: getApp().baseImageUrl,
     },
     onLoad: function(t) {
         var e = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url;

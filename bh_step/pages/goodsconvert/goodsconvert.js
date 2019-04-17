@@ -260,6 +260,12 @@ Page({
     })
   },
 
+  toVideoPkg: function () {
+    wx.navigateTo({
+      url: '/bh_step/pages/videoRedpkgDetail/videoRedpkgDetail'
+    })
+  },
+
   showToast: function(str) {
     wx.showToast({
       title: str,

@@ -118,6 +118,7 @@ Page({
 			url: "entry/wxapp/index",
 			data: t,
 			success: function(t) {
+        wx.setStorageSync("is_receive_new_bag", t.info.member.is_receive_new_bag);
 				$this.setData(t.info);
 
 				$this.setData({

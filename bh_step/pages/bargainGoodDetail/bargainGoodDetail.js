@@ -17,6 +17,7 @@ Page({
     goodid: -1,
     goodDetail: {},
     showRules: false,
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   getGoodDetail: function () {

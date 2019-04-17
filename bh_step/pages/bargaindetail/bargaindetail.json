@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "砍价免费拿"
+  "navigationBarTitleText": "砍价免费拿",
+  "usingComponents": {
+    "userinfo_dialog": "../../component/UserInfoDialog/UserInfoDialog"
+  }
 }

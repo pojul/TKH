@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "运动币竞拍"
+  "navigationBarTitleText": "运动币竞拍",
+  "usingComponents": {
+    "userinfo_dialog": "../../component/UserInfoDialog/UserInfoDialog"
+  }
 }

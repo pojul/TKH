@@ -61,7 +61,7 @@
   <view class='close-newuser-redpkg'>点击关闭</view>
 </view>
 
-<view wx:if="{{true}}" class='mystep-exchange'>
+<view wx:if="{{false}}" class='mystep-exchange'>
   <view class='mystep-exchange-content-box'>
     <view class='mystep-exchange-content'>
       <view class='bystep-ok-title'> 您将跳转到“xxx”小程序</view>

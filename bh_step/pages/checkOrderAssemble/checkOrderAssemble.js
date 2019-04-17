@@ -29,6 +29,7 @@ Page({
     userInfo: {},
     setInter: '',
     tempoptions: {},
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   getGoodDetail: function () {
@@ -325,7 +326,7 @@ Page({
     console.log('onShareAppMessage---->');
     return {
       title: that.data.goodDetail.goods_name,
-      path: '/bh_step/pages/checkOrderAssemble/checkOrderAssemble?type=2&goodid=' + that.data.goodid + '&orderid=' + that.data.orderid
+      path: '/bh_step/pages/checkOrderAssemble/checkOrderAssemble?type=2&goodid=' + that.data.goodid + '&orderid=' + that.data.orderid + '&parent_id=' + wx.getStorageSync("member_id")
     }
   }
 })

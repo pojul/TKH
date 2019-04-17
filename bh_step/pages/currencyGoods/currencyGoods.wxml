@@ -14,7 +14,7 @@
     </view>
     
     <view class="pic-container bg-color-white">
-			<image class="pic-container-pic" src="/bh_step/images/detail_bg.jpg"></image>
+			<image class="pic-container-pic" src="{{baseImageUrl + 'detail_bg.jpg'}}"></image>
 			<view class="pic-container-content">
 				<image wx:if="{{img_url}}" class="coin" src="/bh_step/images/coin3.png" mode="aspectFit" />
 				<view style="display: inline-block;">

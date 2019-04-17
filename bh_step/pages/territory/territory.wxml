@@ -82,7 +82,7 @@
   <cover-view bindtap='closeRedpkg' class='close-redpkg'>点击关闭</cover-view>
 </cover-view>
 
-<cover-view class='get-redpkg-box' wx:if="{{false}}">
+<cover-view class='get-redpkg-box' wx:if="{{showNewerRedpkg}}">
   <cover-image class='newuser-redpkg-content-bg' src="{{baseImageUrl + 'newuser_redpkg.png'}}"></cover-image>
   <cover-view class='newuser-redpkg-content-box'>
     <cover-view class='newuser-redpkg-note'>恭喜您获得新人红包</cover-view>
@@ -99,14 +99,14 @@
       <cover-view class='newuser-redpkg-line'></cover-view>
     </cover-view>
     <cover-view class='newuser-redpkg-bottom'>
-      <cover-image src="{{baseImageUrl + 'open_newuser_redpkg.png'}}" class='newuser-redpkg-open'></cover-image>
+      <cover-image bindtap='recNewerRedpkg' src="{{baseImageUrl + 'open_newuser_redpkg.png'}}" class='newuser-redpkg-open'></cover-image>
       <cover-view class='newuser-redpkg-limit-note'>仅限新注册用户领取</cover-view>
     </cover-view>
   </cover-view>
-  <cover-view class='close-newuser-redpkg'>点击关闭</cover-view>
+  <cover-view bindtap='closeRecNewerPkg' class='close-newuser-redpkg'>点击关闭</cover-view>
 </cover-view>
 
-<cover-view class='get-redpkg-box' wx:if="{{false}}">
+<cover-view class='get-redpkg-box' wx:if="{{showNewerRedpkgSucess}}">
   <cover-image class='newuser-redpkg-success-bg' src="{{baseImageUrl + 'newuser_redpkg_success.png'}}"></cover-image>
   <cover-view class='newuser-redpkg-content-success-box'>
     <cover-view class='newuser-redpkg-success-box'>
@@ -115,11 +115,11 @@
       <cover-view class='newuser-redpkg-success-line'></cover-view>
     </cover-view>
     <cover-view class='newuser-redpkg-success-money'>
-      <cover-view style='font-size: 60rpx;'>1.25</cover-view>
+      <cover-view style='font-size: 60rpx;'>{{recNewerRedpkgMoney}}</cover-view>
       <cover-view style='font-size: 22rpx;margin-bottom: 10rpx;margin-left: 15rpx;'>元</cover-view>
     </cover-view>
     <cover-view class='newuser-task-note'>完成新人任务，即可领取大量红包</cover-view>
     <cover-view class='to-newuser-task'>立即前往</cover-view>
   </cover-view>
-  <cover-view class='close-newuser-redpkg'>点击关闭</cover-view>
+  <cover-view bindtap='closeRecNewerPkgSuccess' class='close-newuser-redpkg'>点击关闭</cover-view>
 </cover-view>

@@ -34,13 +34,14 @@ page{
   align-items: center;
   flex-direction: column;
   margin-top: 85rpx;
+  padding-bottom: 18rpx;
 }
 
 .nick-name{
   font-size: 28rpx;
   font-weight: bold;
   color: #333333;
-  margin-top: 32rpx;
+  margin-top: 36rpx;
 }
 
 .detail-box{
@@ -93,7 +94,6 @@ page{
 }
 
 .progress{
-  width: 280rpx;
   height: 20rpx;
   border-radius: 50rpx;
   background-image: linear-gradient(90deg,#FF0000,#FF7800);
@@ -103,7 +103,6 @@ page{
   display: flex;
   align-items: center;
   margin-top: 18rpx;
-  margin-bottom: 18rpx;
 }
 
 .left-time-text{
