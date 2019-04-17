@@ -1,6 +1,6 @@
 <!--bh_step/pages/videoRedpkgDetail.wxml-->
 <view class='content-box'>
-  <image class='photo' src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-b5474f5d746afeb42a9917560ea2daa5_qq'></image>
+  <image class='photo' src="{{userInfo.member_head}}"></image>
   <view class='detail-box'>
     <view class='detail-title'>邀请好友领红包 你得奖励</view>
     <view class='detail-note'>好友看视频 你俩都能得红包</view>
@@ -11,11 +11,11 @@
       </view>
       <view class='get-money-titles'>
         <view class='get-money-item'>
-          <text style='color:#f00;font-size:32rpx;'>0.01</text>
+          <text style='color:#f00;font-size:32rpx;'>{{detail.member.total_income}}</text>
           <text style='color:#f00;font-size:22rpx;margin-left:5rpx;'>元</text>
         </view>
         <view class='get-money-item'>
-          <text style='color:#f00;font-size:32rpx;'>0</text>
+          <text style='color:#f00;font-size:32rpx;'>{{detail.member.today_income}}</text>
           <text style='color:#f00;font-size:21rpx;'>元</text>
         </view>
       </view>
@@ -27,7 +27,7 @@
     </view>
     <view class='getredpkg-bt-box'>
       <view style='color:#fff;font-size:28rpx;'>领现金红包</view>
-      <view style='color:#fff;font-size:20rpx;'>每日可领8次 间隔2分钟可领</view>
+      <view style='color:#fff;font-size:20rpx;'>每日可领{{detail.bag_rule.bag_number_limit}}次 间隔{{detail.bag_rule.bag_cooling_time}}分钟可领</view>
     </view>
   </view>
 
@@ -38,13 +38,13 @@
       <view class='invited-user-line'></view>
     </view>
     <view class='line'></view>
-    <view class='user-item'>
+    <view class='user-item' wx:for="{{detail.share_list}}">
       <view class='user-item-left'>
-        <image class='user-photo' src='https://i04piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-11029736b064dfd777266c2a8d989896_qq'></image>
-        <view class='user-name'>幸运立减金</view>
+        <image class='user-photo' src="{{item.member_head}}"></image>
+        <view class='user-name'>{{item.member_name}}</view>
       </view>
       <view>
-        <text style='color:#f00;font-size:32rpx;'>0.45</text>
+        <text style='color:#f00;font-size:32rpx;'>{{item.money}}</text>
         <text style='color:#333;font-size:24rpx;'>元</text>
       </view>
     </view>

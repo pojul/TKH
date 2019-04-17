@@ -1,4 +1,12 @@
 // bh_step/pages/videoRedpkgDetail.js
+var _tools = require("../../../util/tools.js"),
+  _tools2 = _interopRequireDefault(_tools);
+function _interopRequireDefault(t) {
+  return t && t.__esModule ? t : {
+    default: t
+  };
+}
+
 Page({
 
   /**
@@ -6,13 +14,47 @@ Page({
    */
   data: {
     baseImageUrl: getApp().baseImageUrl,
+    detail: {},
+    userInfo: {},
+  },
+
+  getDetail: function () {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/videoBag",
+      data: {
+      },
+      success: function (t) {
+        that.setData({
+          detail: t.info
+        })
+      }
+    });
+  },
+
+  getUserInfo: function () {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/userInfo",
+      data: {
+        view_member_id: wx.getStorageSync("member_id")
+      },
+      success: function (t) {
+        that.setData({
+          userInfo: t.info.userInfo
+        })
+      }
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getUserInfo();
+    this.getDetail();
   },
 
   /**
