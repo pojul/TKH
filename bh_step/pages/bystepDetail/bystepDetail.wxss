@@ -91,7 +91,6 @@ page{
 }
 
 .progress{
-  width: 280rpx;
   height: 20rpx;
   border-radius: 50rpx;
   background-image: linear-gradient(90deg,#FF0000,#FF7800);
@@ -100,8 +99,6 @@ page{
 .invite-friend{
   width: 420rpx;
   text-align: center;
-  padding-top: 15rpx;
-  padding-bottom: 12rpx;
   margin-top: 25rpx;
   border-radius: 50rpx;
   background-image: linear-gradient(90deg,#EF0008,#FF3D3D);
@@ -149,7 +146,6 @@ page{
   margin-right: 8rpx;
   color: #333333;
   font-weight: bold;
-  margin-bottom: 15rpx;
 }
 
 .user-item{

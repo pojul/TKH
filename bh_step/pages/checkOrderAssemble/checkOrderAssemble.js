@@ -225,8 +225,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(JSON.stringify(options));
-    // var article = "<p>这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团规则这是拼团</p>";
-    // WxParse.wxParse('article', 'html', article, this, 5);
     if (!options.type || options.type < 0){
       this.showToast("数据错误");
       wx.navigateBack({});

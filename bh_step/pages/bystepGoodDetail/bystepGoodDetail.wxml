@@ -11,7 +11,7 @@
   <view class="pic-container">
     <image class="pic-container-pic" src="{{baseImageUrl + 'detail_bg.jpg'}}"></image>
     <view class="pic-container-content">
-      <text style="font-size: 30rpx;margin-left:12rpx;font-weight: bold;">拼满2万步</text>
+      <text style="font-size: 30rpx;margin-left:12rpx;font-weight: bold;">拼满{{goodDetail.step_number}}万步</text>
       <view style="background-color:#fff;width:2rpx;height:36rpx;margin-left:16rpx;"></view>
       <text style="font-size: 24rpx;margin-left:12rpx;margin-top:2rpx;" class="pre-price">人人领好礼</text>
     </view>

@@ -29,7 +29,8 @@ Page({
     isLoadBargain: false,
     p_bargain: 1, //砍价
     userInfo: {},
-    auctioOrderStatus: ['未参与', '已报名', '竞拍成功', '已完成','竞拍失败']
+    auctioOrderStatus: ['未参与', '已报名', '竞拍成功', '已完成','竞拍失败'],
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   getUserInfo: function() {

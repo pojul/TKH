@@ -1,16 +1,16 @@
 <!--bh_step/pages/bystepDetail/bystepDetail.wxml-->
-<image mode='aspectFill' class='banner' src='https://i03picsos.sogoucdn.com/ba77975023082699'></image>
+<image mode='aspectFill' class='banner' src="{{baseImageUrl + 'bystep_banner.png'}}"></image>
 
 <view class='detail'>
   <view class='detail-content'>
-    <image class='pic' src='https://i04picsos.sogoucdn.com/095ff96352e1ac1c'></image>
+    <image class='pic' src="{{goodDetail.cover_image}}"></image>
     <view class='detail-content-right'>
       <view class='detail-content-top'>
-        <view class='detail-content-title'>拼满2万步 人人领好礼</view>
-        <view class='detail-content-note'>玻尿酸面膜【10片装】</view>
+        <view class='detail-content-title'>拼满{{goodDetail.step_number}}万步 人人领好礼</view>
+        <view class='detail-content-note'>{{goodDetail.goods_name}}</view>
       </view>
       <view>
-        <text style='font-size: 22rpx;color: #666;text-decoration: line-through;'>原价：28元</text>
+        <text style='font-size: 22rpx;color: #666;text-decoration: line-through;'>原价：{{goodDetail.price}}元</text>
         <text style='font-size: 23rpx;margin-left: 10rpx;color: #f00;'>0</text>
         <text style='font-size: 22rpx;color: #666;'>元</text>
       </view>
@@ -18,26 +18,31 @@
   </view>
   <view class='limit-step'>*每人每天步数上限10000步</view>
   <view class='progress-text-box'>
-    <view class='progress-text'>拼步进度 2952/20000 步</view>
-    <view class='comment-step'>我已贡献2952步</view>
+    <view class='progress-text'>拼步进度 {{orderDetail.step.total_step_number}}/{{orderDetail.goods.step_number}} 步</view>
+    <view class='comment-step'>我已贡献{{orderDetail.member.my_step_number}}步</view>
   </view>
   <view class='progress-box'>
-    <view class='progress'></view>
+    <view style="width: {{progress*670}}rpx;" class='progress'></view>
   </view>
-  <view class='invite-friend'>邀请好友拼步数</view>
+  <button open-type="share" wx:if="{{orderDetail.step.is_complete==1}}" class='invite-friend'>邀请好友拼步数</button>
+  <view wx:if="{{orderDetail.step.is_complete==2 || orderDetail.step.is_complete==3}}" style='font-size: 23rpx;color: #666;padding: 10rpx;'>该订单已完成</view>
+  <view wx:if="{{orderDetail.step.is_complete==4}}" style='font-size: 23rpx;color: #666;padding: 10rpx;'>该订单已过期</view>
   <view class='more-bystep'>去看看别的拼步好物</view>
   <view class='note'>活动商品库存有限，先到先得，拼成后请及时下单哦~</view>
-  <view class='left-time'>
+  <view wx:if="{{orderDetail.step.is_complete==1}}" class='left-time'>
     <view class='line'></view>
-    <view class='left-time-text'>距结束22：33：17</view>
+    <view class='left-time-text'>距结束{{orderDetail.step.expire_time.hour
+      <10? '0'+ orderDetail.step.expire_time.hour:orderDetail.step.expire_time.hour}}：{{orderDetail.step.expire_time.min
+      <10? '0'+ orderDetail.step.expire_time.min:orderDetail.step.expire_time.min}}：{{orderDetail.step.expire_time.sec
+      <10? '0'+ orderDetail.step.expire_time.sec:orderDetail.step.expire_time.sec}}</view>
     <view class='line'></view>
   </view>
-  <view wx:for="sdsd" class='user-item'>
+  <view wx:for="{{orderDetail.group_member}}" class='user-item'>
     <view class='user-left'>
-      <image class='user-photo' src='https://img01.sogoucdn.com/app/a/100520093/11388287d0e56ad7-53b51a5be5b5a2db-0d4a965d46d4436ed1c7053eccb6fe70.jpg'></image>
-      <view class='user-name'>团长</view>
+      <image class='user-photo' src="{{item.head}}"></image>
+      <view wx:if="{{index==0}}" class='user-name'>团长</view>
     </view>
-    <view class='user-step'>2952 步数</view>
+    <view class='user-step'>{{item.my_step_number}} 步数</view>
   </view>
 </view>
 
@@ -64,14 +69,16 @@
   </view>
 </view>
 
-<view wx:if="{{false}}" class='mystep-exchange'>
+<view wx:if="{{showRecGoodDialog}}" class='mystep-exchange'>
   <view class='mystep-exchange-content-box'>
     <view class='mystep-exchange-content'>
       <view class='bystep-success-note'>恭喜你拼步成功</view>
-      <image class='bystep-success-phote' src='https://img04.sogoucdn.com/app/a/100520093/135af7683914878b-0429e3faa7dc75a3-dec813deb352cc0e4941bb54372fde34.jpg'></image>
-      <view class='bystep-success-name'>我吃西红柿帮你拼了5426步</view>
-      <view class='bystep-success-get'>立即领取</view>
+      <image class='bystep-success-phote' src="{{orderDetail.step.last_step_info.member_head}}"></image>
+      <view class='bystep-success-name'>{{orderDetail.step.last_step_info.member_nickname}}帮你拼了{{orderDetail.step.last_step_info.my_step_number}}步</view>
+      <view bindtap='toCheckOrder' class='bystep-success-get'>立即领取</view>
     </view>
-    <view class='close-mystep-exchange'>点击关闭</view>
+    <view bindtap='closeRecGood' class='close-mystep-exchange'>点击关闭</view>
   </view>
 </view>
+
+<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>
