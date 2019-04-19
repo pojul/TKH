@@ -218,6 +218,10 @@ Page({
     })
   },
 
+  toNewuserTask: function () {
+    
+  },
+
   mapClick: function (e) {
     this.setData({
       showCards: false

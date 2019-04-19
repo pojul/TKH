@@ -8,6 +8,7 @@ Page({
     invitedFriends: [
       {},{},{},{}
     ],
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   /**

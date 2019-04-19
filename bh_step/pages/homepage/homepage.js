@@ -21,7 +21,11 @@ Page({
     userInfo: {},
     memberId: -1,
     ownerMemberId: -1,
-    hasMoredynamics: true,
+
+    memberId: -1,
+    ownerMemberId: -1,
+    hasMoredynamics: true, 
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   setCurrentDetail: function (event) {

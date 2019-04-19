@@ -1,6 +1,6 @@
 <!--bh_step/pages/homepage/homepage.wxml-->
 <view class='user-info-box'>
-  <image class='photo' src="{{userInfo.head}}"></image>
+  <image class='photo' src="{{userInfo.member_head}}"></image>
    <view class='base-text-box'>
       <view class='base-textleft-box'>
         <view class='busy-title-box'>
@@ -57,7 +57,7 @@
         <image class='position-icon' src='../../images/position.png'></image>
         <view class='position-text'>该商家未设置门店地址</view>
       </view>
-      <image class='call' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/call.png'></image>
+      <image class='call' src="{{baseImageUrl + 'call.png'}}"></image>
     </view>
     <view class='line1'></view>
   <view class='busy-detail-text'>宝妈，学生都可以做   任务无限  赏金无限    一天随便几百  tttop:my.dur.liffrueid-87965754</view>

@@ -6,7 +6,7 @@
       <image mode='aspectFill' class='pic' src="{{item}}"></image>
       <image bindtap='removePic' data-index="{{index}}" src='../../images/delete.png' class='remove-pic'></image>
     </view>
-    <image mode='aspectFit' class='chose-pic' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/camera.png' bindtap='chosePic'></image>
+    <image mode='aspectFit' class='chose-pic' src="{{baseImageUrl + 'camera.png'}}" bindtap='chosePic'></image>
   </view>
 </view>
 

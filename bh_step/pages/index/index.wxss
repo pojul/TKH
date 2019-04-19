@@ -322,8 +322,8 @@
 .flipping-box{
   display: flex;
   justify-content: space-between;
-  padding-left: 24rpx;
-  padding-right: 24rpx;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
   background-color: #fff;
   padding-bottom: 30rpx;
 }

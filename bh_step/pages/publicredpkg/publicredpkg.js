@@ -33,6 +33,7 @@ Page({
     limitUsers: [],
     linkTitle: '',
     linkUrl: '',
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   chosePic: function () {

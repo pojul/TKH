@@ -109,10 +109,14 @@ Page({
         iv: tiv
       },
       success: function(t) {
+        that.data.progress = (t.info.step.total_step_number / t.info.goods.step_number);
+        if (that.data.progress>1) {
+          that.data.progress = 1;
+        }
         that.setData({
           orderDetail: t.info,
           groupid: t.info.step.group_id,
-          progress: (t.info.step.total_step_number / t.info.goods.step_number)
+          progress: that.data.progress
         });
         if (t.info.step.is_complete == 1) {
           that.startCountDown();

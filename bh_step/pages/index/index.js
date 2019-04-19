@@ -94,6 +94,7 @@ Page({
 		mydialog: "",
 		ad_pop: 0,
     baseImageUrl: getApp().baseImageUrl,
+    city: '',
 	},
 	onLoad: function(t) {
 		var e = app.getSiteImgurl();
@@ -144,10 +145,37 @@ Page({
 				load($this);
 			}
 		});
-
+    this.getLocation();
 	},
 
+  getLocation: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+      success: function (res) {
+        that.loadCity(res.longitude, res.latitude);
+      }
+    })
+  },
+
+  loadCity: function (longitude, latitude) {
+    var that = this
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + latitude + ',' + longitude + '&key=FNTBZ-RGJLX-LNN4X-T3SFM-AM3Y2-IPF2H',
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        that.setData({
+          city: res.data.result.address_component.city.replace('市','')
+        })
+      }
+    })
+  },
+
   authorize: function (e) {
+    this.onShow();
   },
 
 	//用户授权获取用户信息

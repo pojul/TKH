@@ -167,3 +167,14 @@ page {
   margin-top:10rpx;
   margin-left:0;
 }
+
+.give-moneys-box{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.give-moneys-view{
+  display: flex;
+}

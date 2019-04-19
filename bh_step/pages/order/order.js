@@ -53,6 +53,7 @@ Page(_defineProperty({
     share_image: "",
     currentGoods: 0,
     goodClass: ['竞拍', '拼步', '拼团', '砍价', '兑换'],
+    p_size: 10,
     auctions: [],
     isLoadAuction: false,
     p_auction: 1, //竞拍
@@ -65,6 +66,7 @@ Page(_defineProperty({
     bargains: [],
     isLoadBargain: false,
     p_bargain: 1, //砍价
+    auctioOrderStatus: ['', '进行中', '待领取', '已完成', '已过期'],
   },
 
   setCurrentGood: function(e) {
@@ -73,7 +75,7 @@ Page(_defineProperty({
     });
   },
 
-  getBystepList: function () {
+  getBystepList: function() {
     if (this.data.isLoadBystep) {
       return;
     }
@@ -83,25 +85,25 @@ Page(_defineProperty({
     var that = this;
     _tools2.default.request({
       method: "get",
-      url: "entry/wxapp/groupGoodsList",
+      url: "entry/wxapp/groupOrderList",
       data: {
         token: wx.getStorageSync("token"),
         type: 3,
         p_size: that.data.p_size,
         p: that.data.p_bystep
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           isLoadBystep: false
         })
-        if (res.info.goods_list.length > 0) {
+        if (res.info.order_list.length > 0) {
           that.setData({
             p_bystep: (that.data.p_bystep + 1),
-            bysteps: that.data.bysteps.concat(res.info.goods_list)
+            bysteps: that.data.bysteps.concat(res.info.order_list)
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         that.setData({
           isLoadBystep: false
         })
@@ -109,7 +111,18 @@ Page(_defineProperty({
     });
   },
 
-  getAssembleList: function () {
+  toBystepDetail: function (e) {
+    let index = e.currentTarget.dataset.index;
+    if (this.data.bysteps[index].is_complete == 4) {
+      this.showToast('该商品已过期');
+    } else {
+      wx.navigateTo({
+        url: '/bh_step/pages/bystepDetail/bystepDetail?type=1&orderid=' + this.data.bysteps[index].id + '&goodid=' + this.data.bysteps[index].goods.id
+      })
+    }
+  },
+
+  getAssembleList: function() {
     if (this.data.isLoadAssemble) {
       return;
     }
@@ -119,25 +132,25 @@ Page(_defineProperty({
     var that = this;
     _tools2.default.request({
       method: "get",
-      url: "entry/wxapp/groupGoodsList",
+      url: "entry/wxapp/groupOrderList",
       data: {
         token: wx.getStorageSync("token"),
         type: 1,
         p_size: that.data.p_size,
         p: that.data.p_assemble
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           isLoadAssemble: false
         })
-        if (res.info.goods_list.length > 0) {
+        if (res.info.order_list.length > 0) {
           that.setData({
             p_assemble: (that.data.p_assemble + 1),
-            assembles: that.data.assembles.concat(res.info.goods_list)
+            assembles: that.data.assembles.concat(res.info.order_list)
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         that.setData({
           isLoadAssemble: false
         })
@@ -145,7 +158,18 @@ Page(_defineProperty({
     });
   },
 
-  getBargainList: function () {
+  toAssembleDetail: function (e) {
+    let index = e.currentTarget.dataset.index;
+    if (this.data.assembles[index].is_complete == 4) {
+      this.showToast('该商品已过期');
+    } else {
+      wx.navigateTo({
+        url: '/bh_step/pages/checkOrderAssemble/checkOrderAssemble?type=1&orderid=' + this.data.assembles[index].id + '&goodid=' + this.data.assembles[index].goods.id
+      })
+    }
+  },
+
+  getBargainList: function() {
     if (this.data.isLoadBargain) {
       return;
     }
@@ -154,26 +178,26 @@ Page(_defineProperty({
     })
     var that = this;
     _tools2.default.request({
-      method: "get",
-      url: "entry/wxapp/groupGoodsList",
+      method: "get", 
+      url: "entry/wxapp/groupOrderList",
       data: {
         token: wx.getStorageSync("token"),
         type: 2,
         p_size: that.data.p_size,
         p: that.data.p_bargain
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           isLoadBargain: false
         })
-        if (res.info.goods_list.length > 0) {
+        if (res.info.order_list.length > 0) {
           that.setData({
             p_bargain: (that.data.p_bargain + 1),
-            bargains: that.data.bargains.concat(res.info.goods_list)
+            bargains: that.data.bargains.concat(res.info.order_list)
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         that.setData({
           isLoadBargain: false
         })
@@ -181,7 +205,18 @@ Page(_defineProperty({
     });
   },
 
-  getAuctionList: function () {
+  toBargainDetail: function (e) {
+    let index = e.currentTarget.dataset.index;
+    if (this.data.bargains[index].is_complete == 4) {
+      this.showToast('该商品已过期');
+    } else {
+      wx.navigateTo({
+        url: '/bh_step/pages/bargaindetail/bargaindetail?type=1&orderid=' + this.data.bargains[index].id + '&goodid=' + this.data.bargains[index].goods.id
+      })
+    }
+  },
+
+  getAuctionList: function() {
     if (this.data.isLoadAuction) {
       return;
     }
@@ -191,35 +226,42 @@ Page(_defineProperty({
     var that = this;
     _tools2.default.request({
       method: "get",
-      url: "entry/wxapp/auctionList",
+      url: "entry/wxapp/auctionOrderList",
       data: {
         p_size: that.data.p_size,
         p: that.data.p_auction
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           isLoadAuction: false
         })
-        for (let i = 0; i < res.info.goods_list.length; i++) {
-          if (res.info.goods_list[i].is_end != 3) {
-            res.info.goods_list[i].order_status_str = that.data.auctioOrderStatus[res.info.goods_list[i].order_status];
+        for (let i = 0; i < res.info.order_list.length; i++) {
+          if (res.info.order_list[i].is_end != 3) {
+            res.info.order_list[i].order_status_str = that.data.auctioOrderStatus[res.info.order_list[i].order_status];
           } else {
-            res.info.goods_list[i].order_status_str = '已结束';
+            res.info.order_list[i].order_status_str = '已结束';
           }
         }
-        if (res.info.goods_list.length > 0) {
+        if (res.info.order_list.length > 0) {
           that.setData({
             p_auction: (that.data.p_auction + 1),
-            auctions: that.data.auctions.concat(res.info.goods_list)
+            auctions: that.data.auctions.concat(res.info.order_list)
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         that.setData({
           isLoadAuction: false
         })
       }
     });
+  },
+
+  toAuctionDetail: function (e) {
+    let index = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '/bh_step/pages/auctionDetail/auctionDetail?type=1&id=' + this.data.auctions[index].auction.id
+    })
   },
 
   onLoad: function(e) {
@@ -261,7 +303,17 @@ Page(_defineProperty({
   onHide: function() {},
   onUnload: function() {},
   onPullDownRefresh: function() {},
-  onReachBottom: function() {},
+  onReachBottom: function() {
+    if (this.data.currentGoods == 1) {
+      this.getBystepList();
+    } else if (this.data.currentGoods == 0) {
+      this.getAuctionList();
+    } else if (this.data.currentGoods == 2) {
+      this.getAssembleList();
+    } else if (this.data.currentGoods == 3) {
+      this.getBargainList();
+    }
+  },
   onShareAppMessage: function() {
     return console.log("bh_step/pages/index/index?share_tpye=1&parent_id=" + $this.data.member_id), {
       title: $this.data.share_text,

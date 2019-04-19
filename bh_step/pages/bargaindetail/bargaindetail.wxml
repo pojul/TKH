@@ -33,7 +33,7 @@
     <view wx:if="{{type!=0}}" class='progress-box'>
       <view class='progress' style="width: {{progress*670}}rpx"></view>
     </view>
-    <view wx:if="{{type!=0}}" class='left-time-box'>
+    <view wx:if="{{type!=0 && orderDetail.order.is_complete==1}}" class='left-time-box'>
       <view class='left-time-text'>砍价还剩</view>
       <view class='left-time-num'>{{orderDetail.order.expire_time.hour
       <10? '0'+ orderDetail.order.expire_time.hour:orderDetail.order.expire_time.hour}}</view>
@@ -108,3 +108,6 @@
 </view>
 
 <userinfo_dialog bind:authorize='authorize'></userinfo_dialog>
+
+<!-- <view style='width: 750rpx;'>{{testStr1}}</view>
+<view>{{testStr2}}</view> -->

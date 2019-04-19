@@ -3,68 +3,68 @@
 </view>
 
 <view wx:if="{{currentGoods==0}}" class='auction-order'>
-  <view wx:for="sdsd" class='order-item'>
-    <image mode='aspectFill' class='order-pic' src='https://img04.sogoucdn.com/app/a/100520020/e7e2e6166cc3737ae3d1a1034ef85340'></image>
+  <view wx:for="{{auctions}}" bindtap='toAuctionDetail' data-index="{{index}}" class='order-item'>
+    <image mode='aspectFill' class='order-pic' src="{{item.auction.cover_image}}"></image>
     <view class='order-right-view'>
-      <view class='order-title'>玻尿酸面膜【10片装】</view>
+      <view class='order-title'>{{item.auction.goods_name}}</view>
       <view class='order-bottom'>
         <view>
-          <text class='order-raw-price'>原价：28元</text>
+          <text class='order-raw-price'>原价：{{item.auction.price}}元</text>
           <text class='order-raw-pricenum'>0</text>
           <text class='order-raw-priceunit'>元</text>
         </view>
-        <view class="{{index%3==0?'order-status-going':index%3==1?'order-status-over':'order-status-compete'}}">{{index%3==0?'进行中':index%3==1?'已过期':'已完成'}}</view>
+        <view class="{{item.status==1?'order-status-going':item.status==4?'order-status-over':'order-status-compete'}}">{{auctioOrderStatus[item.status]}}</view>
       </view>
     </view>
   </view>
 </view>
 
 <view wx:if="{{currentGoods==1}}" class='auction-order'>
-  <view wx:for="sd221sd" class='order-item'>
-    <image mode='aspectFill' class='order-pic' src='https://img04.sogoucdn.com/app/a/100520020/e7e2e6166cc3737ae3d1a1034ef85340'></image>
+  <view bindtap='toBystepDetail' data-index="{{index}}" wx:for="{{bysteps}}" class='order-item'>
+    <image mode='aspectFill' class='order-pic' src="{{item.goods.cover_image}}"></image>
     <view class='order-right-view'>
-      <view class='order-title'>玻尿酸面膜【10片装】</view>
+      <view class='order-title'>{{item.goods.goods_name}}</view>
       <view class='order-bottom'>
         <view>
-          <text class='order-raw-price'>原价：28元</text>
-          <text class='order-raw-pricenum'>0</text>
+          <text class='order-raw-price'>原价：{{item.goods.price}}元</text>
+          <text class='order-raw-pricenum'>{{item.goods.pay_money}}</text>
           <text class='order-raw-priceunit'>元</text>
         </view>
-        <view class="{{index%3==0?'order-status-going':index%3==1?'order-status-over':'order-status-compete'}}">{{index%3==0?'进行中':index%3==1?'已过期':'已完成'}}</view>
+        <view class="{{item.is_complete==1?'order-status-going':item.is_complete==4?'order-status-over':'order-status-compete'}}">{{auctioOrderStatus[item.is_complete]}}</view>
       </view>
     </view>
   </view>
 </view>
 
 <view wx:if="{{currentGoods==2}}" class='auction-order'>
-  <view wx:for="sdd" class='order-item'>
-    <image mode='aspectFill' class='order-pic' src='https://img04.sogoucdn.com/app/a/100520020/e7e2e6166cc3737ae3d1a1034ef85340'></image>
+  <view wx:for="{{assembles}}" bindtap='toAssembleDetail' data-index="{{index}}" class='order-item'>
+    <image mode='aspectFill' class='order-pic' src="{{item.goods.cover_image}}"></image>
     <view class='order-right-view'>
-      <view class='order-title'>玻尿酸面膜【10片装】</view>
+      <view class='order-title'>{{item.goods.goods_name}}</view>
       <view class='order-bottom'>
         <view>
-          <text class='order-raw-price'>原价：28元</text>
-          <text class='order-raw-pricenum'>0</text>
+          <text class='order-raw-price'>原价：{{item.goods.price}}元</text>
+          <text class='order-raw-pricenum'>{{item.goods.pay_money}}</text>
           <text class='order-raw-priceunit'>元</text>
         </view>
-        <view class="{{index%3==0?'order-status-going':index%3==1?'order-status-over':'order-status-compete'}}">{{index%3==0?'进行中':index%3==1?'已过期':'已完成'}}</view>
+        <view class="{{item.is_complete==1?'order-status-going':item.is_complete==4?'order-status-over':'order-status-compete'}}">{{auctioOrderStatus[item.is_complete]}}</view>
       </view>
     </view>
   </view>
 </view>
 
 <view wx:if="{{currentGoods==3}}" class='auction-order'>
-  <view wx:for="sd22sd" class='order-item'>
-    <image mode='aspectFill' class='order-pic' src='https://img04.sogoucdn.com/app/a/100520020/e7e2e6166cc3737ae3d1a1034ef85340'></image>
+  <view wx:for="{{bargains}}" bindtap='toBargainDetail' data-index="{{index}}" class='order-item'>
+    <image mode='aspectFill' class='order-pic' src="{{item.goods.cover_image}}"></image>
     <view class='order-right-view'>
-      <view class='order-title'>玻尿酸面膜【10片装】</view>
+      <view class='order-title'>{{item.goods.goods_name}}</view>
       <view class='order-bottom'>
         <view>
-          <text class='order-raw-price'>原价：28元</text>
-          <text class='order-raw-pricenum'>0</text>
+          <text class='order-raw-price'>原价：{{item.goods.price}}元</text>
+          <text class='order-raw-pricenum'>{{item.goods.pay_money}}</text>
           <text class='order-raw-priceunit'>元</text>
         </view>
-        <view class="{{index%3==0?'order-status-going':index%3==1?'order-status-over':'order-status-compete'}}">{{index%3==0?'进行中':index%3==1?'已过期':'已完成'}}</view>
+        <view class="{{item.is_complete==1?'order-status-going':item.is_complete==4?'order-status-over':'order-status-compete'}}">{{auctioOrderStatus[item.is_complete]}}</view>
       </view>
     </view>
   </view>
@@ -163,7 +163,7 @@
   <guidancePop isShowPop="{{isShowCourse}}" name="{{wechat_subscription}}" tip="{{auto_ship_tip}}"></guidancePop>
 </view>
 
-<view wx: class="container" wx:if="{{currentGoods==4&&orders.length==0}}">
+<view wx: class="container" wx:if="{{(currentGoods==4&&orders.length==0) || (currentGoods==0&&auctions.length==0) || (currentGoods==1&&bysteps.length==0) || (currentGoods==2&&assembles.length==0) || (currentGoods==3&&bargains.length==0)}}">
   <view class="img-box">
     <image class="box-image" src="{{img_url}}/step2gift/my_orders_nodata.png"></image>
     <text class="img-text text-color-extra3">您还没有此类订单哦！</text>

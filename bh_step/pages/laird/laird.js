@@ -62,6 +62,9 @@ Page({
   },
 
   toHomePage: function (e) {
+    if (!this.data.terriroty || this.data.terriroty.now_owner_member_id <= 0) {
+      return;
+    }
     var that = this;
     wx.navigateTo({
       url: '/bh_step/pages/homepage/homepage?member_id=' + that.data.terriroty.now_owner_member_id

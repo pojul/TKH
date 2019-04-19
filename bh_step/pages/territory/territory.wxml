@@ -1,6 +1,6 @@
 <!--bh_step/pages/territory/territory.wxml-->
 
-<map bindtap="mapClick" bindmarkertap="markerClick" id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="17" circles="{{circles}}" markers="{{markers}}" show-location style="{{'width: 100%; height: ' + screenHeight + 'px;'}}" >
+<map bindtap="mapClick" bindmarkertap="markerClick" id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="14" circles="{{circles}}" markers="{{markers}}" show-location style="{{'width: 100%; height: ' + screenHeight + 'px;'}}" >
 </map>
 
 <cover-view class='top-class'>
@@ -36,10 +36,10 @@
 <cover-view class='myloc-box' bindtap="toMyLoc">
   <cover-image class='myloc' src='../../images/location.png'></cover-image>
 </cover-view>
-<cover-image class='hot' bindtap="toBusycircle" src='../../images/hot.png'></cover-image>
+<cover-image wx:if="{{false}}" class='hot' bindtap="toBusycircle" src='../../images/hot.png'></cover-image>
 <cover-image bindtap='toRedpkgrecord' class='email' src='../../images/email.png'></cover-image>
-<cover-image class='red-package' src='../../images/red_package.png'></cover-image>
-<cover-image class='add' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/add_territory.png'   bindtap='toPublishRedpkg'></cover-image>
+<cover-image wx:if="{{false}}" class='red-package' src='../../images/red_package.png'></cover-image>
+<cover-image class='add' src="{{baseImageUrl + 'add_territory.png'}}"bindtap='toPublishRedpkg'></cover-image>
 
 <cover-view class='open-redpkg-box'></cover-view>
 
@@ -76,7 +76,7 @@
       <cover-image class='photo' src="{{redPkgs[showRedPkgIndex].member_head}}"></cover-image>
       <cover-view class='name'>{{redPkgs[showRedPkgIndex].member_nickname}}</cover-view>
       <cover-view class='note'>{{redPkgs[showRedPkgIndex].title}}</cover-view>
-      <cover-image bindtap='toRedRkgInfo' data-postid="{{redPkgs[showRedPkgIndex].post_id}}" class='open-redpkg' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/open-redpkg.png'></cover-image>
+      <cover-image bindtap='toRedRkgInfo' data-postid="{{redPkgs[showRedPkgIndex].post_id}}" class='open-redpkg' src="{{baseImageUrl + 'open-redpkg.png'}}"></cover-image>
     </cover-view>
   </cover-view>
   <cover-view bindtap='closeRedpkg' class='close-redpkg'>点击关闭</cover-view>
@@ -119,7 +119,7 @@
       <cover-view style='font-size: 22rpx;margin-bottom: 10rpx;margin-left: 15rpx;'>元</cover-view>
     </cover-view>
     <cover-view class='newuser-task-note'>完成新人任务，即可领取大量红包</cover-view>
-    <cover-view class='to-newuser-task'>立即前往</cover-view>
+    <cover-view bindtap='toNewuserTask' class='to-newuser-task'>立即前往</cover-view>
   </cover-view>
   <cover-view bindtap='closeRecNewerPkgSuccess' class='close-newuser-redpkg'>点击关闭</cover-view>
 </cover-view>

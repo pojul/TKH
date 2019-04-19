@@ -30,6 +30,8 @@ Page({
     bargain_money: -1,
     showHelpDialog: false,
     showRecDialog: false,
+    testStr1: '',
+    testStr2: '',
   },
   
   showRulesDialog: function (e) {
@@ -122,6 +124,7 @@ Page({
             showRecDialog: true
           })
         }
+        that.setProgress();
       }
     });
   },
@@ -131,7 +134,17 @@ Page({
     if (this.data.hasHelp){
       return;
     }
+    if (this.data.parent_id == wx.getStorageSync("member_id")){
+      this.setData({
+        type: 1
+      })
+      return;
+    }
     var that = this;
+    // that.setData({
+    //   testStr1: ("goods_id: " + that.data.goodid + '; parent_id: ' + that.data.parent_id + '; share_tpye: ' + that.data.share_tpye + '<<helpfriend')
+    // })
+    // that.showToast("goods_id: " + that.data.goodid + '; parent_id: ' + that.data.parent_id + '<<helpfriend');
     _tools2.default.request({
       method: "get",
       url: "entry/wxapp/bargainShare",
@@ -160,7 +173,7 @@ Page({
         order_id: that.data.orderid
       },
       success: function (t) {
-        that.data.orderDetail.order.is_complete == 3,
+        that.data.orderDetail.order.is_complete = 3,
         that.setData({
           showRecDialog: false,
           orderDetail: that.data.orderDetail
@@ -199,7 +212,13 @@ Page({
   },
 
   setProgress: function () {
-    progress: (orderDetail.total_bargain_money / (orderDetail.total_bargain_money + orderDetail.order.pay_money))
+    this.data.progress = (this.data.orderDetail.total_bargain_money / (Number(this.data.orderDetail.total_bargain_money) + Number(this.data.orderDetail.order.pay_money)));
+    if (this.data.progress > 1){
+      this.data.progress = 1;
+    }
+    this.setData({
+      progress: this.data.progress
+    });
   },
 
   startCountDown: function () {
@@ -292,9 +311,13 @@ Page({
     if (this.data.type==0){
       this.confirmBarginOrder();
     }
-    if (options.type == 2 && options.parent_id != wx.getStorageSync("member_id")){
+    if (options.type == 2){
       this.helpFriend();
     }
+    this.setData({
+      testStr1: JSON.stringify(options),
+      testStr2: 'type: ' + this.data.type + '; orderid: ' + this.data.orderid + '; goodid: ' + this.data.goodid
+    })
   },
 
   showToast: function (str) {

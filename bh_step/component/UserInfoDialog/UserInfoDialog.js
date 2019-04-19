@@ -29,9 +29,9 @@ Component({
   },
 
   ready: function () {
-    //if (wx.getStorageSync("has_login") != 2){
+    if (wx.getStorageSync("has_login") != 2){
       this.wxlogin();
-    //}
+    }
   },
 
   /**

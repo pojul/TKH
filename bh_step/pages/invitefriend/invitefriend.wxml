@@ -4,7 +4,7 @@
 <view class='join-activity'>点我参与></view>
 
 <view class='content-box'>
-  <image class='invite_award-bg' mode='widthFix' src='https://tuokehui.whmstc.cn/attachment/images/global/tuoke/invite_award.png'></image>
+  <image class='invite_award-bg' mode='widthFix' src="{{baseImageUrl + 'invite_award.png'}}"></image>
 
   <view class='invite-friend'>邀请好友</view>
 

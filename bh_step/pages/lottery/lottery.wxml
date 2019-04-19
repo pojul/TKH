@@ -97,7 +97,7 @@
     </scroll-view>
     
     
-    <view bindtap="startTask" data-id="{{key}}" class="my-card" wx:for="{{taskInfo.task}}"  wx:for-index="key" wx:key="{{item.id}}">
+    <view bindtap="startTask" data-id="{{key}}" class="my-card" wx:for="{{taskInfo.task}}"  wx:for-index="key" wx:key="{{item.id}}" wx:if="{{false}}">
     <view class="my-card-header">
     		<view>
     			<image class="my-card-header-thumb" src="{{item.icon}}" mode="" />
