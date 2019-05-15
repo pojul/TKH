@@ -20,10 +20,10 @@
         </form>
         
         <!--幸运金币：任务金币-->
-        <button bindtap="showdialog" class="heard-tag-list absolute" wx:if="{{suspension.task}}">
+        <!-- <button bindtap="showdialog" class="heard-tag-list absolute" wx:if="{{suspension.task}}">
             <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;">?</view>
             <text class="text-color-extra">幸运金币</text>
-        </button>
+        </button> -->
 
             <navigator url="../currencylog/currencylog" style="margin:20rpx auto 0;width:40%;height:320rpx;"></navigator> 
     </view>
@@ -65,10 +65,14 @@
   <view class="Flipping1" wx:if="{{audit_pattern!=2}}">
     <navigator wx:if="{{img_url}}" url="/bh_step/pages/goodsconvert/goodsconvert" open-type="switchTab"  class="image relative tag-coin" style="background: url('{{img_url}}/icon_0yuangou.png');background-size: 100% 100%;"></navigator>
   </view>
+  <!-- url="/bh_step/pages/activity/activity" -->
+  <view  class="Flipping2" wx:if="{{audit_pattern!=2}}">
+    <navigator url="/bh_step/pages/activity/activity" class="image relative tag-coin" style="background: url('{{baseImageUrl}}activity.png');background-size: 100% 100%;"></navigator>
+  </view>
   <view  class="Flipping2" wx:if="{{audit_pattern!=2}}">
     <navigator url="/bh_step/pages/defiance/defiance"  class="image relative tag-coin" style="background: url('{{baseImageUrl}}challenge.png');background-size: 100% 100%;"></navigator>
   </view>
-  <view  class="Flipping2" wx:if="{{audit_pattern!=2}}">
+  <view class="Flipping2" wx:if="{{audit_pattern!=2}}">
     <navigator wx:if="{{img_url}}" url="/bh_step/pages/lottery/lottery"  class="image relative tag-coin" style="background: url(\"{{img_url}}/icon_choujiang.png\");background-size: 100% 100%;"></navigator>
   </view>
 
@@ -497,4 +501,62 @@
     <view class="i-toast-content" wx:if="{{added_exp>0}}"><image class="coin" src="/bh_step/images/star.png" mode="aspectFit" /> 成长值+{{added_exp}}</view>
 </view>
 
-<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>
+
+
+
+
+
+
+<cover-view class='get-redpkg-box' wx:if="{{showNewerRedpkg}}">
+  <cover-image class='newuser-redpkg-content-bg' src="{{baseImageUrl + 'newuser_redpkg.png'}}"></cover-image>
+  <cover-view class='newuser-redpkg-content-box'>
+    <cover-view class='newuser-redpkg-note'>恭喜您获得新人红包</cover-view>
+    <cover-view class='newuser-redpkg-money-box'>
+      <cover-view class='newuser-redpkg-maxmoney'>打开得18元</cover-view>
+      <cover-view class='newuser-redpkg-maxmoney-note'>
+        <cover-view>最</cover-view>
+        <cover-view>高</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class='newuser-redpkg-withdraw-box'>
+      <cover-view class='newuser-redpkg-line'></cover-view>
+      <cover-view>可当天提现</cover-view>
+      <cover-view class='newuser-redpkg-line'></cover-view>
+    </cover-view>
+    <cover-view class='newuser-redpkg-bottom'>
+      <cover-image bindtap='recNewerRedpkg' src="{{baseImageUrl + 'open_newuser_redpkg.png'}}" class='newuser-redpkg-open'></cover-image>
+      <cover-view class='newuser-redpkg-limit-note'>仅限新注册用户领取</cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view bindtap='closeRecNewerPkg' class='close-newuser-redpkg'>点击关闭</cover-view>
+</cover-view>
+
+<cover-view class='get-redpkg-box' wx:if="{{showNewerRedpkgSucess}}">
+  <cover-image class='newuser-redpkg-success-bg' src="{{baseImageUrl + 'newuser_redpkg_success.png'}}"></cover-image>
+  <cover-view class='newuser-redpkg-content-success-box'>
+    <cover-view class='newuser-redpkg-success-box'>
+      <cover-view class='newuser-redpkg-success-line'></cover-view>
+      <cover-view class='newuser-redpkg-success-note'>恭喜您获得新人红包</cover-view>
+      <cover-view class='newuser-redpkg-success-line'></cover-view>
+    </cover-view>
+    <cover-view class='newuser-redpkg-success-money'>
+      <cover-view style='font-size: 60rpx;'>{{recNewerRedpkgMoney}}</cover-view>
+      <cover-view style='font-size: 22rpx;margin-bottom: 10rpx;margin-left: 15rpx;'>元</cover-view>
+    </cover-view>
+    <cover-view class='newuser-task-note'>完成新人任务，即可领取大量红包</cover-view>
+    <cover-view bindtap='toNewuserTask' class='to-newuser-task'>立即前往</cover-view>
+  </cover-view>
+  <cover-view bindtap='closeRecNewerPkgSuccess' class='close-newuser-redpkg'>点击关闭</cover-view>
+</cover-view>
+
+
+
+
+
+
+
+
+
+
+
+

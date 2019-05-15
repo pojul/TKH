@@ -21,6 +21,7 @@ Page({
       '/bh_step/pages/pointmess/pointmess'
     ],
     memberMsg: {},
+    baseImageUrl: getApp().baseImageUrl,
   },
 
   toMessItem: function (e) {

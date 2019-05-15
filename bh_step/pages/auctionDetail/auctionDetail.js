@@ -16,7 +16,7 @@ Page({
    */
   data: {
     id: -1,
-    type: -1, //1: 参与; 2: 助理
+    type: -1, //1: 参与; 2: 助力
     goodDetail: {},
     setInter: '',
     statusInter: '',
@@ -367,6 +367,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/auctionDetail/auctionDetail&opt=' + JSON.stringify(options)
+      })
+      return;
+    }
     console.log("onLoad>>>>>>>>>>>>" + JSON.stringify(options));
     if(!options.id || options.id < 0){
       this.showToast("数据错误");

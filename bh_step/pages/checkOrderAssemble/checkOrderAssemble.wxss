@@ -80,11 +80,12 @@
 }
 
 .invite-users{
-  width: 300rpx;
+  width: 350rpx;
+  margin-top: 15rpx;
 }
 
 .invite-users-bt{
-  margin-top: 10rpx;
+  margin-top: 15rpx;
   background-color: #fff;
 }
 
@@ -158,30 +159,30 @@
 .assemble-rules-content-box{
   display: flex;
   flex-direction: column;
-  width: 86%;
+  width: 600rpx;
   height: 60%;
-  margin-left: 7%;
+  margin-left: 75rpx;
   align-self: center;
 }
 
 .assemble-rules-content{
-  width: 100%;
+  width: 560rpx;
   height: 90%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
   background-color: #fff;
   border-radius: 4%;
   font-size: 28rpx;
-  padding: 10rpx;
+  padding: 20rpx;
   overflow: scroll;
 }
 
 .assemble-rules-title{
-  font-size: 30rpx;
+  font-size: 31rpx;
   color: #000;
   font-weight: bold;
   padding: 10rpx;
+  align-self: center;
 }
 
 .close-assemble-rules{
@@ -212,14 +213,14 @@
   width: 30%;
   text-align: center;
   font-size: 28rpx;
-  padding-top: 18rpx;
-  padding-bottom: 15rpx;
+  padding-top: 20rpx;
+  padding-bottom: 17rpx;
 }
 
 .left-time-box{
   display: flex;
   align-items: center;
-  margin-top: 35rpx;
+  margin-top: 30rpx;
 }
 
 .left-time-text{
@@ -248,4 +249,27 @@
   color: #fff;
   background-color: #00E373;
   font-size: 28rpx;
+}
+
+.invited-friend-box{
+  display: flex;
+  width: 750rpx;
+  background-color: #fff;
+  flex-direction: column;
+  font-size: 27rpx;
+  color: #000;
+  align-items: center;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.invited-friend-view{
+  display: flex;
+  align-items: center;
+}
+
+.more-good{
+  width: 350rpx;
+  margin-top: 2rpx;
 }

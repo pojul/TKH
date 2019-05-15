@@ -16,7 +16,7 @@ App({
     siteInfo: require("siteinfo.js"),
     img_url: "addons/bh_step/template/image",
 		scene: '',
-    baseImageUrl: 'https://tuokehui.whmstc.cn/attachment/images/global/tuoke/',
+    baseImageUrl: 'https://jibu.jianbenao.com/attachment/images/global/tuoke/',
 		
     getSiteImgurl: function() {
       return this.siteInfo.siteroot.replace(/app\/index.php/, "") + this.img_url;

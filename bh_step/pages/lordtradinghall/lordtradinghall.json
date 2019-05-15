@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "领主交易大厅"
+  "navigationBarTitleText": "领主交易大厅",
+  "usingComponents": {
+    "nyz_area_picker": "../../component/nyz_area_picker/nyz_area_picker"
+  }
 }

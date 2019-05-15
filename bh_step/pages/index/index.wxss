@@ -339,10 +339,6 @@
     margin: 0 auto;
     transform-style: preserve-3d;
     margin-bottom: 5rpx;
-    animation-name: upAnimation2;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 4s;
 }
 
 .Flipping2 {
@@ -356,10 +352,10 @@
     margin: 0 auto;
     transform-style: preserve-3d;
     margin-bottom: 5rpx;
-    animation-name: upAnimation2;
+    /* animation-name: upAnimation2;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    animation-duration: 4s;
+    animation-duration: 4s; */
 }
 
 
@@ -1587,3 +1583,171 @@
     margin-top: 60rpx;
 }
 
+.get-redpkg-box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.newuser-redpkg-content-bg{
+  position: fixed;
+  height: 68%;
+  width: 82%;
+  margin-left: 9%;
+  margin-top: 24%;
+  top: 0;
+}
+
+.newuser-redpkg-content-box{
+  position: fixed;
+  top: 0;
+  height: 68%;
+  width: 82%;
+  margin-left: 9%;
+  margin-top: 24%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newuser-redpkg-note{
+  color: #fff;
+  font-size: 26rpx;
+  margin-top: 15%;
+}
+
+.newuser-redpkg-money-box{
+  display: flex;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.newuser-redpkg-maxmoney{
+  font-size: 62rpx;
+  color: #ffffff;
+}
+
+.newuser-redpkg-maxmoney-note{
+  background-color: #E50008;
+  color: #fff;
+  font-size: 22rpx;
+  width: 26rpx;
+  display: flex;
+  padding: 2rpx;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+}
+
+.newuser-redpkg-withdraw-box{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #AD0006;
+  margin-top: 10%;
+}
+
+.newuser-redpkg-line{
+  width: 90rpx;
+  height: 2rpx;
+  background-color: #AD0006;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+
+.newuser-redpkg-bottom{
+  display: flex;
+  position: fixed;
+  top: 51.5%;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.newuser-redpkg-open{
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.newuser-redpkg-limit-note{
+  font-size: 25rpx;
+  color: #AD0006;
+  margin-top: 15%;
+}
+
+.close-newuser-redpkg{
+  position: fixed;
+  padding: 25rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  top: 80%;
+  width: 100%;
+}
+
+.newuser-redpkg-content-success-box{
+  position: fixed;
+  top: 4%;
+  height: 68%;
+  width: 82%;
+  margin-left: 9%;
+  margin-top: 24%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newuser-redpkg-success-bg{
+  position: fixed;
+  height: 60%;
+  width: 100%;
+  margin-top: 24%;
+  top: 4%;
+}
+
+.newuser-redpkg-success-box{
+  display: flex;
+  align-items: center;
+  margin-top: 48%;
+}
+
+.newuser-redpkg-success-line{
+  width: 90rpx;
+  height: 2rpx;
+  background-color: #fff;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+
+.newuser-redpkg-success-note{
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.newuser-redpkg-success-money{
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 10%;
+}
+
+.newuser-task-note{
+  margin-top: 10%;
+  font-size: 21rpx;
+  color: #FFE71F;
+}
+
+.to-newuser-task{
+  width: 300rpx;
+  color: #F59E08;
+  font-size: 26rpx;
+  background-color: #FFE71F;
+  border-radius: 80rpx;
+  padding-top: 20rpx;
+  padding-bottom: 17rpx;
+  text-align: center;
+  margin-top: 5%;
+}

@@ -1,0 +1,13 @@
+<!--bh_step/pages/authorize/authorize.wxml-->
+<view class='content-box'>
+  <image class='icon' src='https://jibu.jianbenao.com/addons/bh_step/template/image/avatar_default.jpg'></image>
+  <view class='title'>拓客会</view>
+  <view class='note-title'>申请获得以下权限：</view>
+  <view class='line'></view>
+  <view class='note-box'>
+    <view class='point'></view>
+    <view class='note'>获得你的公开信息（昵称、头像等）</view>
+  </view>
+  <button open-type="getUserInfo" bindgetuserinfo="getAuthorize" class='allow'>允许</button>
+</view>
+

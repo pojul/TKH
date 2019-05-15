@@ -172,6 +172,15 @@ Page({
     })
   },
 
+  toHomePage: function (e) {
+    if (e.currentTarget.dataset.memberid == this.data.memberId) {
+      return;
+    }
+    wx.navigateTo({
+      url: '/bh_step/pages/homepage/homepage?member_id=' + e.currentTarget.dataset.memberid
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

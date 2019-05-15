@@ -37,7 +37,7 @@
   font-size: 22rpx;
 }
 
-.lucky-text-box{
+.lucky-text-box{wx71a6d550a8e1f07fwx71a6d550a8e1f07fwx71a6d550a8e1f07fwx71a6d550a8e1f07fds
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -161,12 +161,12 @@
 }
 
 .add{
-  width: 93rpx;
-  height: 93rpx;
+  width: 103rpx;
+  height: 103rpx;
   position: fixed;
   bottom: 0rpx;
   right: 0rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 35rpx;
   margin-right: 325rpx;
 }
 
@@ -301,9 +301,14 @@
 }
 
 .note{
-   color: #FCC78C;
+  width: 80%;
+  color: #FCC78C;
   font-size: 36rpx;
   margin-top: 18%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  text-align: center;
 }
 
 .open-redpkg{
@@ -478,5 +483,13 @@
   padding-bottom: 17rpx;
   text-align: center;
   margin-top: 5%;
+}
+
+.map-mask{
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 

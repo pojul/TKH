@@ -198,5 +198,3 @@
 </view>
 
 <view bindtap='toRulesDetail' class='rules'>活动规则</view>
-
-<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>

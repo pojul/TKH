@@ -29,6 +29,8 @@ Page({
     p: 1,
     hasMoreReplys: true,
     isGetReplys: false,
+    type: -1, //1: auto recredPkg
+    hasRedpkgs: false,
   },
 
   getUserInfo: function () {
@@ -58,8 +60,11 @@ Page({
       success: function (t) {
         let tempRedPkgStatus = '红包派完了';
         if (t.info.post_detail.member_money <= 0 && t.info.post_detail.remain_number > 0){
-          that.receiveRedPacket();
-          tempRedPkgStatus = '5';
+          that.data.hasRedpkgs = true;
+          if(that.data.type==1){
+            that.receiveRedPacket();
+            tempRedPkgStatus = '5';
+          }
         } else if (t.info.post_detail.member_money > 0){
           tempRedPkgStatus = '您抢到了' + t.info.post_detail.member_money + '元红包';
         }
@@ -67,14 +72,22 @@ Page({
         that.setData({
           postDetails: t.info.post_detail,
           recUsers: t.info.receive_detail,
-          redpkgStatusStr: tempRedPkgStatus
+          redpkgStatusStr: tempRedPkgStatus,
+          hasRedpkgs: that.data.hasRedpkgs
         })
+      },
+      fail: function (t) {
+        console.log(JSON.stringify(t));
       }
     });
   },
   
   receiveRedPacket: function () {
     var that = this;
+    that.setData({
+      hasRedpkgs: false,
+      redpkgStatusStr: '5'
+    })
     _tools2.default.request({
       method: "get",
       url: "entry/wxapp/receiveRedPacket",
@@ -129,8 +142,12 @@ Page({
     var that = this;
     if (this.data.postDetails.site_url_link != 'undefined' && this.data.postDetails.site_url_link != null &&
     this.data.postDetails.site_url_link != ''){
+      let url = that.data.postDetails.site_url_link;
+      if (url.indexOf("https://") < 0 && url.indexOf("http://")<0){
+        url = "https://" + url;
+      }
       wx.navigateTo({
-        url: '/bh_step/pages/outernetlink/outernetlink?url=' + that.data.postDetails.site_url_link
+        url: '/bh_step/pages/outernetlink/outernetlink?url=' + url
       })
     }
   },
@@ -210,9 +227,10 @@ Page({
         post_id: that.data.postid
       },
       success: function (t) {
-        var str = 'postDetails.is_like';
+        that.data.postDetails.is_like = true;
+        that.data.postDetails.like_count = Number(that.data.postDetails.like_count) + 1;
         that.setData({
-          [str]: true
+          postDetails: that.data.postDetails
         })
       },
       fail: function (t) {
@@ -235,9 +253,10 @@ Page({
         post_id: that.data.postid
       },
       success: function (t) {
-        var str = 'postDetails.is_like';
+        that.data.postDetails.is_like = false;
+        that.data.postDetails.like_count = Number(that.data.postDetails.like_count) - 1;
         that.setData({
-          [str]: false
+          postDetails: that.data.postDetails
         })
       },
       fail: function (t) {
@@ -292,13 +311,15 @@ Page({
           body: str,
           create_time: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes(),
           nickname: that.data.userInfo.nickname,
-          head: that.data.userInfo.head,
+          head: that.data.userInfo.member_head,
           is_like: false,
         }
         that.data.replys.splice(0, 0, reply);
+        that.data.postDetails.comment_count = Number(that.data.postDetails.comment_count)  + 1;
         that.setData({
           replys: that.data.replys,
-          replyText: ''
+          replyText: '',
+          postDetails: that.data.postDetails
         })
         wx.hideLoading();
       },
@@ -307,6 +328,12 @@ Page({
         that.showToast("回复失败");
       }
     });
+  },
+
+  toHomePage: function (e) {
+    wx.navigateTo({
+      url: '/bh_step/pages/homepage/homepage?member_id=' + e.currentTarget.dataset.memberid
+    })
   },
 
   showSubPostReply: function (e) {
@@ -539,6 +566,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/redpkginfo/redpkginfo&opt=' + JSON.stringify(options)
+      })
+      return;
+    }
+
     if (!options.post_id || options.post_id < 0){
       this.showToast("数据错误");
       wx.navigateBack({
@@ -548,7 +583,8 @@ Page({
     }
     this.setData({
       postid: options.post_id,
-      ownerMemberId: wx.getStorageSync("member_id")
+      ownerMemberId: wx.getStorageSync("member_id"),
+      type: !options.type ? -1 : options.type,
     })
     this.getPostDetail();
     this.getUserInfo();

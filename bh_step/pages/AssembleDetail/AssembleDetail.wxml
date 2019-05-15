@@ -37,7 +37,7 @@
   <view class='paly-way-content'>
     <view class='paly-way-item'>
       <image class='paly-way-icon' src='../../images/start_assemble.png'></image>
-      <view>0.01元开团</view>
+      <view>{{goodDetail.pay_money}}元开团</view>
     </view>
     <view class='line-black'></view>
     <view class='paly-way-item'>

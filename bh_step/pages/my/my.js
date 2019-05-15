@@ -26,6 +26,7 @@ Page({
 		isIphoneX: !1,
 		addedExp: 0,
     baseImageUrl: getApp().baseImageUrl,
+    memberType: 1,
 	},
 	onLoad: function(t) {
 		($this = this).data.img_url = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url,
@@ -59,6 +60,10 @@ Page({
 				}), $this.setData(t.info);
 			}
 		});
+    this.setData({
+      memberType: wx.getStorageSync("member_type")
+    })
+    console.log('my----->' + this.data.memberType);
 	},
 	onShow: function() {
 		_tools2.default.request({
@@ -89,6 +94,9 @@ Page({
 				
 			}
 		});
+    this.setData({
+      memberType: wx.getStorageSync("member_type")
+    })
 	},
 	onHide: function() {},
 	onUnload: function() {},

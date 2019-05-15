@@ -1,5 +1,5 @@
 <!--bh_step/pages/bystepDetail/bystepDetail.wxml-->
-<image mode='aspectFill' class='banner' src="{{baseImageUrl + 'bystep_banner.png'}}"></image>
+<image mode='widthFix' class='banner' src="{{baseImageUrl + 'bystep_banner.png'}}"></image>
 
 <view class='detail'>
   <view class='detail-content'>
@@ -24,10 +24,13 @@
   <view class='progress-box'>
     <view style="width: {{progress*670}}rpx;" class='progress'></view>
   </view>
+
+  <view wx:if="{{orderDetail.step.is_complete==3}}" style="color: #f00;font-size: 30rpx;margin-bottom: 20rpx;margin-top: 20rpx;width:100%;text-align:center;">核销码：{{orderDetail.step.receive_code}}</view>
+
   <button open-type="share" wx:if="{{orderDetail.step.is_complete==1}}" class='invite-friend'>邀请好友拼步数</button>
-  <view wx:if="{{orderDetail.step.is_complete==2 || orderDetail.step.is_complete==3}}" style='font-size: 23rpx;color: #666;padding: 10rpx;'>该订单已完成</view>
-  <view wx:if="{{orderDetail.step.is_complete==4}}" style='font-size: 23rpx;color: #666;padding: 10rpx;'>该订单已过期</view>
-  <view class='more-bystep'>去看看别的拼步好物</view>
+  <!-- <view wx:if="{{orderDetail.step.is_complete==2 || orderDetail.step.is_complete==3}}" style='font-size: 23rpx;color: #666;padding: 10rpx;'>该订单已完成</view> -->
+  <view wx:if="{{orderDetail.step.is_complete==4}}" style='font-size: 23rpx;color: #666;padding: 10rpx;width:100%;text-align:center;'>该订单已过期</view>
+  <view bindtap='toMoreGood' class='more-bystep'>去看看别的拼步好物</view>
   <view class='note'>活动商品库存有限，先到先得，拼成后请及时下单哦~</view>
   <view wx:if="{{orderDetail.step.is_complete==1}}" class='left-time'>
     <view class='line'></view>
@@ -80,5 +83,3 @@
     <view bindtap='closeRecGood' class='close-mystep-exchange'>点击关闭</view>
   </view>
 </view>
-
-<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>

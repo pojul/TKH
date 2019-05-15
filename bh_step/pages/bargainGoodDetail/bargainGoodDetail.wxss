@@ -79,7 +79,7 @@
 .check-order{
   position: fixed;
   bottom: 0rpx;
-  background-color: #FF1E5C;
+  background-color: #FF3500;
   width: 650rpx;
   margin-left: 50rpx;
   border-radius: 50rpx;
@@ -87,9 +87,9 @@
   font-size: 30rpx;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 8rpx;
-  padding-top: 8rpx;
-  padding-bottom: 5rpx;
+  margin-bottom: 13rpx;
+  padding-top: 16rpx;
+  padding-bottom: 13rpx;
 }
 
 .detail-html{

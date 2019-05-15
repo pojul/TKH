@@ -905,8 +905,8 @@ button::after {
 .assemble-bt{
   width: 300rpx;
   text-align: center;
-  padding-top: 9rpx;
-  padding-bottom: 6rpx;
+  padding-top: 14rpx;
+  padding-bottom: 11rpx;
   margin-top: 5rpx;
   color: #fff;
   background-color: #00D779;
@@ -951,8 +951,8 @@ button::after {
 .bystep-bt{
   width: 300rpx;
   text-align: center;
-  padding-top: 9rpx;
-  padding-bottom: 6rpx;
+  padding-top: 14rpx;
+  padding-bottom: 11rpx;
   margin-top: 5rpx;
   color: #FFDD77;
   background-color: #FF0000;
@@ -963,8 +963,8 @@ button::after {
 .bysteping-bt{
   width: 300rpx;
   text-align: center;
-  padding-top: 9rpx;
-  padding-bottom: 6rpx;
+  padding-top: 14rpx;
+  padding-bottom: 11rpx;
   margin-top: 5rpx;
   color: #FF774F;
   border: 1rpx solid #FF774F;

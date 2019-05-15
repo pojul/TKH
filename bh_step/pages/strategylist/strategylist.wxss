@@ -53,6 +53,6 @@ page{
 }
 
 .item-icon{
-  width: 160rpx;
-  height: 160rpx;
+  width: 130rpx;
+  height: 130rpx;
 }

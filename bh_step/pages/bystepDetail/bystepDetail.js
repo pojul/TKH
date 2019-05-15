@@ -50,6 +50,12 @@ Page({
     });
   },
 
+  toMoreGood: function () {
+    wx.switchTab({
+      url: '/bh_step/pages/goodsconvert/goodsconvert?currentGoods=4',
+    })
+  },
+
   confirmStepOrder: function (tencryptedData, tiv) {
     var that = this;
     let tempData = {
@@ -70,6 +76,8 @@ Page({
           orderid: t.info.order_id
         });
         that.getOrderDetail(tencryptedData, tiv);
+      },
+      fail: function (t) {
       }
     });
   },
@@ -91,6 +99,8 @@ Page({
             console.log("hasAuth--->" + hasAuth);
             if (hasAuth) {
               that.updateStep(isConfimStepOrder);
+            } else {
+              wx.navigateBack({});
             }
           }
         });
@@ -116,7 +126,8 @@ Page({
         that.setData({
           orderDetail: t.info,
           groupid: t.info.step.group_id,
-          progress: that.data.progress
+          progress: that.data.progress,
+          orderid: t.info.step.id
         });
         if (t.info.step.is_complete == 1) {
           that.startCountDown();
@@ -162,8 +173,8 @@ Page({
   },
 
   toCheckOrder: function () {
-    wx.navigateBack({});
-    wx.navigateTo({
+    //wx.navigateBack({});
+    wx.redirectTo({
       url: '/bh_step/pages/checkOrderBystep/checkOrderBystep?goodid=' + this.data.goodid + '&orderid=' + this.data.orderid
     })
   },
@@ -221,6 +232,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/bystepDetail/bystepDetail&opt=' + JSON.stringify(options)
+      })
+      return;
+    }
     console.log(JSON.stringify(options));
     if (!options.type || options.type < 0) {
       this.showToast("数据错误");
@@ -272,7 +289,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    
   },
 
   showToast: function(str) {

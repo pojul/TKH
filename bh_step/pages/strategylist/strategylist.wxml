@@ -1,7 +1,7 @@
 <!--bh_step/pages/strategylist/strategylist.wxml-->
 <view class='title-note'>拓客会领地规则</view>
 <view class='user-info'>
-  <image class='photo' src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-9e7c5d699eaea93e-299df6e4ff8b8f3c39be9125e8f016f0_qq'></image>
+  <image class='photo' src='https://jibu.jianbenao.com/addons/bh_step/template/image/avatar_default.jpg'></image>
   <view class='name'>拓客会小程序</view>
 </view>
 <view class='line'></view>

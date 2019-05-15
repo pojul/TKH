@@ -12,6 +12,8 @@
     </view>
   </view>
 
+  <view wx:if="{{result.order.status==3}}" style="color: #f00;font-size: 30rpx;margin-bottom: 20rpx;margin-top: 20rpx;width: 100%;text-align: center;">核销码：{{result.order.receive_code}}</view>
+
   <view class='prodect-detail'>
     <image mode='aspectFill' class='prodect-pic' src="{{result.goods.cover_image}}"></image>
     <view class='prodect-text'>
@@ -32,7 +34,7 @@
   </view>
 
   <view class='tkh-note'>
-    <image mode='aspectFill' class='tkh-note-pic' src='https://img03.sogoucdn.com/app/a/07/9c26b31e6bb831cfefcba5055171e0a1'></image>
+    <image mode='aspectFill' class='tkh-note-pic' src='https://jibu.jianbenao.com/addons/bh_step/template/image/avatar_default.jpg'></image>
     <view class='tkh-note-texts'>
       <view class='tkh-note-title'>拓客会</view>
       <view class='tkh-note-text'>运动币当钱花，免费竞拍商品</view>
@@ -40,6 +42,6 @@
   </view>
 </view>
 
-<view class='auction-fail-note'>参与竞拍的运动币将在24小时内退回账户</view>
+<view wx:if="{{result.order.status==4}}" class='auction-fail-note'>参与竞拍的运动币将在24小时内退回账户</view>
 
 <view bindtap='receiveGood' class='got-bt'>{{result.order.status==2?'领取商品':'报名别的商品'}}</view> 

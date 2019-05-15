@@ -25,6 +25,10 @@ Component({
     maskShow:{    //是否显示蒙层
       type: Boolean,
       value: true
+    },
+    showArea:{
+      type: Boolean,
+      value: true
     }
   },
 
@@ -39,6 +43,7 @@ Component({
     tempArea: {},
     tempProvice: '',
     tempCity: '',
+    tempCityId: -1,
   },
 
   ready: function () {
@@ -52,11 +57,16 @@ Component({
     handleNYZAreaChange: function(e){
       this.setData({
         citys: this.data.areaInfos[e.detail.value[0]].city,
-        areas: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].area,
-        tempArea: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].area[e.detail.value[2]],
         tempProvice: this.data.areaInfos[e.detail.value[0]].name,
-        tempCity: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].name
+        tempCity: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].name,
+        tempCityId: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].id
       })
+      if (this.data.showArea){
+        this.setData({
+          areas: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].area,
+          tempArea: this.data.areaInfos[e.detail.value[0]].city[e.detail.value[1]].area[e.detail.value[2]]
+        })
+      }
     },
     /**
      * 确定按钮的点击事件
@@ -65,7 +75,7 @@ Component({
       this.setData({
         show: false
       })
-      this.triggerEvent('checkArea', { area: this.data.tempArea, provice: this.data.tempProvice, city: this.data.tempCity});
+      this.triggerEvent('checkArea', { area: this.data.tempArea, provice: this.data.tempProvice, city: this.data.tempCity, cityId: this.data.tempCityId});
     },
     /**
      * 取消按钮的点击事件
@@ -74,6 +84,17 @@ Component({
       this.setData({
         show:false
       })
+    },
+
+    getCurrentCityId: function (city) {
+      for (let i = 0; i < this.data.areaInfos.length;i++){
+        let tempcitys = this.data.areaInfos[i].city;
+        for (let j = 0; j < tempcitys.length;j++){
+          if (tempcitys[j].name == city){
+            return tempcitys[j].id;
+          }
+        }
+      }
     },
 
     getAreaInfos: function () {
@@ -91,8 +112,10 @@ Component({
             areas: t.info[0].city[0].area,
             tempArea: t.info[0].city[0].area[0],
             tempProvice: t.info[0].name,
-            tempCity: t.info[0].city[0].name
+            tempCity: t.info[0].city[0].name,
+            tempCityId: t.info[0].city[0].id
           })
+          that.triggerEvent('onDataReady');
         }
       });
     },

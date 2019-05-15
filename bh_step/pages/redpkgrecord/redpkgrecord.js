@@ -170,6 +170,18 @@ Page({
     })
   },
 
+  showToast: function (str) {
+    wx.showToast({
+      title: str,
+      icon: 'none',
+      duration: 1500,
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

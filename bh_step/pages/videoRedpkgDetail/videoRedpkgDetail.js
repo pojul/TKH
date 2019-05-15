@@ -134,6 +134,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/videoRedpkgDetail/videoRedpkgDetail&opt=' + JSON.stringify(options)
+      })
+      return;
+    }
     console.log("onLoad--->" + JSON.stringify(options));
     if (options.parent_id && options.parent_id>=0){
       this.setData({

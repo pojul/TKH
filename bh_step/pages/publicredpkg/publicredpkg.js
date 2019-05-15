@@ -33,13 +33,13 @@ Page({
     limitUsers: [],
     linkTitle: '',
     linkUrl: '',
-    baseImageUrl: getApp().baseImageUrl,
+    baseImageUrl: getApp().baseImageUrl
   },
 
   chosePic: function () {
     var _this = this
     wx.chooseImage({
-      count: 9, // 最多可以选择的图片张数，默认9
+      count: 3, // 最多可以选择的图片张数，默认9
       sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
       sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
       success: function (res) {
@@ -91,7 +91,7 @@ Page({
 
   postMoneyChange: function (e) {
     this.setData({
-      postMoney: e.detail.value
+      postMoney: e.detail.value,
     })
   },
 
@@ -215,7 +215,7 @@ Page({
       }
     });
     //this.getFullUrl('entry/wxapp/upload') + 'token=' + wx.getStorageSync("token");
-    //console.log("---->" + that.data.pics[that.data.uploadedPic.length]);
+    console.log(JSON.stringify(that.data.pics) + "---->" + JSON.stringify(that.data.uploadedPic));
     wx.uploadFile({
       url: url,
       filePath: that.data.pics[that.data.uploadedPic.length],
@@ -285,6 +285,11 @@ Page({
         } else if (t.status == 2){
           that.wexinPay(t.info.pay_data);
         }
+      },
+      fail: function (res) {
+        that.setData({
+          uploadedPic: []
+        })
       }
     });
   },

@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "确认订单",
   "usingComponents": {
-    "pay_dialog": "../../component/pay_dialog/pay_dialog",
-    "userinfo_dialog": "../../component/UserInfoDialog/UserInfoDialog"
+    "pay_dialog": "../../component/pay_dialog/pay_dialog"
   }
 }

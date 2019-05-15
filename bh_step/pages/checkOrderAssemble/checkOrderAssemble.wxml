@@ -1,10 +1,19 @@
 <!--bh_step/pages/checkOrderAssemble/checkOrderAssemble.wxml-->
+<view wx:if="{{type==2}}" class='invited-friend-box'>
+  <view class='invited-friend-view'>
+    <view>您的好友</view>
+    <image src="{{orderDetail.group_info.share_member_head}}" style='width:50rpx;height:50rpx;margin-left: 8rpx;border-radius: 50rpx;'></image>
+    <view style='margin-left: 8rpx;'>{{orderDetail.group_info.share_membernickname}}</view>
+    <view style='margin-left: 8rpx;'>邀请您参与拼团</view>
+  </view>
+</view>
+
 <view class='top-box'>
   <view class='top-title'>拼团</view>
   <view class='content'>
     <image mode='aspectFill' class='pic' src="{{goodDetail.cover_image}}"></image>
     <view class='content-text'>
-      <view class='content-title'>{{goodDetail.goods_name}}----拼图成功后立即获得拼图成功后立即获得</view>
+      <view class='content-title'>{{goodDetail.goods_name}}----拼团成功后立即获得拼图成功后立即获得</view>
       <view class='content-note'>
         <view class='content-note-left'>
           <text style="color: #FF0000;font-size: 24rpx;">{{goodDetail.pay_money}}元</text>
@@ -19,9 +28,9 @@
 
 <view class='left-people'>
   <view wx:if="{{orderid<0 || orderDetail.group_info.is_complete == 1}}">
-    <text style="color: #000;font-size: 28rpx;font-weight: bold;">还差</text>
-    <text style="color: #f00;font-size: 28rpx;font-weight: bold;">{{orderDetail.group_info.remain_number}}</text>
-    <text style="color: #000;font-size: 28rpx;font-weight: bold;">人成团</text>
+    <text style="color: #000;font-size: 29rpx;font-weight: bold;">还差</text>
+    <text style="color: #f00;font-size: 29rpx;font-weight: bold;">{{!orderDetail || !orderDetail.group_info.remain_number?goodDetail.group_people:orderDetail.group_info.remain_number}}</text>
+    <text style="color: #000;font-size: 29rpx;font-weight: bold;">人成团</text>
   </view>
   <view wx:if="{{orderDetail.group_info.is_complete == 2}}" style="color: #f00;font-size: 28rpx;font-weight: bold;">待领取</view>
   <view wx:if="{{orderDetail.group_info.is_complete == 3}}" style="color: #f00;font-size: 28rpx;font-weight: bold;">拼团成功</view>
@@ -39,10 +48,11 @@
 
     <image wx:if="{{false}}" class='add-user' src='../../images/add_user.png'></image>
   </view>
-  <button class='invite-users-bt'  open-type="share">
-    <image wx:if="{{type==1 && orderDetail.group_info.is_complete == 1}}" mode='widthFix' class='invite-users' src="{{baseImageUrl + 'invite_user.png'}}"></image>
+  <button size='mini' class='invite-users-bt'  open-type="share">
+    <image wx:if="{{type==1 && orderDetail.group_info.is_complete == 1}}" mode='widthFix' class='invite-users' src="{{baseImageUrl + 'invite_user1.png'}}"></image>
   </button>
-  <view wx:if="{{false}}" style="color: #f00;font-size: 28rpx;margin-bottom: 10rpx;margin-top: 20rpx;">核销码：4686223332</view>
+  <image src="{{baseImageUrl + 'more_assemble_good.png'}}" mode='widthFix' bindtap='toMoreGood' class='more-good'></image>
+  <view wx:if="{{orderDetail.group_info.is_complete==3 && isMember}}" style="color: #f00;font-size: 30rpx;margin-bottom: 10rpx;margin-top: 25rpx;">核销码：{{orderDetail.group_info.receive_code}}</view>
 
   <view wx:if="{{orderDetail.group_info.is_complete==1}}" class='left-time-box'>
     <view class='left-time-text'>砍价还剩</view>
@@ -66,7 +76,7 @@
           <view class='paly-way-content'>
             <view class='paly-way-item'>
               <image class='paly-way-icon' src='../../images/start_assemble.png'></image>
-              <view>0.01元开团</view>
+              <view>{{goodDetail.pay_money}}元开团</view>
             </view>
             <view class='line-black'></view>
             <view class='paly-way-item'>
@@ -95,15 +105,13 @@
 
         <view wx:if="{{type==0 || type==2}}" class='check-order-box'>
           <view class='pay-money-box'>
-            <text style='font-size: 26rpx;color: #999;'>实付：</text>
-            <text style='font-size: 22rpx;color: #f00;'>{{goodDetail.pay_money}}</text>
-            <text style='font-size: 21rpx;color: #333;'>元</text>
+            <text style='font-size: 28rpx;color: #999;'>实付：</text>
+            <text style='font-size: 24rpx;color: #f00;'>{{goodDetail.pay_money}}</text>
+            <text style='font-size: 23rpx;color: #333;'>元</text>
           </view>
           <view bindtap='checkOrder' class='pay'>确认订单</view>
         </view>
 
         <pay_dialog bind:checkPay="checkPay" weixinPayOnly="{{true}}" show="{{showPay}}" payMoney="{{goodDetail.pay_money}}"> </pay_dialog>
 
-<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>
-
-<view wx:if="{{type==1 && orderDetail.group_info.is_complete == 2}}" class='check-order1'>立即领取</view>
+<view bindtap='recGood' wx:if="{{type==1 && orderDetail.group_info.is_complete == 2}}" class='check-order1'>立即领取</view>

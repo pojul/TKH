@@ -30,6 +30,7 @@ Page({
     setInter: '',
     tempoptions: {},
     baseImageUrl: getApp().baseImageUrl,
+    isMember: false,
   },
 
   getGoodDetail: function () {
@@ -134,6 +135,12 @@ Page({
     });
   },
 
+  toMoreGood: function () {
+    wx.switchTab({
+      url: '/bh_step/pages/goodsconvert/goodsconvert?currentGoods=5',
+    })
+  },
+
   showRulesDialog: function (e) {
     this.setData({
       showRules: e.currentTarget.dataset.show
@@ -158,9 +165,22 @@ Page({
             }
           }
         }
+        for (let i = 0; i < t.info.group_member.length; i++) {
+          if (wx.getStorageSync("member_id") == t.info.group_member[i].member_id) {
+            that.setData({
+              isMember: true
+            })
+          }
+        }
+        if (that.data.type == 1) {
+          wx.setNavigationBarTitle({
+            title: '订单详情'
+          })
+        }
         that.setData({
           orderDetail: t.info,
-          groupid: t.info.group_info.group_id
+          groupid: t.info.group_info.group_id,
+          orderid: t.info.group_info.id
         });
         if (that.data.orderDetail.group_info.is_complete == 1){
           that.startCountDown();
@@ -179,9 +199,10 @@ Page({
         that.showToast(t.info);
         if (t.status == 1){
           that.data.orderDetail.group_info.is_complete = 3;
-          this.setData({
-            orderDetail: that.data.orderDetail
-          })
+          // that.setData({
+          //   orderDetail: that.data.orderDetail
+          // })
+          that.getOrderDetail();
         }
       }
     });
@@ -220,10 +241,35 @@ Page({
     clearInterval(that.data.setInter)
   },
 
+  recGood: function () {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/receiveGood",
+      data: {
+        order_id: that.data.orderid
+      },
+      success: function (t) {
+        that.data.orderDetail.group_info.is_complete = 3,
+          // that.setData({
+          //   orderDetail: that.data.orderDetail
+          // })
+        that.showToast('领取成功');
+        that.getOrderDetail();
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/checkOrderAssemble/checkOrderAssemble&opt=' + JSON.stringify(options)
+      })
+      return;
+    }
     console.log(JSON.stringify(options));
     if (!options.type || options.type < 0){
       this.showToast("数据错误");

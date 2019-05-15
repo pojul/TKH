@@ -77,12 +77,10 @@
 <view wx:if="{{showRules}}" class='bargain-rules'>
   <view class='bargain-rules-content-box'>
     <view class='bargain-rules-content'>
-    <view class='bargain-rules-title'>活动规则</view>
-    <import src="../../component/wxParse/wxParse.wxml"/>
-    <template is="wxParse" data="{{wxParseData:rules.nodes}}"/>
-  </view>
-  <view bindtap='showRulesDialog' data-show="{{false}}" class='close-bargain-rules'>点击关闭</view>
+      <view class='bargain-rules-title'>活动规则</view>
+      <import src="../../component/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:rules.nodes}}" />
+    </view>
+    <view bindtap='showRulesDialog' data-show="{{false}}" class='close-bargain-rules'>点击关闭</view>
   </view>
 </view>
-
-<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>

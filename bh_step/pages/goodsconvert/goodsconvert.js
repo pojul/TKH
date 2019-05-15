@@ -31,6 +31,10 @@ Page({
     userInfo: {},
     auctioOrderStatus: ['未参与', '已报名', '竞拍成功', '已完成','竞拍失败'],
     baseImageUrl: getApp().baseImageUrl,
+    mylongitude: 0,
+    mylatitude: 0,
+    city: '',
+    district: ''
   },
 
   getUserInfo: function() {
@@ -45,6 +49,58 @@ Page({
         that.setData({
           userInfo: t.info.userInfo
         })
+      }
+    });
+  },
+
+  getLocation: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+      success: function (res) {
+        that.setData({
+          mylongitude: res.longitude,
+          mylatitude: res.latitude
+        });
+        that.loadCity();
+      }
+    })
+  },
+
+  loadCity: function () {
+    var that = this
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + that.data.mylatitude + ',' + that.data.mylongitude + '&key=FNTBZ-RGJLX-LNN4X-T3SFM-AM3Y2-IPF2H',
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        that.setData({
+          city: res.data.result.address_component.city,
+          district: res.data.result.address_component.district
+        })
+        that.getTerriroty();
+      }
+    })
+  },
+
+  getTerriroty: function () {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/terrirotyInfo",
+      data: {
+        lon: that.data.mylongitude,
+        lat: that.data.mylatitude,
+        area: that.data.district,
+        city: that.data.city
+      },
+      success: function (t) {
+        that.getBystepList();
+        that.getAssembleList();
+        that.getBargainList();
+        that.getAuctionList();
       }
     });
   },
@@ -99,7 +155,10 @@ Page({
         url: '/bh_step/pages/bystepGoodDetail/bystepGoodDetail?goodid=' + this.data.bysteps[index].id
       })
     } else if (this.data.bysteps[index].is_complete == 4) {
-      this.showToast('该商品已过期');
+      //this.showToast('该商品已过期');
+      wx.navigateTo({
+        url: '/bh_step/pages/bystepGoodDetail/bystepGoodDetail?goodid=' + this.data.bysteps[index].id
+      })
     } else {
       wx.navigateTo({
       url: '/bh_step/pages/bystepDetail/bystepDetail?type=1&orderid=' + this.data.bysteps[index].order_id + '&goodid=' + this.data.bysteps[index].id
@@ -150,7 +209,10 @@ Page({
         url: '/bh_step/pages/AssembleDetail/AssembleDetail?goodid=' + this.data.assembles[index].id
       })
     } else if (this.data.assembles[index].is_complete == 4) {
-      this.showToast('该商品已过期');
+      //this.showToast('该商品已过期');
+      wx.navigateTo({
+        url: '/bh_step/pages/AssembleDetail/AssembleDetail?goodid=' + this.data.assembles[index].id
+      })
     } else {
       wx.navigateTo({
         url: '/bh_step/pages/checkOrderAssemble/checkOrderAssemble?type=1&orderid=' + this.data.assembles[index].order_id + '&goodid=' + this.data.assembles[index].id
@@ -201,7 +263,10 @@ Page({
         url: '/bh_step/pages/bargainGoodDetail/bargainGoodDetail?goodid=' + this.data.bargains[index].id
       })
     } else if (this.data.bargains[index].is_complete == 4) {
-      this.showToast('该商品已过期');
+      //this.showToast('该商品已过期');
+      wx.navigateTo({
+        url: '/bh_step/pages/bargainGoodDetail/bargainGoodDetail?goodid=' + this.data.bargains[index].id
+      })
     } else {
       wx.navigateTo({
         url: '/bh_step/pages/bargaindetail/bargaindetail?type=1&orderid=' + this.data.bargains[index].order_id + '&goodid=' + this.data.bargains[index].id
@@ -253,7 +318,7 @@ Page({
   toAuctionDetail: function(e) {
     let index = e.currentTarget.dataset.index;
     if (this.data.auctions[index].is_end == 3){
-      this.showToast("该活动已结束");
+      //this.showToast("该活动已结束");
       //return;
     }
     wx.navigateTo({
@@ -262,9 +327,9 @@ Page({
   },
 
   toVideoPkg: function () {
-    wx.navigateTo({
-      url: '/bh_step/pages/videoRedpkgDetail/videoRedpkgDetail'
-    })
+    // wx.navigateTo({
+    //   url: '/bh_step/pages/videoRedpkgDetail/videoRedpkgDetail'
+    // })
   },
 
   showToast: function(str) {
@@ -284,11 +349,11 @@ Page({
       img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url
     }), $this = this;
 
-    this.getBystepList();
-    this.getAssembleList();
-    this.getBargainList();
-    this.getAuctionList();
-    this.getUserInfo();
+    if (t.currentGoods && t.currentGoods>=0){
+      this.setData({
+        currentGoods: t.currentGoods
+      })
+    }
   },
   onReady: function() {
     _tools2.default.request({
@@ -326,11 +391,8 @@ Page({
       bargains: [],
       p_bargain: 1, //砍价
     })
-    this.getBystepList();
-    this.getAssembleList();
-    this.getBargainList();
-    this.getAuctionList();
-    // this.getUserInfo();
+    this.getLocation();
+    this.getUserInfo();
   },
   onHide: function() {},
   onUnload: function() {},

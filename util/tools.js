@@ -20,6 +20,9 @@ var app = getApp(),
           content: t.data.info,
           showCancel: !1
         }) : -2 == e ? validateAuthorize(o) : o.success(t.data);
+        if (0 == e){
+          o.fail(t.data);
+        }
       },
       fail: function() {
         wx.showModal({

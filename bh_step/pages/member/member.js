@@ -21,6 +21,8 @@ Page({
       { day: 30 }, { day: 90 }, { day: 365 }
     ],
     postMoney: 0,
+    privilegeId: -1,
+    memberType: -1,
   },
 
   showPay: function (e) {
@@ -31,6 +33,28 @@ Page({
     this.setData({
       showAgreement: false,
       showPay: e.currentTarget.dataset.show
+    })
+  },
+
+  getPrivilegeId: function() {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/memberRule",
+      data: {
+      },
+      success: function (t) {
+        that.setData({
+          privilegeId: t.info.id
+        })
+      }
+    });
+  },
+
+  toPrivilegeDetail: function () {
+    var that = this;
+    wx.navigateTo({
+      url: '/bh_step/pages/strategy/strategy?id=' + that.data.privilegeId
     })
   },
 
@@ -70,6 +94,11 @@ Page({
    */
   onLoad: function (options) {
     this.getMemberPrices();
+    this.getPrivilegeId();
+
+    this.setData({
+      memberType: wx.getStorageSync("member_type")
+    })
   },
 
   checkPay: function (e) {

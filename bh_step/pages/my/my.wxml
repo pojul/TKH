@@ -4,7 +4,8 @@
             <image bindtap='toEditUserInfo' class="user-icon" src="{{head}}"></image>
             <view class="user-text-box">
                 <view class="user-name">{{nickname}} 
-                <text style='font-size:24rpx;'>VIP{{level}}</text>
+                <text style='font-size:24rpx;'>{{member_type==2?'TOK':'VIP'}}{{level}}</text>
+                <text wx:if="{{member_type==2}}" style='font-size:22rpx;margin-left: 10rpx;'>(有效期至{{member_expire_time}})</text>
                 </view>
                   <view class="user-sign" wx:if="{{head||nickname}}">
                 	                	
@@ -19,10 +20,10 @@
                 	</view>
                 	<view style="display: flex;">
                 		<view style="flex:1;text-align: left;">
-                			VIP{{level}}
+                			{{member_type==2?'TOK':'VIP'}}{{level}}
                 		</view>
                 		<view style="flex:1;text-align: right;">
-                			VIP{{level+1}}(运动币<text class="text-color-yellow">+{{next_level_prev.add_percent}}%</text>)
+                			{{member_type==2?'TOK':'VIP'}}{{level+1}}(运动币<text class="text-color-yellow">+{{next_level_prev.add_percent}}%</text>)
                 		</view>
                 	</view>
                 </view>

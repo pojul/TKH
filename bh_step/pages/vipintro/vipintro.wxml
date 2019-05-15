@@ -1,14 +1,14 @@
 <AcquireFormidView>
 	<view class="header-box">
 		<view style="font-size: 60rpx;color:#fff;text-shadow:-1px 3px 3px #ee0000;font-family: PingFangSC-Semibold;position:relative;">
-			VIP等级特权
+			{{memberType==2?'TOK':'VIP'}}等级特权
 			<view bindtap="showTip" class="my-btn">加成说明</view>
 		</view>
 		<view style="font-size: 30rpx;color:#fff;">
-			你现在是<text class="text-color-yellow">VIP1</text> 单日提现限额提高
+			你现在是<text class="text-color-yellow">{{memberType==2?'TOK':'VIP'}}1</text> 单日提现限额提高
 		</view>
 		<view class='red-btn'>
-			做VIP限时福利和成长任务可快速升级
+			做{{memberType==2?'TOK':'VIP'}}限时福利和成长任务可快速升级
 		</view>
 	</view>
 	<view class="router-box  bg-color-white-smoke">
@@ -18,7 +18,7 @@
 		</view>
 
 		<view wx:for="{{conf}}" class="weui-flex content-item bg-color-white">
-			<view class="left-text">VIP{{item.lv}}</view>
+			<view class="left-text">{{memberType==2?'TOK':'VIP'}}{{item.lv}}</view>
 			<view class="text-color-extra2 right-text">
         <block wx:if="{{item.lv == 1}}">
 				  当日提现限额提高为<text class="text-color-red">20</text>元

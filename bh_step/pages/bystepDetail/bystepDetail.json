@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "拼步领福利",
-  "usingComponents": {
-    "userinfo_dialog": "../../component/UserInfoDialog/UserInfoDialog"
-  }
+  "navigationBarTitleText": "拼步领福利"
 }

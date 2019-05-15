@@ -25,6 +25,7 @@ Page({
 		share_image: "",
 		img_url: "",
 		conf: '',
+    memberType: -1,
 	},
 	onLoad: function(t) {
 		($this = this).data.img_url = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url,
@@ -71,7 +72,10 @@ Page({
       });
 	},
 	onShow: function() {
-	 
+    this.setData({
+      memberType: wx.getStorageSync("member_type")
+    })
+    
 	},
 	onHide: function() {},
 	onUnload: function() {},

@@ -23,7 +23,7 @@ Page({
     userInfo: {},
     goodDetail: {},
     orderDetail: {},
-    orderStatusStr: '',
+    orderStatusStr: '分享好友 帮我砍价',
     progress: 0,
     parent_id: -1,
     hasHelp: false,
@@ -32,6 +32,7 @@ Page({
     showRecDialog: false,
     testStr1: '',
     testStr2: '',
+    memberId: -1,
   },
   
   showRulesDialog: function (e) {
@@ -54,6 +55,12 @@ Page({
         })
       }
     });
+  },
+
+  toMoreGood: function () {
+    wx.switchTab({
+      url: '/bh_step/pages/goodsconvert/goodsconvert?currentGoods=6',
+    })
   },
 
   getRule: function () {
@@ -125,6 +132,7 @@ Page({
           })
         }
         that.setProgress();
+        console.log(that.data.type + '<<<getOrderDetail>>>' + that.data.orderDetail.order.is_complete);
       }
     });
   },
@@ -159,7 +167,7 @@ Page({
           showHelpDialog: true,
           bargain_money: t.info.bargain_money
         });
-        this.getOrderDetail();
+        that.getOrderDetail();
       }
     });
   },
@@ -180,6 +188,7 @@ Page({
         })
         that.showToast('领取成功');
         that.setOrderStatusStr();
+        that.getOrderDetail();
       }
     });
   },
@@ -197,17 +206,17 @@ Page({
   },
 
   setOrderStatusStr: function () {
-    if(this.data.orderDetail.order.is_complete == 1){
-      this.data.orderStatusStr = '分享好友 帮我砍价';
-    } else if (this.data.orderDetail.order.is_complete == 2){
-      this.data.orderStatusStr = '该订单已完成';
-    } else if (this.data.orderDetail.order.is_complete == 3) {
-      this.data.orderStatusStr = '该订单已完成';
-    } else if (this.data.orderDetail.order.is_complete == 4) {
-      this.data.orderStatusStr = '该订单已过期';
-    }
+    // if(this.data.orderDetail.order.is_complete == 1){
+    //   this.data.orderStatusStr = '分享好友 帮我砍价';
+    // } else if (this.data.orderDetail.order.is_complete == 2){
+    //   this.data.orderStatusStr = '该订单已完成';
+    // } else if (this.data.orderDetail.order.is_complete == 3) {
+    //   this.data.orderStatusStr = '该订单已完成';
+    // } else if (this.data.orderDetail.order.is_complete == 4) {
+    //   this.data.orderStatusStr = '该订单已过期';
+    // }
     this.setData({
-      orderStatusStr: this.data.orderStatusStr 
+      orderStatusStr: '分享好友 帮我砍价'
     })
   },
 
@@ -266,6 +275,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/bargaindetail/bargaindetail&opt=' + JSON.stringify(options)
+      })
+      return;
+    }
     console.log("onLoad--->" + JSON.stringify(options));
     if (!options.type || options.type < 0) {
       this.showToast("数据错误");
@@ -290,7 +305,8 @@ Page({
     this.setData({
       goodid: options.goodid,
       tempoptions: options,
-      parent_id: options.parent_id
+      parent_id: !options.parent_id ? -1 : options.parent_id,
+      memberId: wx.getStorageSync("member_id")
     })
     if (this.data.type < 0) {
       this.setData({

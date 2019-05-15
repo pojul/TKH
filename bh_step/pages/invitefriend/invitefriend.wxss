@@ -1,4 +1,8 @@
 /* bh_step/pages/invitefriend/invitefriend.wxss */
+page{
+  background-color: #fff;
+}
+
 .top-banner{
   width: 100%;
   height: 360rpx;
@@ -26,29 +30,29 @@
   background-color: #fff;
   flex-direction: column;
   align-items: center;
-  margin-left: 80rpx;
-  margin-right: 80rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
   margin-top: 20rpx;
   padding-bottom: 20rpx;
 }
 
 .invite_award-bg{
-  width: 400rpx;
+  width: 480rpx;
+  height: 413.8rpx;
 }
 
 .invite-friend{
   background-color: #F00000;
   font-size: 28rpx;
   color: #fff;
-  padding-top: 15rpx;
-  padding-bottom: 15rpx;
   padding-left: 130rpx;
   padding-right: 130rpx;
   border-radius: 60rpx;
+  margin-top: 2rpx;
 }
 
 .ranking{
-  margin-top: 20rpx;
+  margin-top: 40rpx;
   font-size: 25rpx;
   color: #000000;
   border-bottom: 2rpx solid #000;
@@ -57,7 +61,7 @@
 .line-dashed{
   border-bottom: 1rpx dashed #F00000;
   width: 400rpx;
-  margin-top: 25rpx;
+  margin-top: 45rpx;
 }
 
 .invited-num{
@@ -72,7 +76,7 @@
 }
 
 .invited-title{
-  width: 200rpx;
+  width: 320rpx;
   text-align: center;
   font-size: 26rpx;
   color: #000;
@@ -86,7 +90,7 @@
 
 .invited-userinfo-box{
   display: flex;
-  width: 200rpx;
+  width: 320rpx;
   align-items: center;
 }
 
@@ -118,4 +122,18 @@
   font-size: 32rpx;
   color: #000;
   left: 275rpx;
+}
+
+.wave-box{
+  width: 750rpx;
+  position: absolute;
+  top: 300rpx;
+}
+
+.rules{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  right: 5rpx;
+  top: 270rpx;
 }

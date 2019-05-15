@@ -45,7 +45,9 @@ Page({
       },
       success: function (t) {
         that.showToast('领取商品成功');
-        wx.navigateBack({})
+        wx.redirectTo({
+          url: '/bh_step/pages/bystepDetail/bystepDetail?type=1&goodid=' + that.data.goodid + '&orderid=' + that.data.orderid
+        })
       }
     });
   },

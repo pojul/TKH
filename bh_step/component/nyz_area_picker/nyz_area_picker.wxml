@@ -13,7 +13,7 @@
     <picker-view-column>
       <view class="nyz_area_colum_view" wx:for="{{citys}}">{{item.name}}</view>
     </picker-view-column>
-    <picker-view-column>
+    <picker-view-column wx:if="{{showArea}}">
       <view class="nyz_area_colum_view" wx:for="{{areas}}">{{item.name}}</view>
     </picker-view-column>
   </picker-view>

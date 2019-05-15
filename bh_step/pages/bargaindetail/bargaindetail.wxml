@@ -33,81 +33,86 @@
     <view wx:if="{{type!=0}}" class='progress-box'>
       <view class='progress' style="width: {{progress*670}}rpx"></view>
     </view>
+
+    <view wx:if="{{orderDetail.order.is_complete==3&&orderDetail.order.member_id==memberId}}" style="color: #f00;font-size: 30rpx;margin-bottom: 10rpx;margin-top: 25rpx;">核销码：{{orderDetail.order.receive_code}}</view>
+
     <view wx:if="{{type!=0 && orderDetail.order.is_complete==1}}" class='left-time-box'>
       <view class='left-time-text'>砍价还剩</view>
       <view class='left-time-num'>{{orderDetail.order.expire_time.hour
-      <10? '0'+ orderDetail.order.expire_time.hour:orderDetail.order.expire_time.hour}}</view>
-      <view class='left-time-text'>:</view>
-      <view class='left-time-num'>{{orderDetail.order.expire_time.min
-      <10? '0'+ orderDetail.order.expire_time.min:orderDetail.order.expire_time.min}}</view>
-      <view class='left-time-text'>:</view>
-      <view class='left-time-num'>{{orderDetail.order.expire_time.sec
-      <10? '0'+ orderDetail.order.expire_time.sec:orderDetail.order.expire_time.sec}}</view>
-      <view class='left-time-text'>结束</view>
-    </view>
-  </view>
-</view>
+        <10? '0'+ orderDetail.order.expire_time.hour:orderDetail.order.expire_time.hour}}</view>
+          <view class='left-time-text'>:</view>
+          <view class='left-time-num'>{{orderDetail.order.expire_time.min
+            <10? '0'+ orderDetail.order.expire_time.min:orderDetail.order.expire_time.min}}</view>
+              <view class='left-time-text'>:</view>
+              <view class='left-time-num'>{{orderDetail.order.expire_time.sec
+                <10? '0'+ orderDetail.order.expire_time.sec:orderDetail.order.expire_time.sec}}</view>
+                  <view class='left-time-text'>结束</view>
+              </view>
+          </view>
+      </view>
 
-<button open-type="share" wx:if="{{type==1 && orderDetail.order.is_complete==1}}" class='share'>{{orderStatusStr}}</button>
+      <button open-type="share" wx:if="{{type==1 && orderDetail.order.is_complete==1}}" class='share'>{{orderStatusStr}}</button>
 
-<view class='bargain-users-box'>
-  <view class='bargain-users-top'>
-    <view class='line'></view>
-    <view class='bargain-users-title'>砍价榜</view>
-    <view class='line'></view>
-  </view>
-  <view class='line-gray'></view>
-  <view wx:for="{{orderDetail.bargain_log}}" class='bargain-userinfo'>
-    <view class='bargain-userinfo-left'>
-      <image class='user-photo' src="{{item.head}}"></image>
-      <view style="font-size: 23rpx;color: #333;">{{item.nickname}}</view>
-    </view>
-    <view style='display: flex;align-items: center;'>
-      <text style="font-size: 23rpx;color: #333;">砍掉了</text>
-      <text style="font-size: 26rpx;color: #f00">{{item.bargain_money}}</text>
-      <text style="font-size: 23rpx;color: #333;">元</text>
-    </view>
-  </view>
-</view>
+      <view bindtap='toMoreGood' class='more-good'>去看看别的砍价好物</view>
 
-<view bindtap='showRulesDialog' data-show="{{true}}" class='rule-note'>规则说明</view>
+      <!-- <view bindtap='toMoreGood' class='more-bystep'>去看看别的砍价好物</view> -->
 
-<view wx:if="{{showRules}}" class='bargain-rules'>
-  <view class='bargain-rules-content-box'>
-    <view class='bargain-rules-content'>
-    <view class='bargain-rules-title'>活动规则</view>
-    <import src="../../component/wxParse/wxParse.wxml"/>
-    <template is="wxParse" data="{{wxParseData:rules.nodes}}"/>
-  </view>
-  <view bindtap='showRulesDialog' data-show="{{false}}" class='close-bargain-rules'>点击关闭</view>
-  </view>
-</view>
+      <view class='bargain-users-box'>
+        <view class='bargain-users-top'>
+          <view class='line'></view>
+          <view class='bargain-users-title'>砍价榜</view>
+          <view class='line'></view>
+        </view>
+        <view class='line-gray'></view>
+        <view wx:for="{{orderDetail.bargain_log}}" class='bargain-userinfo'>
+          <view class='bargain-userinfo-left'>
+            <image class='user-photo' src="{{item.head}}"></image>
+            <view style="font-size: 23rpx;color: #333;">{{item.nickname}}</view>
+          </view>
+          <view style='display: flex;align-items: center;'>
+            <text style="font-size: 23rpx;color: #333;">砍掉了</text>
+            <text style="font-size: 26rpx;color: #f00">{{item.bargain_money}}</text>
+            <text style="font-size: 23rpx;color: #333;">元</text>
+          </view>
+        </view>
+      </view>
 
-<view wx:if="{{showHelpDialog}}" class='bargain-success'>
-  <view class='bargain-success-content-box'>
-    <image src="{{baseImageUrl + 'bargain_success.png'}}" class='bargain-success-content'></image>
-    <view class='bargain-success-money'>
-      <text style="font-size: 48rpx;color: #E02F38;">¥{{bargain_money}}</text>
-      <text style="font-size: 26rpx;color: #E02F38;margin-left:2rpx;">元</text>
-    </view>
-    <view bindtap='closeHelpDialog' class='help-bargain'>确认</view>
-  <view bindtap='closeHelpDialog' class='close-bargain-rules'>点击关闭</view>
-  </view>
-</view>
+      <view bindtap='showRulesDialog' data-show="{{true}}" class='rule-note'>规则说明</view>
 
-<view wx:if="{{showRecDialog}}" class='bargain-success'>
-  <view class='bargain-success-content-box'>
-    <image src="{{baseImageUrl + 'friend_help.png'}}"class='bargain-success-content'></image>
-    <view class='friend-help-info'>
-      <image src="{{orderDetail.order.last_bargain_info.member_head}}" class='friend-help-info-photo'></image>
-      <view class='friend-help-info-text'>{{orderDetail.order.last_bargain_info.member_nickname}}帮你砍了{{orderDetail.order.last_bargain_info.bargain_money}}元</view>
-    </view>
-    <view bindtap='recGood' class='help-bargain'>立即领取</view>
-  <view bindtap='closeRecDialog' class='close-bargain-rules'>点击关闭</view>
-  </view>
-</view>
+      <view wx:if="{{showRules}}" class='bargain-rules'>
+        <view class='bargain-rules-content-box'>
+          <view class='bargain-rules-content'>
+            <view class='bargain-rules-title'>活动规则</view>
+            <import src="../../component/wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:rules.nodes}}" />
+          </view>
+          <view bindtap='showRulesDialog' data-show="{{false}}" class='close-bargain-rules'>点击关闭</view>
+        </view>
+      </view>
 
-<userinfo_dialog bind:authorize='authorize'></userinfo_dialog>
+      <view wx:if="{{showHelpDialog}}" class='bargain-success'>
+        <view class='bargain-success-content-box'>
+          <image src="{{baseImageUrl + 'bargain_success.png'}}" class='bargain-success-content'></image>
+          <view class='bargain-success-money'>
+            <text style="font-size: 48rpx;color: #E02F38;">¥{{bargain_money}}</text>
+            <text style="font-size: 26rpx;color: #E02F38;margin-left:2rpx;">元</text>
+          </view>
+          <view bindtap='closeHelpDialog' class='help-bargain'>确认</view>
+          <view bindtap='closeHelpDialog' class='close-bargain-rules'>点击关闭</view>
+        </view>
+      </view>
 
-<!-- <view style='width: 750rpx;'>{{testStr1}}</view>
+      <view wx:if="{{showRecDialog}}" class='bargain-success'>
+        <view class='bargain-success-content-box'>
+          <image src="{{baseImageUrl + 'friend_help.png'}}" class='bargain-success-content'></image>
+          <view class='friend-help-info'>
+            <image src="{{orderDetail.order.last_bargain_info.member_head}}" class='friend-help-info-photo'></image>
+            <view class='friend-help-info-text'>{{orderDetail.order.last_bargain_info.member_nickname}}帮你砍了{{orderDetail.order.last_bargain_info.bargain_money}}元</view>
+          </view>
+          <view bindtap='recGood' class='help-bargain'>立即领取</view>
+          <view bindtap='closeRecDialog' class='close-bargain-rules'>点击关闭</view>
+        </view>
+      </view>
+
+      <!-- <view style='width: 750rpx;'>{{testStr1}}</view>
 <view>{{testStr2}}</view> -->

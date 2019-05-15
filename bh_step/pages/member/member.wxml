@@ -21,11 +21,11 @@
 </view>
 
 <view class='buy-number-box' bindtap='showPay' data-show="{{true}}">
-  <view class='buy-text'>购买会员</view>
+  <view class='buy-text'>{{memberType==2?'续费':'购买会员'}}</view>
   <view class='buy-note'>享更多专属特权服务</view>
 </view>
 
-<view class='content-view'>
+<view class='content-view' bindtap='toPrivilegeDetail'>
   <view class='item'>
     <image class='icon' src='../../images/mess_yellow.png'></image>
     <view class='text-box'>

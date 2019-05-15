@@ -16,7 +16,7 @@
 <view class='recusers-box'>
   <view wx:for="{{redPacketDetail.receive_detail}}" class='recuser'>
     <view class='left-box'>
-      <image class='photo' src="{{item.member_head}}"></image>
+      <image bindtap='toHomePage' data-memberid="{{item.receive_member_id}}" class='photo' src="{{item.member_head}}"></image>
 
       <view class='user-text-box'>
         <view class='name'>{{item.member_name}}</view>

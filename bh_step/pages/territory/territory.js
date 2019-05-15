@@ -31,9 +31,7 @@ Page({
     redPkgs: [],
     showRedPkgIndex: 0,
     baseImageUrl: getApp().baseImageUrl,
-    showNewerRedpkg: false,
-    showNewerRedpkgSucess: false,
-    recNewerRedpkgMoney: 0,
+    mapscale: 15,
   },
 
   getLocation: function () {
@@ -47,8 +45,8 @@ Page({
           circles: [{
             latitude: res.latitude,
             longitude: res.longitude,
-            color: '#000000DD',
-            fillColor: '#00000000',
+            color: '#000000dd',
+            fillColor: '#ffffff00',
             radius: 1000,
             strokeWidth: 1
           }],
@@ -144,8 +142,8 @@ Page({
             id: (i * 2),
             latitude: member.lat,
             longitude: member.lon,
-            width: 30,
-            height: 30,
+            width: 35,
+            height: 35,
           }
           that.data.markers[i] = marker;
           this.setData({
@@ -192,8 +190,8 @@ Page({
       id: (index * 2 + 1),
       latitude: randomLat,
       longitude: randomLon,
-      width: 30,
-      height: 30,
+      width: 32,
+      height: 32,
     }
     let startIndex = 0;
     if (that.data.memberList){
@@ -206,20 +204,17 @@ Page({
   },
 
   toMyLoc: function () {
-    var that = this;
-    wx.getLocation({
-      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function (res) {
-        that.setData({
-          mylongitude: res.longitude,
-          mylatitude: res.latitude
-        });
-      }
-    })
-  },
-
-  toNewuserTask: function () {
-    
+    // var that = this;
+    // wx.getLocation({
+    //   type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+    //   success: function (res) {
+    //     that.setData({
+    //       mylongitude: res.longitude,
+    //       mylatitude: res.latitude
+    //     });
+    //   }
+    // })
+    this.onShow();
   },
 
   mapClick: function (e) {
@@ -260,7 +255,7 @@ Page({
 
   onTouchMove: function (e) {
     let dsx = e.touches[0].pageX - this.data.touchesStartX;
-    let dsxRpx = (this.data.cardsScrollX + dsx * 750 / this.data.screenWidth);
+    let dsxRpx = (this.data.cardsScrollX + dsx * 750 * 0.5/ this.data.screenWidth);
 
     if (Math.abs(dsx) < 10 || dsxRpx < (-567 * (this.data.memberList.length - 1) + 80) || 
       dsxRpx > (-567 * 0 + 80)){
@@ -284,6 +279,15 @@ Page({
     })
     wx.navigateTo({
       url: '/bh_step/pages/redpkginfo/redpkginfo?post_id=' + e.currentTarget.dataset.postid
+    })
+  },
+
+  robRedRkgInfo: function (e) {
+    this.setData({
+      showOpenRedpkg: false
+    })
+    wx.navigateTo({
+      url: '/bh_step/pages/redpkginfo/redpkginfo?post_id=' + e.currentTarget.dataset.postid + '&type=1' 
     })
   },
 
@@ -325,48 +329,22 @@ Page({
     })
   },
 
-  recNewerRedpkg: function () {
-    wx.showLoading({
-      title: '领取中',
-      mask: !0
-    });
-    var that = this;
-    _tools2.default.request({
-      method: "get",
-      url: "entry/wxapp/receiveNewBag",
-      data: {
-      },
-      success: function (t) {
-        wx.hideLoading();
-        wx.setStorageSync("is_receive_new_bag", 2);
-        that.setData({
-          showNewerRedpkg: false,
-          showNewerRedpkgSucess: true,
-          recNewerRedpkgMoney: t.info.bag_money
-        })
-      },
-      fail(res) {
-        wx.hideLoading();
-        that.showToast("领取失败");
-      }
-    });
-  },
+  // regionchange: function (e) {
+  //   if (e.type =='end'){
+  //     this.setData({
+  //       mapscale: 15,
+  //       mylongitude: this.data.mylongitude,
+  //       mylatitude: this.data.mylatitude
 
-  showRecNewerPkg: function () {
-    this.setData({
-      showNewerRedpkg: true
-    })
-  },
+  //     });
+  //     console.log('regionchange:' + this.data.mapscale)
+  //   }
+  //   //wx.createMapContext(mapid, this)
+  // },
 
-  closeRecNewerPkg: function () {
-    this.setData({
-      showNewerRedpkg: false
-    })
-  },
-
-  closeRecNewerPkgSuccess: function () {
-    this.setData({
-      showNewerRedpkgSucess: false
+  tofriendinvited: function () {
+    wx.navigateTo({
+      url: '/bh_step/pages/invitefriend/invitefriend'
     })
   },
 
@@ -389,11 +367,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      markers: [],
+      memberList: [],
+      redPkgs: []
+    })
     this.getLocation();
-    if (wx.getStorageSync("is_receive_new_bag") && wx.getStorageSync("is_receive_new_bag")==1){
-      this.showRecNewerPkg();
-    }
-    
   },
 
   /**

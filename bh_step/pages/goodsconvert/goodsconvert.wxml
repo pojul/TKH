@@ -100,7 +100,15 @@
       </view>
     </view>
 
-    <view class='goods-box' wx:if="{{currentGoods == 5}}">
+    <view wx:if="{{currentGoods == 5}}" class='bargain-top-box'>
+      <view class='bargain-top-left'>
+        <image class='bargain-top-photo' src="{{userInfo.member_head}}"></image>
+        <text style="font-size: 26rpx;color: #f00;font-weight: bold">我的拼团</text>
+      </view>
+      <navigator class='bargain-top-right' url="/bh_step/pages/order/order?currentGoods=2">可查看发起和参与的所有拼团＞ 
+      </navigator>
+    </view>
+    <view style="margin-top: 65rpx;" class='goods-box' wx:if="{{currentGoods == 5}}">
       <view wx:for="{{assembles}}" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">
         <image mode='aspectFill' class='goods-item-pic' src="{{item.cover_image}}"></image>
         <view class='assemble-num'>{{item.group_people}}人团</view>
@@ -126,7 +134,8 @@
         <image class='bargain-top-photo' src="{{userInfo.member_head}}"></image>
         <text style="font-size: 26rpx;color: #f00;font-weight: bold">我的砍价</text>
       </view>
-      <view class='bargain-top-right'>可查看发起和参与的所有砍价＞</view>
+      <navigator class='bargain-top-right' url="/bh_step/pages/order/order?currentGoods=3">可查看发起和参与的所有砍价＞
+      </navigator>
     </view>
     <view style="margin-top: 65rpx;" class='goods-box' wx:if="{{currentGoods == 6}}">
       <view wx:for="{{bargains}}" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">
@@ -156,7 +165,8 @@
         <image class='bargain-top-photo' src="{{userInfo.member_head}}"></image>
         <text style="font-size: 26rpx;color: #f00;font-weight: bold">我的拼步</text>
       </view>
-      <view class='bargain-top-right'>可查看发起和参与的所有拼步＞</view>
+      <navigator class='bargain-top-right' url="/bh_step/pages/order/order?currentGoods=1">可查看发起和参与的所有拼步＞
+      </navigator>
     </view>
     <view style="margin-top: 65rpx;margin-bottom:10rpx;" class='goods-box' wx:if="{{currentGoods == 4}}">
       <view wx:for="{{bysteps}}" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">
@@ -183,7 +193,8 @@
         <image class='bargain-top-photo' src="{{userInfo.member_head}}"></image>
         <text style="font-size: 26rpx;color: #f00;font-weight: bold">我的竞拍</text>
       </view>
-      <view class='bargain-top-right'>可查看发起和参与的所有竞拍＞</view>
+      <navigator class='bargain-top-right' url="/bh_step/pages/order/order?currentGoods=0">可查看发起和参与的所有竞拍＞
+      </navigator>
     </view>
     <view style="margin-top: 65rpx;" class='goods-box' wx:if="{{currentGoods == 3}}">
       <view bindtap='toAuctionDetail' data-index="{{index}}" wx:for="{{auctions}}" class="{{index%2==0?'goods-item-box-left':'goods-item-box-right'}}">

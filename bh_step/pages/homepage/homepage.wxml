@@ -37,7 +37,7 @@
 
 <view class='recent-visitors-note'>最近访客：</view>
 <view class='recent-visitors-box'>
-  <image wx:for="{{recentVisitors}}" class='recent-visitor-photo' src="{{item.member_head}}"></image>
+  <image wx:for="{{recentVisitors}}" class='recent-visitor-photo' bindtap='toHomePage' data-memberid="{{item.member_id}}" src="{{item.member_head}}"></image>
 </view>
 
 <view class='line'></view>
@@ -45,13 +45,13 @@
 <view class='detail-top-box'>
   <view class='top-title-box'>
     <view data-current="0" bindtap="setCurrentDetail" class="{{currentDetail==0?'top-title-active':'top-title'}}">个人动态</view>
-    <view data-current="1" bindtap="setCurrentDetail" class="{{currentDetail==1?'top-title-active':'top-title'}}">商业名片</view>
+    <!-- <view data-current="1" bindtap="setCurrentDetail" class="{{currentDetail==1?'top-title-active':'top-title'}}">商业名片</view> -->
   </view>
-  <text class='collar-money'>领佣金</text>
+  <!-- <text class='collar-money'>领佣金</text> -->
 </view>
 
 <view class='line-small'></view>
-<view wx:if="{{currentDetail==1}}" class='busy-detail-box'>
+<!-- <view wx:if="{{currentDetail==1}}" class='busy-detail-box'>
   <view class='position-box'>
       <view class='position-view'>
         <image class='position-icon' src='../../images/position.png'></image>
@@ -63,7 +63,7 @@
   <view class='busy-detail-text'>宝妈，学生都可以做   任务无限  赏金无限    一天随便几百  tttop:my.dur.liffrueid-87965754</view>
   <image mode="widthFix" class='busy-detail-pic' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552476122438&di=bd95872e0ff30719b053c82d8bbd92ff&imgtype=0&src=http%3A%2F%2Fi8.hexun.com%2F2017-06-05%2F189490966.jpg'></image>
   <view class='url-link'>网址链接</view>
-</view>
+</view> -->
 
 
 <view wx:if="{{currentDetail==0}}" class='dynamics-box'>

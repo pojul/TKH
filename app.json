@@ -74,7 +74,9 @@
     "bh_step/pages/auctionResults/auctionResults",
     "bh_step/pages/auctionPriceRecord/auctionPriceRecord",
     "bh_step/pages/bargainGoodDetail/bargainGoodDetail",
-    "bh_step/pages/bystepGoodDetail/bystepGoodDetail"
+    "bh_step/pages/bystepGoodDetail/bystepGoodDetail",
+    "bh_step/pages/activity/activity",
+    "bh_step/pages/authorize/authorize"
   ],
   "window": {
     "navigationStyle": "default",

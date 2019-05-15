@@ -3,7 +3,7 @@
   <view class='left-box'>
     <image class='photo' src="{{item.member_head}}"></image>
     <view class='text-box'>
-      <view class='note'>贝壳风铃评论了你</view>
+      <view class='note'>{{item.related_user_name}}评论了你</view>
       <view class='text'>{{!item.reply?'':item.reply}}</view>
       <view class='time'>{{item.create_time}}</view>
     </view>

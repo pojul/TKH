@@ -1,6 +1,6 @@
 <!--bh_step/pages/territory/territory.wxml-->
 
-<map bindtap="mapClick" bindmarkertap="markerClick" id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="14" circles="{{circles}}" markers="{{markers}}" show-location style="{{'width: 100%; height: ' + screenHeight + 'px;'}}" >
+<map bindtap="mapClick" bindmarkertap="markerClick" id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="{{mapscale}}" circles="{{circles}}" markers="{{markers}}" show-location style="{{'width: 100%; height: ' + screenHeight + 'px;'}}" >
 </map>
 
 <cover-view class='top-class'>
@@ -36,14 +36,12 @@
 <cover-view class='myloc-box' bindtap="toMyLoc">
   <cover-image class='myloc' src='../../images/location.png'></cover-image>
 </cover-view>
-<cover-image wx:if="{{false}}" class='hot' bindtap="toBusycircle" src='../../images/hot.png'></cover-image>
+<!-- <cover-image wx:if="{{false}}" class='hot' bindtap="toBusycircle" src='../../images/hot.png'></cover-image> -->
 <cover-image bindtap='toRedpkgrecord' class='email' src='../../images/email.png'></cover-image>
-<cover-image wx:if="{{false}}" class='red-package' src='../../images/red_package.png'></cover-image>
+<cover-image bindtap='tofriendinvited' class='red-package' src='../../images/red_package.png'></cover-image>
 <cover-image class='add' src="{{baseImageUrl + 'add_territory.png'}}"bindtap='toPublishRedpkg'></cover-image>
 
 <cover-view class='open-redpkg-box'></cover-view>
-
-
 
 <cover-view wx:if="{{showCards}}" class='cards-view' bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend='touchEnd' style="width: {{cardsViewWidth}}px">
   <cover-view class='cards-line' style="margin-left: {{cardsScrollX}}px"></cover-view>
@@ -76,50 +74,8 @@
       <cover-image class='photo' src="{{redPkgs[showRedPkgIndex].member_head}}"></cover-image>
       <cover-view class='name'>{{redPkgs[showRedPkgIndex].member_nickname}}</cover-view>
       <cover-view class='note'>{{redPkgs[showRedPkgIndex].title}}</cover-view>
-      <cover-image bindtap='toRedRkgInfo' data-postid="{{redPkgs[showRedPkgIndex].post_id}}" class='open-redpkg' src="{{baseImageUrl + 'open-redpkg.png'}}"></cover-image>
+      <cover-image bindtap='robRedRkgInfo' data-postid="{{redPkgs[showRedPkgIndex].post_id}}" class='open-redpkg' src="{{baseImageUrl + 'open-redpkg.png'}}"></cover-image>
     </cover-view>
   </cover-view>
   <cover-view bindtap='closeRedpkg' class='close-redpkg'>点击关闭</cover-view>
-</cover-view>
-
-<cover-view class='get-redpkg-box' wx:if="{{showNewerRedpkg}}">
-  <cover-image class='newuser-redpkg-content-bg' src="{{baseImageUrl + 'newuser_redpkg.png'}}"></cover-image>
-  <cover-view class='newuser-redpkg-content-box'>
-    <cover-view class='newuser-redpkg-note'>恭喜您获得新人红包</cover-view>
-    <cover-view class='newuser-redpkg-money-box'>
-      <cover-view class='newuser-redpkg-maxmoney'>打开得18元</cover-view>
-      <cover-view class='newuser-redpkg-maxmoney-note'>
-        <cover-view>最</cover-view>
-        <cover-view>高</cover-view>
-      </cover-view>
-    </cover-view>
-    <cover-view class='newuser-redpkg-withdraw-box'>
-      <cover-view class='newuser-redpkg-line'></cover-view>
-      <cover-view>可当天提现</cover-view>
-      <cover-view class='newuser-redpkg-line'></cover-view>
-    </cover-view>
-    <cover-view class='newuser-redpkg-bottom'>
-      <cover-image bindtap='recNewerRedpkg' src="{{baseImageUrl + 'open_newuser_redpkg.png'}}" class='newuser-redpkg-open'></cover-image>
-      <cover-view class='newuser-redpkg-limit-note'>仅限新注册用户领取</cover-view>
-    </cover-view>
-  </cover-view>
-  <cover-view bindtap='closeRecNewerPkg' class='close-newuser-redpkg'>点击关闭</cover-view>
-</cover-view>
-
-<cover-view class='get-redpkg-box' wx:if="{{showNewerRedpkgSucess}}">
-  <cover-image class='newuser-redpkg-success-bg' src="{{baseImageUrl + 'newuser_redpkg_success.png'}}"></cover-image>
-  <cover-view class='newuser-redpkg-content-success-box'>
-    <cover-view class='newuser-redpkg-success-box'>
-      <cover-view class='newuser-redpkg-success-line'></cover-view>
-      <cover-view class='newuser-redpkg-success-note'>恭喜您获得新人红包</cover-view>
-      <cover-view class='newuser-redpkg-success-line'></cover-view>
-    </cover-view>
-    <cover-view class='newuser-redpkg-success-money'>
-      <cover-view style='font-size: 60rpx;'>{{recNewerRedpkgMoney}}</cover-view>
-      <cover-view style='font-size: 22rpx;margin-bottom: 10rpx;margin-left: 15rpx;'>元</cover-view>
-    </cover-view>
-    <cover-view class='newuser-task-note'>完成新人任务，即可领取大量红包</cover-view>
-    <cover-view bindtap='toNewuserTask' class='to-newuser-task'>立即前往</cover-view>
-  </cover-view>
-  <cover-view bindtap='closeRecNewerPkgSuccess' class='close-newuser-redpkg'>点击关闭</cover-view>
 </cover-view>

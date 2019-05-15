@@ -1,13 +1,14 @@
 <!--bh_step/pages/redpkginfo/redpkginfo.wxml-->
 <image class='topbg' src='../../images/collarmoney_topbg.png'></image>
 <view class='top-box'>
-  <image class='photo' src="{{postDetails.head}}"></image>
+  <image bindtap='toHomePage' data-memberid="{{postDetails.member_id}}" class='photo' src="{{postDetails.head}}"></image>
   <view class='user-name-box'>
     <view class='user-name'>{{postDetails.nickname}}</view>
     <view class='user-name-note'>的红包</view>
   </view>
 
-  <view class='redpkg-status'>{{redpkgStatusStr}}</view>
+  <view wx:if="{{!(type!=1&&hasRedpkgs)}}" class='redpkg-status'>{{redpkgStatusStr}}</view>
+  <view wx:if="{{type!=1&&hasRedpkgs}}" bindtap='receiveRedPacket' class='rec-redpkg'>领取红包</view>
   <view class='more-interested'>下方内容更精彩</view>
 </view>
 
@@ -23,10 +24,10 @@
   <view class='content'>
     <view class='content-title'>{{postDetails.title}}</view>
     <view class='content-photo-box'>
-      <image mode='aspectFill' wx:for="{{postDetails.pic}}" class="{{index%3==1?'content-photo-center':'content-photo'}}" 
+      <image mode='widthFix' wx:for="{{postDetails.pic}}" class="content-photo" 
        src="{{item}}"></image>
     </view>
-    <view wx:if="{{postDetails.site_url_link != 'undefined' && postDetails.site_url_link != null && postDetails.site_url_link != ''}}" bindtap='toOutLink' class='url-link'>{{(postDetails.site_url_title != 'undefined' && postDetails.site_url_title != null && postDetails.site_url_title != '')?'网址链接':postDetails.site_url_title}}</view>
+    <!-- <view wx:if="{{postDetails.site_url_link != 'undefined' && postDetails.site_url_link != null && postDetails.site_url_link != ''}}" bindtap='toOutLink' class='url-link'>{{(postDetails.site_url_title != 'undefined' && postDetails.site_url_title != null && postDetails.site_url_title != '')?'网址链接':postDetails.site_url_title}}</view> -->
     <view class='operate-box'>
       <button bindtap='thumpUpPost' class='thumbup-box'>
         <image class='content-thumbup' src="{{postDetails.is_like?'../../images/thumbup.png':'../../images/thumbup_gray.png'}}"></image>
@@ -48,7 +49,7 @@
     <view class='line1'></view>
     <view wx:for="{{replys}}" class='reply-item'>
       <view class='user-info'>
-        <image class='reply-photo' src="{{item.head}}"></image>
+        <image bindtap='toHomePage' data-memberid="{{item.member_id}}" class='reply-photo' src="{{item.head}}"></image>
         <view class='user-text-info'>
           <view class='reply-name'>{{item.nickname}}</view>
           <view class='reply-text'>{{item.body}}</view>
@@ -87,7 +88,6 @@
 
 <view class='redpkg-loc'>{{postDetails.location_range}}</view>
 
-<!-- <image mode='widthFix' class='renew' src='../../images/renew.png'></image> -->
-<image bindtap='toRedpkgReport' mode='widthFix' class='report' src='../../images/report.png'></image>
+<image wx:if="{{ownerMemberId==postDetails.member_id}}" bindtap='toRedpkgReport' mode='widthFix' class='report' src='../../images/report.png'></image>
 
 <reply-dialog show="{{showSubReply}}" bind:checkReply="checkReply"></reply-dialog>

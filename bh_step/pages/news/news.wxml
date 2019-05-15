@@ -1,6 +1,6 @@
 <!--bh_step/pages/news/news.wxml-->
 <view class='item' bindtap='toMessItem' data-item="0">
-  <image class='icon' src='../../images/fannotification.png'></image>
+  <image class='icon' src="{{baseImageUrl + 'fannotification.png'}}"></image>
   <view class='text-box'>
     <view class='text-top'>
       <view class='name'>粉丝通知</view>
@@ -12,7 +12,7 @@
 <view class='line'></view>
 
 <view class='item' bindtap='toMessItem' data-item="1">
-  <image class='icon' src='../../images/commentmess.png'></image>
+  <image class='icon' src="{{baseImageUrl + 'commentmess.png'}}"></image>
   <view class='text-box'>
     <view class='text-top'>
       <view class='name'>评论消息</view>
@@ -25,7 +25,7 @@
 
 
 <view class='item' bindtap='toMessItem' data-item="2">
-  <image class='icon' src='../../images/point_notice.png'></image>
+  <image class='icon' src="{{baseImageUrl + 'point_notice.png'}}"></image>
   <view class='text-box'>
     <view class='text-top'>
       <view class='name'>点赞通知</view>

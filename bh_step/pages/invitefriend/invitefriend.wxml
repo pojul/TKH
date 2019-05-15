@@ -1,32 +1,34 @@
 <!--bh_step/pages/invitefriend/invitefriend.wxml-->
-<image mode='aspectFill'  class='top-banner' src='https://i03piccdn.sogoucdn.com/c8f7350bb66db42d'></image>
-
-<view class='join-activity'>点我参与></view>
+<image mode='aspectFill'  class='top-banner' src="{{baseImageUrl + 'invite_friendbg.png'}}"></image>
 
 <view class='content-box'>
   <image class='invite_award-bg' mode='widthFix' src="{{baseImageUrl + 'invite_award.png'}}"></image>
 
-  <view class='invite-friend'>邀请好友</view>
+  <button class='invite-friend' open-type="share">邀请好友</button>
 
-  <view class='ranking'>收入排行榜</view>
+  <view bindtap='toranking' class='ranking'>收入排行榜</view>
 
   <view class='line-dashed'></view>
 
-  <view class='invited-num'>成功邀请  2人</view>
+  <view class='invited-num'>成功邀请  {{proxy1_num}}人</view>
 
   <view class='invited-title-box'>
     <view class='invited-title'>昵称</view>
     <view class='invited-title'>时间</view>
   </view>
 
-  <view class='invited-user-box' wx:for="{{invitedFriends}}">
+  <view class='invited-user-box' wx:for="{{firends}}">
     <view class='invited-userinfo-box'>
-      <image class='invited-user-photo' src='https://i01piccdn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-c59300ad1d091b38e53c1d835e186bcc_qq'></image>
-      <view class='invited-user-name'>大哥发的</view>
+      <image class='invited-user-photo' src="{{item.head}}"></image>
+      <view class='invited-user-name'>{{item.nickname}}</view>
     </view>
-    <view class='invited-user-date'>2019.03.05</view>
+    <view class='invited-user-date'>{{item.add_time}}</view>
   </view>
 </view>
 
+<image mode='widthFix' class='wave-box' src="{{baseImageUrl + 'wave.png'}}"></image>
+
 <view class='invite_award-note'>邀请奖励</view>
+
+<image bindtap='toStrategyDetail' class='rules' src="{{baseImageUrl + 'rule_bg.png'}}"></image>
 

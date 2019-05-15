@@ -130,8 +130,8 @@ page{
   margin-left: 150rpx;
   font-weight: bold;
   border-radius: 80rpx;
-  padding-top: 14rpx;
-  padding-bottom: 11rpx;
+  padding-top: 11rpx;
+  padding-bottom: 8rpx;
   margin-top: 20rpx;
 }
 
@@ -195,7 +195,7 @@ page{
 .rule-note{
   position: absolute;
   right: 20rpx;
-  top: 85rpx;
+  top: 20rpx;
   color: #FFFFFF;
   border: 2rpx solid #fff;
   border-radius: 50rpx;
@@ -218,22 +218,22 @@ page{
 .bargain-rules-content-box{
   display: flex;
   flex-direction: column;
-  width: 86%;
-  height: 60%;
-  margin-left: 7%;
+  width: 82%;
+  height: 64%;
+  margin-left: 9%;
   align-self: center;
 }
 
 .bargain-rules-content{
-  width: 100%;
+  width: 94%;
   height: 90%;
   display: flex;
-  flex-direction: column;
-  align-items: center; 
+  flex-direction: column; 
   background-color: #fff;
   border-radius: 4%;
   font-size: 28rpx;
-  padding: 10rpx;
+  padding-left: 3%;
+  padding-right: 3%;
   overflow: scroll;
 }
 
@@ -249,6 +249,7 @@ page{
   border-radius: 20rpx;
   margin-top: 15rpx;
   margin-bottom: 10rpx;
+  align-self: center;
 }
 
 .close-bargain-rules{
@@ -328,5 +329,19 @@ page{
   font-size: 26rpx;
   color: #FFC41B;
   margin-top: 15rpx;
+}
+
+.more-good{
+  width: 450rpx;
+  text-align: center;
+  padding-top: 18rpx;
+  padding-bottom: 15rpx;
+  margin-top: 25rpx;
+  border-radius: 50rpx;
+  align-self: center;
+  color: #FFA084;
+  font-size: 28rpx;
+  border: 1rpx solid #FFA084;
+  margin-left: 150rpx;
 }
 

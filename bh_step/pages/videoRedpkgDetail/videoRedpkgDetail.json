@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "看视频领红包",
-  "usingComponents": {
-    "userinfo_dialog": "../../component/UserInfoDialog/UserInfoDialog"
-  }
+  "navigationBarTitleText": "看视频领红包"
 }

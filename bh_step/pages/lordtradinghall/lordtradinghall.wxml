@@ -1,4 +1,9 @@
 <!--bh_step/pages/lordtradinghall/lordtradinghall.wxml-->
+<view class='top-box'>
+  <view class='top-left'>{{currentCity}}</view>
+  <view class='top-right' bindtap='selectLoc'>其他领地</view>
+</view>
+
 <view class=' trade-box' wx:for="{{trades}}" bindtap='toLoaird' data-territoryid="{{item.id}}">
   <view class=' trade-top'>
     <view class='territory-loxbox'>
@@ -20,3 +25,6 @@
 </view>
 
 <view class='no-more'>{{!hasMore?'一 没有更多了 一':'数据加载中'}}</view>
+
+<nyz_area_picker bind:checkArea="checkArea" id="areaComponent" showArea="{{false}}" show="{{showAreaSec}}"  bind:onDataReady="onAreaDataReady">
+</nyz_area_picker>

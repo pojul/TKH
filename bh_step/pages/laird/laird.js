@@ -1,6 +1,7 @@
 // bh_step/pages/laird/laird.js
 var WxParse = require('../../component/wxParse/wxParse.js');
 var _tools = require("../../../util/tools.js"), _tools2 = _interopRequireDefault(_tools);
+var util = require("../../../we7/resource/js/util.js");
 
 function _interopRequireDefault(t) {
   return t && t.__esModule ? t : {
@@ -18,11 +19,13 @@ Page({
     city: '',
     area: '',
     show: false,
-    lordAgreement: "<div></div>",
+    lordAgreement: "",
     showAgreement: false,
     showPay: false,
     terriroty: {},
     terrirotyid: -1,
+    baseImageUrl: getApp().baseImageUrl,
+    memberId: -2,
   },
 
   loadAgreement: function (e) {
@@ -86,6 +89,67 @@ Page({
     that.setData({
       show: true
     })
+  },
+
+  choosePic: function () {
+    var _this = this
+    wx.chooseImage({
+      count: 1, // 最多可以选择的图片张数，默认9
+      sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
+      success: function (res) {
+        _this.uploadPic(res.tempFilePaths[0]);
+      }
+    })
+  },
+
+  uploadPic: function (path) {
+    var that = this;
+    let url = util.getFullUrl({
+      method: "get",
+      url: "entry/wxapp/upload",
+      data: {
+      }
+    });
+    wx.showLoading({
+      title: '上传图片中',
+      mask: !0
+    })
+    wx.uploadFile({
+      url: url,
+      filePath: path,
+      name: 'file',
+      header: {
+        "Content-Type": "multipart/form-data"
+      },
+      formData: {
+        token: wx.getStorageSync("token")
+      },
+      success(res) {
+        let data = JSON.parse(res.data);
+        that.setNoticePic(data.info);
+        wx.hideLoading();
+      },
+      fail(res) {
+        that.showToast("上传图片失败");
+        wx.hideLoading();
+      }
+    })
+  },
+
+  setNoticePic: function (picId) {
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/updateAreaImage",
+      data: {
+        cover_image: picId,
+        area_id: that.data.terriroty.id
+      },
+      success: function (t) {
+        that.getTerriroty(that.data.terriroty.id);
+      }
+    });
   },
 
   checkArea: function (e) {
@@ -161,6 +225,7 @@ Page({
         that.setData({
           lordAgreement: t.info
         })
+        WxParse.wxParse('lordAgreement', 'html', that.data.lordAgreement, that, 5);
       }
     });
   },
@@ -181,11 +246,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    WxParse.wxParse('lordAgreement', 'html', this.data.lordAgreement, this, 5);
     this.setData({
-      terrirotyid: options.terriroty_id
+      terrirotyid: options.terriroty_id,
+      memberId: wx.getStorageSync("member_id")
     })
     this.getTerriroty(options.terriroty_id);
+    this.getLoadAgreement();
   },
 
   /**

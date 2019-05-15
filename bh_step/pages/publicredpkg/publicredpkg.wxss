@@ -11,8 +11,9 @@ page{
 }
 
 .info-text{
-  font-size: 26rpx;
+  font-size: 28rpx;
   color: #999999;
+  width: 680rpx;
 }
 
 .pic-box{
@@ -68,14 +69,14 @@ page{
 }
 
 .title{
-  font-size: 28rpx;
-  margin-left: 15rpx;
+  font-size: 30rpx;
+  margin-left: 5rpx;
   color: #000;
 }
 
 .note{
   color: #999999;
-  font-size: 22rpx;
+  font-size: 24rpx;
 }
 
 .right-box{
@@ -84,12 +85,13 @@ page{
 }
 
 .input-num{
-  font-size: 30rpx;
-  width: 118rpx;
+  font-size: 32rpx;
+  width: 128rpx;
+  text-align: right;
 }
 
 .input-range{
-  font-size: 28rpx;
+  font-size: 30rpx;
   width: 72rpx;
 }
 
@@ -123,7 +125,7 @@ page{
 }
 
 .more-set-text{
-  font-size: 25rpx;
+  font-size: 27rpx;
   color: #000;
 }
 
@@ -133,7 +135,7 @@ page{
 }
 
 .input{
-  font-size: 28rpx;
+  font-size: 30rpx;
   width: 300rpx;
   text-align: right;
 }
@@ -149,7 +151,7 @@ page{
   background-color: #fff;
   width: 200rpx;
   padding: 15rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   border-radius: 10rpx;
 }
 
@@ -157,7 +159,7 @@ page{
   background-color: #fff;
   width: 460rpx;
   padding: 15rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   border-radius: 10rpx;
   margin-left: 20rpx;
   text-align: right;
@@ -176,13 +178,13 @@ page{
 }
 
 .money{
-  font-size: 44rpx;
+  font-size: 46rpx;
   color: #000;
   font-weight: bold;
 }
 
 .money-unit{
-  font-size: 23rpx;
+  font-size: 25rpx;
   margin-bottom: 10rpx;
   margin-left: 7rpx;
   color: #000;
@@ -203,14 +205,14 @@ page{
   padding-top: 18rpx;
   padding-bottom: 13rpx;
   border-radius: 60rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
 }
 
 .public{
   background-color: #FF6E6E;
   width: 450rpx;
   border-radius: 60rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   padding-top: 18rpx;
   padding-bottom: 13rpx;
   text-align: center;
@@ -244,7 +246,7 @@ page{
   padding-left: 30rpx;
   padding-right: 30rpx;
   border: 1rpx solid #999999;
-  font-size: 27rpx;
+  font-size: 29rpx;
   border-radius: 10rpx;
   color: #999999;
 }
@@ -254,7 +256,7 @@ page{
   padding-bottom: 9rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
-  font-size: 27rpx;
+  font-size: 31rpx;
   border-radius: 10rpx;
   color: #fff;
   background-color: #1058FF;
@@ -262,5 +264,5 @@ page{
 
 .input-select{
   color: #808080;
-  font-size: 28rpx;
+  font-size: 30rpx;
 }

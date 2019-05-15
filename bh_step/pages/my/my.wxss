@@ -683,6 +683,12 @@ button::after {
   margin-bottom: 2rpx;
 }
 
+.other-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .other-item-icon{
   width: 70rpx;
   height: 70rpx;
@@ -690,7 +696,6 @@ button::after {
 
 .other-item-note{
   font-size: 28rpx;
-  margin-top: -5rpx;
   color: #000;
 }
 

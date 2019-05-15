@@ -1,12 +1,12 @@
 <!--bh_step/pages/publicredpkg/publicredpkg.wxml-->
 <view class='base-info-box'>
-  <input class='info-text' placeholder='想要对大家说...' bindinput="postTextChange"></input>
+  <textarea  class='info-text' placeholder='想要对大家说...' bindinput="postTextChange"></textarea >
   <view class='pic-box'>
     <view class='pic-view' wx:for="{{pics}}">
       <image mode='aspectFill' class='pic' src="{{item}}"></image>
       <image bindtap='removePic' data-index="{{index}}" src='../../images/delete.png' class='remove-pic'></image>
     </view>
-    <image mode='aspectFit' class='chose-pic' src="{{baseImageUrl + 'camera.png'}}" bindtap='chosePic'></image>
+    <image wx:if="{{pics.length<3}}" mode='aspectFit' class='chose-pic' src="{{baseImageUrl + 'camera.png'}}" bindtap='chosePic'></image>
   </view>
 </view>
 
@@ -59,14 +59,14 @@
   </view>
 </view>
 
-<view wx:if="{{showMore}}" class='link-bok'>
+<!-- <view wx:if="{{showMore}}" class='link-bok'>
   <input bindinput='postLinkTitleChange' class='link-title' placeholder='网址标题'></input>
   <input bindinput='postLinkUrlChange' class='link-url' placeholder='网址链接'></input>
-</view>
+</view> -->
 
 <view class='money-box'>
   <view class='money-view'>
-    <view class='money'>0.00</view>
+    <view class='money'>{{postMoney==''?0:postMoney}}</view>
     <view class='money-unit'>元</view>
   </view>
 </view>

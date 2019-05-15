@@ -5,8 +5,11 @@
 </view>
 
 <view class='pic-box'>
-  <image class='pic' src="{{terriroty.cover_image}}" mode="widthFix"></image>
+  <image class='pic' src="{{terriroty.now_owner_member_id<=0?(baseImageUrl + 'nolaird.png'):(!terriroty.cover_image || terriroty.cover_image==''?(baseImageUrl + 'nolaird_notice.png'):terriroty.cover_image)}}" mode="widthFix"></image>
+
+  <view bindtap='choosePic' wx:if="{{terriroty.now_owner_member_id>0&&terriroty.now_owner_member_id==memberId}}" class='upload-pic-bt'>{{!terriroty.cover_image || terriroty.cover_image==''?'上传图片':'更新图片'}}</view>
 </view>
+
 
 <view class='pic-note'>此公告牌由领主设置发布</view>
 
@@ -29,7 +32,7 @@
   </view>
   <view class='operate-box'>
     <view class='other-laird' bindtap='chooseAddress'>其他领地</view>
-    <view class='be-laird' bindtap='showAgreement' data-show="{{true}}">{{terriroty.status == 1?('￥' + terriroty.price):'暂不出售'}}</view>
+    <view class='be-laird' bindtap='showAgreement' data-show="{{true}}">{{terriroty.status == 1?'我要成为领主':'暂不出售'}}</view>
   </view>
 </view>
 

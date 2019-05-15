@@ -25,7 +25,7 @@ Page {
 }
 
 .user-name{
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #333333;
   margin-top: 18rpx;
   font-weight: bold;
@@ -41,7 +41,7 @@ Page {
 }
 
 .user-name-note{
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #333333;
   margin-top: 18rpx;
   font-weight: bold;
@@ -49,13 +49,13 @@ Page {
 
 .redpkg-status{
   margin-top: 15rpx;
-  font-size: 38rpx;
+  font-size: 40rpx;
   color: #999999;
 }
 
 .more-interested{
-  margin-top: 5rpx;
-  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-size: 28rpx;
   color: #334FFF;
 }
 
@@ -64,7 +64,7 @@ Page {
   margin-top: 25rpx;
   padding-top: 10rpx;
   color: #999999;
-  font-size: 23rpx;
+  font-size: 27rpx;
   background-color: #fff;
 }
 
@@ -101,7 +101,7 @@ Page {
 }
 
 .content-title{
-  font-size: 25rpx;
+  font-size: 29rpx;
   color: #333333;
   margin-top: 15rpx;
 }
@@ -109,11 +109,12 @@ Page {
 .content-photo-box{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content-photo{
-  width: 221rpx;
-  height: 221rpx;
+  width: 700rpx;
   margin-top: 6rpx;
 }
 
@@ -128,7 +129,7 @@ Page {
 .url-link{
   align-self: center;
   background-color: #f00;
-  font-size: 32rpx;
+  font-size: 34rpx;
   color: #fff;
   margin-top: 30rpx;
   padding-top: 8rpx;
@@ -155,8 +156,8 @@ Page {
 }
 
 .content-thumbup{
-  width: 28rpx;
-  height: 28rpx;
+  width: 30rpx;
+  height: 30rpx;
   margin-top: 14rpx;
   margin-bottom: 14rpx;
   margin-left: 58rpx;
@@ -180,7 +181,7 @@ Page {
 
 .content-share-title{
   color: #333333;
-  font-size: 22rpx;
+  font-size: 26rpx;
   margin-left: 10rpx;
 }
 
@@ -205,7 +206,7 @@ Page {
 
 .replys-top-text{
   color: #333333;
-  font-size: 25rpx;
+  font-size: 27rpx;
 }
 
 .reply-item{
@@ -243,12 +244,12 @@ Page {
 }
 
 .reply-name{
-  font-size: 22rpx;
+  font-size: 28rpx;
   color: #2078FF;
 }
 
 .reply-text{
-  font-size: 25rpx;
+  font-size: 29rpx;
   color: #333333;
 }
 
@@ -257,25 +258,25 @@ Page {
 }
 
 .reply-date{
-  font-size: 20rpx;
+  font-size: 24rpx;
   color: #999999;
 }
 
 .subreply-note{
-  font-size: 20rpx;
+  font-size: 24rpx;
   color: #999999;
   padding-left: 15rpx;
   padding-right: 15rpx;
 }
 
 .subreply-name{
-  font-size: 21rpx;
+  font-size: 25rpx;
   color: #2078FF;
   white-space:nowrap;
 }
 
 .subreply-text{
-  font-size: 21rpx;
+  font-size: 25rpx;
 }
 
 .item-thumbup-box{
@@ -285,14 +286,14 @@ Page {
 }
 
 .item-thumbup-text{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #333333;
   padding-left: 10rpx;
   padding-top: 6rpx;
 }
 
 .item-thumbup-textactive{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #ff2c0e;
   padding-left: 10rpx;
   padding-top: 6rpx;
@@ -319,7 +320,7 @@ Page {
 .replys-bottom{
   text-align: center;
   color: #999999;
-  font-size: 22rpx;
+  font-size: 24rpx;
   margin-top: 28rpx;
   padding-bottom: 50rpx;
 }
@@ -343,19 +344,19 @@ Page {
   height: 60rpx;
   background-color: #f0f0f0;
   border-radius: 40rpx;
-  font-size: 21rpx;
+  font-size: 25rpx;
   padding-left: 15rpx;
 }
 
 .chat{
-  width: 35rpx;
-  height: 35rpx;
+  width: 37rpx;
+  height: 37rpx;
   margin-left: 70rpx;
 }
 
 .bottom-thumbup{
-  width: 35rpx;
-  height: 35rpx;
+  width: 37rpx;
+  height: 37rpx;
   margin-left: 70rpx;
 }
 
@@ -376,7 +377,7 @@ Page {
   border: 1rpx solid #FF0000;
   margin-top: 190rpx;
   top: 0rpx;
-  font-size: 18rpx;
+  font-size: 22rpx;
   margin-left: 500rpx;
   padding-top: 2rpx;
   padding-left: 12rpx;
@@ -391,8 +392,20 @@ Page {
 }
 
 .report{
-  width: 80rpx;
+  width: 85rpx;
   position: absolute;
-  top: 120rpx;
+  top: 110rpx;
   right: 0rpx;
+}
+
+.rec-redpkg{
+  font-size: 28rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  width: 220rpx;
+  text-align: center;
+  padding-top: 12rpx;
+  padding-bottom: 9rpx;
+  background-color: #f00;
+  margin-top: 10rpx;
 }

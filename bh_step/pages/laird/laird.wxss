@@ -29,16 +29,30 @@ page{
   width: 700rpx;
   margin-left: 25rpx;
   border-radius: 20rpx;
+  overflow: hidden;
   background-color: #fff;
-  min-height: 800rpx;
-  display: flex;
-  align-items: center;
   margin-top: 20rpx;
+  display: flex;
 }
+
 .pic{
   width: 100%;
-  border-radius: 20rpx;
 }
+
+.upload-pic-bt{
+  position: absolute;
+  right: 27rpx;
+  font-size: 24rpx;
+  color: #fff;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 8rpx;
+  padding-top: 11rpx;
+  background-color: #f00;
+  border-bottom-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
 .pic-note{
   width: 100%;
   text-align: center;
@@ -135,20 +149,21 @@ page{
 
 .be-laird{
   color: #FFBFBF;
-  padding-left: 125rpx;
-  padding-right: 125rpx;
-  padding-top: 7rpx;
-  padding-bottom: 3rpx;
+  width: 320rpx;
+  padding-top: 12rpx;
+  padding-bottom: 9rpx;
   background-color: #FE6464;
   border-radius: 40rpx;
   font-size: 27rpx;
+  text-align: center;
 }
 
 .other-laird{
   color: #FF0000;
   padding-left: 55rpx;
   padding-right: 55rpx;
-  padding-top: 5rpx;
+  padding-top: 11rpx;
+  padding-bottom: 8rpx;
   border: 1rpx solid #f00;
   border-radius: 40rpx;
   font-size: 27rpx;
@@ -182,7 +197,7 @@ page{
 
 .lord-agreement-title{
   color: #000;
-  font-size: 28rpx;
+  font-size: 30rpx;
   font-weight: bold;
 }
 
@@ -195,7 +210,7 @@ page{
   padding-right: 15rpx;
   background-color: #fff;
   border-radius: 3%;
-  font-size: 27rpx;
+  font-size: 28rpx;
   overflow: scroll;
 }
 

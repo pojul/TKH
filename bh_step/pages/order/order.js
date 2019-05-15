@@ -264,6 +264,18 @@ Page(_defineProperty({
     })
   },
 
+  showToast: function (str) {
+    wx.showToast({
+      title: str,
+      icon: 'none',
+      duration: 1500,
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
   onLoad: function(e) {
     this.setData({
       img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url
@@ -278,6 +290,12 @@ Page(_defineProperty({
         });
       }
     });
+
+    if (e.currentGoods && e.currentGoods>=0){
+      this.setData({
+        currentGoods: e.currentGoods
+      })
+    }
 
     this.getBystepList();
     this.getAssembleList();

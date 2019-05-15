@@ -51,24 +51,24 @@ function load(e) {
 	app.loadInit(e, _tools2, suspension);
   
 	//更新运动步数
-	// wx.getWeRunData({
-	// 	success: function(t) {
-	// 		setTimeout(function() {
-	// 			_tools2.default.request({
-	// 				method: "get",
-	// 				url: "entry/wxapp/updateStep",
-	// 				data: {
-	// 					token: wx.getStorageSync("token"),
-	// 					encryptedData: t.encryptedData,
-	// 					iv: t.iv
-	// 				},
-	// 				success: function(t) {
-	// 					suspension(e);
-	// 				}
-	// 			});
-	// 		}, 1e3);
-	// 	}
-	// });
+	wx.getWeRunData({
+		success: function(t) {
+			setTimeout(function() {
+				_tools2.default.request({
+					method: "get",
+					url: "entry/wxapp/updateStep",
+					data: {
+						token: wx.getStorageSync("token"),
+						encryptedData: t.encryptedData,
+						iv: t.iv
+					},
+					success: function(t) {
+						suspension(e);
+					}
+				});
+			}, 1e3);
+		}
+	});
 
 }
 
@@ -95,8 +95,19 @@ Page({
 		ad_pop: 0,
     baseImageUrl: getApp().baseImageUrl,
     city: '',
+    showNewerRedpkg: false,
+    showNewerRedpkgSucess: false,
+    recNewerRedpkgMoney: 0,
 	},
 	onLoad: function(t) {
+
+    if (wx.getStorageSync("has_login") != 2) {
+      wx.redirectTo({
+        url: '/bh_step/pages/authorize/authorize?path=/bh_step/pages/index/index&opt=' + JSON.stringify(t)
+      })
+      return;
+    }
+
 		var e = app.getSiteImgurl();
 		this.setData({
 			img_url: e,
@@ -109,6 +120,10 @@ Page({
 			$this.data.goods_id = t.goods_id);
 	},
 	onShow: function() {
+    if (wx.getStorageSync("has_login") != 2) {
+      return;
+    }
+    var that = this;
 		var t = {
 			token: wx.getStorageSync("token")
 		};
@@ -120,6 +135,9 @@ Page({
 			data: t,
 			success: function(t) {
         wx.setStorageSync("is_receive_new_bag", t.info.member.is_receive_new_bag);
+        if (wx.getStorageSync("is_receive_new_bag") && wx.getStorageSync("is_receive_new_bag") == 1) {
+          that.showRecNewerPkg();
+        }
 				$this.setData(t.info);
 
 				$this.setData({
@@ -147,6 +165,57 @@ Page({
 		});
     this.getLocation();
 	},
+
+  recNewerRedpkg: function () {
+    wx.showLoading({
+      title: '领取中',
+      mask: !0
+    });
+    var that = this;
+    _tools2.default.request({
+      method: "get",
+      url: "entry/wxapp/receiveNewBag",
+      data: {
+      },
+      success: function (t) {
+        wx.hideLoading();
+        wx.setStorageSync("is_receive_new_bag", 2);
+        that.setData({
+          showNewerRedpkg: false,
+          showNewerRedpkgSucess: true,
+          recNewerRedpkgMoney: t.info.bag_money
+        })
+      },
+      fail(res) {
+        wx.hideLoading();
+        that.showToast("领取失败");
+      }
+    });
+  },
+
+  showRecNewerPkg: function () {
+    this.setData({
+      showNewerRedpkg: true
+    })
+  },
+
+  closeRecNewerPkg: function () {
+    this.setData({
+      showNewerRedpkg: false
+    })
+  },
+
+  closeRecNewerPkgSuccess: function () {
+    this.setData({
+      showNewerRedpkgSucess: false
+    })
+  },
+
+  toNewuserTask: function () {
+    wx.navigateTo({
+      url: '/bh_step/pages/newuserTask/newuserTask'
+    })
+  },
 
   getLocation: function () {
     var that = this;

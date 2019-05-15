@@ -1,0 +1,2 @@
+<!--bh_step/pages/activity/activity.wxml-->
+<web-view src="https://jibu.jianbenao.com/app/./index.php?i=4&c=entry&eid=38"></web-view>

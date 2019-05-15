@@ -1,4 +1,8 @@
 /* bh_step/pages/rankinglist/rankinglist.wxss */
+page{
+  background-color: #fff;
+}
+
 .top-banner{
   width: 100%;
   height: 360rpx;
@@ -100,8 +104,6 @@
   font-size: 28rpx;
   padding-left: 150rpx;
   padding-right: 150rpx;
-  padding-top: 15rpx;
-  padding-bottom: 12rpx;
   border-radius: 30rpx;
   margin-top: 10rpx;
   margin-bottom: 10rpx;
